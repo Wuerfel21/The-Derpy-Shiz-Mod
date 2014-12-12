@@ -141,6 +141,9 @@ tile.log_magic.name=Magic Wood
 tile.leaves_ebony.name=Ebony Leaves
 tile.leaves_magic.name=Magic Leaves
 
+tile.sapling_ebony.name=Ebony Sapling
+tile.sapling_magic.name=Magic Sapling
+
 tile.planks_ebony.name=Ebony Wood Planks
 tile.planks_magic.name=Magic Wood Planks
 

@@ -144,6 +144,9 @@ tile.leaves_magic.name=Magisches Laub
 tile.planks_ebony.name=Ebenholzbretter
 tile.planks_magic.name=Magische Holzbretter
 
+tile.sapling_ebony.name=Ebensetzling
+tile.sapling_magic.name=Magischer Setzling
+
 item.circlet_diamond.name=Diamantreif
 item.circlet_ruby.name=Rubinreif
 item.circlet_amethyst.name=Amethystreif

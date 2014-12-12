@@ -87,8 +87,8 @@ public class DerpyCrafting {
 		GameRegistry.addRecipe(new ShapedOreRecipe(getStack("hammer",0),"M","s",'M',"ingotIron",'s',"stickWood"));
 		
 		GameRegistry.addRecipe(new ShapedOreRecipe(getStack("sword_enderium",0)," M ","MMM"," s ",'M',"ingotEnderium",'s',"stickWood"));
-		GameRegistry.addRecipe(new ShapedOreRecipe(getStack("sword_darkness",0),"M","B","h",'M',"gemDarkness",'B',"blockDarkness",'h',"materialHorn"));
-		GameRegistry.addRecipe(new ShapedOreRecipe(getStack("dark_cloak",0),"hBh","wWw","wMw",'M',"gemDarkness",'B',"blockDarkness",'w',new ItemStack(Blocks.wool,1,15),'W',"blockWool",'h',"materialHorn"));
+		GameRegistry.addRecipe(new ShapedOreRecipe(getStack("sword_darkness",0),"MMM","MMM"," h ",'M',"gemDarkness",'h',"materialHorn"));
+		GameRegistry.addRecipe(new ShapedOreRecipe(getStack("dark_cloak",0),"hMh","wWw","wMw",'M',"gemDarkness",'w',new ItemStack(Blocks.wool,1,15),'W',"blockWool",'h',"materialHorn"));
 		
 		GameRegistry.addRecipe(new ShapedOreRecipe(getStack("sword_wuerfelium",0),"M","M","h",'M',"gemWuerfelium",'h',"materialHorn"));
 		GameRegistry.addRecipe(new ShapedOreRecipe(getStack("pickaxe_wuerfelium",0),"MMM"," h "," h ",'M',"gemWuerfelium",'h',"materialHorn"));
