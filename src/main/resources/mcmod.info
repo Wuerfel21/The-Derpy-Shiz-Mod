@@ -1,0 +1,16 @@
+[
+{
+  "modid": "derpyshiz",
+  "name": "The Derpy Shiz Mod",
+  "description": "Adds some random stuff.",
+  "version": "alpha 0.1",
+  "mcversion": "1.7.10",
+  "url": "",
+  "updateUrl": "",
+  "authorList": ["Wuerfel_21"],
+  "credits": "That Psychedelicaft guy I cant remember the name of that let me look at his tree code",
+  "logoFile": "",
+  "screenshots": [],
+  "dependencies": []
+}
+]

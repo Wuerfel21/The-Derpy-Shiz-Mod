@@ -1,0 +1,166 @@
+﻿tile.pattern_wool_colordots.name=Farbig gepunktete Wolle
+tile.pattern_wool_lines.name=Karierte Wolle
+tile.pattern_wool_checker.name=Kleinkarierte Wolle
+tile.pattern_wool_dotted.name=Gepunktete Wolle
+tile.pattern_wool_striped.name=Gestreifte Wolle
+tile.pattern_wool_squares.name=Quadratige Wolle
+tile.pattern_wool_bright.name=Helle Wolle
+tile.pattern_wool_heart.name=Herzige Wolle
+tile.pattern_wool_rainbow.name=Regenbogenwolle
+tile.pattern_wool_swiss.name=Schweizer Wolle
+tile.pattern_wool_germany.name=Deutsche Wolle
+tile.pattern_wool_bavaria.name=Bayrische Wolle
+tile.pattern_wool_mojang.name=Mojang Wolle
+tile.pattern_wool_notch.name=Gekerbte Wolle
+tile.pattern_wool_jeb.name=Jebbige Wolle
+tile.pattern_wool_pig.name=Schweinische Wolle
+
+tile.ore_amber.name=Bernsteinerz
+tile.ore_fakediamond.name=Falsches Diamanterz
+tile.ore_titanium.name=Titanerz
+tile.ore_ruby.name=Rubinerz
+tile.ore_turquoise.name=Türkiserz
+tile.ore_amethyst.name=Amethysterz
+tile.ore_fluorite_brown.name=Braunes Flussspaterz
+tile.ore_fluorite_red.name=Rotes Flussspaterz
+tile.ore_fluorite_pink.name=Rosa Flussspaterz
+tile.ore_copper.name=Kupfererz
+tile.ore_enderium.name=Enderiumerz
+tile.ore_electrimite.name=Electrimiteerz
+tile.ore_darkness.name=Schattenerz
+tile.ore_tin.name=Zinnerz
+tile.ore_lead.name=Bleierz
+tile.ore_wuerfelium.name=Diceiumerz
+
+tile.block_amber.name=Bernsteinblock
+tile.block_fakediamond.name=Falscher Diamantblock
+tile.block_titanium.name=Titanblock
+tile.block_ruby.name=Rubinblock
+tile.block_turquoise.name=Türkisblock
+tile.block_amethyst.name=Amethystblock
+tile.block_fluorite_brown.name=Brauner Flussspatblock
+tile.block_fluorite_red.name=Roter Flussspatblock
+tile.block_fluorite_pink.name=Rosa Flussspatblock
+tile.block_copper.name=Kupferblock
+tile.block_enderium.name=Enderiumblock
+tile.block_electrimite.name=Electrimiteblock
+tile.block_darkness.name=Schattenblock
+tile.block_tin.name=Zinnblock
+tile.block_lead.name=Bleiblock
+tile.block_wuerfelium.name=Diceiumblock
+
+item.oi_chunk_amber.name=Bernsteinstück
+item.oi_fakediamond.name=Falcher Diamant
+item.oi_ingot_titanium.name=Titanbarren
+item.oi_ruby.name=Rubin
+item.oi_turquoise.name=Türkis
+item.oi_amethyst.name=Amethyst
+item.oi_fluorite_brown.name=Brauner Flussspat
+item.oi_fluorite_red.name=Roter Flussspat
+item.oi_fluorite_pink.name=Roter Flussspat
+item.oi_ingot_copper.name=Kupferbarren
+item.oi_ingot_enderium.name=Enderiumbarren
+item.oi_ingot_electrimite.name=Electrimitebarren
+item.oi_gem_darkness.name=Schattenjuwel
+item.oi_ingot_tin.name=Zinnbarren
+item.oi_ingot_lead.name=Bleibarren
+item.oi_gem_wuerfelium.name=Deicestein
+
+tile.lamp_fluorite_red.name=Rote Flussspatlampe
+tile.lamp_fluorite_green.name=Grüne Flussspatlampe
+tile.lamp_fluorite_blue.name=Blaue Flussspatlampe
+
+tile.torch_fluorite_red.name=Rote Flussspatfackel
+tile.torch_fluorite_green.name=Grüne Flussspatfackel
+tile.torch_fluorite_blue.name=Blaue Flussspatfackel
+
+item.hammer.name=Hammer
+
+item.pickaxe_titanium.name=Titanspitzhacke
+item.sword_titanium.name=Titanschwert
+item.hoe_titanium.name=Titanhacke
+item.shovel_titanium.name=Titanschaufel
+item.axe_titanium.name=Titanaxt
+
+item.pickaxe_ruby.name=Rubinspitzhacke
+item.sword_ruby.name=Rubinschwert
+item.hoe_ruby.name=Rubinhacke
+item.shovel_ruby.name=Rubinschaufel
+item.axe_ruby.name=Rubinaxt
+
+item.pickaxe_amethyst.name=Amethystspitzhacke
+item.sword_amethyst.name=Amethystschwert
+item.hoe_amethyst.name=Amethysthacke
+item.shovel_amethyst.name=Amethystschaufel
+item.axe_amethyst.name=Amethystaxt
+
+item.pickaxe_copper.name=Kupferspitzhacke
+item.sword_copper.name=Kupferschwert
+item.hoe_copper.name=Kupferhacke
+item.shovel_copper.name=Kupferschaufel
+item.axe_copper.name=Kupferaxt
+
+item.sword_amber.name=Bernsteinschwert
+
+item.sword_lapis.name=Lapisschwert
+
+item.sword_enderium.name=Enderiumschwert
+
+item.sword_darkness.name=Schattenschwert
+
+item.axe_turquoise.name=Türkisaxt
+
+item.hoe_fakediamond.name=Falsche Diamanthacke
+
+item.sword_wuerfelium.name=Diceiumschwert
+item.pickaxe_wuerfelium.name=Diceiumspitzhhacke
+
+item.helmet_titanium.name=Titanhelm
+item.chestplate_titanium.name=Titanbrustpanzer
+item.leggings_titanium.name=Titanbeinschutz
+item.boots_titanium.name=Titanstiefel
+
+item.helmet_ruby.name=Rubinhelm
+item.chestplate_ruby.name=Rubinbrustpanzer
+item.leggings_ruby.name=Rubinbeinschutz
+item.boots_ruby.name=Rubinstiefel
+
+item.helmet_amethyst.name=Amethysthelm
+item.chestplate_amethyst.name=Amethystbrustpanzer
+item.leggings_amethyst.name=Amethystbeinschutz
+item.boots_amethyst.name=Amethyststiefel
+
+item.helmet_copper.name=Kupferhelm
+item.chestplate_copper.name=Kupferbrustpanzer
+item.leggings_copper.name=Kupferbeinschutz
+item.boots_copper.name=Kupferstiefel
+
+tile.log_ebony.name=Ebenholz
+tile.log_magic.name=Magisches Holz
+
+tile.leaves_ebony.name=Ebenlaub
+tile.leaves_magic.name=Magisches Laub
+
+tile.planks_ebony.name=Ebenholzbretter
+tile.planks_magic.name=Magische Holzbretter
+
+item.circlet_diamond.name=Diamantreif
+item.circlet_ruby.name=Rubinreif
+item.circlet_amethyst.name=Amethystreif
+item.circlet_turquoise.name=Türkisreif
+item.circlet_fakediamond.name=Falscher Diamantreif
+
+item.dark_cloak.name=Shattenmantel
+
+tile.coarsestone_normal.name=Rauer Stein
+tile.coarsestone_framed.name=Gerahmter Rauer Stein
+
+entity.piggycorn.name=Schweinhorn
+
+tile.snowflake_obsidian.name=Schneflockenobsidian
+
+item.horn.name=Schweinhorn-horn
+
+tile.kewl_bush.name=Kewler Busch
+
+item.lasange.name=Lasange
