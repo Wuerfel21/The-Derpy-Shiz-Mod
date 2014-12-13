@@ -57,7 +57,7 @@ public class DerpyEvents {
     
 	@SubscribeEvent
 	public void onLivingDrop(LivingDropsEvent event) {
-		if (event.entityLiving instanceof EntityHorse) {
+		if (event.entityLiving instanceof EntityHorse && !event.entityLiving.isChild()) {
 			event.entityLiving.dropItem(GameRegistry.findItem("derpyshiz", "lasagne"),2+event.lootingLevel);
 		}
 	}

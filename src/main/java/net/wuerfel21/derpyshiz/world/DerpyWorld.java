@@ -7,6 +7,7 @@ import net.minecraftforge.common.BiomeManager;
 import net.minecraftforge.common.BiomeManager.BiomeEntry;
 import net.minecraftforge.common.BiomeManager.BiomeType;
 import net.wuerfel21.derpyshiz.MagicBiomeGen;
+import net.wuerfel21.derpyshiz.Main;
 import cpw.mods.fml.common.registry.GameRegistry;
 
 public class DerpyWorld {
@@ -20,7 +21,7 @@ public class DerpyWorld {
 		GameRegistry.registerWorldGenerator(new WorldGenDerpyOres(), 42);
 		
 		//Biome
-		BiomeGenBase magicBiome = new MagicBiomeGen(69);
+		BiomeGenBase magicBiome = new MagicBiomeGen(Main.idMagicBiome);
 		BiomeDictionary.registerBiomeType(magicBiome, BiomeDictionary.Type.MAGICAL);
 		BiomeManager.addBiome(BiomeType.COOL, new BiomeEntry(magicBiome, 10));
 		BiomeManager.addSpawnBiome(magicBiome);
