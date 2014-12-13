@@ -16,7 +16,7 @@ import net.wuerfel21.derpyshiz.items.DerpyHoe;
 import net.wuerfel21.derpyshiz.items.DerpyPickaxe;
 import net.wuerfel21.derpyshiz.items.DerpyShovel;
 import net.wuerfel21.derpyshiz.items.DerpySword;
-import net.wuerfel21.derpyshiz.items.HorseLasange;
+import net.wuerfel21.derpyshiz.items.HorseLasagne;
 import net.wuerfel21.derpyshiz.items.OreItems;
 import net.wuerfel21.derpyshiz.items.WuerfeliumPickaxe;
 import net.wuerfel21.derpyshiz.items.WuerfeliumSword;
@@ -152,7 +152,7 @@ public class DerpyItems {
 		
 		GameRegistry.registerItem(new Item().setUnlocalizedName("horn").setTextureName("derpyshiz:horn").setCreativeTab(CreativeTabs.tabMaterials), "horn");
 		
-		GameRegistry.registerItem(new HorseLasange(), "lasange");
+		GameRegistry.registerItem(new HorseLasagne(), "lasagne");
 	}
 	
 }
