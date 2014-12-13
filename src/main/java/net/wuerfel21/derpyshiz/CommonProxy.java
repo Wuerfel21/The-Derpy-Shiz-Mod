@@ -11,6 +11,7 @@ import cpw.mods.fml.common.event.FMLInitializationEvent;
 import cpw.mods.fml.common.event.FMLPostInitializationEvent;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
 import cpw.mods.fml.common.registry.EntityRegistry;
+import cpw.mods.fml.relauncher.ReflectionHelper;
 
 public class CommonProxy {
 	public static int modEntityID = 0;
@@ -42,7 +43,7 @@ public class CommonProxy {
 	public void addSpawn(BiomeGenBase biome, Class entity, int weight, int min, int max) {
 		Field f = null;
 		try {
-			f = BiomeGenBase.class.getDeclaredField("spawnableCreatureList");
+			f = ReflectionHelper.findField(BiomeGenBase.class, "spawnableCreatureList");
 			f.setAccessible(true);
 			List l = (List) f.get(biome);
 			l.add(new BiomeGenBase.SpawnListEntry(entity, weight, min, max));
