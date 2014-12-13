@@ -153,7 +153,7 @@ item.circlet_amethyst.name=Amethystreif
 item.circlet_turquoise.name=Türkisreif
 item.circlet_fakediamond.name=Falscher Diamantreif
 
-item.dark_cloak.name=Shattenmantel
+item.dark_cloak.name=Schattenmantel
 
 tile.coarsestone_normal.name=Rauer Stein
 tile.coarsestone_framed.name=Gerahmter Rauer Stein
@@ -166,4 +166,4 @@ item.horn.name=Schweinhorn-horn
 
 tile.kewl_bush.name=Kewler Busch
 
-item.lasange.name=Lasange
+item.lasange.name=Lasagne
