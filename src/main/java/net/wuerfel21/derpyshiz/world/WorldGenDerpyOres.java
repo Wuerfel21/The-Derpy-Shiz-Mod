@@ -111,7 +111,7 @@ public class WorldGenDerpyOres implements IWorldGenerator {
 	}
 	
 	public void genElectrimite(int chunkX, int chunkZ, World world, Random rand) {
-		for (int i=0;i<16;i++) {
+		for (int i=0;i<10;i++) {
 			Int2 pos = getXZ(chunkX,chunkZ,rand);
 			new WorldGenMinable(GameRegistry.findBlock("derpyshiz", "ore"),11,7,Blocks.stone).generate(world, rand, pos.x, getY(16,64,rand), pos.z);	
 		}

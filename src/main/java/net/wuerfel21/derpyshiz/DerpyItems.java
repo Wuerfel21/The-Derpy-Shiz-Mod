@@ -53,22 +53,22 @@ public class DerpyItems {
 	public static Item oreItems;
 	
 	public static final void init() {
-		TITANIUM = EnumHelper.addToolMaterial("TITANIUM", 2, 1000, 7.0f, 2.25f, 10);
+		TITANIUM = EnumHelper.addToolMaterial("TITANIUM", 2, 1000, 5.75f, 2.25f, 10);
 		RUBY = EnumHelper.addToolMaterial("RUBY", 3, 1000, 6f, 2.75f, 15);
 		AMETHYST = EnumHelper.addToolMaterial("AMETHYST", 4, 3000, 11.0f, 4.0f, 18);
 		AMBER = EnumHelper.addToolMaterial("AMBER", 1, 300, 5.0f, 1.50f, 25);
 		LAPIS = EnumHelper.addToolMaterial("LAPIS", 1, 180, 4.5f, 1.25f, 35);
-		TURQUOISE = EnumHelper.addToolMaterial("TURQUOISE",3,750,2.0f,1.50f,20);
-		FAKEDIAMOND = EnumHelper.addToolMaterial("FAKEDIAMOND", 2, 500, 5.25f, 0f, 1);
-		COPPER = EnumHelper.addToolMaterial("COPPER", 1, 200, 6.5f, 1.75f, 10);
-		ENDERIUM = EnumHelper.addToolMaterial("ENDERIUM", 3, 1500, 9.5f, 4.75f, 21);
+		TURQUOISE = EnumHelper.addToolMaterial("TURQUOISE",3,450,2.0f,1.5f,20);
+		FAKEDIAMOND = EnumHelper.addToolMaterial("FAKEDIAMOND", 0, 400, 5.25f, 0f, 1);
+		COPPER = EnumHelper.addToolMaterial("COPPER", 1, 200, 5f, 1.75f, 10);
+		ENDERIUM = EnumHelper.addToolMaterial("ENDERIUM", 3, 1500, 9.5f, 4.75f, 5);
 		DARKNESS = EnumHelper.addToolMaterial("DARKNESS", 2, 750, 1f, 2.25f, 20);
 		WUERFELIUM = EnumHelper.addToolMaterial("WUERFELIUM", 2, 300, 3f, 2.1f, 2);
 		
 		ARMOR_TITANIUM = EnumHelper.addArmorMaterial("ARMOR_TITANIUM", 25, new int[]{2, 7, 5, 3}, 8);
 		ARMOR_RUBY = EnumHelper.addArmorMaterial("ARMOR_RUBY", 30, new int[]{3, 7, 6, 3}, 8);
 		ARMOR_AMETHYST = EnumHelper.addArmorMaterial("ARMOR_AMETHYST", 40, new int[]{4, 9, 7, 4}, 16);
-		ARMOR_COPPER = EnumHelper.addArmorMaterial("ARMOR_COPPER", 10, new int[]{2, 5, 4, 2}, 6);
+		ARMOR_COPPER = EnumHelper.addArmorMaterial("ARMOR_COPPER", 10, new int[]{2, 4, 4, 2}, 6);
 		
 		ARMOR_CIRCLET_DIAMOND = EnumHelper.addArmorMaterial("ARMOR_CIRCLET_DIAMOND", 20, new int[]{2, 0, 0, 0}, 8);
 		ARMOR_CIRCLET_RUBY = EnumHelper.addArmorMaterial("ARMOR_CIRCLET_RUBY", 19, new int[]{2, 0, 0, 0}, 6);
