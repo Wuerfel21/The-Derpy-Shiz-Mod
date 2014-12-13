@@ -1,19 +1,26 @@
 package net.wuerfel21.derpyshiz;
 
-import cpw.mods.fml.common.registry.ExistingSubstitutionException;
-import cpw.mods.fml.common.registry.GameRegistry;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
 import net.minecraft.item.Item;
 import net.minecraft.item.Item.ToolMaterial;
 import net.minecraft.item.ItemArmor.ArmorMaterial;
-import net.minecraft.item.ItemPickaxe;
-import net.minecraft.item.ItemStack;
 import net.minecraftforge.common.util.EnumHelper;
-import net.wuerfel21.derpyshiz.hacks.DerpyShears;
-import net.wuerfel21.derpyshiz.hacks.ShearIcon;
-import net.wuerfel21.derpyshiz.items.*;
+import net.wuerfel21.derpyshiz.items.DarkCloak;
+import net.wuerfel21.derpyshiz.items.DarkSword;
+import net.wuerfel21.derpyshiz.items.DerpyArmor;
+import net.wuerfel21.derpyshiz.items.DerpyAxe;
+import net.wuerfel21.derpyshiz.items.DerpyHammer;
+import net.wuerfel21.derpyshiz.items.DerpyHoe;
+import net.wuerfel21.derpyshiz.items.DerpyPickaxe;
+import net.wuerfel21.derpyshiz.items.DerpyShovel;
+import net.wuerfel21.derpyshiz.items.DerpySword;
+import net.wuerfel21.derpyshiz.items.HorseLasange;
+import net.wuerfel21.derpyshiz.items.OreItems;
+import net.wuerfel21.derpyshiz.items.WuerfeliumPickaxe;
+import net.wuerfel21.derpyshiz.items.WuerfeliumSword;
+import cpw.mods.fml.common.registry.GameRegistry;
 
 public class DerpyItems {
 	public static ToolMaterial TITANIUM;
@@ -70,17 +77,6 @@ public class DerpyItems {
 		ARMOR_CIRCLET_FAKEDIAMOND = EnumHelper.addArmorMaterial("ARMOR_CIRCLET_DIAMOND", 5, new int[]{0, 0, 0, 0}, 0);
 		
 		ARMOR_DARK_CLOAK = EnumHelper.addArmorMaterial("ARMOR_DARK_CLOAK", 20, new int[]{0, 3, 0, 0}, 7);
-		
-		shearIcon = new ShearIcon();
-		derpyShears = new DerpyShears();
-		GameRegistry.registerItem(shearIcon, "dont_look_at_this");
-		//GameRegistry.registerItem(derpyShears, "shears");
-		try {
-			GameRegistry.addSubstitutionAlias("minecraft:shears", GameRegistry.Type.ITEM, derpyShears);
-		} catch (ExistingSubstitutionException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}; //dirty hack!
 		
 		oreItems = new OreItems();
 		GameRegistry.registerItem(oreItems, "ore_item");

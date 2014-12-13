@@ -1,10 +1,13 @@
 package net.wuerfel21.derpyshiz;
 
-import net.minecraft.entity.item.EntityItem;
+import net.minecraft.block.material.Material;
 import net.minecraft.entity.passive.EntityHorse;
+import net.minecraft.init.Items;
+import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.entity.living.LivingDropsEvent;
+import net.minecraftforge.event.entity.player.PlayerEvent;
 import net.minecraftforge.event.world.BlockEvent.HarvestDropsEvent;
 import net.wuerfel21.derpyshiz.blocks.DerpyOres;
 import cpw.mods.fml.common.eventhandler.SubscribeEvent;
@@ -21,6 +24,14 @@ public class DerpyEvents {
 	public void registerShiz() {
 		dropsHand = new WoodStack[]{new WoodStack(0,1,true),new WoodStack(1,1,true)};
 		dropsPerLevel = new WoodStack[][]{{new WoodStack(0,2,true),new WoodStack(1,1,true)},{new WoodStack(0,1,false),new WoodStack(1,2,true)},{new WoodStack(0,1,false),new WoodStack(1,3,true)},{new WoodStack(0,1,false),new WoodStack(1,1,false)}};
+	}
+	
+	@SubscribeEvent
+	public void onBreakSpeed(PlayerEvent.BreakSpeed event) {
+		Item tool = event.entityLiving.getHeldItem() == null ? Items.rotten_flesh : event.entityLiving.getHeldItem().getItem();
+		if (tool == Items.shears && event.block.getMaterial() == Material.cloth) {
+			event.newSpeed = 5f;
+		}
 	}
 	
 	@SubscribeEvent
