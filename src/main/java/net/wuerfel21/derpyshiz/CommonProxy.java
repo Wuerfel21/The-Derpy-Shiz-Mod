@@ -14,7 +14,6 @@ import cpw.mods.fml.common.registry.EntityRegistry;
 import cpw.mods.fml.relauncher.ReflectionHelper;
 
 public class CommonProxy {
-	public static int modEntityID = 0;
 	
 	public void preInit(FMLPreInitializationEvent e) {
 		DerpyItems.init();
