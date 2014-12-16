@@ -16,7 +16,7 @@ public class Main {
 	
 	public static final String MODID = "derpyshiz";
     public static final String MODNAME = "The derpy shiz mod";
-    public static final String VERSION = "beta 0.2";
+    public static final String VERSION = "beta 0.2.1";
     
     public static Configuration config;
     public static int idPiggycorn;

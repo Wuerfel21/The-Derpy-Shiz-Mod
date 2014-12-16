@@ -126,6 +126,10 @@ public class DerpyCrafting {
 		registerDeco(14,"ingotLead","blockLead");
 		registerDeco(15,"gemWuerfelium","blockWuerfelium");
 		
+		for (int i=0;i<16;i++) {
+			GameRegistry.addShapedRecipe(new ItemStack(GameRegistry.findBlock("derpyshiz", "pattern_carpet"),3,i), "WW", 'W', getStack("pattern_wool",i));
+		}
+		
 		GameRegistry.addSmelting(getBlock("ore",2), getStack("ore_item",2), 0.9f);
 		GameRegistry.addSmelting(getBlock("ore",9), getStack("ore_item",9), 0.5f);
 		GameRegistry.addSmelting(getBlock("ore",10), getStack("ore_item",10), 1.5f);

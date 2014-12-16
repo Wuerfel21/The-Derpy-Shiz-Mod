@@ -12,6 +12,7 @@ import net.wuerfel21.derpyshiz.blocks.DerpySaplings;
 import net.wuerfel21.derpyshiz.blocks.DerpyTorch;
 import net.wuerfel21.derpyshiz.blocks.KewlBush;
 import net.wuerfel21.derpyshiz.blocks.LightBlocks;
+import net.wuerfel21.derpyshiz.blocks.PatternCarpet;
 import net.wuerfel21.derpyshiz.blocks.PatternWool;
 import net.wuerfel21.derpyshiz.blocks.SnowflakeObsidian;
 import net.wuerfel21.derpyshiz.blocks.itemblock.ItemCoarseStone;
@@ -28,7 +29,9 @@ public class DerpyBlocks {
 	
 	public static final void init() {
 		GameRegistry.registerBlock(new PatternWool(), ItemPatternWool.class, "pattern_wool");
+		GameRegistry.registerBlock(new PatternCarpet(), ItemPatternWool.class, "pattern_carpet");
 		Blocks.fire.setFireInfo(GameRegistry.findBlock("derpyshiz", "pattern_wool"), 30, 60);
+		Blocks.fire.setFireInfo(GameRegistry.findBlock("derpyshiz", "pattern_carpet"), 60, 20);
 		GameRegistry.registerBlock(new DerpyOres(), ItemOre.class, "ore");
 		GameRegistry.registerBlock(new DecoBlocks(), ItemDecoBlock.class, "block");
 		GameRegistry.registerBlock(new LightBlocks(), ItemLamp.class, "lamp");

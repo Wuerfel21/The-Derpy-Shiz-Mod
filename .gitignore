@@ -4,3 +4,6 @@
 !/README.md
 !/LICENSE
 !/.gitignore
+!/build.gradle
+!/gradle
+!/gradlew.bat

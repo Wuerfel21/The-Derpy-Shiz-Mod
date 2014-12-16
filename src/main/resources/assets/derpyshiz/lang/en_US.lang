@@ -15,6 +15,23 @@ tile.pattern_wool_notch.name=Notched Wool
 tile.pattern_wool_jeb.name=Jebby Wool
 tile.pattern_wool_pig.name=Piggy Wool
 
+tile.pattern_carpet_colordots.name=Color-dotted Carpet
+tile.pattern_carpet_lines.name=Lined Carpet
+tile.pattern_carpet_checker.name=Checkered Carpet
+tile.pattern_carpet_dotted.name=Dotted Carpet
+tile.pattern_carpet_striped.name=Striped Carpet
+tile.pattern_carpet_squares.name=Squared Carpet
+tile.pattern_carpet_bright.name=Bright-colored Carpet
+tile.pattern_carpet_heart.name=Hearted Carpet
+tile.pattern_carpet_rainbow.name=Rainbow Carpet
+tile.pattern_carpet_swiss.name=Swiss Carpet
+tile.pattern_carpet_germany.name=German Carpet
+tile.pattern_carpet_bavaria.name=Bavarian Carpet
+tile.pattern_carpet_mojang.name=Mojang Carpet
+tile.pattern_carpet_notch.name=Notched Carpet
+tile.pattern_carpet_jeb.name=Jebby Carpet
+tile.pattern_carpet_pig.name=Piggy Carpet
+
 tile.ore_amber.name=Amber Ore
 tile.ore_fakediamond.name=Fake Diamond Ore
 tile.ore_titanium.name=Titanium Ore
