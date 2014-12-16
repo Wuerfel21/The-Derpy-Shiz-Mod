@@ -17,11 +17,11 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.potion.PotionEffect;
 import net.minecraft.util.IIcon;
 import net.minecraft.world.World;
+import net.wuerfel21.derpyshiz.client.BlankIcon;
 
 public class DarkSword extends DerpySword {
 	
-	private IIcon[] icons = new IIcon[2];
-	private BufferedImage[] buf = {new BufferedImage(1,1,BufferedImage.TYPE_4BYTE_ABGR)};
+	private IIcon icon;
 	
 	public DarkSword(ToolMaterial material, Item rep, int m) {
 		super(material,rep,m);
@@ -44,33 +44,17 @@ public class DarkSword extends DerpySword {
 	
 	@Override
 	public IIcon getIcon(ItemStack stack, int renderPass, EntityPlayer player, ItemStack usingItem, int useRemaining) {
-		return icons[player.isInvisible()?1:0];
+		return player.isInvisible()?BlankIcon.icon:icon;
 	}
 	
 	@Override
 	public IIcon getIconFromDamage(int meta) {
-		return icons[0];
+		return icon;
 	}
 	
 	@Override
 	public void registerIcons(IIconRegister reg) {
-		icons[0] = reg.registerIcon("derpyshiz:sword_darkness");
-		buf[0].setRGB(0, 0, 0);
-		TextureAtlasSprite sprite = hackSprite("sword_darkness_gone");
-		if (sprite==null) {System.out.println("SUPER UEBER MEGA ULTRA FATAL ERROR!!!!!!!! DARK SWORD ICON HACKERY FAILED!!!!"); icons[1] = icons[0];return;}
-		List list = new LinkedList();
-		list.add(new AnimationFrame(0));
-		sprite.loadSprite(buf, new AnimationMetadataSection(list,1,1,-1), false);
-	}
-	
-	private TextureAtlasSprite hackSprite(String s) {
-		try {
-			Constructor[] cons = TextureAtlasSprite.class.getDeclaredConstructors();
-			cons[0].setAccessible(true);
-			return (TextureAtlasSprite) cons[0].newInstance(s);
-		} catch (Exception e) {
-			return null;
-		}
+		icon = reg.registerIcon("derpyshiz:sword_darkness");
 	}
 	
 }

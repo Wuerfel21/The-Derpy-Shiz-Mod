@@ -2,6 +2,8 @@ package net.wuerfel21.derpyshiz;
 
 import net.minecraft.block.Block;
 import net.minecraft.init.Blocks;
+import net.wuerfel21.derpyshiz.blocks.BlockAxis;
+import net.wuerfel21.derpyshiz.blocks.BlockGearbox;
 import net.wuerfel21.derpyshiz.blocks.CoarseStone;
 import net.wuerfel21.derpyshiz.blocks.DecoBlocks;
 import net.wuerfel21.derpyshiz.blocks.DerpyLeaves;
@@ -48,6 +50,9 @@ public class DerpyBlocks {
 		Blocks.fire.setFireInfo(GameRegistry.findBlock("derpyshiz", "leaves"), 30, 60);
 		GameRegistry.registerBlock(new KewlBush(), "kewl_bush");
 		GameRegistry.registerBlock(new DerpySaplings(), ItemSapling.class, "sapling");
+		
+		GameRegistry.registerBlock(new BlockAxis(), "axis");
+		GameRegistry.registerBlock(new BlockGearbox(), "gearbox");
 	}
 	
 }
