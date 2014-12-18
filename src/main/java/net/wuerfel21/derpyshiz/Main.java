@@ -15,6 +15,9 @@ import cpw.mods.fml.common.event.FMLPreInitializationEvent;
 public class Main {
 	
 	public static final int[] orientationHelper = {0,0,2,2,1,1};
+	public static final int[] reverseHelper = {1,0,3,2,5,4};
+	public static final int[] diodeHelper = {-1,-1,0,2,3,1};
+	public static final int[] stairHelper = {-1,-1,2,3,0,1};
 	
 	public static final String MODID = "derpyshiz";
     public static final String MODNAME = "The derpy shiz mod";

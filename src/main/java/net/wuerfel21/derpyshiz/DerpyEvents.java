@@ -1,6 +1,13 @@
 package net.wuerfel21.derpyshiz;
 
 import net.minecraft.block.Block;
+import net.minecraft.block.BlockDispenser;
+import net.minecraft.block.BlockFurnace;
+import net.minecraft.block.BlockLog;
+import net.minecraft.block.BlockPistonBase;
+import net.minecraft.block.BlockQuartz;
+import net.minecraft.block.BlockRedstoneDiode;
+import net.minecraft.block.BlockStairs;
 import net.minecraft.block.material.Material;
 import net.minecraft.entity.passive.EntityHorse;
 import net.minecraft.init.Blocks;
@@ -12,10 +19,12 @@ import net.minecraftforge.event.entity.living.LivingDropsEvent;
 import net.minecraftforge.event.entity.player.PlayerEvent;
 import net.minecraftforge.event.entity.player.PlayerInteractEvent;
 import net.minecraftforge.event.world.BlockEvent.HarvestDropsEvent;
+import net.wuerfel21.derpyshiz.blocks.BlockAxis;
 import net.wuerfel21.derpyshiz.blocks.BlockGearbox;
 import net.wuerfel21.derpyshiz.blocks.DerpyOres;
 import net.wuerfel21.derpyshiz.entity.tile.TileEntityGearbox;
 import net.wuerfel21.derpyshiz.items.DerpyHammer;
+import cpw.mods.fml.common.eventhandler.Event;
 import cpw.mods.fml.common.eventhandler.SubscribeEvent;
 import cpw.mods.fml.common.registry.GameRegistry;
 
@@ -67,18 +76,109 @@ public class DerpyEvents {
 
 	@SubscribeEvent
 	public void onInteract(PlayerInteractEvent event) {
-		if ((!event.world.isRemote) && event.action == event.action.RIGHT_CLICK_BLOCK && event.entityLiving.getHeldItem() != null && event.entityLiving.getHeldItem().getItem() instanceof DerpyHammer) {
+		if (event.action == event.action.RIGHT_CLICK_BLOCK && event.entityLiving.getHeldItem() != null && event.entityLiving.getHeldItem().getItem() instanceof DerpyHammer) {
 			Block block = event.world.getBlock(event.x, event.y, event.z);
-			if (block instanceof BlockGearbox) {
-				TileEntityGearbox box = (TileEntityGearbox) event.world.getTileEntity(event.x, event.y, event.z);
-				int newDir = Blocks.piston.determineOrientation(event.world, event.x, event.y, event.z, event.entityLiving);
-				if (box.dir == newDir) return;
-				box.dir = newDir;
-				box.markDirty();
-				event.world.markBlockForUpdate(event.x, event.y, event.z);
-				event.entityLiving.getHeldItem().damageItem(1, event.entityLiving);
-				event.world.playSoundEffect(event.x + 0.5d, event.y + 0.5d, event.z + 0.5d, "random.anvil_land", 1f, event.world.rand.nextFloat() * 0.1f + 0.9f);
+			if (event.world.isRemote) {
 				event.entityLiving.swingItem();
+			} else {
+				if (block instanceof BlockGearbox) {
+					TileEntityGearbox box = (TileEntityGearbox) event.world.getTileEntity(event.x, event.y, event.z);
+					int newDir = Blocks.piston.determineOrientation(event.world, event.x, event.y, event.z, event.entityLiving);
+					if (box.dir == newDir)
+						return;
+					box.dir = newDir;
+					box.markDirty();
+					event.world.markBlockForUpdate(event.x, event.y, event.z);
+					event.entityLiving.getHeldItem().damageItem(1, event.entityLiving);
+					event.world.playSoundEffect(event.x + 0.5d, event.y + 0.5d, event.z + 0.5d, "random.anvil_land", 1f, event.world.rand.nextFloat() * 0.1f + 0.9f);
+				} else if (block instanceof BlockAxis) {
+					int meta = event.world.getBlockMetadata(event.x, event.y, event.z);
+					int newDir = Main.orientationHelper[Blocks.piston.determineOrientation(event.world, event.x, event.y, event.z, event.entityLiving)];
+					if (newDir == (meta & 3)) {
+						return;
+					}
+					event.world.setBlockMetadataWithNotify(event.x, event.y, event.z, newDir | (meta & 8), 3);
+					event.world.markBlockForUpdate(event.x, event.y, event.z);
+					event.entityLiving.getHeldItem().damageItem(1, event.entityLiving);
+					event.world.playSoundEffect(event.x + 0.5d, event.y + 0.5d, event.z + 0.5d, "random.anvil_land", 1f, event.world.rand.nextFloat() * 0.1f + 0.9f);
+				} else if (block instanceof BlockPistonBase) {
+					int meta = event.world.getBlockMetadata(event.x, event.y, event.z);
+					int newDir = Blocks.piston.determineOrientation(event.world, event.x, event.y, event.z, event.entityLiving);
+					if (newDir == (meta & 7)) {
+						return;
+					}
+					event.world.setBlockMetadataWithNotify(event.x, event.y, event.z, newDir | (meta & 8), 3);
+					event.world.markBlockForUpdate(event.x, event.y, event.z);
+					event.entityLiving.getHeldItem().damageItem(1, event.entityLiving);
+					event.world.playSoundEffect(event.x + 0.5d, event.y + 0.5d, event.z + 0.5d, "random.anvil_land", 1f, event.world.rand.nextFloat() * 0.1f + 0.9f);
+				} else if (block instanceof BlockQuartz) {
+					int meta = event.world.getBlockMetadata(event.x, event.y, event.z);
+					int newDir = Main.orientationHelper[Blocks.piston.determineOrientation(event.world, event.x, event.y, event.z, event.entityLiving)];
+					if (meta < 2 || newDir + 2 == meta) {
+						return;
+					}
+					event.world.setBlockMetadataWithNotify(event.x, event.y, event.z, newDir + 2, 3);
+					event.world.markBlockForUpdate(event.x, event.y, event.z);
+					event.entityLiving.getHeldItem().damageItem(1, event.entityLiving);
+					event.world.playSoundEffect(event.x + 0.5d, event.y + 0.5d, event.z + 0.5d, "random.anvil_land", 1f, event.world.rand.nextFloat() * 0.1f + 0.9f);
+				} else if (block instanceof BlockLog) {
+					int meta = event.world.getBlockMetadata(event.x, event.y, event.z);
+					int newDir = Main.orientationHelper[Blocks.piston.determineOrientation(event.world, event.x, event.y, event.z, event.entityLiving)];
+					if (newDir << 2 == (meta & 12)) {
+						return;
+					}
+					event.world.setBlockMetadataWithNotify(event.x, event.y, event.z, newDir << 2 | (meta & 3), 3);
+					event.world.markBlockForUpdate(event.x, event.y, event.z);
+					event.entityLiving.getHeldItem().damageItem(1, event.entityLiving);
+					event.world.playSoundEffect(event.x + 0.5d, event.y + 0.5d, event.z + 0.5d, "random.anvil_land", 1f, event.world.rand.nextFloat() * 0.1f + 0.9f);
+				} else if (block instanceof BlockDispenser) {
+					int meta = event.world.getBlockMetadata(event.x, event.y, event.z);
+					int newDir = Blocks.piston.determineOrientation(event.world, event.x, event.y, event.z, event.entityLiving);
+					if (newDir == (meta & 7)) {
+						return;
+					}
+					event.world.setBlockMetadataWithNotify(event.x, event.y, event.z, newDir | (meta & 8), 3);
+					event.world.markBlockForUpdate(event.x, event.y, event.z);
+					event.entityLiving.getHeldItem().damageItem(1, event.entityLiving);
+					event.world.playSoundEffect(event.x + 0.5d, event.y + 0.5d, event.z + 0.5d, "random.anvil_land", 1f, event.world.rand.nextFloat() * 0.1f + 0.9f);
+					event.useBlock = Event.Result.DENY;
+				} else if (block instanceof BlockFurnace) {
+					int meta = event.world.getBlockMetadata(event.x, event.y, event.z);
+					int newDir = Blocks.piston.determineOrientation(event.world, event.x, event.y, event.z, event.entityLiving);
+					if (newDir == (meta & 7) || newDir < 2) {
+						return;
+					}
+					event.world.setBlockMetadataWithNotify(event.x, event.y, event.z, newDir | (meta & 8), 3);
+					event.world.markBlockForUpdate(event.x, event.y, event.z);
+					event.entityLiving.getHeldItem().damageItem(1, event.entityLiving);
+					event.world.playSoundEffect(event.x + 0.5d, event.y + 0.5d, event.z + 0.5d, "random.anvil_land", 1f, event.world.rand.nextFloat() * 0.1f + 0.9f);
+					event.useBlock = Event.Result.DENY;
+				} else if (block instanceof BlockRedstoneDiode) {
+					int meta = event.world.getBlockMetadata(event.x, event.y, event.z);
+					int newDir = Main.diodeHelper[Blocks.piston.determineOrientation(event.world, event.x, event.y, event.z, event.entityLiving)];
+					if (newDir == (meta & 3) || newDir == -1) {
+						return;
+					}
+					event.world.setBlockMetadataWithNotify(event.x, event.y, event.z, newDir | (meta & 12), 3);
+					event.world.markBlockForUpdate(event.x, event.y, event.z);
+					event.entityLiving.getHeldItem().damageItem(1, event.entityLiving);
+					event.world.playSoundEffect(event.x + 0.5d, event.y + 0.5d, event.z + 0.5d, "random.anvil_land", 1f, event.world.rand.nextFloat() * 0.1f + 0.9f);
+					event.useBlock = Event.Result.DENY;
+				} else if (block instanceof BlockStairs) {
+					int meta = event.world.getBlockMetadata(event.x, event.y, event.z);
+					if (event.entityLiving.isSneaking()) {
+						event.world.setBlockMetadataWithNotify(event.x, event.y, event.z, meta ^ 4, 3);
+					} else {
+						int newDir = Main.stairHelper[Blocks.piston.determineOrientation(event.world, event.x, event.y, event.z, event.entityLiving)];
+						if (newDir == (meta & 3) || newDir == -1) {
+							return;
+						}
+						event.world.setBlockMetadataWithNotify(event.x, event.y, event.z, newDir | (meta & 12), 3);
+					}
+					event.world.markBlockForUpdate(event.x, event.y, event.z);
+					event.entityLiving.getHeldItem().damageItem(1, event.entityLiving);
+					event.world.playSoundEffect(event.x + 0.5d, event.y + 0.5d, event.z + 0.5d, "random.anvil_land", 1f, event.world.rand.nextFloat() * 0.1f + 0.9f);
+				}
 			}
 		}
 	}

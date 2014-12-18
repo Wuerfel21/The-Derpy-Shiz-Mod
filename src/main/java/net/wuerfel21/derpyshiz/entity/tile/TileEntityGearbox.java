@@ -5,23 +5,29 @@ import net.minecraft.network.NetworkManager;
 import net.minecraft.network.Packet;
 import net.minecraft.network.play.server.S35PacketUpdateTileEntity;
 import net.minecraft.tileentity.TileEntity;
+import net.wuerfel21.derpyshiz.rotary.IRotaryInput;
+import net.wuerfel21.derpyshiz.rotary.IRotaryOutput;
 
-public class TileEntityGearbox extends TileEntity {
+public class TileEntityGearbox extends TileEntity implements IRotaryInput, IRotaryOutput {
 	
 	public int dir = 0;
+	
+	public boolean inInventory;
+	
+	public TileEntityGearbox() {
+		super();
+	}
 	
 	@Override
 	public void readFromNBT(NBTTagCompound tag) {
 		super.readFromNBT(tag);
 		this.dir = tag.getInteger("direction");
-		System.out.println("Ham!"+dir);
 	}
 	
 	@Override
 	public void writeToNBT(NBTTagCompound tag) {
 		super.writeToNBT(tag);
 		tag.setInteger("direction", dir);
-		System.out.println("Green Eggs!"+dir);
 	}
 	
 	@Override
@@ -38,5 +44,15 @@ public class TileEntityGearbox extends TileEntity {
 	}
 	
 	public String getName() {return "ds_gearbox";}
+
+	@Override
+	public boolean isOutputFace(int side) {
+		return side == dir;
+	}
+
+	@Override
+	public boolean isInputFace(int side) {
+		return side != dir;
+	}
 	
 }

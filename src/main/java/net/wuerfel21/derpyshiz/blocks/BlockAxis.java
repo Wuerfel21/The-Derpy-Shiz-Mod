@@ -25,6 +25,7 @@ public class BlockAxis extends Block {
 		this.setCreativeTab(CreativeTabs.tabBlock);
 		this.setBlockBounds(0.375f, 0.375f, 0.375f, 0.625f, 0.625f, 0.625f);
 		this.setHardness(1f);
+		this.setStepSound(soundTypeWood);
 	}
 	
 	@Override

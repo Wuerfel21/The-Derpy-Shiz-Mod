@@ -29,6 +29,8 @@ import cpw.mods.fml.common.registry.GameRegistry;
 
 public class DerpyBlocks {
 	
+	public static Block gearbox;
+	
 	public static final void init() {
 		GameRegistry.registerBlock(new PatternWool(), ItemPatternWool.class, "pattern_wool");
 		GameRegistry.registerBlock(new PatternCarpet(), ItemPatternWool.class, "pattern_carpet");
@@ -52,7 +54,7 @@ public class DerpyBlocks {
 		GameRegistry.registerBlock(new DerpySaplings(), ItemSapling.class, "sapling");
 		
 		GameRegistry.registerBlock(new BlockAxis(), "axis");
-		GameRegistry.registerBlock(new BlockGearbox(), "gearbox");
+		GameRegistry.registerBlock(gearbox = new BlockGearbox(), "gearbox");
 	}
 	
 }
