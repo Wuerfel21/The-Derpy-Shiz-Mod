@@ -11,12 +11,11 @@ import net.minecraft.util.AxisAlignedBB;
 import net.minecraft.util.IIcon;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
+import net.wuerfel21.derpyshiz.Main;
 
 public class BlockAxis extends Block {
 	
 	public IIcon blank;
-	
-	public static final int[] orientationHelper = {0,0,2,2,1,1};
 	
 	public BlockAxis() {
 		super(Material.wood);
@@ -57,7 +56,7 @@ public class BlockAxis extends Block {
 	@Override
 	public void onBlockPlacedBy(World world,int x,int y,int z,EntityLivingBase entity,ItemStack stack) {
 		super.onBlockPlacedBy(world,x,y,z,entity,stack);
-		world.setBlockMetadataWithNotify(x, y, z, orientationHelper[Blocks.piston.determineOrientation(world, x, y, z, entity)], 2);
+		world.setBlockMetadataWithNotify(x, y, z, Main.orientationHelper[Blocks.piston.determineOrientation(world, x, y, z, entity)], 2);
 	}
 	
 	@Override

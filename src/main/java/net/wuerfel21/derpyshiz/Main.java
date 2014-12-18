@@ -14,6 +14,8 @@ import cpw.mods.fml.common.event.FMLPreInitializationEvent;
 @Mod(modid = Main.MODID, name = Main.MODNAME, version = Main.VERSION)
 public class Main {
 	
+	public static final int[] orientationHelper = {0,0,2,2,1,1};
+	
 	public static final String MODID = "derpyshiz";
     public static final String MODNAME = "The derpy shiz mod";
     public static final String VERSION = "beta 0.2.1";
@@ -21,6 +23,7 @@ public class Main {
     public static Configuration config;
     public static int idPiggycorn;
     public static int idMagicBiome;
+    public static boolean fancyGearbox;
     
     @Instance
     public static Main instance = new Main();
@@ -34,6 +37,7 @@ public class Main {
     	this.config.load();
     	idPiggycorn = UnsignedBytes.saturatedCast(config.getInt("idPiggycorn", "ids", 3, 0, 255, "The id of the piggycorn"));
     	idMagicBiome = UnsignedBytes.saturatedCast(config.getInt("idMagicBiome", "ids", 69, 0, 255, "The id of the Magic Forest"));
+    	fancyGearbox = config.getBoolean("fancyGearbox", "client", true, "If gearboxes should be uber fancy");
     	config.save();
     	this.proxy.preInit(e);
     }

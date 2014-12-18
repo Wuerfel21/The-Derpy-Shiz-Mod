@@ -3,8 +3,10 @@ package net.wuerfel21.derpyshiz.items;
 import java.util.HashSet;
 import java.util.Set;
 
+import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.ItemTool;
+import net.minecraft.world.World;
 
 public class DerpyHammer extends ItemTool {
 	
