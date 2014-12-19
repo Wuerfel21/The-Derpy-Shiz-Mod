@@ -24,7 +24,6 @@ public class PatternWool extends Block {
 		this.setCreativeTab(CreativeTabs.tabBlock);
 		this.setHardness(0.8f);
 		this.setStepSound(soundTypeCloth);
-		this.setHarvestLevel("shears",0);
 	}
 	
 	@Override

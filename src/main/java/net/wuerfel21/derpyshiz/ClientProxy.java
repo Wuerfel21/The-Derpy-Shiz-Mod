@@ -5,7 +5,7 @@ import net.minecraftforge.client.MinecraftForgeClient;
 import net.wuerfel21.derpyshiz.client.BlankIcon;
 import net.wuerfel21.derpyshiz.client.ModelPiggycorn;
 import net.wuerfel21.derpyshiz.client.RenderGearbox;
-import net.wuerfel21.derpyshiz.client.RenderGearboxItem;
+import net.wuerfel21.derpyshiz.client.RenderTESRItem;
 import net.wuerfel21.derpyshiz.client.RenderPiggycorn;
 import net.wuerfel21.derpyshiz.entity.EntityPiggycorn;
 import net.wuerfel21.derpyshiz.entity.tile.TileEntityGearbox;
@@ -32,7 +32,7 @@ public class ClientProxy extends CommonProxy {
         if (Main.fancyGearbox) {
         	TileEntityGearbox inventoryGearbox = new TileEntityGearbox();
         	inventoryGearbox.inInventory = true;
-        	MinecraftForgeClient.registerItemRenderer(Item.getItemFromBlock(DerpyBlocks.gearbox), new RenderGearboxItem(renderGearbox, inventoryGearbox));
+        	MinecraftForgeClient.registerItemRenderer(Item.getItemFromBlock(DerpyBlocks.gearbox), new RenderTESRItem(renderGearbox, inventoryGearbox));
         }
     }
 

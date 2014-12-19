@@ -16,6 +16,7 @@ import net.wuerfel21.derpyshiz.blocks.KewlBush;
 import net.wuerfel21.derpyshiz.blocks.LightBlocks;
 import net.wuerfel21.derpyshiz.blocks.PatternCarpet;
 import net.wuerfel21.derpyshiz.blocks.PatternWool;
+import net.wuerfel21.derpyshiz.blocks.SeizureWool;
 import net.wuerfel21.derpyshiz.blocks.SnowflakeObsidian;
 import net.wuerfel21.derpyshiz.blocks.itemblock.ItemCoarseStone;
 import net.wuerfel21.derpyshiz.blocks.itemblock.ItemDecoBlock;
@@ -30,6 +31,7 @@ import cpw.mods.fml.common.registry.GameRegistry;
 public class DerpyBlocks {
 	
 	public static Block gearbox;
+	public static Block seizureWool;
 	
 	public static final void init() {
 		GameRegistry.registerBlock(new PatternWool(), ItemPatternWool.class, "pattern_wool");
@@ -55,6 +57,7 @@ public class DerpyBlocks {
 		
 		GameRegistry.registerBlock(new BlockAxis(), "axis");
 		GameRegistry.registerBlock(gearbox = new BlockGearbox(), "gearbox");
+		GameRegistry.registerBlock(seizureWool = new SeizureWool(), "seizure_wool");
 	}
 	
 }

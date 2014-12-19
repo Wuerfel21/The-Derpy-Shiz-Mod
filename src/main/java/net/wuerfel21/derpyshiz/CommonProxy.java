@@ -7,6 +7,7 @@ import net.minecraft.entity.Entity;
 import net.minecraft.world.biome.BiomeGenBase;
 import net.wuerfel21.derpyshiz.entity.EntityPiggycorn;
 import net.wuerfel21.derpyshiz.entity.tile.TileEntityGearbox;
+import net.wuerfel21.derpyshiz.entity.tile.TileEntitySeizureWool;
 import net.wuerfel21.derpyshiz.world.DerpyWorld;
 import cpw.mods.fml.common.event.FMLInitializationEvent;
 import cpw.mods.fml.common.event.FMLPostInitializationEvent;
@@ -36,6 +37,7 @@ public class CommonProxy {
 		addSpawn(BiomeGenBase.roofedForest,EntityPiggycorn.class,3,2,4);
 		addSpawn(BiomeGenBase.plains,EntityPiggycorn.class,1,1,1);
 		GameRegistry.registerTileEntity(TileEntityGearbox.class, "ds_gearbox");
+		GameRegistry.registerTileEntity(TileEntitySeizureWool.class, "ds_seizure_wool");
     }
 
     public void postInit(FMLPostInitializationEvent e) {

@@ -7,13 +7,13 @@ import net.minecraftforge.client.IItemRenderer;
 
 import org.lwjgl.opengl.GL11;
 
-public class RenderGearboxItem implements IItemRenderer {
+public class RenderTESRItem implements IItemRenderer {
 
 	public TileEntitySpecialRenderer render;
 
 	public TileEntity entity;
 
-	public RenderGearboxItem(TileEntitySpecialRenderer render, TileEntity entity) {
+	public RenderTESRItem(TileEntitySpecialRenderer render, TileEntity entity) {
 		this.entity = entity;
 		this.render = render;
 	}

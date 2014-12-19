@@ -7,6 +7,7 @@ import net.minecraft.network.play.server.S35PacketUpdateTileEntity;
 import net.minecraft.tileentity.TileEntity;
 import net.wuerfel21.derpyshiz.rotary.IRotaryInput;
 import net.wuerfel21.derpyshiz.rotary.IRotaryOutput;
+import net.wuerfel21.derpyshiz.rotary.Rotation;
 
 public class TileEntityGearbox extends TileEntity implements IRotaryInput, IRotaryOutput {
 	
@@ -53,6 +54,30 @@ public class TileEntityGearbox extends TileEntity implements IRotaryInput, IRota
 	@Override
 	public boolean isInputFace(int side) {
 		return side != dir;
+	}
+
+	@Override
+	public Rotation getRotaryOutput(int side) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public void setRotaryOutput(int side, Rotation rotation) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void setRotaryInput(int side, Rotation rotation) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public Rotation getRotaryInput(int side) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 	
 }
