@@ -1,11 +1,27 @@
 package net.wuerfel21.derpyshiz.rotary;
 
+import net.minecraft.block.Block;
 import net.minecraft.nbt.NBTTagCompound;
+import net.minecraft.tileentity.TileEntity;
+import net.minecraftforge.common.util.ForgeDirection;
+import net.wuerfel21.derpyshiz.blocks.BlockAxis;
 
 public class RotaryManager {
 
-	public static void updateRotaryOutput(IRotaryOutput output) {
-
+	public static void updateRotaryOutput(IRotaryOutput output, AxisChain chain, TileEntity tile, int dir) {
+		if (output.getRotaryOutput(dir).getEnergy() < 0) {
+			output.setRotaryOutput(dir, new Rotation(0,0));
+		}
+		chain.updateChain(output, tile.getWorldObj(), output.getRotaryOutput(dir), tile.xCoord, tile.yCoord, tile.zCoord);
+	}
+	
+	public static void updateRotaryOutput(IRotaryInput input, TileEntity tile, int dir) {
+		ForgeDirection direction = ForgeDirection.getOrientation(dir);
+		Block block = tile.getWorldObj().getBlock(tile.xCoord+direction.offsetX, tile.yCoord+direction.offsetY, tile.zCoord+direction.offsetZ);
+		TileEntity te = tile.getWorldObj().getTileEntity(tile.xCoord+direction.offsetX, tile.yCoord+direction.offsetY, tile.zCoord+direction.offsetZ);
+		if (input.getRotaryInput(dir).isValid() && !(block instanceof BlockAxis || te instanceof IRotaryOutput)) {
+			input.setRotaryInput(dir, new Rotation(0,0));
+		}
 	}
 
 	public static NBTTagCompound inputToNBT(IRotaryInput input) {
@@ -42,7 +58,7 @@ public class RotaryManager {
 	
 	public static int getMaxInput(IRotaryInput input) {
 		int index = 0;
-		int value = Integer.MAX_VALUE;
+		int value = 0;
 		for (int i = 0; i < 6; i++) {
 			int e = input.getRotaryInput(i).getEnergy();
 			if (e > value) {

@@ -4,8 +4,8 @@ import net.minecraft.nbt.NBTTagCompound;
 
 public class Rotation {
 
-	int speed = 0;
-	int torque = 0;
+	public int speed = 0;
+	public int torque = 0;
 
 	public Rotation(int s, int t) {
 		this.speed = s;
@@ -30,7 +30,11 @@ public class Rotation {
 	}
 
 	public int getEnergy() {
-		return speed * torque;
+		return speed + torque;
 	}
-
+	
+	public boolean isValid() {
+		return this.speed > 0 && this.torque > 0;
+	}
+	
 }

@@ -11,12 +11,15 @@ import net.wuerfel21.derpyshiz.items.DarkCloak;
 import net.wuerfel21.derpyshiz.items.DarkSword;
 import net.wuerfel21.derpyshiz.items.DerpyArmor;
 import net.wuerfel21.derpyshiz.items.DerpyAxe;
+import net.wuerfel21.derpyshiz.items.DerpyGears;
 import net.wuerfel21.derpyshiz.items.DerpyHammer;
 import net.wuerfel21.derpyshiz.items.DerpyHoe;
 import net.wuerfel21.derpyshiz.items.DerpyPickaxe;
 import net.wuerfel21.derpyshiz.items.DerpyShovel;
 import net.wuerfel21.derpyshiz.items.DerpySword;
 import net.wuerfel21.derpyshiz.items.HorseLasagne;
+import net.wuerfel21.derpyshiz.items.ItemRotameter;
+import net.wuerfel21.derpyshiz.items.ItemTDM;
 import net.wuerfel21.derpyshiz.items.OreItems;
 import net.wuerfel21.derpyshiz.items.WuerfeliumPickaxe;
 import net.wuerfel21.derpyshiz.items.WuerfeliumSword;
@@ -153,6 +156,11 @@ public class DerpyItems {
 		GameRegistry.registerItem(new Item().setUnlocalizedName("horn").setTextureName("derpyshiz:horn").setCreativeTab(CreativeTabs.tabMaterials), "horn");
 		
 		GameRegistry.registerItem(new HorseLasagne(), "lasagne");
+		
+		GameRegistry.registerItem(new DerpyGears(), "gear");
+		GameRegistry.registerItem(new ItemRotameter(), "rotameter");
+		
+		GameRegistry.registerItem(new ItemTDM(), "tdm");
 	}
 	
 }

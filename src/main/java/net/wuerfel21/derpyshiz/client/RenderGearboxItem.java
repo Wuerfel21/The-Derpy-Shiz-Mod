@@ -4,17 +4,18 @@ import net.minecraft.client.renderer.tileentity.TileEntitySpecialRenderer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraftforge.client.IItemRenderer;
+import net.wuerfel21.derpyshiz.entity.tile.TileEntityGearbox;
 
 import org.lwjgl.opengl.GL11;
 
-public class RenderTESRItem implements IItemRenderer {
+public class RenderGearboxItem implements IItemRenderer {
 
 	public TileEntitySpecialRenderer render;
 
-	public TileEntity entity;
+	public TileEntityGearbox entity;
 
-	public RenderTESRItem(TileEntitySpecialRenderer render, TileEntity entity) {
-		this.entity = entity;
+	public RenderGearboxItem(TileEntitySpecialRenderer render, TileEntity entity) {
+		this.entity = (TileEntityGearbox) entity;
 		this.render = render;
 	}
 
@@ -30,6 +31,7 @@ public class RenderTESRItem implements IItemRenderer {
 
 	@Override
 	public void renderItem(ItemRenderType type, ItemStack item, Object... data) {
+		entity.meta = item.getItemDamage();
 		if (type == IItemRenderer.ItemRenderType.ENTITY) {
 			GL11.glTranslatef(-0.5F, 0f, -0.5F);
 		}

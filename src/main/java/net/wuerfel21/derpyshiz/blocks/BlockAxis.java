@@ -11,9 +11,10 @@ import net.minecraft.util.AxisAlignedBB;
 import net.minecraft.util.IIcon;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
+import net.wuerfel21.derpyshiz.ISmashable;
 import net.wuerfel21.derpyshiz.Main;
 
-public class BlockAxis extends Block {
+public class BlockAxis extends Block implements ISmashable {
 	
 	public IIcon blank;
 	
@@ -85,6 +86,15 @@ public class BlockAxis extends Block {
 	
 	@Override
 	public boolean renderAsNormalBlock() {
+		return false;
+	}
+
+	@Override
+	public boolean smashed(World world, int x, int y, int z, int dir) {
+		int meta = world.getBlockMetadata(x, y, z);
+		int newDir = Main.orientationHelper[dir];
+		if ((meta & 3) == newDir) return true;
+		world.setBlockMetadataWithNotify(x, y, z, newDir, 3);
 		return false;
 	}
 	

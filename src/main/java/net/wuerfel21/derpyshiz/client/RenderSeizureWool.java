@@ -1,7 +1,5 @@
 package net.wuerfel21.derpyshiz.client;
 
-import java.util.Iterator;
-
 import net.minecraft.client.renderer.Tessellator;
 import net.minecraft.client.renderer.texture.TextureMap;
 import net.minecraft.client.renderer.tileentity.TileEntitySpecialRenderer;
@@ -28,11 +26,9 @@ public class RenderSeizureWool extends TileEntitySpecialRenderer {
 		Tessellator tessellator = Tessellator.instance;
 		GL11.glPushMatrix();
 		GL11.glTranslated(x, y, z);
+		tessellator.startDrawingQuads();
 		
-		for (Iterator iterator = tile.rects.iterator(); iterator.hasNext();) {
-			TileEntitySeizureWool.SeizureRect rect = (TileEntitySeizureWool.SeizureRect) iterator.next();
-			rect.render();
-		}
+		DerpyRenderHelper.addBox(tessellator, wool[tile.color], 0, 0, 0, 1, 1, 1);
 		
 		tessellator.draw();
 		GL11.glPopMatrix();

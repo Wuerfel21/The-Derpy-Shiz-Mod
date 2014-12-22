@@ -1,3 +1,5 @@
+item.tdm.name=The Diamond Minecart
+
 tile.pattern_wool_colordots.name=Color-dotted Wool
 tile.pattern_wool_lines.name=Lined Wool
 tile.pattern_wool_checker.name=Checkered Wool
@@ -183,4 +185,4 @@ item.horn.name=Piggycorn horn
 
 tile.kewl_bush.name=Kewl Bush
 
-item.lasange.name=Lasagne
+item.lasagne.name=Lasagne

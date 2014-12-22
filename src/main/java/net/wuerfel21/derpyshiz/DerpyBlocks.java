@@ -3,6 +3,7 @@ package net.wuerfel21.derpyshiz;
 import net.minecraft.block.Block;
 import net.minecraft.init.Blocks;
 import net.wuerfel21.derpyshiz.blocks.BlockAxis;
+import net.wuerfel21.derpyshiz.blocks.BlockCrank;
 import net.wuerfel21.derpyshiz.blocks.BlockGearbox;
 import net.wuerfel21.derpyshiz.blocks.CoarseStone;
 import net.wuerfel21.derpyshiz.blocks.DecoBlocks;
@@ -20,6 +21,7 @@ import net.wuerfel21.derpyshiz.blocks.SeizureWool;
 import net.wuerfel21.derpyshiz.blocks.SnowflakeObsidian;
 import net.wuerfel21.derpyshiz.blocks.itemblock.ItemCoarseStone;
 import net.wuerfel21.derpyshiz.blocks.itemblock.ItemDecoBlock;
+import net.wuerfel21.derpyshiz.blocks.itemblock.ItemGearbox;
 import net.wuerfel21.derpyshiz.blocks.itemblock.ItemLamp;
 import net.wuerfel21.derpyshiz.blocks.itemblock.ItemLeaves;
 import net.wuerfel21.derpyshiz.blocks.itemblock.ItemLogs;
@@ -56,7 +58,8 @@ public class DerpyBlocks {
 		GameRegistry.registerBlock(new DerpySaplings(), ItemSapling.class, "sapling");
 		
 		GameRegistry.registerBlock(new BlockAxis(), "axis");
-		GameRegistry.registerBlock(gearbox = new BlockGearbox(), "gearbox");
+		GameRegistry.registerBlock(gearbox = new BlockGearbox(), ItemGearbox.class, "gearbox");
+		GameRegistry.registerBlock(new BlockCrank(), "crank");
 		GameRegistry.registerBlock(seizureWool = new SeizureWool(), "seizure_wool");
 	}
 	

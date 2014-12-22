@@ -1,28 +1,98 @@
 package net.wuerfel21.derpyshiz.rotary;
 
+import net.minecraft.block.Block;
+import net.minecraft.tileentity.TileEntity;
+import net.minecraft.world.World;
 import net.minecraftforge.common.util.ForgeDirection;
+import net.wuerfel21.derpyshiz.Main;
+import net.wuerfel21.derpyshiz.blocks.BlockAxis;
 
 public class AxisChain {
+
+	public int dir;
+
+	public int maxLength = 20;
 	
-	protected int dir;
-	
+	public int[] tilePos = new int[3];
+
 	public int length = -1;
 	public Rotation rotation;
-	
-	//client stuff
+
+	// client stuff
 	public double position;
-	
-	public AxisChain(int direction) {
+
+	public AxisChain(int direction, int maxL) {
 		this.dir = direction;
+		this.maxLength = maxL;
 	}
 	
-	public boolean updateChain(IRotaryOutput output, Rotation rotation) {
+	public static Rotation calculateLoss(Rotation rotation, int length) {
+		Rotation rot = (Rotation) rotation.clone();
+		if (length > 3) {
+			rot.torque -= (length-3) * 5;
+		}
+		return rot;
+	}
+	
+	public boolean updateChain(IRotaryOutput output, World world, Rotation rotation, int x, int y, int z) {
 		ForgeDirection direction = ForgeDirection.getOrientation(this.dir);
 		boolean usedFlag = false;
+		int l = 0;// length counter
+		while (true) {
+			x += direction.offsetX;
+			y += direction.offsetY;
+			z += direction.offsetZ;
+			Block block = world.getBlock(x, y, z);
+			if (block instanceof BlockAxis) {
+				if ((world.getBlockMetadata(x, y, z) & 7) == Main.orientationHelper[this.dir]) {
+					if (l > this.maxLength) {
+						world.func_147480_a(x, y, z, true);
+						break;
+					}
+					l++;
+					if ((world.getBlockMetadata(x, y, z) & 8) == 0) {
+						world.setBlockMetadataWithNotify(x, y, z, world.getBlockMetadata(x, y, z) | 8, 2);
+					}
+				} else {
+					break;
+				}
+			} else if (world.getTileEntity(x, y, z) instanceof IRotaryOutput && ((IRotaryOutput) world.getTileEntity(x, y, z)).isOutputFace(Main.reverseHelper[this.dir])) {
+				world.func_147480_a(x, y, z, true);
+				break;
+			} else if (world.getTileEntity(x, y, z) instanceof IRotaryInput && ((IRotaryInput) world.getTileEntity(x, y, z)).isInputFace(Main.reverseHelper[this.dir])) {
+				((IRotaryInput) world.getTileEntity(x, y, z)).setRotaryInput(Main.reverseHelper[this.dir], calculateLoss(rotation,l));
+				this.tilePos[0] = x;
+				this.tilePos[1] = y;
+				this.tilePos[2] = z;
+				break;
+			} else {
+				break;
+			}
+		}
 		
+		if (this.length > l) {
+			this.cleanup(world, x, y, z);
+		}
 		
-		
+		this.length = l;
 		return usedFlag;
+	}
+	
+	public void cleanup(World world, int x, int y, int z) {
+		ForgeDirection direction = ForgeDirection.getOrientation(this.dir);
+		for (int i=0;i<this.length;i++) {
+			x += direction.offsetX;
+			y += direction.offsetY;
+			z += direction.offsetZ;
+			Block block = world.getBlock(x, y, z);
+			if (block instanceof BlockAxis) {
+				world.setBlockMetadataWithNotify(x, y, z, world.getBlockMetadata(x, y, z) & 7, 2);
+			}
+		}
+		TileEntity t = world.getTileEntity(tilePos[0], tilePos[1], tilePos[2]);
+		if (t instanceof IRotaryInput) {
+			((IRotaryInput)t).setRotaryInput(Main.reverseHelper[this.dir], new Rotation(0,0));
+		}
 	}
 	
 }

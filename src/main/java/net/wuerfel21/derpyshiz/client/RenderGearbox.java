@@ -22,15 +22,16 @@ public class RenderGearbox extends TileEntitySpecialRenderer {
 	public RenderGearbox() {
 		super();
 	}
-
+	
 	@Override
 	public void renderTileEntityAt(TileEntity tiletemp, double x, double y, double z, float f) {
 		TileEntityGearbox tile = (TileEntityGearbox) tiletemp;
 		this.bindTexture(TextureMap.locationBlocksTexture);
 		BlockGearbox block = (BlockGearbox) tile.blockType;
-		IIcon woodOak = Blocks.planks.getIcon(0, 0);
-		IIcon woodBirch = Blocks.planks.getIcon(0, 2);
-		IIcon woodDarkOak = Blocks.planks.getIcon(0, 5);
+		
+		int meta = tile.meta;
+		
+		IIcon[][] textures = new IIcon[][] {{Blocks.planks.getIcon(0, 5),Blocks.planks.getIcon(0, 2),Blocks.planks.getIcon(0, 0)},{GameRegistry.findBlock("derpyshiz", "block").getIcon(0, 2),Blocks.iron_block.getIcon(0, 0),Blocks.gold_block.getIcon(0, 0)}};
 
 		Tessellator tessellator = Tessellator.instance;
 		GL11.glPushMatrix();
@@ -40,30 +41,13 @@ public class RenderGearbox extends TileEntitySpecialRenderer {
 		// tessellator.setBrightness(tile.getBlockType().getMixedBrightnessForBlock(tile.getWorldObj(),
 		// tile.xCoord, tile.yCoord, tile.zCoord));
 		if (Main.fancyGearbox) {
-			// body
-			DerpyRenderHelper.addBox(tessellator, woodDarkOak, wp, wp, wp, 1 - wp, 1 - wp, 1 - wp);
-			// frame
-			DerpyRenderHelper.addBox(tessellator, woodBirch, 0, 0, 0, wp, 1, wp);
-			DerpyRenderHelper.addBox(tessellator, woodBirch, 1 - wp, 0, 0, 1, 1, wp);
-			DerpyRenderHelper.addBox(tessellator, woodBirch, 0, 0, 1 - wp, wp, 1, 1);
-			DerpyRenderHelper.addBox(tessellator, woodBirch, 1 - wp, 0, 1 - wp, 1, 1, 1);
-
-			DerpyRenderHelper.addBox(tessellator, woodBirch, wp, 0, 0, 1 - wp, wp, wp);
-			DerpyRenderHelper.addBox(tessellator, woodBirch, 0, 0, wp, wp, wp, 1 - wp);
-			DerpyRenderHelper.addBox(tessellator, woodBirch, wp, 0, 1 - wp, 1 - wp, wp, 1);
-			DerpyRenderHelper.addBox(tessellator, woodBirch, 1 - wp, 0, wp, 1, wp, 1 - wp);
-
-			DerpyRenderHelper.addBox(tessellator, woodBirch, wp, 1 - wp, 0, 1 - wp, 1, wp);
-			DerpyRenderHelper.addBox(tessellator, woodBirch, 0, 1 - wp, wp, wp, 1, 1 - wp);
-			DerpyRenderHelper.addBox(tessellator, woodBirch, wp, 1 - wp, 1 - wp, 1 - wp, 1, 1);
-			DerpyRenderHelper.addBox(tessellator, woodBirch, 1 - wp, 1 - wp, wp, 1, 1, 1 - wp);
-
+			RenderRotaryComponent.render(tessellator, textures[meta]);
 		} else {
 			// do nothing, ugly gearboxes are rendered by BlockGearbox
 		}
 		if (!tile.inInventory) {
 			if (Main.fancyGearbox) {
-				RotaryRender.fancyConnection(tessellator, woodOak, block.overlay[0], tile.dir);
+				RotaryRender.fancyConnection(tessellator, textures[meta][2], block.overlay[0], tile.dir);
 			} else {
 				RotaryRender.uglyConnection(tessellator, block.overlay[0], tile.dir);
 			}

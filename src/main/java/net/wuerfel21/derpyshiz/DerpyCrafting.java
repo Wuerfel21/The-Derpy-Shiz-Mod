@@ -1,6 +1,8 @@
 package net.wuerfel21.derpyshiz;
 
 import net.minecraft.init.Blocks;
+import net.minecraft.init.Items;
+import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.oredict.OreDictionary;
 import net.minecraftforge.oredict.ShapedOreRecipe;
@@ -51,6 +53,14 @@ public class DerpyCrafting {
 		registerShovel("shovel_"+name,material);
 		registerAxe("axe_"+name,material);
 		registerArmor(name,material);
+	}
+	
+	public static void registerGear(int type, int amount, String material, String center) {
+		GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(GameRegistry.findItem("derpyshiz", "gear"), amount, type)," M ","MCM"," M ",'M',material,'C',center));
+	}
+	
+	public static void registerGear(int type, int amount, Item material, String center) {
+		GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(GameRegistry.findItem("derpyshiz", "gear"), amount, type)," M ","MCM"," M ",'M',material,'C',center));
 	}
 	
 	public static void registerDeco(int meta, String material, String block) {
@@ -108,6 +118,24 @@ public class DerpyCrafting {
 		GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(GameRegistry.findItem("derpyshiz", "lamp"),3,2),"gtg","tMt","gtg",'M',"gemFluoriteRed",'t',getStack("torch_fluorite_blue",0),'g',"paneGlass"));
 		
 		GameRegistry.addRecipe(new ShapelessOreRecipe(getBlock("kewl_bush",0),"gemFakediamond",Blocks.deadbush));
+		
+		GameRegistry.addRecipe(new ShapedOreRecipe(getStack("tdm", 0),"D D","DDD",'D',"gemDiamond"));
+		
+		registerGear(1,1,"plankEbony","plankEbony");
+		registerGear(2,1,"plankMagic","plankMagic");
+		registerGear(0,1,"plankWood","plankWood");
+		registerGear(3,1,"ingotIron","ingotIron");
+		registerGear(4,2,GameRegistry.findItem("derpyshiz", "lasagne"),"cropWheat");
+		registerGear(5,1,"ingotCopper","ingotCopper");
+		registerGear(6,1,"ingotTin", "ingotTin");
+		registerGear(7,1,"ingotLead","ingotLead");
+		registerGear(8,1,"ingotGold","ingotGold");
+		registerGear(9,1,"ingotTitanium","ingotTitanium");
+		registerGear(10,2,"gemRuby","gemDiamond");
+		registerGear(11,1,"ingotElectrimite","dustRedstone");
+		registerGear(12,2,"ingotEnderium","gemAmethyst");
+		
+		GameRegistry.addRecipe(new ShapedOreRecipe(getStack("rotameter",0),"G","C","s",'G',"gearGold",'C',Items.compass,'s',"stickWood"));
 		
 		registerDeco(0,"chunkAmber","blockAmber");
 		registerDeco(1,"gemFakediamond","blockFakediamond");
@@ -232,6 +260,22 @@ public class DerpyCrafting {
 		OreDictionary.registerOre("woolNotch",getBlock("pattern_wool",13));
 		OreDictionary.registerOre("woolJeb",getBlock("pattern_wool",14));
 		OreDictionary.registerOre("woolPig",getBlock("pattern_wool",15));
+		
+		OreDictionary.registerOre("gearWood",getStack("gear",0));
+		OreDictionary.registerOre("gearWood",getStack("gear",1));
+		OreDictionary.registerOre("gearWood",getStack("gear",2));
+		OreDictionary.registerOre("gearEbony",getStack("gear",1));
+		OreDictionary.registerOre("gearMagic",getStack("gear",2));
+		OreDictionary.registerOre("gearIron",getStack("gear",3));
+		OreDictionary.registerOre("gearLasagne",getStack("gear",4));
+		OreDictionary.registerOre("gearCopper",getStack("gear",5));
+		OreDictionary.registerOre("gearTin",getStack("gear",6));
+		OreDictionary.registerOre("gearLead",getStack("gear",7));
+		OreDictionary.registerOre("gearGold",getStack("gear",8));
+		OreDictionary.registerOre("gearTitanium",getStack("gear",9));
+		OreDictionary.registerOre("gearRuby",getStack("gear",10));
+		OreDictionary.registerOre("gearElectrimite",getStack("gear",11));
+		OreDictionary.registerOre("gearEnderium",getStack("gear",12));
 		
 		OreDictionary.registerOre("treeEbony",getBlock("log",0));
 		OreDictionary.registerOre("treeMagic",getBlock("log",1));

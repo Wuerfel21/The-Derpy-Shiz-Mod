@@ -7,8 +7,8 @@ public class HorseLasagne extends ItemFood {
 	
 	public HorseLasagne() {
 		super(5,4,true);
-		this.setUnlocalizedName("lasange");
-		this.setTextureName("derpyshiz:lasange");
+		this.setUnlocalizedName("lasagne");
+		this.setTextureName("derpyshiz:lasagne");
 	}
 	
 }
