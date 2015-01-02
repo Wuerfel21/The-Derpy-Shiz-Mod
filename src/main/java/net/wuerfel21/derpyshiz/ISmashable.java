@@ -3,7 +3,7 @@ package net.wuerfel21.derpyshiz;
 import net.minecraft.world.World;
 
 /*
- * Represents a tile entity or block whose direction can be changed using a hammer
+ * Represents a block whose direction can be changed using a hammer
  * */
 public interface ISmashable {
 
