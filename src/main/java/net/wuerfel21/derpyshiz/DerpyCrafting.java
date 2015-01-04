@@ -109,6 +109,8 @@ public class DerpyCrafting {
 		GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(GameRegistry.findBlock("derpyshiz", "coarse_stone"),3,0),"SGS","GSG","SGS",'S',"stone",'G',"blockGravel"));
 		GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(GameRegistry.findBlock("derpyshiz", "coarse_stone"),1,1),"sss","sCs","sss",'C',"stoneCoarse",'s',"stickWood"));
 		
+		GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(GameRegistry.findBlock("derpyshiz", "axis"),2),"sss",'s',"stickWood"));
+		
 		GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(GameRegistry.findItem("derpyshiz", "torch_fluorite_red"),8,0),"ttt","tMt","ttt",'M',"gemFluoriteBrown",'t',new ItemStack(GameRegistry.findItem("minecraft", "torch"),1,0)));
 		GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(GameRegistry.findItem("derpyshiz", "torch_fluorite_green"),8,0),"ttt","tMt","ttt",'M',"gemFluoritePink",'t',new ItemStack(GameRegistry.findItem("minecraft", "torch"),1,0)));
 		GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(GameRegistry.findItem("derpyshiz", "torch_fluorite_blue"),8,0),"ttt","tMt","ttt",'M',"gemFluoriteRed",'t',new ItemStack(GameRegistry.findItem("minecraft", "torch"),1,0)));
@@ -125,7 +127,7 @@ public class DerpyCrafting {
 		registerGear(2,1,"plankMagic","plankMagic");
 		registerGear(0,1,"plankWood","plankWood");
 		registerGear(3,1,"ingotIron","ingotIron");
-		registerGear(4,2,GameRegistry.findItem("derpyshiz", "lasagne"),"cropWheat");
+		registerGear(4,2,"foodLasagne","cropWheat");
 		registerGear(5,1,"ingotCopper","ingotCopper");
 		registerGear(6,1,"ingotTin", "ingotTin");
 		registerGear(7,1,"ingotLead","ingotLead");
@@ -154,6 +156,9 @@ public class DerpyCrafting {
 		registerDeco(14,"ingotLead","blockLead");
 		registerDeco(15,"gemWuerfelium","blockWuerfelium");
 		
+		GameRegistry.addRecipe(new ShapedOreRecipe(GameRegistry.findBlock("derpyshiz", "block_lasagne"), "LLL", "LLL", "LLL", 'L', "foodLasagne"));
+		GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(GameRegistry.findItem("derpyshiz", "lasagne"), 9), "B", 'B', GameRegistry.findBlock("derpyshiz", "block_lasagne")));
+		
 		for (int i=0;i<16;i++) {
 			GameRegistry.addShapedRecipe(new ItemStack(GameRegistry.findBlock("derpyshiz", "pattern_carpet"),3,i), "WW", 'W', getStack("pattern_wool",i));
 		}
@@ -164,6 +169,13 @@ public class DerpyCrafting {
 		GameRegistry.addSmelting(getBlock("ore",11), getStack("ore_item",11), 1.5f);
 		GameRegistry.addSmelting(getBlock("ore",13), getStack("ore_item",13), 0.7f);
 		GameRegistry.addSmelting(getBlock("ore",14), getStack("ore_item",14), 1f);
+		
+		/*
+		 * TESTING ALERT! TESTING ALERT! TESTING ALERT!
+		 * TESTING ALERT! TESTING ALERT! TESTING ALERT!
+		 * TESTING ALERT! TESTING ALERT! TESTING ALERT!
+		 */
+		DerpyRegistry.millstoneRecipes.put(new ItemStack(Blocks.detector_rail, 3), new DerpyRegistry.BasicMachineEntry(new ItemStack(Items.diamond, 2), 0.7f));
 	}
 	
 	public static void registerOredict() {
@@ -294,8 +306,12 @@ public class DerpyCrafting {
 		
 		OreDictionary.registerOre("materialHorn", getStack("horn",0));
 		
+		OreDictionary.registerOre("foodLasagne", getStack("lasagne", 0));
+		
 		OreDictionary.registerOre("stoneCoarse", getBlock("coarse_stone",0));
 		OreDictionary.registerOre("stoneCoarseFramed", getBlock("coarse_stone",1));
+		
+		OreDictionary.registerOre("blockAxis", getBlock("axis", 0));
 		
 		//Vanilla tweaks
 		//ForgePeope.tasks.oreDict.brain == null

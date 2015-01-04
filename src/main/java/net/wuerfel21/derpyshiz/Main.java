@@ -1,7 +1,12 @@
 package net.wuerfel21.derpyshiz;
 
+import java.nio.channels.NetworkChannel;
+
 import com.google.common.primitives.UnsignedBytes;
 
+import net.minecraft.block.material.MapColor;
+import net.minecraft.block.material.Material;
+import net.minecraft.network.NetworkManager;
 import net.minecraftforge.common.config.Configuration;
 import cpw.mods.fml.common.Mod;
 import cpw.mods.fml.common.Mod.EventHandler;
@@ -10,9 +15,13 @@ import cpw.mods.fml.common.SidedProxy;
 import cpw.mods.fml.common.event.FMLInitializationEvent;
 import cpw.mods.fml.common.event.FMLPostInitializationEvent;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
+import cpw.mods.fml.common.network.NetworkRegistry;
+import cpw.mods.fml.common.network.simpleimpl.SimpleNetworkWrapper;
 
 @Mod(modid = Main.MODID, name = Main.MODNAME, version = Main.VERSION)
 public class Main {
+	
+	public static final Material machineMaterial = new Material(MapColor.woodColor);
 	
 	public static final int[] orientationHelper = {0,0,2,2,1,1};
 	public static final int[] reverseHelper = {1,0,3,2,5,4};
@@ -21,7 +30,7 @@ public class Main {
 	
 	public static final String MODID = "derpyshiz";
     public static final String MODNAME = "The derpy shiz mod";
-    public static final String VERSION = "beta 0.2.1";
+    public static final String VERSION = "beta 0.3 pre";
     
     public static Configuration config;
     public static int idPiggycorn;
@@ -29,14 +38,18 @@ public class Main {
     public static boolean fancyGearbox;
     public static boolean flashy;
     
-    @Instance
-    public static Main instance = new Main();
+    public static SimpleNetworkWrapper derpnet;
+    
+    @Instance(Main.MODID)
+    public static Main instance;
     
     @SidedProxy(clientSide="net.wuerfel21.derpyshiz.ClientProxy",serverSide="net.wuerfel21.derpyshiz.ServerProxy")
     public static CommonProxy proxy;
     
     @EventHandler
     public void preInit(FMLPreInitializationEvent e) {
+    	instance = this;
+    	derpnet = NetworkRegistry.INSTANCE.newSimpleChannel(this.MODID);
     	config = new Configuration(e.getSuggestedConfigurationFile(),null);
     	this.config.load();
     	idPiggycorn = UnsignedBytes.saturatedCast(config.getInt("idPiggycorn", "ids", 3, 0, 255, "The id of the piggycorn"));

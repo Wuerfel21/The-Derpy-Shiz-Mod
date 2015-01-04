@@ -7,14 +7,21 @@ import net.minecraft.world.biome.BiomeGenBase;
 import net.wuerfel21.derpyshiz.entity.EntityPiggycorn;
 import net.wuerfel21.derpyshiz.entity.tile.TileEntityCrank;
 import net.wuerfel21.derpyshiz.entity.tile.TileEntityGearbox;
+import net.wuerfel21.derpyshiz.entity.tile.TileEntityHousing;
+import net.wuerfel21.derpyshiz.entity.tile.TileEntityMillstone;
 import net.wuerfel21.derpyshiz.entity.tile.TileEntitySeizureWool;
+import net.wuerfel21.derpyshiz.gui.GuiHandler;
+import net.wuerfel21.derpyshiz.network.ItemModeMessage;
 import net.wuerfel21.derpyshiz.world.DerpyWorld;
 import cpw.mods.fml.common.event.FMLInitializationEvent;
 import cpw.mods.fml.common.event.FMLPostInitializationEvent;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
+import cpw.mods.fml.common.network.NetworkRegistry;
+import cpw.mods.fml.common.network.internal.FMLNetworkHandler;
 import cpw.mods.fml.common.registry.EntityRegistry;
 import cpw.mods.fml.common.registry.GameRegistry;
 import cpw.mods.fml.relauncher.ReflectionHelper;
+import cpw.mods.fml.relauncher.Side;
 
 public class CommonProxy {
 	
@@ -24,6 +31,8 @@ public class CommonProxy {
     }
 
     public void init(FMLInitializationEvent e) {
+    	Main.derpnet.registerMessage(ItemModeMessage.Handler.class, ItemModeMessage.class, 0, Side.SERVER);
+    	NetworkRegistry.INSTANCE.registerGuiHandler(Main.instance, new GuiHandler());
     	DerpyCrafting.registerOredict();
 		DerpyCrafting.registerCrafting();
 		DerpyEvents.register();
@@ -36,8 +45,11 @@ public class CommonProxy {
 		addSpawn(BiomeGenBase.forestHills,EntityPiggycorn.class,1,1,1);
 		addSpawn(BiomeGenBase.roofedForest,EntityPiggycorn.class,3,2,4);
 		addSpawn(BiomeGenBase.plains,EntityPiggycorn.class,1,1,1);
+		GameRegistry.registerTileEntity(TileEntityHousing.class, "ds_housing");
 		GameRegistry.registerTileEntity(TileEntityGearbox.class, "ds_gearbox");
 		GameRegistry.registerTileEntity(TileEntityCrank.class, "ds_crank");
+		GameRegistry.registerTileEntity(TileEntityMillstone.class, "ds_millstone");
+		
 		GameRegistry.registerTileEntity(TileEntitySeizureWool.class, "ds_seizure_wool");
     }
 

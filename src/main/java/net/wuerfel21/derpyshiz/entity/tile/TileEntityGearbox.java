@@ -8,15 +8,16 @@ import net.minecraft.tileentity.TileEntity;
 import net.wuerfel21.derpyshiz.rotary.AxisChain;
 import net.wuerfel21.derpyshiz.rotary.IRotaryInput;
 import net.wuerfel21.derpyshiz.rotary.IRotaryOutput;
+import net.wuerfel21.derpyshiz.rotary.ITieredTE;
 import net.wuerfel21.derpyshiz.rotary.RotaryManager;
 import net.wuerfel21.derpyshiz.rotary.Rotation;
 
-public class TileEntityGearbox extends TileEntity implements IRotaryInput, IRotaryOutput {
+public class TileEntityGearbox extends TileEntity implements IRotaryInput, IRotaryOutput, ITieredTE {
 
 	public int dir = 0;
 	public Rotation output;
 	public Rotation[] input = new Rotation[6];
-	public int meta = 0;
+	public int tier = 0;
 
 	public AxisChain chain;
 
@@ -34,15 +35,22 @@ public class TileEntityGearbox extends TileEntity implements IRotaryInput, IRota
 	@Override
 	public void updateEntity() {
 		if (this.getWorldObj() != null) {
-			this.meta = this.getWorldObj().getBlockMetadata(this.xCoord, this.yCoord, this.zCoord);
+			this.tier = this.getWorldObj().getBlockMetadata(this.xCoord, this.yCoord, this.zCoord);
 			if (!this.getWorldObj().isRemote) {
 				if (this.dir != this.chain.dir) {
 					this.rotate(this.dir);
 				}
+				for (int i=0;i<6;i++) {
+					if (this.isInputFace(i)) {
+						RotaryManager.updateRotaryInput(this, this, i);
+					}
+				}
 				Rotation r = (Rotation) this.input[RotaryManager.getMaxInput(this)].clone();
-				r.speed -= speedLoss[this.meta];
+				r.speed -= speedLoss[this.tier];
 				if (r.isValid()) {
 					this.setRotaryOutput(this.dir, r);
+				} else {
+					this.setRotaryOutput(this.dir, new Rotation(0,0));
 				}
 				RotaryManager.updateRotaryOutput(this, chain, this, dir);
 			}
@@ -54,17 +62,14 @@ public class TileEntityGearbox extends TileEntity implements IRotaryInput, IRota
 		if (this.chain != null) {
 			this.chain.cleanup(this.getWorldObj(), this.xCoord, this.yCoord, this.zCoord);
 		}
-		this.chain = new AxisChain(this.dir, maxChainLength[this.meta]);
+		this.chain = new AxisChain(this.dir, maxChainLength[this.tier]);
 
 	}
 
 	@Override
 	public void readFromNBT(NBTTagCompound tag) {
 		super.readFromNBT(tag);
-		int newDir = tag.getInteger("direction");
-		if (this.dir != newDir) {
-			this.rotate(newDir);
-		}
+		this.dir = tag.getInteger("direction");
 		RotaryManager.inputFromNBT(this, tag);
 		RotaryManager.outputFromNBT(this, tag);
 	}
@@ -146,5 +151,15 @@ public class TileEntityGearbox extends TileEntity implements IRotaryInput, IRota
 
 	public static final int[] maxChainLength = { 16, 32 };
 	public static final int[] speedLoss = { 5, 2 };
+
+	@Override
+	public int getTier() {
+		return this.tier;
+	}
+
+	@Override
+	public void setTier(int tier) {
+		this.tier = tier;
+	}
 
 }

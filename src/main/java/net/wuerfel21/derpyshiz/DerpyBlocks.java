@@ -5,6 +5,8 @@ import net.minecraft.init.Blocks;
 import net.wuerfel21.derpyshiz.blocks.BlockAxis;
 import net.wuerfel21.derpyshiz.blocks.BlockCrank;
 import net.wuerfel21.derpyshiz.blocks.BlockGearbox;
+import net.wuerfel21.derpyshiz.blocks.BlockLasagne;
+import net.wuerfel21.derpyshiz.blocks.BlockMillstone;
 import net.wuerfel21.derpyshiz.blocks.CoarseStone;
 import net.wuerfel21.derpyshiz.blocks.DecoBlocks;
 import net.wuerfel21.derpyshiz.blocks.DerpyLeaves;
@@ -17,11 +19,13 @@ import net.wuerfel21.derpyshiz.blocks.KewlBush;
 import net.wuerfel21.derpyshiz.blocks.LightBlocks;
 import net.wuerfel21.derpyshiz.blocks.PatternCarpet;
 import net.wuerfel21.derpyshiz.blocks.PatternWool;
+import net.wuerfel21.derpyshiz.blocks.RotaryHousing;
 import net.wuerfel21.derpyshiz.blocks.SeizureWool;
 import net.wuerfel21.derpyshiz.blocks.SnowflakeObsidian;
 import net.wuerfel21.derpyshiz.blocks.itemblock.ItemCoarseStone;
 import net.wuerfel21.derpyshiz.blocks.itemblock.ItemDecoBlock;
 import net.wuerfel21.derpyshiz.blocks.itemblock.ItemGearbox;
+import net.wuerfel21.derpyshiz.blocks.itemblock.ItemHousing;
 import net.wuerfel21.derpyshiz.blocks.itemblock.ItemLamp;
 import net.wuerfel21.derpyshiz.blocks.itemblock.ItemLeaves;
 import net.wuerfel21.derpyshiz.blocks.itemblock.ItemLogs;
@@ -32,8 +36,10 @@ import cpw.mods.fml.common.registry.GameRegistry;
 
 public class DerpyBlocks {
 	
+	public static Block housing;
 	public static Block gearbox;
 	public static Block seizureWool;
+	public static Block millstone;
 	
 	public static final void init() {
 		GameRegistry.registerBlock(new PatternWool(), ItemPatternWool.class, "pattern_wool");
@@ -56,10 +62,14 @@ public class DerpyBlocks {
 		Blocks.fire.setFireInfo(GameRegistry.findBlock("derpyshiz", "leaves"), 30, 60);
 		GameRegistry.registerBlock(new KewlBush(), "kewl_bush");
 		GameRegistry.registerBlock(new DerpySaplings(), ItemSapling.class, "sapling");
+		GameRegistry.registerBlock(new BlockLasagne(), "block_lasagne");
 		
 		GameRegistry.registerBlock(new BlockAxis(), "axis");
+		GameRegistry.registerBlock(housing = new RotaryHousing(), ItemHousing.class, "housing");
 		GameRegistry.registerBlock(gearbox = new BlockGearbox(), ItemGearbox.class, "gearbox");
 		GameRegistry.registerBlock(new BlockCrank(), "crank");
+		GameRegistry.registerBlock(millstone = new BlockMillstone(), "millstone");
+		
 		GameRegistry.registerBlock(seizureWool = new SeizureWool(), "seizure_wool");
 	}
 	

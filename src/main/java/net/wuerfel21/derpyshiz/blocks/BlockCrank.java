@@ -17,7 +17,7 @@ import net.wuerfel21.derpyshiz.entity.tile.TileEntityGearbox;
 public class BlockCrank extends Block implements ITileEntityProvider, ISmashable {
 
 	public BlockCrank() {
-		super(Material.wood);
+		super(Main.machineMaterial);
 		this.setHardness(3f);
 		this.setBlockName("crank");
 		this.setCreativeTab(CreativeTabs.tabBlock);

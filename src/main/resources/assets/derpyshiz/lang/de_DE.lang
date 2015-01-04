@@ -184,3 +184,37 @@ item.horn.name=Schweinhorn-horn
 tile.kewl_bush.name=Kewler Busch
 
 item.lasagne.name=Lasagne
+
+tile.axis.name=Achse
+
+tile.gearbox_normal.name=Getriebe
+tile.gearbox_advanced.name=Verbessertes Getriebe
+
+tile.crank_normal.name=Kurbel
+tile.crank_advanced.name=Verbesserte Kurbel
+
+tile.seizure_wool.name=Augenkrebswolle
+
+item.gear_wood.name=Holzzahnrad
+item.gear_ebony.name=Ebenholzzahnrad
+item.gear_magic.name=Magisches Holzzahnrad
+item.gear_iron.name=Eisenzahnrad
+item.gear_lasagne.name=Lasagnezahnrad
+item.gear_copper.name=Kupferzahnrad
+item.gear_tin.name=Zinnzahnrad
+item.gear_lead.name=Bleizahnrad
+item.gear_gold.name=Goldzahnrad
+item.gear_titanium.name=Titanzahnrad
+item.gear_ruby.name=Rubinzahnrad
+item.gear_electrimite.name=Electrimitezahnrad
+item.gear_enderium.name=Enderiumzahnrad
+
+mode.hammer_face.name=Seite
+mode.hammer_direction.name=Richtung
+
+text.output.name=Ausgang
+text.input.name=Eingang
+text.speed.name=Geschwindigkeit
+text.torque.name=Drehmoment
+
+message.mode.name=Modus geändert auf: 

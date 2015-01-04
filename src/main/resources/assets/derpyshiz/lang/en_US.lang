@@ -186,3 +186,39 @@ item.horn.name=Piggycorn horn
 tile.kewl_bush.name=Kewl Bush
 
 item.lasagne.name=Lasagne
+
+tile.axis.name=Axis
+
+tile.gearbox_normal.name=Gearbox
+tile.gearbox_advanced.name=Advanced Gearbox
+
+tile.crank_normal.name=Crank
+tile.crank_advanced.name=Advanced Crank
+
+item.rotameter.name=Rotameter
+
+tile.seizure_wool.name=Seizure Wool
+
+item.gear_wood.name=Wooden Gear
+item.gear_ebony.name=Ebony Gear
+item.gear_magic.name=Magic Gear
+item.gear_iron.name=Iron Gear
+item.gear_lasagne.name=Lasagne Gear
+item.gear_copper.name=Copper Gear
+item.gear_tin.name=Tin Gear
+item.gear_lead.name=Lead Gear
+item.gear_gold.name=Gold Gear
+item.gear_titanium.name=Titanium Gear
+item.gear_ruby.name=Ruby Gear
+item.gear_electrimite.name=Electrimite Gear
+item.gear_enderium.name=Enderium Gear
+
+mode.hammer_face.name=Face
+mode.hammer_direction.name=Direction
+
+text.output.name=Output
+text.input.name=Input
+text.speed.name=Speed
+text.torque.name=Torque
+
+message.mode.name=Mode changed to: 

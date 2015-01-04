@@ -35,7 +35,7 @@ public class TileEntityCrank extends TileEntity implements IRotaryOutput {
 				if (this.dir != this.chain.dir) {
 					this.rotate(this.dir);
 				}
-				this.setRotaryOutput(dir, new Rotation(69,69));
+				this.setRotaryOutput(dir, new Rotation(6969,6969));
 				RotaryManager.updateRotaryOutput(this, chain, this, dir);
 			}
 		}
@@ -45,10 +45,7 @@ public class TileEntityCrank extends TileEntity implements IRotaryOutput {
 	@Override
 	public void readFromNBT(NBTTagCompound tag) {
 		super.readFromNBT(tag);
-		int newDir = tag.getInteger("direction");
-		if (this.dir != newDir) {
-			this.rotate(newDir);
-		}
+		this.dir = tag.getInteger("direction");
 		RotaryManager.outputFromNBT(this, tag);
 	}
 

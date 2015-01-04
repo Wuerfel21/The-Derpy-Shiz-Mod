@@ -1,5 +1,6 @@
 package net.wuerfel21.derpyshiz.client;
 
+import net.minecraft.block.BlockHopper;
 import net.minecraft.client.renderer.Tessellator;
 import net.minecraft.client.renderer.texture.TextureMap;
 import net.minecraft.client.renderer.tileentity.TileEntitySpecialRenderer;
@@ -8,33 +9,28 @@ import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.IIcon;
 import net.wuerfel21.derpyshiz.Main;
 import net.wuerfel21.derpyshiz.blocks.BlockGearbox;
+import net.wuerfel21.derpyshiz.blocks.RotaryHousing;
 import net.wuerfel21.derpyshiz.entity.tile.TileEntityGearbox;
+import net.wuerfel21.derpyshiz.entity.tile.TileEntityHousing;
 
 import org.lwjgl.opengl.GL11;
 
 import cpw.mods.fml.common.registry.GameRegistry;
 
-public class RenderGearbox extends TileEntitySpecialRenderer {
+public class RenderHousing extends TileEntitySpecialRenderer {
 
-	public static final double wp = DerpyRenderHelper.wp;
-	public static final double wp2 = wp * 2;
-
-	public RenderGearbox() {
-		super();
-	}
-	
 	@Override
 	public void renderTileEntityAt(TileEntity tiletemp, double x, double y, double z, float f) {
-		TileEntityGearbox tile = (TileEntityGearbox) tiletemp;
+		TileEntityHousing tile = (TileEntityHousing) tiletemp;
 		this.bindTexture(TextureMap.locationBlocksTexture);
-		BlockGearbox block = null;
+		RotaryHousing block = null;
 		if (!tile.inInventory) {
-			block = (BlockGearbox) tile.getBlockType();
+			block = (RotaryHousing) tile.getBlockType();
 		}
 		
 		int meta = tile.getTier();
 		
-		IIcon[][] textures = new IIcon[][] {{Blocks.planks.getIcon(0, 5),Blocks.planks.getIcon(0, 2),Blocks.planks.getIcon(0, 0)},{GameRegistry.findBlock("derpyshiz", "block").getIcon(0, 2),Blocks.iron_block.getIcon(0, 0),Blocks.gold_block.getIcon(0, 0)}};
+		IIcon[][] textures = new IIcon[][] {{Blocks.planks.getIcon(0, 0),Blocks.planks.getIcon(0, 4)},{GameRegistry.findBlock("derpyshiz", "block").getIcon(0, 13),GameRegistry.findBlock("derpyshiz", "block").getIcon(0, 2)}};
 
 		Tessellator tessellator = Tessellator.instance;
 		GL11.glPushMatrix();
@@ -46,17 +42,11 @@ public class RenderGearbox extends TileEntitySpecialRenderer {
 		if (Main.fancyGearbox) {
 			RenderRotaryComponent.render(tessellator, textures[meta]);
 		} else {
-			// do nothing, ugly gearboxes are rendered by BlockGearbox
-		}
-		if (!tile.inInventory) {
-			if (Main.fancyGearbox) {
-				RotaryRender.fancyConnection(tessellator, textures[meta][2], block.overlay[0], tile.dir);
-			} else {
-				RotaryRender.uglyConnection(tessellator, block.overlay[0], tile.dir);
-			}
+			// do nothing, ugly housings are rendered by RotaryHousing
 		}
 		tessellator.draw();
 		GL11.glPopMatrix();
 	}
-
+	
+	
 }

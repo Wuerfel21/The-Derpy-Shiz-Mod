@@ -15,7 +15,7 @@ public class RotaryManager {
 		chain.updateChain(output, tile.getWorldObj(), output.getRotaryOutput(dir), tile.xCoord, tile.yCoord, tile.zCoord);
 	}
 	
-	public static void updateRotaryOutput(IRotaryInput input, TileEntity tile, int dir) {
+	public static void updateRotaryInput(IRotaryInput input, TileEntity tile, int dir) {
 		ForgeDirection direction = ForgeDirection.getOrientation(dir);
 		Block block = tile.getWorldObj().getBlock(tile.xCoord+direction.offsetX, tile.yCoord+direction.offsetY, tile.zCoord+direction.offsetZ);
 		TileEntity te = tile.getWorldObj().getTileEntity(tile.xCoord+direction.offsetX, tile.yCoord+direction.offsetY, tile.zCoord+direction.offsetZ);

@@ -1,9 +1,15 @@
 package net.wuerfel21.derpyshiz.items;
 
-import net.minecraft.creativetab.CreativeTabs;
-import net.minecraft.item.Item;
+import java.util.List;
 
-public class ItemRotameter extends Item {
+import net.minecraft.creativetab.CreativeTabs;
+import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.item.Item;
+import net.minecraft.item.ItemStack;
+import net.wuerfel21.derpyshiz.IModeItem;
+import net.wuerfel21.derpyshiz.ItemModeHelper;
+
+public class ItemRotameter extends Item implements IModeItem {
 	
 	public ItemRotameter() {
 		this.setTextureName("derpyshiz:rotameter");
@@ -11,6 +17,24 @@ public class ItemRotameter extends Item {
 		this.setFull3D();
 		this.setUnlocalizedName("rotameter");
 		this.setMaxStackSize(1);
+	}
+
+	@Override
+	public void addInformation(ItemStack stack, EntityPlayer player, List list, boolean whatever) {
+		super.addInformation(stack, player, list, whatever);
+		ItemModeHelper.displayMode(stack, list);
+	}
+	
+	public static final String[] modes = {"mode.hammer_face.name","mode.hammer_direction.name"};
+
+	@Override
+	public int getNumModes() {
+		return 2;
+	}
+
+	@Override
+	public String getModeName(int index) {
+		return modes[index];
 	}
 	
 }

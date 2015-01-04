@@ -5,7 +5,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraftforge.oredict.ShapedOreRecipe;
 import cpw.mods.fml.common.registry.GameRegistry;
 
-public class WoolCrafting {
+public abstract class WoolCrafting {
 	
 	public static ItemStack getPatternWool(int meta) {
 		return new ItemStack(GameRegistry.findBlock("derpyshiz", "pattern_wool"), 9, meta);

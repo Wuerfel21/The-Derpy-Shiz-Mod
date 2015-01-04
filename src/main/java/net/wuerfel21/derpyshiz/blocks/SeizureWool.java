@@ -32,6 +32,20 @@ public class SeizureWool extends Block implements ITileEntityProvider {
     }
 	
 	@Override
+	public boolean hasComparatorInputOverride() {
+		return true;
+	}
+	
+	@Override
+	public int getComparatorInputOverride(World world, int x, int y, int z, int p_149736_5_) {
+		TileEntity te = world.getTileEntity(x, y, z);
+		if (te instanceof TileEntitySeizureWool) {
+			return ((TileEntitySeizureWool)te).color;
+		}
+		return 0;
+	}
+	
+	@Override
 	public boolean isOpaqueCube() {return false;}
 	
 	@Override

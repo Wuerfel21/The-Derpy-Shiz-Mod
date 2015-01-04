@@ -90,7 +90,7 @@ public class AxisChain {
 			}
 		}
 		TileEntity t = world.getTileEntity(tilePos[0], tilePos[1], tilePos[2]);
-		if (t instanceof IRotaryInput) {
+		if (t != null && t instanceof IRotaryInput) {
 			((IRotaryInput)t).setRotaryInput(Main.reverseHelper[this.dir], new Rotation(0,0));
 		}
 	}
