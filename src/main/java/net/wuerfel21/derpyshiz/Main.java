@@ -55,7 +55,7 @@ public class Main {
     	idPiggycorn = UnsignedBytes.saturatedCast(config.getInt("idPiggycorn", "ids", 3, 0, 255, "The id of the piggycorn"));
     	idMagicBiome = UnsignedBytes.saturatedCast(config.getInt("idMagicBiome", "ids", 69, 0, 255, "The id of the Magic Forest"));
     	fancyGearbox = config.getBoolean("fancyGearbox", "client", true, "If gearboxes should be uber fancy");
-    	flashy = config.getBoolean("flashy", "client", true, "If flashing textures should be used. false also saves some performance when near such things.");
+    	flashy = config.getBoolean("flashy", "client", true, "If flashing textures should be used. false also saves some tiny bits of performance when near such things.");
     	config.save();
     	this.proxy.preInit(e);
     }
