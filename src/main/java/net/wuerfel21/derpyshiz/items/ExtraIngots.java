@@ -7,17 +7,15 @@ import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.IIcon;
-import net.wuerfel21.derpyshiz.blocks.DerpyOres;
 
-public class OreItems extends Item {
-
+public class ExtraIngots extends Item {
 	public IIcon[] icons = new IIcon[this.names.length];
 
-	public OreItems() {
+	public ExtraIngots() {
 		super();
 		this.setHasSubtypes(true);
 		this.setMaxDamage(0);
-		this.setUnlocalizedName("oi");
+		this.setUnlocalizedName("ei");
 		this.setCreativeTab(CreativeTabs.tabMaterials);
 	}
 
@@ -47,7 +45,7 @@ public class OreItems extends Item {
 
 	@Override
 	public void registerIcons(IIconRegister reg) {
-		for (int i = 0; i < this.names.length; i++) {
+		for (int i = 0; i < names.length; i++) {
 			this.icons[i] = reg.registerIcon("derpyshiz:" + names[i]);
 		}
 	}
@@ -57,6 +55,5 @@ public class OreItems extends Item {
 		return true;
 	}
 
-	public static final String[] names = { "chunk_amber", "fakediamond", "ingot_titanium", "ruby", "turquoise", "amethyst", "fluorite_brown", "fluorite_red", "fluorite_pink", "ingot_copper", "ingot_enderium", "ingot_electrimite", "gem_darkness", "ingot_tin", "ingot_lead", "gem_wuerfelium" };
-
+	public static final String[] names = { "ingot_fire", "ingot_water", "ingot_natural", "ingot_wind", "ingot_electritanium" };
 }

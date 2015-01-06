@@ -33,8 +33,10 @@ import net.wuerfel21.derpyshiz.items.DerpyHammer;
 import net.wuerfel21.derpyshiz.items.ItemRotameter;
 import net.wuerfel21.derpyshiz.rotary.IRotaryInput;
 import net.wuerfel21.derpyshiz.rotary.IRotaryOutput;
+import cpw.mods.fml.common.FMLCommonHandler;
 import cpw.mods.fml.common.eventhandler.Event;
 import cpw.mods.fml.common.eventhandler.SubscribeEvent;
+import cpw.mods.fml.common.gameevent.TickEvent;
 import cpw.mods.fml.common.registry.GameRegistry;
 
 public class DerpyEvents {
@@ -42,6 +44,7 @@ public class DerpyEvents {
 	public static void register() {
 		DerpyEvents derp = new DerpyEvents();
 		MinecraftForge.EVENT_BUS.register(derp);
+		FMLCommonHandler.instance().bus().register(derp);
 		derp.registerShiz();
 	}
 
@@ -87,7 +90,7 @@ public class DerpyEvents {
 	public void onInteract(PlayerInteractEvent event) {
 		if (event.action == event.action.RIGHT_CLICK_BLOCK && event.entityLiving.getHeldItem() != null) {
 			Block block = event.world.getBlock(event.x, event.y, event.z);
-			if (event.entityLiving.getHeldItem().getItem() instanceof DerpyHammer) {
+			if (event.entityLiving.getHeldItem().getItem().getToolClasses(event.entityLiving.getHeldItem()).contains("ds_hammer")) {
 				if (event.world.isRemote) {
 					event.entityLiving.swingItem();
 				} else {
@@ -98,14 +101,16 @@ public class DerpyEvents {
 						dir = Blocks.piston.determineOrientation(event.world, event.x, event.y, event.z, event.entityLiving);
 					}
 					if (block instanceof ISmashable) {
-						if (((ISmashable)event.world.getBlock(event.x, event.y, event.z)).smashed(event.world, event.x, event.y, event.z, dir)) return;;
+						if (((ISmashable) event.world.getBlock(event.x, event.y, event.z)).smashed(event.world, event.x, event.y, event.z, dir))
+							return;
+						;
 						event.world.markBlockForUpdate(event.x, event.y, event.z);
 						event.entityLiving.getHeldItem().damageItem(1, event.entityLiving);
 						event.world.playSoundEffect(event.x + 0.5d, event.y + 0.5d, event.z + 0.5d, "random.anvil_land", 1f, event.world.rand.nextFloat() * 0.1f + 0.9f);
 					} else if (block instanceof BlockPistonBase) {
 						int meta = event.world.getBlockMetadata(event.x, event.y, event.z);
 						int newDir = dir;
-						if (newDir == (meta & 7)) {
+						if (newDir == (meta & 7) || (meta & 8) != 0) {
 							return;
 						}
 						event.world.setBlockMetadataWithNotify(event.x, event.y, event.z, newDir | (meta & 8), 3);
@@ -188,24 +193,14 @@ public class DerpyEvents {
 				} else {
 					side = Blocks.piston.determineOrientation(event.world, event.x, event.y, event.z, event.entityLiving);
 				}
-				IChatComponent c = new ChatComponentText("[")
-					.appendSibling(new ChatComponentTranslation(event.entityLiving.getHeldItem().getUnlocalizedName()+".name"))
-					.appendText("] ");
+				IChatComponent c = new ChatComponentText("[").appendSibling(new ChatComponentTranslation(event.entityLiving.getHeldItem().getUnlocalizedName() + ".name")).appendText("] ");
 				TileEntity t = event.world.getTileEntity(event.x, event.y, event.z);
 				if (t instanceof IRotaryOutput && ((IRotaryOutput) t).isOutputFace(side)) {
 					IRotaryOutput o = (IRotaryOutput) t;
-					c = c.appendSibling(new ChatComponentTranslation("text.output.name"))
-							.appendText(": ").appendSibling(new ChatComponentTranslation("text.speed.name"))
-							.appendText(": "+Integer.toString(o.getRotaryOutput(side).speed)+" ")
-							.appendSibling(new ChatComponentTranslation("text.torque.name"))
-							.appendText(": "+Integer.toString(o.getRotaryOutput(side).torque));
+					c = c.appendSibling(new ChatComponentTranslation("text.output.name")).appendText(": ").appendSibling(new ChatComponentTranslation("text.speed.name")).appendText(": " + Integer.toString(o.getRotaryOutput(side).speed) + " ").appendSibling(new ChatComponentTranslation("text.torque.name")).appendText(": " + Integer.toString(o.getRotaryOutput(side).torque));
 				} else if (t instanceof IRotaryInput && ((IRotaryInput) t).isInputFace(side)) {
 					IRotaryInput i = (IRotaryInput) t;
-					c = c.appendSibling(new ChatComponentTranslation("text.input.name"))
-							.appendText(": ").appendSibling(new ChatComponentTranslation("text.speed.name"))
-							.appendText(": "+Integer.toString(i.getRotaryInput(side).speed)+" ")
-							.appendSibling(new ChatComponentTranslation("text.torque.name"))
-							.appendText(": "+Integer.toString(i.getRotaryInput(side).torque));
+					c = c.appendSibling(new ChatComponentTranslation("text.input.name")).appendText(": ").appendSibling(new ChatComponentTranslation("text.speed.name")).appendText(": " + Integer.toString(i.getRotaryInput(side).speed) + " ").appendSibling(new ChatComponentTranslation("text.torque.name")).appendText(": " + Integer.toString(i.getRotaryInput(side).torque));
 				} else {
 					return;
 				}
@@ -217,10 +212,10 @@ public class DerpyEvents {
 	@SubscribeEvent
 	public void onSpawn(LivingSpawnEvent event) {
 		if (event.entity instanceof EntityPiggycorn && event.world.rand.nextInt(100) == 0) {
-			((EntityPiggycorn)event.entityLiving).setCustomNameTag("Ralph");
+			((EntityPiggycorn) event.entityLiving).setCustomNameTag("Ralph");
 		}
 	}
-	
+
 	@SubscribeEvent
 	public void onLivingDrop(LivingDropsEvent event) {
 		if (event.entityLiving instanceof EntityHorse && !event.entityLiving.isChild()) {
@@ -228,6 +223,13 @@ public class DerpyEvents {
 		}
 	}
 
+	@SubscribeEvent
+	public void onClientTick(TickEvent.ClientTickEvent event) {
+		if (Main.flashy && ClientProxy.inventorySeizureWool != null) {
+			ClientProxy.inventorySeizureWool.updateRand();
+		}
+	}
+	
 	public static WoodStack[] dropsHand;
 	public static WoodStack[][] dropsPerLevel;
 

@@ -30,7 +30,7 @@ public class TileEntitySeizureWool extends TileEntity {
 		}
 	}
 
-	protected void updateRand() {
+	public void updateRand() {
 		this.color = rand.nextInt(16);
 	}
 

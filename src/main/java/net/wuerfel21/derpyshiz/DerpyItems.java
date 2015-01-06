@@ -11,12 +11,15 @@ import net.wuerfel21.derpyshiz.items.DarkCloak;
 import net.wuerfel21.derpyshiz.items.DarkSword;
 import net.wuerfel21.derpyshiz.items.DerpyArmor;
 import net.wuerfel21.derpyshiz.items.DerpyAxe;
+import net.wuerfel21.derpyshiz.items.DerpyCircuits;
 import net.wuerfel21.derpyshiz.items.DerpyGears;
 import net.wuerfel21.derpyshiz.items.DerpyHammer;
 import net.wuerfel21.derpyshiz.items.DerpyHoe;
+import net.wuerfel21.derpyshiz.items.DerpyNuggets;
 import net.wuerfel21.derpyshiz.items.DerpyPickaxe;
 import net.wuerfel21.derpyshiz.items.DerpyShovel;
 import net.wuerfel21.derpyshiz.items.DerpySword;
+import net.wuerfel21.derpyshiz.items.ExtraIngots;
 import net.wuerfel21.derpyshiz.items.HorseLasagne;
 import net.wuerfel21.derpyshiz.items.ItemRotameter;
 import net.wuerfel21.derpyshiz.items.ItemTDM;
@@ -25,7 +28,7 @@ import net.wuerfel21.derpyshiz.items.WuerfeliumPickaxe;
 import net.wuerfel21.derpyshiz.items.WuerfeliumSword;
 import cpw.mods.fml.common.registry.GameRegistry;
 
-public class DerpyItems {
+public abstract class DerpyItems {
 	public static ToolMaterial TITANIUM;
 	public static ToolMaterial RUBY;
 	public static ToolMaterial AMETHYST;
@@ -54,6 +57,7 @@ public class DerpyItems {
 	public static Item shearIcon;
 	public static Item derpyShears;
 	public static Item oreItems;
+	public static Item extraIngots;
 	
 	public static final void init() {
 		TITANIUM = EnumHelper.addToolMaterial("TITANIUM", 2, 1000, 5.75f, 2.25f, 10);
@@ -82,7 +86,9 @@ public class DerpyItems {
 		ARMOR_DARK_CLOAK = EnumHelper.addArmorMaterial("ARMOR_DARK_CLOAK", 20, new int[]{0, 3, 0, 0}, 7);
 		
 		oreItems = new OreItems();
+		extraIngots = new ExtraIngots();
 		GameRegistry.registerItem(oreItems, "ore_item");
+		GameRegistry.registerItem(extraIngots, "extra_ingot");
 		
 		GameRegistry.registerItem(new DerpyHammer(ToolMaterial.IRON).setTextureName("derpyshiz:hammer").setUnlocalizedName("hammer"), "hammer");
 		
@@ -157,8 +163,11 @@ public class DerpyItems {
 		
 		GameRegistry.registerItem(new HorseLasagne(), "lasagne");
 		
+		GameRegistry.registerItem(new DerpyNuggets(), "nugget");
 		GameRegistry.registerItem(new DerpyGears(), "gear");
 		GameRegistry.registerItem(new ItemRotameter(), "rotameter");
+		
+		GameRegistry.registerItem(new DerpyCircuits(), "circuit");
 		
 		GameRegistry.registerItem(new ItemTDM(), "tdm");
 	}

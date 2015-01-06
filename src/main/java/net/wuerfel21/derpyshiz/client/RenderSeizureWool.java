@@ -17,7 +17,6 @@ public class RenderSeizureWool extends TileEntitySpecialRenderer {
 	public void renderTileEntityAt(TileEntity tiletemp, double x, double y, double z, float f) {
 		TileEntitySeizureWool tile = (TileEntitySeizureWool) tiletemp;
 		this.bindTexture(TextureMap.locationBlocksTexture);
-		SeizureWool block = (SeizureWool) tile.getBlockType();
 		IIcon[] wool = new IIcon[16];
 		for(int i=0;i<16;i++) {
 			wool[i] = Blocks.wool.getIcon(0, i);

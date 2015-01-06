@@ -2,9 +2,11 @@ package net.wuerfel21.derpyshiz.blocks;
 
 import java.util.Random;
 
+import cpw.mods.fml.common.Loader;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.block.BlockTorch;
+import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 
 public class DerpyTorch extends BlockTorch {
@@ -12,10 +14,15 @@ public class DerpyTorch extends BlockTorch {
 	public String smoke;
 	public String flame;
 	
-	public DerpyTorch(String f, String s) {
+	public DerpyTorch(String f, String s,int clcColor) {
 		super();
 		flame = f;
 		smoke = s;
+		if (Loader.isModLoaded("coloredlightscore")) {
+			this.lightValue = clcColor;
+		} else {
+			this.setLightLevel(0.9375F);
+		}
 	}
 	
 	@Override

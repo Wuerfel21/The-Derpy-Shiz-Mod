@@ -35,12 +35,12 @@ import net.wuerfel21.derpyshiz.blocks.itemblock.ItemSapling;
 import cpw.mods.fml.common.registry.GameRegistry;
 
 public class DerpyBlocks {
-	
+
 	public static Block housing;
 	public static Block gearbox;
 	public static Block seizureWool;
 	public static Block millstone;
-	
+
 	public static final void init() {
 		GameRegistry.registerBlock(new PatternWool(), ItemPatternWool.class, "pattern_wool");
 		GameRegistry.registerBlock(new PatternCarpet(), ItemPatternWool.class, "pattern_carpet");
@@ -49,9 +49,9 @@ public class DerpyBlocks {
 		GameRegistry.registerBlock(new DerpyOres(), ItemOre.class, "ore");
 		GameRegistry.registerBlock(new DecoBlocks(), ItemDecoBlock.class, "block");
 		GameRegistry.registerBlock(new LightBlocks(), ItemLamp.class, "lamp");
-		GameRegistry.registerBlock(new DerpyTorch("reddust","portal").setHardness(0.0F).setLightLevel(0.9375F).setStepSound(Block.soundTypeWood).setBlockName("torch_fluorite_red").setBlockTextureName("derpyshiz:torch_fluorite_red"), "torch_fluorite_red");
-		GameRegistry.registerBlock(new DerpyTorch("spell","slime").setHardness(0.0F).setLightLevel(0.9375F).setStepSound(Block.soundTypeWood).setBlockName("torch_fluorite_green").setBlockTextureName("derpyshiz:torch_fluorite_green"), "torch_fluorite_green");
-		GameRegistry.registerBlock(new DerpyTorch("magicCrit","splash").setHardness(0.0F).setLightLevel(0.9375F).setStepSound(Block.soundTypeWood).setBlockName("torch_fluorite_blue").setBlockTextureName("derpyshiz:torch_fluorite_blue"), "torch_fluorite_blue");
+		GameRegistry.registerBlock(new DerpyTorch("reddust", "portal",ColoredLightHelper.makeRGBLightValue(14, 0, 0, 14)).setHardness(0.0F).setStepSound(Block.soundTypeWood).setBlockName("torch_fluorite_red").setBlockTextureName("derpyshiz:torch_fluorite_red"), "torch_fluorite_red");
+		GameRegistry.registerBlock(new DerpyTorch("spell", "slime",ColoredLightHelper.makeRGBLightValue(0, 14, 0, 14)).setHardness(0.0F).setStepSound(Block.soundTypeWood).setBlockName("torch_fluorite_green").setBlockTextureName("derpyshiz:torch_fluorite_green"), "torch_fluorite_green");
+		GameRegistry.registerBlock(new DerpyTorch("magicCrit", "splash",ColoredLightHelper.makeRGBLightValue(0, 0, 14, 14)).setHardness(0.0F).setStepSound(Block.soundTypeWood).setBlockName("torch_fluorite_blue").setBlockTextureName("derpyshiz:torch_fluorite_blue"), "torch_fluorite_blue");
 		GameRegistry.registerBlock(new DerpyLogs().setBlockName("log").setBlockTextureName("derpyshiz:log"), ItemLogs.class, "log");
 		Blocks.fire.setFireInfo(GameRegistry.findBlock("derpyshiz", "log"), 5, 5);
 		GameRegistry.registerBlock(new DerpyPlanks().setHardness(2.0F).setResistance(5.0F).setStepSound(Block.soundTypeWood).setBlockName("planks").setBlockTextureName("derpyshiz:planks"), ItemLogs.class, "plank");
@@ -63,14 +63,14 @@ public class DerpyBlocks {
 		GameRegistry.registerBlock(new KewlBush(), "kewl_bush");
 		GameRegistry.registerBlock(new DerpySaplings(), ItemSapling.class, "sapling");
 		GameRegistry.registerBlock(new BlockLasagne(), "block_lasagne");
-		
+
 		GameRegistry.registerBlock(new BlockAxis(), "axis");
 		GameRegistry.registerBlock(housing = new RotaryHousing(), ItemHousing.class, "housing");
 		GameRegistry.registerBlock(gearbox = new BlockGearbox(), ItemGearbox.class, "gearbox");
 		GameRegistry.registerBlock(new BlockCrank(), "crank");
 		GameRegistry.registerBlock(millstone = new BlockMillstone(), "millstone");
-		
+
 		GameRegistry.registerBlock(seizureWool = new SeizureWool(), "seizure_wool");
 	}
-	
+
 }
