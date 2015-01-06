@@ -37,6 +37,7 @@ public class Main {
     public static int idMagicBiome;
     public static boolean fancyGearbox;
     public static boolean flashy;
+    public static boolean checkForUpdates;
     
     public static SimpleNetworkWrapper derpnet;
     
@@ -56,6 +57,7 @@ public class Main {
     	idMagicBiome = UnsignedBytes.saturatedCast(config.getInt("idMagicBiome", "ids", 69, 0, 255, "The id of the Magic Forest"));
     	fancyGearbox = config.getBoolean("fancyGearbox", "client", true, "If gearboxes should be uber fancy");
     	flashy = config.getBoolean("flashy", "client", true, "If flashing textures should be used. false also saves some tiny bits of performance when near such things.");
+    	checkForUpdates = config.getBoolean("checkForUpdates", "shiz", true, "Wheter to check for updates or not");
     	config.save();
     	this.proxy.preInit(e);
     }
