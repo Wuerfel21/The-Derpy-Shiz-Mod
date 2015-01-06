@@ -177,17 +177,17 @@ item.dark_cloak.name=Dark Cloak
 tile.coarsestone_normal.name=Coarse Stone
 tile.coarsestone_framed.name=Framed Coarse Stone
 
-entity.piggycorn.name=Piggycorn
+entity.piggycorn.name=pink flufy pigycorn
 
 tile.snowflake_obsidian.name=Snowflake Obsidian
 
-item.horn.name=Piggycorn horn
+item.horn.name=hrn o' pink flufy pigycorn
 
-tile.kewl_bush.name=Kewl Bush
+tile.kewl_bush.name=kewlbush
 
 item.lasagne.name=tacco
 
-tile.axis.name=Axis
+tile.axis.name=fencesticktacco
 
 tile.gearbox_normal.name=Gearbox
 tile.gearbox_advanced.name=Advanced Gearbox
@@ -213,12 +213,12 @@ item.gear_ruby.name=Ruby Gear
 item.gear_electrimite.name=Electrimite Gear
 item.gear_enderium.name=Enderium Gear
 
-mode.hammer_face.name=Face
-mode.hammer_direction.name=Direction
+mode.hammer_face.name=fce
+mode.hammer_direction.name=Dirction
 
 text.output.name=Output
 text.input.name=Input
 text.speed.name=Speed
 text.torque.name=Torque
 
-message.mode.name=Mode changed to: 
+message.mode.name=mod chngd 2: 
