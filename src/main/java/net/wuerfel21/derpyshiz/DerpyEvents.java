@@ -1,5 +1,8 @@
 package net.wuerfel21.derpyshiz;
 
+import java.io.InputStream;
+import java.net.URL;
+
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockDispenser;
 import net.minecraft.block.BlockFurnace;
@@ -10,10 +13,12 @@ import net.minecraft.block.BlockRedstoneDiode;
 import net.minecraft.block.BlockStairs;
 import net.minecraft.block.material.Material;
 import net.minecraft.entity.passive.EntityHorse;
+import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
+import net.minecraft.server.MinecraftServer;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.ChatComponentText;
 import net.minecraft.util.ChatComponentTranslation;
@@ -24,18 +29,20 @@ import net.minecraftforge.event.entity.living.LivingSpawnEvent;
 import net.minecraftforge.event.entity.player.PlayerEvent;
 import net.minecraftforge.event.entity.player.PlayerInteractEvent;
 import net.minecraftforge.event.world.BlockEvent.HarvestDropsEvent;
-import net.wuerfel21.derpyshiz.blocks.BlockAxis;
-import net.wuerfel21.derpyshiz.blocks.BlockGearbox;
 import net.wuerfel21.derpyshiz.blocks.DerpyOres;
 import net.wuerfel21.derpyshiz.entity.EntityPiggycorn;
-import net.wuerfel21.derpyshiz.entity.tile.TileEntityGearbox;
-import net.wuerfel21.derpyshiz.items.DerpyHammer;
 import net.wuerfel21.derpyshiz.items.ItemRotameter;
 import net.wuerfel21.derpyshiz.rotary.IRotaryInput;
 import net.wuerfel21.derpyshiz.rotary.IRotaryOutput;
+
+import org.apache.commons.io.IOUtils;
+
+import scala.collection.immutable.Stream;
 import cpw.mods.fml.common.FMLCommonHandler;
+import cpw.mods.fml.common.FMLLog;
 import cpw.mods.fml.common.eventhandler.Event;
 import cpw.mods.fml.common.eventhandler.SubscribeEvent;
+import cpw.mods.fml.common.gameevent.PlayerEvent.PlayerLoggedInEvent;
 import cpw.mods.fml.common.gameevent.TickEvent;
 import cpw.mods.fml.common.registry.GameRegistry;
 
@@ -210,16 +217,16 @@ public class DerpyEvents {
 	}
 
 	@SubscribeEvent
-	public void onSpawn(LivingSpawnEvent event) {
-		if (event.entity instanceof EntityPiggycorn && event.world.rand.nextInt(100) == 0) {
-			((EntityPiggycorn) event.entityLiving).setCustomNameTag("Ralph");
-		}
-	}
-
-	@SubscribeEvent
 	public void onLivingDrop(LivingDropsEvent event) {
 		if (event.entityLiving instanceof EntityHorse && !event.entityLiving.isChild()) {
 			event.entityLiving.dropItem(GameRegistry.findItem("derpyshiz", "lasagne"), 2 + event.lootingLevel);
+		}
+	}
+	
+	@SubscribeEvent
+	public void onJoin(PlayerLoggedInEvent event) {
+		if (Main.checkForUpdates && (!event.player.worldObj.isRemote) /*&& MinecraftServer.getServer().isSinglePlayer()*/) {
+			new UpdateChecker(event.player).run();
 		}
 	}
 
@@ -229,7 +236,7 @@ public class DerpyEvents {
 			ClientProxy.inventorySeizureWool.updateRand();
 		}
 	}
-	
+
 	public static WoodStack[] dropsHand;
 	public static WoodStack[][] dropsPerLevel;
 
@@ -251,4 +258,30 @@ public class DerpyEvents {
 
 	}
 
+	public class UpdateChecker extends Thread {
+
+		public EntityPlayer player;
+
+		public UpdateChecker(EntityPlayer p) {
+			super();
+			this.player = p;
+		}
+
+		@Override
+		public void run() {
+			try {
+				URL updateUrl = new URL(Main.updateURL);
+				InputStream stream = updateUrl.openStream();
+				String updatedVersion = IOUtils.toString(stream);
+				stream.close();
+				updatedVersion = updatedVersion.replaceAll("", "");
+				if (!updatedVersion.equals(Main.VERSION)) {
+					this.player.addChatComponentMessage(new ChatComponentText("[Wuerfel_21] Hey, " + this.player.getGameProfile().getName() + ", you know, theres an update for The Derpy Shiz Mod! you should be able to download it! If you dont like me chatting with you about updates, you can disable update checking in the config! Your Version: " + Main.VERSION + ", Updated Version: " + updatedVersion));
+				}
+			} catch (Exception e) {
+				FMLLog.warning("[Wuerfel_21] Something definitly wrent wrong ..." + e.toString());
+				return;
+			}
+		}
+	}
 }

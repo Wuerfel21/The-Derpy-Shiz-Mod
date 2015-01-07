@@ -38,6 +38,7 @@ public class Main {
     public static boolean fancyGearbox;
     public static boolean flashy;
     public static boolean checkForUpdates;
+    public static String updateURL;
     
     public static SimpleNetworkWrapper derpnet;
     
@@ -57,7 +58,8 @@ public class Main {
     	idMagicBiome = UnsignedBytes.saturatedCast(config.getInt("idMagicBiome", "ids", 69, 0, 255, "The id of the Magic Forest"));
     	fancyGearbox = config.getBoolean("fancyGearbox", "client", true, "If gearboxes should be uber fancy");
     	flashy = config.getBoolean("flashy", "client", true, "If flashing textures should be used. false also saves some tiny bits of performance when near such things.");
-    	checkForUpdates = config.getBoolean("checkForUpdates", "shiz", true, "Wheter to check for updates or not");
+    	checkForUpdates = config.getBoolean("checkForUpdates", "updates", true, "Wheter to check for updates or not");
+    	updateURL = config.getString("updateURL", "updates", "https://raw.githubusercontent.com/Wuerfel21/The-Derpy-Shiz-Mod/master/currentVersion.thisIsUsedForUpdateChecking", "where to check for updates. dont change unless you know what a tacco is.");
     	config.save();
     	this.proxy.preInit(e);
     }
