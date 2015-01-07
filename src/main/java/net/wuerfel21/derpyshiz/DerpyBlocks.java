@@ -70,8 +70,10 @@ public class DerpyBlocks {
 		GameRegistry.registerBlock(stairs[1] = new DerpyStairs(plank, 1).setBlockName("stairs_magic"), "stairs_magic");
 		Blocks.fire.setFireInfo(stairs[0], 5, 20);
 		Blocks.fire.setFireInfo(stairs[1], 5, 20);
-		GameRegistry.registerBlock(slab = new DerpySlabs(false, Material.wood), ItemDerpySlab.class, "slab", slab, slabDouble, false);
-		GameRegistry.registerBlock(slabDouble = new DerpySlabs(true, Material.wood), ItemDerpySlab.class, "slab_double", slab, slabDouble, false);
+		slab = new DerpySlabs(false, Material.wood);
+		slabDouble = new DerpySlabs(true, Material.wood);
+		GameRegistry.registerBlock(slab, ItemDerpySlab.class, "slab", slab, slabDouble, false);
+		GameRegistry.registerBlock(slabDouble, ItemDerpySlab.class, "slab_double", slab, slabDouble, true);
 		Blocks.fire.setFireInfo(slab, 5, 20);
 		Blocks.fire.setFireInfo(slabDouble, 5, 20);
 		GameRegistry.registerBlock(new CoarseStone(), ItemCoarseStone.class, "coarse_stone");
