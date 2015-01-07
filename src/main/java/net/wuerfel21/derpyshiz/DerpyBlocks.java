@@ -1,7 +1,9 @@
 package net.wuerfel21.derpyshiz;
 
 import net.minecraft.block.Block;
+import net.minecraft.block.material.Material;
 import net.minecraft.init.Blocks;
+import net.minecraft.item.ItemSlab;
 import net.wuerfel21.derpyshiz.blocks.BlockAxis;
 import net.wuerfel21.derpyshiz.blocks.BlockCrank;
 import net.wuerfel21.derpyshiz.blocks.BlockGearbox;
@@ -14,6 +16,8 @@ import net.wuerfel21.derpyshiz.blocks.DerpyLogs;
 import net.wuerfel21.derpyshiz.blocks.DerpyOres;
 import net.wuerfel21.derpyshiz.blocks.DerpyPlanks;
 import net.wuerfel21.derpyshiz.blocks.DerpySaplings;
+import net.wuerfel21.derpyshiz.blocks.DerpySlabs;
+import net.wuerfel21.derpyshiz.blocks.DerpyStairs;
 import net.wuerfel21.derpyshiz.blocks.DerpyTorch;
 import net.wuerfel21.derpyshiz.blocks.KewlBush;
 import net.wuerfel21.derpyshiz.blocks.LightBlocks;
@@ -24,6 +28,7 @@ import net.wuerfel21.derpyshiz.blocks.SeizureWool;
 import net.wuerfel21.derpyshiz.blocks.SnowflakeObsidian;
 import net.wuerfel21.derpyshiz.blocks.itemblock.ItemCoarseStone;
 import net.wuerfel21.derpyshiz.blocks.itemblock.ItemDecoBlock;
+import net.wuerfel21.derpyshiz.blocks.itemblock.ItemDerpySlab;
 import net.wuerfel21.derpyshiz.blocks.itemblock.ItemGearbox;
 import net.wuerfel21.derpyshiz.blocks.itemblock.ItemHousing;
 import net.wuerfel21.derpyshiz.blocks.itemblock.ItemLamp;
@@ -36,6 +41,11 @@ import cpw.mods.fml.common.registry.GameRegistry;
 
 public class DerpyBlocks {
 
+	public static Block log;
+	public static Block plank;
+	public static Block[] stairs = new Block[2];
+	public static Block slab;
+	public static Block slabDouble;
 	public static Block housing;
 	public static Block gearbox;
 	public static Block seizureWool;
@@ -49,13 +59,21 @@ public class DerpyBlocks {
 		GameRegistry.registerBlock(new DerpyOres(), ItemOre.class, "ore");
 		GameRegistry.registerBlock(new DecoBlocks(), ItemDecoBlock.class, "block");
 		GameRegistry.registerBlock(new LightBlocks(), ItemLamp.class, "lamp");
-		GameRegistry.registerBlock(new DerpyTorch("reddust", "portal",ColoredLightHelper.makeRGBLightValue(14, 0, 0, 14)).setHardness(0.0F).setStepSound(Block.soundTypeWood).setBlockName("torch_fluorite_red").setBlockTextureName("derpyshiz:torch_fluorite_red"), "torch_fluorite_red");
-		GameRegistry.registerBlock(new DerpyTorch("spell", "slime",ColoredLightHelper.makeRGBLightValue(0, 14, 0, 14)).setHardness(0.0F).setStepSound(Block.soundTypeWood).setBlockName("torch_fluorite_green").setBlockTextureName("derpyshiz:torch_fluorite_green"), "torch_fluorite_green");
-		GameRegistry.registerBlock(new DerpyTorch("magicCrit", "splash",ColoredLightHelper.makeRGBLightValue(0, 0, 14, 14)).setHardness(0.0F).setStepSound(Block.soundTypeWood).setBlockName("torch_fluorite_blue").setBlockTextureName("derpyshiz:torch_fluorite_blue"), "torch_fluorite_blue");
-		GameRegistry.registerBlock(new DerpyLogs().setBlockName("log").setBlockTextureName("derpyshiz:log"), ItemLogs.class, "log");
-		Blocks.fire.setFireInfo(GameRegistry.findBlock("derpyshiz", "log"), 5, 5);
-		GameRegistry.registerBlock(new DerpyPlanks().setHardness(2.0F).setResistance(5.0F).setStepSound(Block.soundTypeWood).setBlockName("planks").setBlockTextureName("derpyshiz:planks"), ItemLogs.class, "plank");
-		Blocks.fire.setFireInfo(GameRegistry.findBlock("derpyshiz", "plank"), 5, 20);
+		GameRegistry.registerBlock(new DerpyTorch("reddust", "portal", ColoredLightHelper.makeRGBLightValue(14, 0, 0, 14)).setHardness(0.0F).setStepSound(Block.soundTypeWood).setBlockName("torch_fluorite_red").setBlockTextureName("derpyshiz:torch_fluorite_red"), "torch_fluorite_red");
+		GameRegistry.registerBlock(new DerpyTorch("spell", "slime", ColoredLightHelper.makeRGBLightValue(0, 14, 0, 14)).setHardness(0.0F).setStepSound(Block.soundTypeWood).setBlockName("torch_fluorite_green").setBlockTextureName("derpyshiz:torch_fluorite_green"), "torch_fluorite_green");
+		GameRegistry.registerBlock(new DerpyTorch("magicCrit", "splash", ColoredLightHelper.makeRGBLightValue(0, 0, 14, 14)).setHardness(0.0F).setStepSound(Block.soundTypeWood).setBlockName("torch_fluorite_blue").setBlockTextureName("derpyshiz:torch_fluorite_blue"), "torch_fluorite_blue");
+		GameRegistry.registerBlock(log = new DerpyLogs().setBlockName("log").setBlockTextureName("derpyshiz:log"), ItemLogs.class, "log");
+		Blocks.fire.setFireInfo(log, 5, 5);
+		GameRegistry.registerBlock(plank = new DerpyPlanks().setHardness(2.0F).setResistance(5.0F).setStepSound(Block.soundTypeWood).setBlockName("planks").setBlockTextureName("derpyshiz:planks"), ItemLogs.class, "plank");
+		Blocks.fire.setFireInfo(plank, 5, 20);
+		GameRegistry.registerBlock(stairs[0] = new DerpyStairs(plank, 0).setBlockName("stairs_ebony"), "stairs_ebony");
+		GameRegistry.registerBlock(stairs[1] = new DerpyStairs(plank, 1).setBlockName("stairs_magic"), "stairs_magic");
+		Blocks.fire.setFireInfo(stairs[0], 5, 20);
+		Blocks.fire.setFireInfo(stairs[1], 5, 20);
+		GameRegistry.registerBlock(slab = new DerpySlabs(false, Material.wood), ItemDerpySlab.class, "slab", slab, slabDouble, false);
+		GameRegistry.registerBlock(slabDouble = new DerpySlabs(true, Material.wood), ItemDerpySlab.class, "slab_double", slab, slabDouble, false);
+		Blocks.fire.setFireInfo(slab, 5, 20);
+		Blocks.fire.setFireInfo(slabDouble, 5, 20);
 		GameRegistry.registerBlock(new CoarseStone(), ItemCoarseStone.class, "coarse_stone");
 		GameRegistry.registerBlock(new SnowflakeObsidian(), "snowflake_obsidian");
 		GameRegistry.registerBlock(new DerpyLeaves().setBlockName("leaves"), ItemLeaves.class, "leaves");
