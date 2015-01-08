@@ -12,6 +12,7 @@ import net.wuerfel21.derpyshiz.items.DarkSword;
 import net.wuerfel21.derpyshiz.items.DerpyArmor;
 import net.wuerfel21.derpyshiz.items.DerpyAxe;
 import net.wuerfel21.derpyshiz.items.DerpyCircuits;
+import net.wuerfel21.derpyshiz.items.DerpyDusts;
 import net.wuerfel21.derpyshiz.items.DerpyGears;
 import net.wuerfel21.derpyshiz.items.DerpyHammer;
 import net.wuerfel21.derpyshiz.items.DerpyHoe;
@@ -58,6 +59,7 @@ public abstract class DerpyItems {
 	public static Item derpyShears;
 	public static Item oreItems;
 	public static Item extraIngots;
+	public static Item dusts;
 	
 	public static final void init() {
 		TITANIUM = EnumHelper.addToolMaterial("TITANIUM", 2, 1000, 5.75f, 2.25f, 10);
@@ -85,10 +87,10 @@ public abstract class DerpyItems {
 		
 		ARMOR_DARK_CLOAK = EnumHelper.addArmorMaterial("ARMOR_DARK_CLOAK", 20, new int[]{0, 3, 0, 0}, 7);
 		
-		oreItems = new OreItems();
-		extraIngots = new ExtraIngots();
-		GameRegistry.registerItem(oreItems, "ore_item");
-		GameRegistry.registerItem(extraIngots, "extra_ingot");
+		GameRegistry.registerItem(oreItems = new OreItems(), "ore_item");
+		GameRegistry.registerItem(extraIngots = new ExtraIngots(), "extra_ingot");
+		GameRegistry.registerItem(dusts = new DerpyDusts(), "dust");
+		
 		
 		GameRegistry.registerItem(new DerpyHammer(ToolMaterial.IRON).setTextureName("derpyshiz:hammer").setUnlocalizedName("hammer"), "hammer");
 		

@@ -40,7 +40,7 @@ public class TileEntityGearbox extends TileEntity implements IRotaryInput, IRota
 				if (this.dir != this.chain.dir) {
 					this.rotate(this.dir);
 				}
-				for (int i=0;i<6;i++) {
+				for (int i = 0; i < 6; i++) {
 					if (this.isInputFace(i)) {
 						RotaryManager.updateRotaryInput(this, this, i);
 					}
@@ -50,7 +50,7 @@ public class TileEntityGearbox extends TileEntity implements IRotaryInput, IRota
 				if (r.isValid()) {
 					this.setRotaryOutput(this.dir, r);
 				} else {
-					this.setRotaryOutput(this.dir, new Rotation(0,0));
+					this.setRotaryOutput(this.dir, new Rotation(0, 0));
 				}
 				RotaryManager.updateRotaryOutput(this, chain, this, dir);
 			}
@@ -70,16 +70,19 @@ public class TileEntityGearbox extends TileEntity implements IRotaryInput, IRota
 	public void readFromNBT(NBTTagCompound tag) {
 		super.readFromNBT(tag);
 		this.dir = tag.getInteger("direction");
-		RotaryManager.inputFromNBT(this, tag);
-		RotaryManager.outputFromNBT(this, tag);
+		NBTTagCompound rotary = tag.getCompoundTag("rotary");
+		RotaryManager.inputFromNBT(this, rotary);
+		RotaryManager.outputFromNBT(this, rotary);
 	}
 
 	@Override
 	public void writeToNBT(NBTTagCompound tag) {
 		super.writeToNBT(tag);
 		tag.setInteger("direction", dir);
-		tag.setTag("input", RotaryManager.inputToNBT(this));
-		tag.setTag("output", RotaryManager.outputToNBT(this));
+		NBTTagCompound rotary = new NBTTagCompound();
+		rotary.setTag("input", RotaryManager.inputToNBT(this));
+		rotary.setTag("output", RotaryManager.outputToNBT(this));
+		tag.setTag("rotary", rotary);
 	}
 
 	@Override
@@ -95,10 +98,6 @@ public class TileEntityGearbox extends TileEntity implements IRotaryInput, IRota
 		tag.setInteger("direction", dir);
 		tag.setInteger("speed", this.output.speed);
 		return new S35PacketUpdateTileEntity(this.xCoord, this.yCoord, this.zCoord, 1, tag);
-	}
-
-	public String getName() {
-		return "ds_gearbox";
 	}
 
 	@Override

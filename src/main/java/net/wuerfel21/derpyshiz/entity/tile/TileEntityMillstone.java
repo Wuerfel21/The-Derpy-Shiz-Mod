@@ -3,6 +3,8 @@ package net.wuerfel21.derpyshiz.entity.tile;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.inventory.ISidedInventory;
 import net.minecraft.item.ItemStack;
+import net.minecraft.nbt.NBTTagCompound;
+import net.minecraft.nbt.NBTUtil;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.StatCollector;
 
@@ -48,6 +50,31 @@ public class TileEntityMillstone extends TileEntity implements ISidedInventory {
 	@Override
 	public ItemStack getStackInSlotOnClosing(int slot) {
 		return null;
+	}
+
+	@Override
+	public void writeToNBT(NBTTagCompound tag) {
+		super.writeToNBT(tag);
+		NBTTagCompound inventory = new NBTTagCompound();
+		if (stacks[0] != null)
+			inventory.setTag("input", stacks[0].writeToNBT(new NBTTagCompound()));
+		else
+			inventory.removeTag("input");
+		if (stacks[1] != null)
+			inventory.setTag("output", stacks[1].writeToNBT(new NBTTagCompound()));
+		else
+			inventory.removeTag("output");
+		tag.setTag("inventory", inventory);
+	}
+
+	@Override
+	public void readFromNBT(NBTTagCompound tag) {
+		super.readFromNBT(tag);
+		NBTTagCompound inventory = tag.getCompoundTag("inventory");
+		if (inventory.hasKey("input"))
+			stacks[0] = ItemStack.loadItemStackFromNBT(inventory.getCompoundTag("input"));
+		if (inventory.hasKey("output"))
+			stacks[1] = ItemStack.loadItemStackFromNBT(inventory.getCompoundTag("output"));
 	}
 
 	@Override
@@ -97,7 +124,7 @@ public class TileEntityMillstone extends TileEntity implements ISidedInventory {
 
 	@Override
 	public int[] getAccessibleSlotsFromSide(int side) {
-		return new int[] {0,1};
+		return new int[] { 0, 1 };
 	}
 
 	@Override
