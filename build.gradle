@@ -17,8 +17,8 @@ buildscript {
 
 apply plugin: 'forge'
 
-version = "beta 0.3 pre"
-group= "net.wuerfel21.derpyshiz" // http://maven.apache.org/guides/mini/guide-naming-conventions.html
+version = "beta 0.3 pre 2"
+group= "net.wuerfel21.derpyshiz"
 archivesBaseName = "derpyshiz"
 
 minecraft {

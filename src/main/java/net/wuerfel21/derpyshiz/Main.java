@@ -30,7 +30,7 @@ public class Main {
 	
 	public static final String MODID = "derpyshiz";
     public static final String MODNAME = "The derpy shiz mod";
-    public static final String VERSION = "beta 0.3 pre";
+    public static final String VERSION = "beta 0.3 pre 2";
     
     public static Configuration config;
     public static int idPiggycorn;

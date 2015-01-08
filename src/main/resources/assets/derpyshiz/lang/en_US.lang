@@ -85,6 +85,39 @@ item.oi_ingot_tin.name=Tin Ingot
 item.oi_ingot_lead.name=Lead Ingot
 item.oi_gem_wuerfelium.name=Wuerfelstone
 
+item.dust_iron.name=Iron Dust
+item.dust_gold.name=Gold Dust
+item.dust_diamond.name=Diamond Dust
+item.dust_ruby.name=Ruby Dust
+item.dust_copper.name=Copper Dust
+item.dust_tin.name=Tin Dust
+item.dust_lead.name=Lead Dust
+item.dust_titanium.name=Titanium Dust
+item.dust_electrimite.name=Electrimite Dust
+item.dust_ghast.name=Ghastly Dust
+item.dust_amethyst.name=Amethyst Dust
+item.dust_obsidian.name=Obsidian Dust
+item.dust_amber.name=Amber Dust
+item.dust_enderpearl.name=Enderpearl Dust
+
+item.nugget_iron.name=Iron Nugget
+item.nugget_copper.name=Copper Nugget
+item.nugget_tin.name=Tin Nugget
+item.nugget_lead.name=Lead Nugget
+item.nugget_electrimite.name=Electrimite Nugget
+item.nugget_enderium.name=Enderium Nugget
+item.nugget_titanium.name=Titanium Nugget
+item.nugget_diamond.name=Diamond Shard
+item.nugget_ruby.name=Ruby Shard
+item.nugget_darkness.name=Dark Shard
+item.nugget_amethyst.name=Amethyst Fragment
+
+item.ei_ingot_fire.name=Fire Alloy Ingot
+item.ei_ingot_water.name=Water Alloy Ingot
+item.ei_ingot_natural.name=Natural Alloy Ingot
+item.ei_ingot_wind.name=Wind Alloy Ingot
+item.ei_ingot_electritanium.name=Electritanium Ingot
+
 tile.lamp_fluorite_red.name=Red Fluorite Lamp
 tile.lamp_fluorite_green.name=Green Fluorite Lamp
 tile.lamp_fluorite_blue.name=Blue Fluorite Lamp
@@ -92,6 +125,16 @@ tile.lamp_fluorite_blue.name=Blue Fluorite Lamp
 tile.torch_fluorite_red.name=Red Fluorite Torch
 tile.torch_fluorite_green.name=Green Fluorite Torch
 tile.torch_fluorite_blue.name=Blue Fluorite Torch
+
+tile.block_lasagne.name=Block of Lasagne
+
+tile.housing_normal.name=Rotary Housing
+tile.housing_advanced.name=Advanced Rotary Housing
+
+tile.stairs_ebony.name=Ebony Wood Stairs
+tile.stairs_magic.name=Magic Wood Stairs
+tile.derpyslab_ebony.name=Ebony Wood Slab
+tile.derpyslab_magic.name=Magic Wood Slab
 
 item.hammer.name=Hammer
 
@@ -198,6 +241,11 @@ tile.crank_advanced.name=Advanced Crank
 item.rotameter.name=Rotameter
 
 tile.seizure_wool.name=Seizure Wool
+
+item.circuit_redstone_normal.name=Redstone Circuit
+item.circuit_redstone_advanced.name=Advanced Redstone Circuit
+item.circuit_electric_normal.name=Electric Circuit
+item.circuit_electric_advanced.name=Advanced Electric Circuit
 
 item.gear_wood.name=Wooden Gear
 item.gear_ebony.name=Ebony Gear

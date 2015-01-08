@@ -83,6 +83,39 @@ item.oi_ingot_tin.name=Zinnbarren
 item.oi_ingot_lead.name=Bleibarren
 item.oi_gem_wuerfelium.name=Deicestein
 
+item.dust_iron.name=Eisenstaub
+item.dust_gold.name=Goldstaub
+item.dust_diamond.name=Diamantstaub
+item.dust_ruby.name=Rubinstaub
+item.dust_copper.name=Kupferstaub
+item.dust_tin.name=Zinnstaub
+item.dust_lead.name=Bleistaub
+item.dust_titanium.name=Titanstaub
+item.dust_electrimite.name=Electrimitestaub
+item.dust_ghast.name=Ghaststaub
+item.dust_amethyst.name=Amethyststaub
+item.dust_obsidian.name=Obsidianstaub
+item.dust_amber.name=Bernsteinstaub
+item.dust_enderpearl.name=Enderperlenstaub
+
+item.nugget_iron.name=Eisennugget
+item.nugget_copper.name=Kupfernugget
+item.nugget_tin.name=Zinnnugget
+item.nugget_lead.name=Bleinugget
+item.nugget_electrimite.name=Electrimitenugget
+item.nugget_enderium.name=Enderiumnugget
+item.nugget_titanium.name=Titannugget
+item.nugget_diamond.name=Diamantscherbe
+item.nugget_ruby.name=Ruinscherbe
+item.nugget_darkness.name=Schattenscherbe
+item.nugget_amethyst.name=Amethystfragment
+
+item.ei_ingot_fire.name=Feuerlegierungsbarren
+item.ei_ingot_water.name=Wasserlegierungsbarren
+item.ei_ingot_natural.name=Naturlegierungsbarren
+item.ei_ingot_wind.name=Windlegierungsbarren
+item.ei_ingot_electritanium.name=Electritanbarren
+
 tile.lamp_fluorite_red.name=Rote Flussspatlampe
 tile.lamp_fluorite_green.name=Grüne Flussspatlampe
 tile.lamp_fluorite_blue.name=Blaue Flussspatlampe
@@ -90,6 +123,16 @@ tile.lamp_fluorite_blue.name=Blaue Flussspatlampe
 tile.torch_fluorite_red.name=Rote Flussspatfackel
 tile.torch_fluorite_green.name=Grüne Flussspatfackel
 tile.torch_fluorite_blue.name=Blaue Flussspatfackel
+
+tile.block_lasagne.name=Lasagneblock
+
+tile.housing_normal.name=Mechanisches Gehäuse
+tile.housing_advanced.name=Verbessertes Mechanisches Gehäuse
+
+tile.stairs_ebony.name=Ebenholztreppe
+tile.stairs_magic.name=Magische Holztreppe
+tile.derpyslab_ebony.name=Ebenholzstufe
+tile.derpyslab_magic.name=Magische Holzstufe
 
 item.hammer.name=Hammer
 
@@ -194,6 +237,11 @@ tile.crank_normal.name=Kurbel
 tile.crank_advanced.name=Verbesserte Kurbel
 
 tile.seizure_wool.name=Augenkrebswolle
+
+item.circuit_redstone_normal.name=Redstoneschaltkreis
+item.circuit_redstone_advanced.name=Verbesserter Redstoneschaltkreis
+item.circuit_electric_normal.name=Elektrischer Schaltkreis
+item.circuit_electric_advanced.name=Verbesserter Elektrischer Schaltkreis
 
 item.gear_wood.name=Holzzahnrad
 item.gear_ebony.name=Ebenholzzahnrad
