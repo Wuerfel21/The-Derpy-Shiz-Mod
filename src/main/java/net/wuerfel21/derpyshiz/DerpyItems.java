@@ -7,6 +7,8 @@ import net.minecraft.item.Item;
 import net.minecraft.item.Item.ToolMaterial;
 import net.minecraft.item.ItemArmor.ArmorMaterial;
 import net.minecraftforge.common.util.EnumHelper;
+import net.wuerfel21.derpyshiz.items.ArmorStone;
+import net.wuerfel21.derpyshiz.items.ArmorWater;
 import net.wuerfel21.derpyshiz.items.DarkCloak;
 import net.wuerfel21.derpyshiz.items.DarkSword;
 import net.wuerfel21.derpyshiz.items.DerpyArmor;
@@ -47,6 +49,9 @@ public abstract class DerpyItems {
 	public static ArmorMaterial ARMOR_AMETHYST;
 	public static ArmorMaterial ARMOR_COPPER;
 	
+	public static ArmorMaterial ARMOR_STONE;
+	public static ArmorMaterial ARMOR_WATER;
+	
 	public static ArmorMaterial ARMOR_CIRCLET_DIAMOND;
 	public static ArmorMaterial ARMOR_CIRCLET_RUBY;
 	public static ArmorMaterial ARMOR_CIRCLET_AMETHYST;
@@ -60,6 +65,8 @@ public abstract class DerpyItems {
 	public static Item oreItems;
 	public static Item extraIngots;
 	public static Item dusts;
+	
+	public static Item[] stoneArmor = new Item[4];
 	
 	public static final void init() {
 		TITANIUM = EnumHelper.addToolMaterial("TITANIUM", 2, 1000, 5.75f, 2.25f, 10);
@@ -78,6 +85,9 @@ public abstract class DerpyItems {
 		ARMOR_RUBY = EnumHelper.addArmorMaterial("ARMOR_RUBY", 30, new int[]{3, 7, 6, 3}, 8);
 		ARMOR_AMETHYST = EnumHelper.addArmorMaterial("ARMOR_AMETHYST", 40, new int[]{4, 9, 7, 4}, 16);
 		ARMOR_COPPER = EnumHelper.addArmorMaterial("ARMOR_COPPER", 10, new int[]{2, 4, 4, 2}, 6);
+		
+		ARMOR_STONE = EnumHelper.addArmorMaterial("ARMOR_STONE", 7, new int[]{3, 5, 4, 1}, 0);
+		ARMOR_WATER = EnumHelper.addArmorMaterial("ARMOR_WATER", 14, new int[]{2, 6, 5, 3}, 1);
 		
 		ARMOR_CIRCLET_DIAMOND = EnumHelper.addArmorMaterial("ARMOR_CIRCLET_DIAMOND", 20, new int[]{2, 0, 0, 0}, 8);
 		ARMOR_CIRCLET_RUBY = EnumHelper.addArmorMaterial("ARMOR_CIRCLET_RUBY", 19, new int[]{2, 0, 0, 0}, 6);
@@ -152,6 +162,16 @@ public abstract class DerpyItems {
 		GameRegistry.registerItem(new DerpyArmor(ARMOR_COPPER,1,oreItems,9,"copper").setUnlocalizedName("chestplate_copper").setTextureName("derpyshiz:chestplate_copper"), "chestplate_copper");
 		GameRegistry.registerItem(new DerpyArmor(ARMOR_COPPER,2,oreItems,9,"copper").setUnlocalizedName("leggings_copper").setTextureName("derpyshiz:leggings_copper"), "leggings_copper");
 		GameRegistry.registerItem(new DerpyArmor(ARMOR_COPPER,3,oreItems,9,"copper").setUnlocalizedName("boots_copper").setTextureName("derpyshiz:boots_copper"), "boots_copper");
+		
+		GameRegistry.registerItem(stoneArmor[0] = new ArmorStone(ARMOR_STONE,0,Item.getItemFromBlock(Blocks.cobblestone),0,"stone").setUnlocalizedName("helmet_stone").setTextureName("derpyshiz:helmet_stone"), "helmet_stone");
+		GameRegistry.registerItem(stoneArmor[1] = new ArmorStone(ARMOR_STONE,1,Item.getItemFromBlock(Blocks.cobblestone),0,"stone").setUnlocalizedName("chestplate_stone").setTextureName("derpyshiz:chestplate_stone"), "chestplate_stone");
+		GameRegistry.registerItem(stoneArmor[2] = new ArmorStone(ARMOR_STONE,2,Item.getItemFromBlock(Blocks.cobblestone),0,"stone").setUnlocalizedName("leggings_stone").setTextureName("derpyshiz:leggings_stone"), "leggings_stone");
+		GameRegistry.registerItem(stoneArmor[3] = new ArmorStone(ARMOR_STONE,3,Item.getItemFromBlock(Blocks.cobblestone),0,"stone").setUnlocalizedName("boots_stone").setTextureName("derpyshiz:boots_stone"), "boots_stone");
+		
+		GameRegistry.registerItem(new ArmorWater(ARMOR_WATER,0,Items.water_bucket,0,"water").setUnlocalizedName("helmet_water").setTextureName("derpyshiz:helmet_water"), "helmet_water");
+		GameRegistry.registerItem(new ArmorWater(ARMOR_WATER,1,Items.water_bucket,0,"water").setUnlocalizedName("chestplate_water").setTextureName("derpyshiz:chestplate_water"), "chestplate_water");
+		GameRegistry.registerItem(new ArmorWater(ARMOR_WATER,2,Items.water_bucket,0,"water").setUnlocalizedName("leggings_water").setTextureName("derpyshiz:leggings_water"), "leggings_water");
+		GameRegistry.registerItem(new ArmorWater(ARMOR_WATER,3,Items.water_bucket,0,"water").setUnlocalizedName("boots_water").setTextureName("derpyshiz:boots_water"), "boots_water");
 		
 		GameRegistry.registerItem(new DerpyArmor(ARMOR_CIRCLET_DIAMOND,0,Items.gold_ingot,0,"circlet_diamond").setUnlocalizedName("circlet_diamond").setTextureName("derpyshiz:circlet_diamond").setCreativeTab(CreativeTabs.tabMisc), "circlet_diamond");
 		GameRegistry.registerItem(new DerpyArmor(ARMOR_CIRCLET_RUBY,0,Items.gold_ingot,0,"circlet_ruby").setUnlocalizedName("circlet_ruby").setTextureName("derpyshiz:circlet_ruby").setCreativeTab(CreativeTabs.tabMisc), "circlet_ruby");

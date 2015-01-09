@@ -18,26 +18,24 @@ import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
-import net.minecraft.server.MinecraftServer;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.ChatComponentText;
 import net.minecraft.util.ChatComponentTranslation;
 import net.minecraft.util.IChatComponent;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.entity.living.LivingDropsEvent;
-import net.minecraftforge.event.entity.living.LivingSpawnEvent;
+import net.minecraftforge.event.entity.living.LivingEvent.LivingJumpEvent;
 import net.minecraftforge.event.entity.player.PlayerEvent;
 import net.minecraftforge.event.entity.player.PlayerInteractEvent;
 import net.minecraftforge.event.world.BlockEvent.HarvestDropsEvent;
 import net.wuerfel21.derpyshiz.blocks.DerpyOres;
-import net.wuerfel21.derpyshiz.entity.EntityPiggycorn;
+import net.wuerfel21.derpyshiz.items.ArmorStone;
 import net.wuerfel21.derpyshiz.items.ItemRotameter;
 import net.wuerfel21.derpyshiz.rotary.IRotaryInput;
 import net.wuerfel21.derpyshiz.rotary.IRotaryOutput;
 
 import org.apache.commons.io.IOUtils;
 
-import scala.collection.immutable.Stream;
 import cpw.mods.fml.common.FMLCommonHandler;
 import cpw.mods.fml.common.FMLLog;
 import cpw.mods.fml.common.eventhandler.Event;
@@ -222,10 +220,10 @@ public class DerpyEvents {
 			event.entityLiving.dropItem(GameRegistry.findItem("derpyshiz", "lasagne"), 2 + event.lootingLevel);
 		}
 	}
-	
+
 	@SubscribeEvent
 	public void onJoin(PlayerLoggedInEvent event) {
-		if (Main.checkForUpdates && (!event.player.worldObj.isRemote) /*&& MinecraftServer.getServer().isSinglePlayer()*/) {
+		if (Main.checkForUpdates && (!event.player.worldObj.isRemote)) {
 			new UpdateChecker(event.player).run();
 		}
 	}

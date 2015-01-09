@@ -191,8 +191,14 @@ public class DerpyCrafting {
 		GameRegistry.addRecipe(new ShapedOreRecipe(getStack("circuit", 3), "cAc", "gCg", "cEc", 'c', "nuggetCopper", 'A', "chunkAmber", 'g', "dustGlowstone", 'C', "circuitElectric", 'E', "ingotElectrimite"));
 		}
 		
+		GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(DerpyBlocks.stairs[0],4),"m  ","mm ","mmm",'m',"plankEbony"));
+		GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(DerpyBlocks.stairs[1],4),"m  ","mm ","mmm",'m',"plankMagic"));
+		
+		GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(DerpyBlocks.slab,6,0),"mmm",'m',"plankEbony"));
+		GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(DerpyBlocks.slab,6,1),"mmm",'m',"plankMagic"));
+		
 		GameRegistry.addRecipe(new ShapedOreRecipe(getBlock("housing",0),"waw","aga","waw",'w',"plankWood",'a',"blockAxis",'g',"gearWood"));
-		GameRegistry.addRecipe(new ShapedOreRecipe(getBlock("housing",1),"tit","ihi","tit",'t',"ingotTin",'i',"ingotIron",'h',"housingNormal"));
+		GameRegistry.addRecipe(new ShapedOreRecipe(getBlock("housing",1),"TiT","ihi","tit",'T',"gearTin",'t',"ingotTin",'i',"ingotIron",'h',"housingNormal"));
 		
 		for (int i = 0; i < 16; i++) {
 			GameRegistry.addShapedRecipe(new ItemStack(GameRegistry.findBlock("derpyshiz", "pattern_carpet"), 3, i), "WW", 'W', getStack("pattern_wool", i));

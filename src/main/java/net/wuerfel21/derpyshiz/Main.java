@@ -28,6 +28,8 @@ public class Main {
 	public static final int[] diodeHelper = {-1,-1,0,2,3,1};
 	public static final int[] stairHelper = {-1,-1,2,3,0,1};
 	
+	public static final int[] armorTypeToSlot = {4,3,2,1};
+	
 	public static final String MODID = "derpyshiz";
     public static final String MODNAME = "The derpy shiz mod";
     public static final String VERSION = "beta 0.3 pre 2";
