@@ -111,7 +111,7 @@ public class DerpyEvents {
 							return;
 						;
 						event.world.markBlockForUpdate(event.x, event.y, event.z);
-						event.entityLiving.getHeldItem().damageItem(1, event.entityLiving);
+						DerpyItems.damageItem(event.entityLiving.getHeldItem(),1, event.entityLiving);
 						event.world.playSoundEffect(event.x + 0.5d, event.y + 0.5d, event.z + 0.5d, "random.anvil_land", 1f, event.world.rand.nextFloat() * 0.1f + 0.9f);
 					} else if (block instanceof BlockPistonBase) {
 						int meta = event.world.getBlockMetadata(event.x, event.y, event.z);
@@ -121,7 +121,7 @@ public class DerpyEvents {
 						}
 						event.world.setBlockMetadataWithNotify(event.x, event.y, event.z, newDir | (meta & 8), 3);
 						event.world.markBlockForUpdate(event.x, event.y, event.z);
-						event.entityLiving.getHeldItem().damageItem(1, event.entityLiving);
+						DerpyItems.damageItem(event.entityLiving.getHeldItem(),1, event.entityLiving);
 						event.world.playSoundEffect(event.x + 0.5d, event.y + 0.5d, event.z + 0.5d, "random.anvil_land", 1f, event.world.rand.nextFloat() * 0.1f + 0.9f);
 					} else if (block instanceof BlockQuartz) {
 						int meta = event.world.getBlockMetadata(event.x, event.y, event.z);
@@ -131,7 +131,7 @@ public class DerpyEvents {
 						}
 						event.world.setBlockMetadataWithNotify(event.x, event.y, event.z, newDir + 2, 3);
 						event.world.markBlockForUpdate(event.x, event.y, event.z);
-						event.entityLiving.getHeldItem().damageItem(1, event.entityLiving);
+						DerpyItems.damageItem(event.entityLiving.getHeldItem(),1, event.entityLiving);
 						event.world.playSoundEffect(event.x + 0.5d, event.y + 0.5d, event.z + 0.5d, "random.anvil_land", 1f, event.world.rand.nextFloat() * 0.1f + 0.9f);
 					} else if (block instanceof BlockLog) {
 						int meta = event.world.getBlockMetadata(event.x, event.y, event.z);
@@ -141,7 +141,7 @@ public class DerpyEvents {
 						}
 						event.world.setBlockMetadataWithNotify(event.x, event.y, event.z, newDir << 2 | (meta & 3), 3);
 						event.world.markBlockForUpdate(event.x, event.y, event.z);
-						event.entityLiving.getHeldItem().damageItem(1, event.entityLiving);
+						DerpyItems.damageItem(event.entityLiving.getHeldItem(),1, event.entityLiving);
 						event.world.playSoundEffect(event.x + 0.5d, event.y + 0.5d, event.z + 0.5d, "random.anvil_land", 1f, event.world.rand.nextFloat() * 0.1f + 0.9f);
 					} else if (block instanceof BlockDispenser) {
 						int meta = event.world.getBlockMetadata(event.x, event.y, event.z);
@@ -151,7 +151,7 @@ public class DerpyEvents {
 						}
 						event.world.setBlockMetadataWithNotify(event.x, event.y, event.z, newDir | (meta & 8), 3);
 						event.world.markBlockForUpdate(event.x, event.y, event.z);
-						event.entityLiving.getHeldItem().damageItem(1, event.entityLiving);
+						DerpyItems.damageItem(event.entityLiving.getHeldItem(),1, event.entityLiving);
 						event.world.playSoundEffect(event.x + 0.5d, event.y + 0.5d, event.z + 0.5d, "random.anvil_land", 1f, event.world.rand.nextFloat() * 0.1f + 0.9f);
 						event.useBlock = Event.Result.DENY;
 					} else if (block instanceof BlockFurnace) {
@@ -162,7 +162,7 @@ public class DerpyEvents {
 						}
 						event.world.setBlockMetadataWithNotify(event.x, event.y, event.z, newDir | (meta & 8), 3);
 						event.world.markBlockForUpdate(event.x, event.y, event.z);
-						event.entityLiving.getHeldItem().damageItem(1, event.entityLiving);
+						DerpyItems.damageItem(event.entityLiving.getHeldItem(),1, event.entityLiving);
 						event.world.playSoundEffect(event.x + 0.5d, event.y + 0.5d, event.z + 0.5d, "random.anvil_land", 1f, event.world.rand.nextFloat() * 0.1f + 0.9f);
 						event.useBlock = Event.Result.DENY;
 					} else if (block instanceof BlockRedstoneDiode) {
@@ -173,7 +173,7 @@ public class DerpyEvents {
 						}
 						event.world.setBlockMetadataWithNotify(event.x, event.y, event.z, newDir | (meta & 12), 3);
 						event.world.markBlockForUpdate(event.x, event.y, event.z);
-						event.entityLiving.getHeldItem().damageItem(1, event.entityLiving);
+						DerpyItems.damageItem(event.entityLiving.getHeldItem(),1, event.entityLiving);
 						event.world.playSoundEffect(event.x + 0.5d, event.y + 0.5d, event.z + 0.5d, "random.anvil_land", 1f, event.world.rand.nextFloat() * 0.1f + 0.9f);
 						event.useBlock = Event.Result.DENY;
 					} else if (block instanceof BlockStairs) {
@@ -188,7 +188,7 @@ public class DerpyEvents {
 							event.world.setBlockMetadataWithNotify(event.x, event.y, event.z, newDir | (meta & 12), 3);
 						}
 						event.world.markBlockForUpdate(event.x, event.y, event.z);
-						event.entityLiving.getHeldItem().damageItem(1, event.entityLiving);
+						DerpyItems.damageItem(event.entityLiving.getHeldItem(), 1, event.entityLiving);
 						event.world.playSoundEffect(event.x + 0.5d, event.y + 0.5d, event.z + 0.5d, "random.anvil_land", 1f, event.world.rand.nextFloat() * 0.1f + 0.9f);
 					}
 				}
