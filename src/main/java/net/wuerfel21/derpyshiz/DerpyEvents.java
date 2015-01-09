@@ -29,6 +29,7 @@ import net.minecraftforge.event.entity.player.PlayerEvent;
 import net.minecraftforge.event.entity.player.PlayerInteractEvent;
 import net.minecraftforge.event.world.BlockEvent.HarvestDropsEvent;
 import net.wuerfel21.derpyshiz.blocks.DerpyOres;
+import net.wuerfel21.derpyshiz.events.ItemModeEvent;
 import net.wuerfel21.derpyshiz.items.ArmorStone;
 import net.wuerfel21.derpyshiz.items.ItemRotameter;
 import net.wuerfel21.derpyshiz.rotary.IRotaryInput;
@@ -57,7 +58,7 @@ public class DerpyEvents {
 		dropsHand = new WoodStack[] { new WoodStack(0, 1, true), new WoodStack(1, 1, true) };
 		dropsPerLevel = new WoodStack[][] { { new WoodStack(0, 2, true), new WoodStack(1, 1, true) }, { new WoodStack(0, 1, false), new WoodStack(1, 2, true) }, { new WoodStack(0, 1, false), new WoodStack(1, 3, true) }, { new WoodStack(0, 1, false), new WoodStack(1, 1, false) } };
 	}
-
+	
 	@SubscribeEvent
 	public void onBreakSpeed(PlayerEvent.BreakSpeed event) {
 		Item tool = event.entityLiving.getHeldItem() == null ? Items.rotten_flesh : event.entityLiving.getHeldItem().getItem();
@@ -272,7 +273,6 @@ public class DerpyEvents {
 				InputStream stream = updateUrl.openStream();
 				String updatedVersion = IOUtils.toString(stream);
 				stream.close();
-				updatedVersion = updatedVersion.replaceAll("", "");
 				if (!updatedVersion.equals(Main.VERSION)) {
 					this.player.addChatComponentMessage(new ChatComponentText("[Wuerfel_21] Hey, " + this.player.getGameProfile().getName() + ", you know, theres an update for The Derpy Shiz Mod! you should be able to download it! If you dont like me chatting with you about updates, you can disable update checking in the config! Your Version: " + Main.VERSION + ", Updated Version: " + updatedVersion));
 				}

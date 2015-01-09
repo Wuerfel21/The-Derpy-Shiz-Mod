@@ -10,7 +10,7 @@ public abstract class ItemModeHelper {
 	
 	public static void displayMode(ItemStack stack, List list) {
 		if (!(stack.getItem() instanceof IModeItem)) return;
-		list.add("Mode: " + StatCollector.translateToLocal(((IModeItem)stack.getItem()).getModeName(getMode(stack))));
+		list.add(StatCollector.translateToLocal("mode.mode.name")+": " + StatCollector.translateToLocal(((IModeItem)stack.getItem()).getModeName(getMode(stack))));
 	}
 	
 	public static int getMode(ItemStack stack) {

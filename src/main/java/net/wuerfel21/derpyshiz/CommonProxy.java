@@ -12,12 +12,12 @@ import net.wuerfel21.derpyshiz.entity.tile.TileEntityMillstone;
 import net.wuerfel21.derpyshiz.entity.tile.TileEntitySeizureWool;
 import net.wuerfel21.derpyshiz.gui.GuiHandler;
 import net.wuerfel21.derpyshiz.network.ItemModeMessage;
+import net.wuerfel21.derpyshiz.network.SpecialActionMessage;
 import net.wuerfel21.derpyshiz.world.DerpyWorld;
 import cpw.mods.fml.common.event.FMLInitializationEvent;
 import cpw.mods.fml.common.event.FMLPostInitializationEvent;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
 import cpw.mods.fml.common.network.NetworkRegistry;
-import cpw.mods.fml.common.network.internal.FMLNetworkHandler;
 import cpw.mods.fml.common.registry.EntityRegistry;
 import cpw.mods.fml.common.registry.GameRegistry;
 import cpw.mods.fml.relauncher.ReflectionHelper;
@@ -32,6 +32,7 @@ public class CommonProxy {
 
     public void init(FMLInitializationEvent e) {
     	Main.derpnet.registerMessage(ItemModeMessage.Handler.class, ItemModeMessage.class, 0, Side.SERVER);
+    	Main.derpnet.registerMessage(SpecialActionMessage.Handler.class, SpecialActionMessage.class, 1, Side.SERVER);
     	NetworkRegistry.INSTANCE.registerGuiHandler(Main.instance, new GuiHandler());
     	DerpyCrafting.registerOredict();
 		DerpyCrafting.registerCrafting();

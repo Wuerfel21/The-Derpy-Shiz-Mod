@@ -168,6 +168,8 @@ item.sword_enderium.name=Enderiumschwert
 
 item.sword_darkness.name=Schattenschwert
 
+item.sword_fire.name=Klinge der Flammen
+
 item.axe_turquoise.name=Türkisaxt
 
 item.hoe_fakediamond.name=Falsche Diamanthacke
@@ -194,6 +196,16 @@ item.helmet_copper.name=Kupferhelm
 item.chestplate_copper.name=Kupferbrustpanzer
 item.leggings_copper.name=Kupferbeinschutz
 item.boots_copper.name=Kupferstiefel
+
+item.helmet_stone.name=Steinkopfblockade
+item.chestplate_stone.name=Steinzwangsjacke
+item.leggings_stone.name=Steinbeine
+item.boots_stone.name=Steinfußfesseln
+
+item.helmet_water.name=Wasserhelm
+item.chestplate_water.name=Wasserbrustpanzer
+item.leggings_water.name=Wasserbeinschutz
+item.boots_water.name=Wasserstiefel
 
 tile.log_ebony.name=Ebenholz
 tile.log_magic.name=Magisches Holz
@@ -259,6 +271,10 @@ item.gear_enderium.name=Enderiumzahnrad
 
 mode.hammer_face.name=Seite
 mode.hammer_direction.name=Richtung
+mode.firesword_normal.name=Normal
+mode.firesword_hell.name=Inferno
+
+mode.mode.name=Modus
 
 text.output.name=Ausgang
 text.input.name=Eingang

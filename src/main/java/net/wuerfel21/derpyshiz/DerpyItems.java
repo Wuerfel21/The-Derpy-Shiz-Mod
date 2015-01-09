@@ -1,11 +1,13 @@
 package net.wuerfel21.derpyshiz;
 
 import net.minecraft.creativetab.CreativeTabs;
+import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
 import net.minecraft.item.Item;
 import net.minecraft.item.Item.ToolMaterial;
 import net.minecraft.item.ItemArmor.ArmorMaterial;
+import net.minecraft.item.ItemStack;
 import net.minecraftforge.common.util.EnumHelper;
 import net.wuerfel21.derpyshiz.items.ArmorStone;
 import net.wuerfel21.derpyshiz.items.ArmorWater;
@@ -23,6 +25,7 @@ import net.wuerfel21.derpyshiz.items.DerpyPickaxe;
 import net.wuerfel21.derpyshiz.items.DerpyShovel;
 import net.wuerfel21.derpyshiz.items.DerpySword;
 import net.wuerfel21.derpyshiz.items.ExtraIngots;
+import net.wuerfel21.derpyshiz.items.FireSword;
 import net.wuerfel21.derpyshiz.items.HorseLasagne;
 import net.wuerfel21.derpyshiz.items.ItemRotameter;
 import net.wuerfel21.derpyshiz.items.ItemTDM;
@@ -43,6 +46,8 @@ public abstract class DerpyItems {
 	public static ToolMaterial ENDERIUM;
 	public static ToolMaterial DARKNESS;
 	public static ToolMaterial WUERFELIUM;
+	
+	public static ToolMaterial FIRE;
 	
 	public static ArmorMaterial ARMOR_TITANIUM;
 	public static ArmorMaterial ARMOR_RUBY;
@@ -80,6 +85,8 @@ public abstract class DerpyItems {
 		ENDERIUM = EnumHelper.addToolMaterial("ENDERIUM", 3, 1500, 9.5f, 4.75f, 5);
 		DARKNESS = EnumHelper.addToolMaterial("DARKNESS", 2, 750, 1f, 2.25f, 20);
 		WUERFELIUM = EnumHelper.addToolMaterial("WUERFELIUM", 2, 300, 3f, 2.1f, 2);
+		
+		FIRE = EnumHelper.addToolMaterial("FIRE", 0, 512, 10f, 2f, 3);
 		
 		ARMOR_TITANIUM = EnumHelper.addArmorMaterial("ARMOR_TITANIUM", 25, new int[]{2, 7, 5, 3}, 8);
 		ARMOR_RUBY = EnumHelper.addArmorMaterial("ARMOR_RUBY", 30, new int[]{3, 7, 6, 3}, 8);
@@ -140,6 +147,8 @@ public abstract class DerpyItems {
 		
 		GameRegistry.registerItem(new DerpyHoe(FAKEDIAMOND,oreItems,1).setUnlocalizedName("hoe_fakediamond").setTextureName("derpyshiz:hoe_fakediamond"), "hoe_fakediamond");
 		
+		GameRegistry.registerItem(new FireSword(FIRE,extraIngots,0).setUnlocalizedName("sword_fire").setTextureName("derpyshiz:sword_fire"), "sword_fire");
+		
 		GameRegistry.registerItem(new WuerfeliumSword(WUERFELIUM,oreItems,15).setUnlocalizedName("sword_wuerfelium"), "sword_wuerfelium");
 		GameRegistry.registerItem(new WuerfeliumPickaxe(WUERFELIUM,oreItems,15).setUnlocalizedName("pickaxe_wuerfelium"), "pickaxe_wuerfelium");
 		
@@ -192,6 +201,13 @@ public abstract class DerpyItems {
 		GameRegistry.registerItem(new DerpyCircuits(), "circuit");
 		
 		GameRegistry.registerItem(new ItemTDM(), "tdm");
+	}
+	
+	//hack around minecrafs derpyness 
+	public static void damgeItemProperly(ItemStack stack, int amount, EntityLivingBase entity) {
+		for (int i=0;i<amount;i++) {
+			stack.damageItem(1, entity);
+		}
 	}
 	
 }

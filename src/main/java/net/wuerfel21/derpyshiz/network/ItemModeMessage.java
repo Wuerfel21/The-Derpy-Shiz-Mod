@@ -4,8 +4,10 @@ import io.netty.buffer.ByteBuf;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.ChatComponentText;
 import net.minecraft.util.ChatComponentTranslation;
+import net.minecraftforge.common.MinecraftForge;
 import net.wuerfel21.derpyshiz.IModeItem;
 import net.wuerfel21.derpyshiz.ItemModeHelper;
+import net.wuerfel21.derpyshiz.events.ItemModeEvent;
 import cpw.mods.fml.common.network.simpleimpl.IMessage;
 import cpw.mods.fml.common.network.simpleimpl.IMessageHandler;
 import cpw.mods.fml.common.network.simpleimpl.MessageContext;
@@ -27,6 +29,9 @@ public class ItemModeMessage implements IMessage {
 
 		@Override
 		public IMessage onMessage(ItemModeMessage message, MessageContext ctx) {
+			if (MinecraftForge.EVENT_BUS.post(new ItemModeEvent(ctx.getServerHandler().playerEntity))) {
+				return null;
+			}
 			ItemStack stack = ctx.getServerHandler().playerEntity.getHeldItem();
 			if (!(stack.getItem() instanceof IModeItem)) return null;
 			ItemModeHelper.setMode(stack, ItemModeHelper.getMode(stack)+1);

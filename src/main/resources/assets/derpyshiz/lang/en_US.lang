@@ -170,6 +170,8 @@ item.sword_enderium.name=Enderium Sword
 
 item.sword_darkness.name=Dark Sword
 
+item.sword_fire.name=Nether Edge
+
 item.axe_turquoise.name=Turquoise Axe
 
 item.hoe_fakediamond.name=Fake Diamond Hoe
@@ -196,6 +198,16 @@ item.helmet_copper.name=Copper Helmet
 item.chestplate_copper.name=Copper Chestplate
 item.leggings_copper.name=Copper Leggings
 item.boots_copper.name=Copper Boots
+
+item.helmet_stone.name=Stone Headblocker
+item.chestplate_stone.name=Stone Straightjacket
+item.leggings_stone.name=Stone Legs
+item.boots_stone.name=Stone Hobbles
+
+item.helmet_water.name=Water Helmet
+item.chestplate_water.name=Water Chestplate
+item.leggings_water.name=Water Leggings
+item.boots_water.name=Water Boots
 
 tile.log_ebony.name=Ebony Wood
 tile.log_magic.name=Magic Wood
@@ -263,6 +275,10 @@ item.gear_enderium.name=Enderium Gear
 
 mode.hammer_face.name=Face
 mode.hammer_direction.name=Direction
+mode.firesword_normal.name=Normal
+mode.firesword_hell.name=Hell
+
+mode.mode.name=Mode
 
 text.output.name=Output
 text.input.name=Input

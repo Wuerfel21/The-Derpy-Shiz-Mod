@@ -44,6 +44,9 @@ public class ArmorStone extends DerpyArmor {
 		if (player.isInWater()) {
 			player.addVelocity(0, -0.005, 0);
 		}
+		if (player.isSprinting()) {
+			player.setSprinting(false);
+		}
 		addSlowness(player);
 		addFatigue(player);
 	}

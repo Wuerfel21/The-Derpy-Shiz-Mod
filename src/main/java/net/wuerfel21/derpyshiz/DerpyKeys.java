@@ -7,6 +7,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.util.ChatComponentText;
 import net.minecraft.util.StatCollector;
 import net.wuerfel21.derpyshiz.network.ItemModeMessage;
+import net.wuerfel21.derpyshiz.network.SpecialActionMessage;
 
 import org.lwjgl.input.Keyboard;
 
@@ -19,11 +20,13 @@ import cpw.mods.fml.relauncher.SideOnly;
 
 public class DerpyKeys {
 	
-	public static KeyBinding mode = new  KeyBinding("key.derpy_mode", Keyboard.KEY_J, "key.categories.misc");
+	public static KeyBinding mode = new  KeyBinding("key.derpy_mode.name", Keyboard.KEY_J, "key.categories.gameplay");
+	public static KeyBinding action = new  KeyBinding("key.derpy_action.name", Keyboard.KEY_F, "key.categories.gameplay");
 	
 	public static void register() {
 		DerpyKeys derp = new DerpyKeys();
 		ClientRegistry.registerKeyBinding(mode);
+		ClientRegistry.registerKeyBinding(action);
 		FMLCommonHandler.instance().bus().register(derp);
 	}
 	
@@ -34,6 +37,9 @@ public class DerpyKeys {
 		if (player == null) return;
 		if (mode.isPressed()) {
 			Main.derpnet.sendToServer(new ItemModeMessage());
+		}
+		if (action.isPressed()) {
+			Main.derpnet.sendToServer(new SpecialActionMessage());
 		}
 	}
 	

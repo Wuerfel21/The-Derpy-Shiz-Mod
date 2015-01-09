@@ -3,7 +3,12 @@ package net.wuerfel21.derpyshiz.items;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
+import java.util.UUID;
 
+import com.google.common.collect.Multimap;
+
+import net.minecraft.entity.SharedMonsterAttributes;
+import net.minecraft.entity.ai.attributes.AttributeModifier;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.ItemTool;
@@ -23,6 +28,13 @@ public class DerpyHammer extends ItemTool implements IModeItem {
 		Set set = new HashSet();
 		set.add("ds_hammer");
 		return set;
+	}
+	
+	@Override
+	public Multimap getAttributeModifiers(ItemStack stack) {
+		Multimap map = super.getAttributeModifiers(stack);
+		map.put(SharedMonsterAttributes.attackDamage.getAttributeUnlocalizedName(), new AttributeModifier(field_111210_e, "Weapon modifier", 1+this.toolMaterial.getDamageVsEntity(), 0));
+		return map;
 	}
 	
 	@Override
