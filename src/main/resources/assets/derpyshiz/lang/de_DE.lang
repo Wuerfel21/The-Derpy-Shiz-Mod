@@ -67,7 +67,7 @@ tile.block_lead.name=Bleiblock
 tile.block_wuerfelium.name=Diceiumblock
 
 item.oi_chunk_amber.name=Bernsteinstück
-item.oi_fakediamond.name=Falcher Diamant
+item.oi_fakediamond.name=Falscher Diamant
 item.oi_ingot_titanium.name=Titanbarren
 item.oi_ruby.name=Rubin
 item.oi_turquoise.name=Türkis
@@ -232,6 +232,8 @@ tile.coarsestone_framed.name=Gerahmter Rauer Stein
 
 entity.piggycorn.name=Schweinhorn
 
+item.diesieben07.name=Diesieben07
+
 tile.snowflake_obsidian.name=Schneflockenobsidian
 
 item.horn.name=Schweinhorn-horn
@@ -273,6 +275,9 @@ mode.hammer_face.name=Seite
 mode.hammer_direction.name=Richtung
 mode.firesword_normal.name=Normal
 mode.firesword_hell.name=Inferno
+mode.naturalsword_front.name=Vorne
+mode.naturalsword_back.name=Hinten
+mode.naturalsword_all.name=Rundum
 
 mode.mode.name=Modus
 
@@ -280,5 +285,7 @@ text.output.name=Ausgang
 text.input.name=Eingang
 text.speed.name=Geschwindigkeit
 text.torque.name=Drehmoment
+
+info.diesieben07.name=Kuschel es wenn du angst vor Käfern hast
 
 message.mode.name=Modus geändert auf: 

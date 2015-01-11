@@ -14,6 +14,8 @@ public abstract class ColoredLightHelper {
      * @param b Blue intensity, 0 to 15. Resolution is 4 bits.
      * @param brightness The existing lightValue of a block. Only the lower-most 4 bits of this parameter are used.
      * @return Integer describing RGBL color for a block
+     * 
+     * @author CptSpaceToaster
      */
     public static int makeRGBLightValue(int r, int g, int b, int brightness) {
         // Clamp color channels

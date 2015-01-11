@@ -41,7 +41,7 @@ public class SpecialActionMessage implements IMessage {
 				return null;
 			}
 			if (player.getHeldItem() != null && player.getHeldItem().getItem() instanceof ISpecialActionItem) {
-				((ISpecialActionItem)player.getHeldItem().getItem()).specialAction(player.getHeldItem(), player);
+				((ISpecialActionItem)player.getHeldItem().getItem()).specialAction(player.getHeldItem(), player, false);
 			}
 			return null;
 		}

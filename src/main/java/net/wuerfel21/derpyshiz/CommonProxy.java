@@ -11,6 +11,7 @@ import net.wuerfel21.derpyshiz.entity.tile.TileEntityHousing;
 import net.wuerfel21.derpyshiz.entity.tile.TileEntityMillstone;
 import net.wuerfel21.derpyshiz.entity.tile.TileEntitySeizureWool;
 import net.wuerfel21.derpyshiz.gui.GuiHandler;
+import net.wuerfel21.derpyshiz.items.NaturalSword;
 import net.wuerfel21.derpyshiz.network.ItemModeMessage;
 import net.wuerfel21.derpyshiz.network.SpecialActionMessage;
 import net.wuerfel21.derpyshiz.world.DerpyWorld;
@@ -52,6 +53,7 @@ public class CommonProxy {
 		GameRegistry.registerTileEntity(TileEntityMillstone.class, "ds_millstone");
 		
 		GameRegistry.registerTileEntity(TileEntitySeizureWool.class, "ds_seizure_wool");
+		NaturalSword.registerLeafTypes();
     }
 
     public void postInit(FMLPostInitializationEvent e) {

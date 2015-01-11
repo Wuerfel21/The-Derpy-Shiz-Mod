@@ -43,6 +43,7 @@ public class DerpyBlocks {
 
 	public static Block log;
 	public static Block plank;
+	public static Block leaves;
 	public static Block[] stairs = new Block[2];
 	public static Block slab;
 	public static Block slabDouble;
@@ -78,7 +79,7 @@ public class DerpyBlocks {
 		Blocks.fire.setFireInfo(slabDouble, 5, 20);
 		GameRegistry.registerBlock(new CoarseStone(), ItemCoarseStone.class, "coarse_stone");
 		GameRegistry.registerBlock(new SnowflakeObsidian(), "snowflake_obsidian");
-		GameRegistry.registerBlock(new DerpyLeaves().setBlockName("leaves"), ItemLeaves.class, "leaves");
+		GameRegistry.registerBlock(leaves = new DerpyLeaves().setBlockName("leaves"), ItemLeaves.class, "leaves");
 		Blocks.fire.setFireInfo(GameRegistry.findBlock("derpyshiz", "leaves"), 30, 60);
 		GameRegistry.registerBlock(new KewlBush(), "kewl_bush");
 		GameRegistry.registerBlock(new DerpySaplings(), ItemSapling.class, "sapling");

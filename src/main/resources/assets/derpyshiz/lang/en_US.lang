@@ -171,6 +171,9 @@ item.sword_enderium.name=Enderium Sword
 item.sword_darkness.name=Dark Sword
 
 item.sword_fire.name=Nether Edge
+item.sword_water.name=Flood Cutlass
+item.sword_natural.name=Mother Natures Blade
+item.sword_wind.name=Strom Katana
 
 item.axe_turquoise.name=Turquoise Axe
 
@@ -277,6 +280,12 @@ mode.hammer_face.name=Face
 mode.hammer_direction.name=Direction
 mode.firesword_normal.name=Normal
 mode.firesword_hell.name=Hell
+mode.naturalsword_front.name=Front
+mode.naturalsword_back.name=Back
+mode.naturalsword_all.name=All
+
+item.diesieben07.name=Diesieben07
+info.diesieben07.name=Cuddle it when you are scared of bugs
 
 mode.mode.name=Mode
 

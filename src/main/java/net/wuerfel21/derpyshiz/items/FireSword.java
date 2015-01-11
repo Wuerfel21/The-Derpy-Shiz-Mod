@@ -66,7 +66,10 @@ public class FireSword extends DerpySword implements IModeItem, ISpecialActionIt
 	}
 
 	@Override
-	public void specialAction(ItemStack stack, EntityPlayer player) {
+	public void specialAction(ItemStack stack, EntityPlayer player, boolean isClient) {
+		if (isClient) {
+			return;
+		}
 		int cost = player.dimension == -1 ? 0 : 3;
 		if (!player.isWet()) {
 			Vec3 vec = player.getLook(0.3f);
@@ -75,6 +78,7 @@ public class FireSword extends DerpySword implements IModeItem, ISpecialActionIt
 			ball.accelerationX = vec.xCoord;
 			ball.accelerationY = vec.yCoord;
 			ball.accelerationZ = vec.zCoord;
+			ball.shootingEntity = player;
 			player.worldObj.spawnEntityInWorld(ball);
 			DerpyItems.damageItem(stack, 5, player);
 		}
