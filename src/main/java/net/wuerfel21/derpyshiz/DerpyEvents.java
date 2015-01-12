@@ -222,10 +222,11 @@ public class DerpyEvents {
 
 	@SubscribeEvent
 	public void onLivingHurt(LivingHurtEvent event) {
-		if (event.entityLiving instanceof EntityPlayer && ((EntityPlayer)event.entityLiving).isBlocking()) {
+		if (event.source.damageType == "fall" && event.entityLiving instanceof EntityPlayer && ((EntityPlayer)event.entityLiving).isBlocking() && ((EntityPlayer)event.entityLiving).getHeldItem() != null && ((EntityPlayer)event.entityLiving).getHeldItem().getItem() instanceof WindSword) {
 			event.setCanceled(true);
+			DerpyItems.damageItem(((EntityPlayer)event.entityLiving).getHeldItem(), 1, event.entityLiving);
 		}
-		if (event.source.getSourceOfDamage() instanceof EntityLivingBase && ((EntityLivingBase)event.source.getSourceOfDamage()).getEquipmentInSlot(0) != null && ((EntityLivingBase)event.source.getSourceOfDamage()).getEquipmentInSlot(0).getItem() instanceof WindSword) {
+		if (!event.entity.worldObj.isRemote && event.source.getSourceOfDamage() instanceof EntityLivingBase && ((EntityLivingBase)event.source.getSourceOfDamage()).getEquipmentInSlot(0) != null && ((EntityLivingBase)event.source.getSourceOfDamage()).getEquipmentInSlot(0).getItem() instanceof WindSword) {
 			event.entity.motionY += 2;
 		}
 	}

@@ -168,7 +168,10 @@ item.sword_enderium.name=Enderiumschwert
 
 item.sword_darkness.name=Schattenschwert
 
-item.sword_fire.name=Klinge der Flammen
+item.sword_fire.name=Schneide der Flammen
+item.sword_water.name=Flutsäbel
+item.sword_natural.name=Mutter Naturs Klinge
+item.sword_wind.name=Sturmkatana
 
 item.axe_turquoise.name=Türkisaxt
 
@@ -232,8 +235,6 @@ tile.coarsestone_framed.name=Gerahmter Rauer Stein
 
 entity.piggycorn.name=Schweinhorn
 
-item.diesieben07.name=Diesieben07
-
 tile.snowflake_obsidian.name=Schneflockenobsidian
 
 item.horn.name=Schweinhorn-horn
@@ -275,9 +276,13 @@ mode.hammer_face.name=Seite
 mode.hammer_direction.name=Richtung
 mode.firesword_normal.name=Normal
 mode.firesword_hell.name=Inferno
+mode.watersword_normal.name=Normal
+mode.watersword_freeze.name=Eis
 mode.naturalsword_front.name=Vorne
 mode.naturalsword_back.name=Hinten
 mode.naturalsword_all.name=Rundum
+mode.windsword_speed.name=Geschwindigkeit
+mode.windsword_jump.name=Sprungkraft
 
 mode.mode.name=Modus
 
@@ -285,7 +290,5 @@ text.output.name=Ausgang
 text.input.name=Eingang
 text.speed.name=Geschwindigkeit
 text.torque.name=Drehmoment
-
-info.diesieben07.name=Kuschel es wenn du angst vor Käfern hast
 
 message.mode.name=Modus geändert auf: 

@@ -19,7 +19,7 @@ public class ModelPiggycorn extends ModelPig {
 	
 	public ModelPiggycorn(float whatever) {
 		super(whatever);
-		this.horn.setRotationPoint(0.0F, (float)(18 - 6), -6.0F);
+		this.horn.setRotationPoint(0.0F, 12, -6.0F);
 		this.horn.setTextureOffset(0, 26).addBox(-2f,-5f,-6f,4,1,4,whatever);
 		this.horn.setTextureOffset(16, 24).addBox(-1f,-10f,-5f,2,5,2,whatever);
 	}

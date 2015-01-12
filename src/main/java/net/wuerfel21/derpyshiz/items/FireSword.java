@@ -30,10 +30,7 @@ public class FireSword extends DerpySword implements IModeItem, ISpecialActionIt
 	public boolean onLeftClickEntity(ItemStack stack, EntityPlayer player, Entity entity) {
 		if (player.worldObj.isRemote)
 			return false;
-		if (entity.isImmuneToFire()) {
-			DerpyItems.damageItem(stack, 1, player);
-			return true;
-		} else if (player.isWet()) {
+		if (player.isWet()) {
 			return true;
 		} else {
 			if (ItemModeHelper.getMode(stack) == 1) {
@@ -80,7 +77,8 @@ public class FireSword extends DerpySword implements IModeItem, ISpecialActionIt
 			ball.accelerationZ = vec.zCoord;
 			ball.shootingEntity = player;
 			player.worldObj.spawnEntityInWorld(ball);
-			DerpyItems.damageItem(stack, 5, player);
+			player.worldObj.playSoundAtEntity(player, "mob.ghast.fireball", 1f, player.getRNG().nextFloat() * 0.1f + 0.9f);
+			DerpyItems.damageItem(stack, 3, player);
 		}
 	}
 

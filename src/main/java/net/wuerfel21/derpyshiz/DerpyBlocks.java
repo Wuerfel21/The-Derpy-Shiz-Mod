@@ -41,6 +41,7 @@ import cpw.mods.fml.common.registry.GameRegistry;
 
 public class DerpyBlocks {
 
+	public static Block patternWool;
 	public static Block log;
 	public static Block plank;
 	public static Block leaves;
@@ -53,7 +54,7 @@ public class DerpyBlocks {
 	public static Block millstone;
 
 	public static final void init() {
-		GameRegistry.registerBlock(new PatternWool(), ItemPatternWool.class, "pattern_wool");
+		GameRegistry.registerBlock(patternWool = new PatternWool(), ItemPatternWool.class, "pattern_wool");
 		GameRegistry.registerBlock(new PatternCarpet(), ItemPatternWool.class, "pattern_carpet");
 		Blocks.fire.setFireInfo(GameRegistry.findBlock("derpyshiz", "pattern_wool"), 30, 60);
 		Blocks.fire.setFireInfo(GameRegistry.findBlock("derpyshiz", "pattern_carpet"), 60, 20);

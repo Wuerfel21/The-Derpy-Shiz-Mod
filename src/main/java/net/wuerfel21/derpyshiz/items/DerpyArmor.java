@@ -1,5 +1,7 @@
 package net.wuerfel21.derpyshiz.items;
 
+import cpw.mods.fml.relauncher.Side;
+import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;
@@ -26,6 +28,7 @@ public class DerpyArmor extends ItemArmor {
 		return material.getItem() == repair && material.getItemDamage() == meta;
 	}
 	
+	@SideOnly(Side.CLIENT)
 	@Override
 	public String getArmorTexture(ItemStack stack, Entity entity, int slot, String type)
 	{

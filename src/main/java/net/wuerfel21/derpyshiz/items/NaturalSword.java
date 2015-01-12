@@ -11,6 +11,7 @@ import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.monster.EntityCreeper;
 import net.minecraft.entity.monster.EntitySpider;
 import net.minecraft.entity.passive.EntityAnimal;
+import net.minecraft.entity.passive.EntitySquid;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Blocks;
 import net.minecraft.item.Item;
@@ -34,7 +35,7 @@ public class NaturalSword extends DerpySword implements IModeItem, ISpecialActio
 
 	@Override
 	public boolean onLeftClickEntity(ItemStack stack, EntityPlayer player, Entity entity) {
-		if (entity instanceof EntityAnimal || entity instanceof EntitySpider || entity instanceof EntityCreeper) {
+		if (entity instanceof EntityAnimal || entity instanceof EntitySquid) {
 			return true;
 		}
 		if (entity instanceof EntityLivingBase) {

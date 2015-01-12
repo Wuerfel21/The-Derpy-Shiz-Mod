@@ -2,6 +2,7 @@ package net.wuerfel21.derpyshiz.items;
 
 import java.util.List;
 
+import net.minecraft.block.Block;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.boss.EntityDragon;
@@ -17,6 +18,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.potion.PotionEffect;
 import net.minecraft.util.ChatComponentText;
 import net.minecraft.world.World;
+import net.wuerfel21.derpyshiz.DerpyItems;
 import net.wuerfel21.derpyshiz.IModeItem;
 import net.wuerfel21.derpyshiz.ISpecialActionItem;
 import net.wuerfel21.derpyshiz.ItemModeHelper;
@@ -44,11 +46,9 @@ public class WindSword extends DerpySword implements IModeItem, ISpecialActionIt
 
 	@Override
 	public boolean onLeftClickEntity(ItemStack stack, EntityPlayer player, Entity entity) {
-		if (entity instanceof EntityBlaze || entity instanceof EntityChicken || entity instanceof EntityBat || entity instanceof EntityGhast || entity instanceof EntityDragon || entity instanceof EntityWither || entity instanceof EntityFireball) {
-			return true;
-		}
-		if (!entity.worldObj.isRemote) {
-			entity.motionY += 2;
+		if (entity instanceof EntityLivingBase) {
+			((EntityLivingBase)entity).addPotionEffect(new PotionEffect(18, 80));
+			((EntityLivingBase)entity).addPotionEffect(new PotionEffect(9, 100));
 		}
 		return false;
 	}
@@ -56,7 +56,13 @@ public class WindSword extends DerpySword implements IModeItem, ISpecialActionIt
 	@Override
 	public void specialAction(ItemStack stack, EntityPlayer player, boolean isClient) {
 		if (player.onGround) {
+			int x = (int) Math.floor(player.posX);
+			int y = (int) Math.floor(player.posY);
+			int z = (int) Math.floor(player.posZ);
+			Block.SoundType sound = player.worldObj.getBlock(x, y-1, z).stepSound;
 			player.motionY += 2;
+			player.worldObj.playSoundAtEntity(player, sound.getBreakSound(), sound.getVolume(), sound.getPitch());
+			DerpyItems.damageItem(stack, 3, player);
 		}
 	}
 
@@ -77,6 +83,6 @@ public class WindSword extends DerpySword implements IModeItem, ISpecialActionIt
 		return modes[index];
 	}
 
-	public static final String[] modes = { "mode.speed.name", "mode.jump.name" };
+	public static final String[] modes = { "mode.windsword_speed.name", "mode.windsword_jump.name" };
 
 }

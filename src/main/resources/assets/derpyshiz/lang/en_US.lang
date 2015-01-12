@@ -280,12 +280,13 @@ mode.hammer_face.name=Face
 mode.hammer_direction.name=Direction
 mode.firesword_normal.name=Normal
 mode.firesword_hell.name=Hell
+mode.watersword_normal.name=Normal
+mode.watersword_freeze.name=Deep Freeze
 mode.naturalsword_front.name=Front
 mode.naturalsword_back.name=Back
 mode.naturalsword_all.name=All
-
-item.diesieben07.name=Diesieben07
-info.diesieben07.name=Cuddle it when you are scared of bugs
+mode.windsword_speed.name=Speed
+mode.windsword_jump.name=Jump
 
 mode.mode.name=Mode
 

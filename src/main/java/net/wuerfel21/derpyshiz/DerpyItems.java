@@ -26,7 +26,6 @@ import net.wuerfel21.derpyshiz.items.DerpyNuggets;
 import net.wuerfel21.derpyshiz.items.DerpyPickaxe;
 import net.wuerfel21.derpyshiz.items.DerpyShovel;
 import net.wuerfel21.derpyshiz.items.DerpySword;
-import net.wuerfel21.derpyshiz.items.Diesieben07;
 import net.wuerfel21.derpyshiz.items.ExtraIngots;
 import net.wuerfel21.derpyshiz.items.FireSword;
 import net.wuerfel21.derpyshiz.items.HorseLasagne;
@@ -34,6 +33,8 @@ import net.wuerfel21.derpyshiz.items.ItemRotameter;
 import net.wuerfel21.derpyshiz.items.ItemTDM;
 import net.wuerfel21.derpyshiz.items.NaturalSword;
 import net.wuerfel21.derpyshiz.items.OreItems;
+import net.wuerfel21.derpyshiz.items.TopHat;
+import net.wuerfel21.derpyshiz.items.WaterSword;
 import net.wuerfel21.derpyshiz.items.WindSword;
 import net.wuerfel21.derpyshiz.items.WuerfeliumPickaxe;
 import net.wuerfel21.derpyshiz.items.WuerfeliumSword;
@@ -53,6 +54,7 @@ public abstract class DerpyItems {
 	public static ToolMaterial WUERFELIUM;
 
 	public static ToolMaterial FIRE;
+	public static ToolMaterial WATER;
 	public static ToolMaterial NATURAL;
 	public static ToolMaterial WIND;
 
@@ -71,6 +73,8 @@ public abstract class DerpyItems {
 	public static ArmorMaterial ARMOR_CIRCLET_FAKEDIAMOND;
 
 	public static ArmorMaterial ARMOR_DARK_CLOAK;
+	
+	public static ArmorMaterial ARMOR_TOP_HAT;
 
 	public static Item shearIcon;
 	public static Item derpyShears;
@@ -93,9 +97,10 @@ public abstract class DerpyItems {
 		DARKNESS = EnumHelper.addToolMaterial("DARKNESS", 2, 750, 1f, 2.25f, 20);
 		WUERFELIUM = EnumHelper.addToolMaterial("WUERFELIUM", 2, 300, 3f, 2.1f, 2);
 
-		FIRE = EnumHelper.addToolMaterial("FIRE", 0, 512, 1f, 2f, 3);
-		NATURAL = EnumHelper.addToolMaterial("NATURAL", 0, 512, 1f, 3f, 20);
-		WIND = EnumHelper.addToolMaterial("WIND", 0, 512, 1f, 1f, 20);
+		FIRE = EnumHelper.addToolMaterial("FIRE", 0, 700, 1f, 2f, 10);
+		WATER = EnumHelper.addToolMaterial("WATER", 0, 700, 1f, 2f, 10);
+		NATURAL = EnumHelper.addToolMaterial("NATURAL", 0, 700, 1f, 3f, 10);
+		WIND = EnumHelper.addToolMaterial("WIND", 0, 700, 1f, 2f, 10);
 		
 		ARMOR_TITANIUM = EnumHelper.addArmorMaterial("ARMOR_TITANIUM", 25, new int[] { 2, 7, 5, 3 }, 8);
 		ARMOR_RUBY = EnumHelper.addArmorMaterial("ARMOR_RUBY", 30, new int[] { 3, 7, 6, 3 }, 8);
@@ -112,6 +117,8 @@ public abstract class DerpyItems {
 		ARMOR_CIRCLET_FAKEDIAMOND = EnumHelper.addArmorMaterial("ARMOR_CIRCLET_DIAMOND", 5, new int[] { 0, 0, 0, 0 }, 0);
 
 		ARMOR_DARK_CLOAK = EnumHelper.addArmorMaterial("ARMOR_DARK_CLOAK", 20, new int[] { 0, 3, 0, 0 }, 7);
+		
+		ARMOR_TOP_HAT = EnumHelper.addArmorMaterial("ARMOR_TOP_HAT", 14, new int[] { 0, 0, 0, 0 }, 0);
 
 		GameRegistry.registerItem(oreItems = new OreItems(), "ore_item");
 		GameRegistry.registerItem(extraIngots = new ExtraIngots(), "extra_ingot");
@@ -156,6 +163,7 @@ public abstract class DerpyItems {
 		GameRegistry.registerItem(new DerpyHoe(FAKEDIAMOND, oreItems, 1).setUnlocalizedName("hoe_fakediamond").setTextureName("derpyshiz:hoe_fakediamond"), "hoe_fakediamond");
 
 		GameRegistry.registerItem(new FireSword(FIRE, extraIngots, 0).setUnlocalizedName("sword_fire").setTextureName("derpyshiz:sword_fire"), "sword_fire");
+		GameRegistry.registerItem(new WaterSword(WATER, extraIngots, 1).setUnlocalizedName("sword_water").setTextureName("derpyshiz:sword_water"), "sword_water");
 		GameRegistry.registerItem(new NaturalSword(NATURAL, extraIngots, 2).setUnlocalizedName("sword_natural").setTextureName("derpyshiz:sword_natural"), "sword_natural");
 		GameRegistry.registerItem(new WindSword(WIND, extraIngots, 3).setUnlocalizedName("sword_wind").setTextureName("derpyshiz:sword_wind"), "sword_wind");
 
@@ -200,6 +208,10 @@ public abstract class DerpyItems {
 
 		GameRegistry.registerItem(new DarkCloak(ARMOR_DARK_CLOAK, 1, oreItems, 12).setUnlocalizedName("dark_cloak").setTextureName("derpyshiz:dark_cloak"), "dark_cloak");
 
+		GameRegistry.registerItem(new TopHat(ARMOR_TOP_HAT, Item.getItemFromBlock(Blocks.wool), 15, "black"), "top_hat_black");
+		GameRegistry.registerItem(new TopHat(ARMOR_TOP_HAT, Item.getItemFromBlock(Blocks.wool), 0, "white"), "top_hat_white");
+		GameRegistry.registerItem(new TopHat(ARMOR_TOP_HAT, Item.getItemFromBlock(DerpyBlocks.patternWool), 8, "rainbow"), "top_hat_rainbow");
+		
 		GameRegistry.registerItem(new Item().setUnlocalizedName("horn").setTextureName("derpyshiz:horn").setCreativeTab(CreativeTabs.tabMaterials), "horn");
 
 		GameRegistry.registerItem(new HorseLasagne(), "lasagne");
@@ -211,7 +223,6 @@ public abstract class DerpyItems {
 		GameRegistry.registerItem(new DerpyCircuits(), "circuit");
 
 		GameRegistry.registerItem(new ItemTDM(), "tdm");
-		GameRegistry.registerItem(new Diesieben07(), "diesieben07");
 	}
 
 	public static void damageItem(ItemStack stack, int amount, EntityLivingBase entity) {

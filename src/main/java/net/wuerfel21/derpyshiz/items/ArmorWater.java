@@ -29,7 +29,7 @@ public class ArmorWater extends DerpyArmor {
 				player.addPotionEffect(new PotionEffect(16, 2, 0, true));
 				break;
 			case 1:
-				player.addPotionEffect(new PotionEffect(13, 2, 0, true));
+				player.addPotionEffect(new PotionEffect(3, 2, 0, true));
 				break;
 			case 2:
 				player.addPotionEffect(new PotionEffect(10, 2, 0, true));
