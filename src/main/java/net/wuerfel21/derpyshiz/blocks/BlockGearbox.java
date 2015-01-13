@@ -18,11 +18,12 @@ import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.IIcon;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
+import net.wuerfel21.derpyshiz.IMetaItemBlock;
 import net.wuerfel21.derpyshiz.ISmashable;
 import net.wuerfel21.derpyshiz.Main;
 import net.wuerfel21.derpyshiz.entity.tile.TileEntityGearbox;
 
-public class BlockGearbox extends Block implements ITileEntityProvider, ISmashable {
+public class BlockGearbox extends Block implements ITileEntityProvider, ISmashable, IMetaItemBlock {
 
 	public IIcon[] overlay = new IIcon[1];
 	public IIcon[] icons = new IIcon[2];
@@ -127,5 +128,10 @@ public class BlockGearbox extends Block implements ITileEntityProvider, ISmashab
 	}
 
 	public static final String[] types = { "normal", "advanced" };
+
+	@Override
+	public String getUnlocalizedName(int meta) {
+		return this.getUnlocalizedName() + "_" +types[meta%types.length];
+	}
 
 }

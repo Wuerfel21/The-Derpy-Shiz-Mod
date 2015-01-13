@@ -6,8 +6,9 @@ import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.block.BlockCarpet;
 import net.minecraft.init.Blocks;
 import net.minecraft.util.IIcon;
+import net.wuerfel21.derpyshiz.IMetaItemBlock;
 
-public class PatternCarpet extends BlockCarpet {
+public class PatternCarpet extends BlockCarpet implements IMetaItemBlock {
 	
 	public PatternCarpet() {
 		super();
@@ -15,6 +16,11 @@ public class PatternCarpet extends BlockCarpet {
 		this.setHardness(0.1f);
 		this.setStepSound(soundTypeCloth);
 		this.setLightOpacity(0);
+	}
+	
+	@Override
+	public String getUnlocalizedName(int meta) {
+		return this.getUnlocalizedName() + "_" +PatternWool.patterns[meta%16];
 	}
 	
 	/**

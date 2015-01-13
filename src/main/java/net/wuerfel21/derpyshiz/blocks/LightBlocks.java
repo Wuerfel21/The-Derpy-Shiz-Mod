@@ -15,10 +15,11 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.util.IIcon;
 import net.minecraft.world.IBlockAccess;
 import net.wuerfel21.derpyshiz.ColoredLightHelper;
+import net.wuerfel21.derpyshiz.IMetaItemBlock;
 
-public class LightBlocks extends Block {
+public class LightBlocks extends Block implements IMetaItemBlock {
 
-	IIcon[] icons = new IIcon[this.numLamps];
+	IIcon[] icons = new IIcon[this.names.length];
 
 	public LightBlocks() {
 		super(Material.redstoneLight);
@@ -51,7 +52,7 @@ public class LightBlocks extends Block {
 
 	@Override
 	public void registerBlockIcons(IIconRegister reg) {
-		for (int i = 0; i < numLamps; i++) {
+		for (int i = 0; i < names.length; i++) {
 			this.icons[i] = reg.registerIcon(this.textureName + "_" + names[i]);
 		}
 	}
@@ -70,12 +71,15 @@ public class LightBlocks extends Block {
 	@SideOnly(Side.CLIENT)
 	@Override
 	public void getSubBlocks(Item item, CreativeTabs tab, List list) {
-		for (int i = 0; i < this.numLamps; i++) {
+		for (int i = 0; i < this.names.length; i++) {
 			list.add(new ItemStack(item, 1, i));
 		}
 	}
 
-	public static final int numLamps = 3;
-	public static final int[] light = {};
+	@Override
+	public String getUnlocalizedName(int meta) {
+		return this.getUnlocalizedName() + "_" +names[meta%names.length];
+	}
+	
 	public static final String[] names = { "fluorite_red", "fluorite_green", "fluorite_blue" };
 }

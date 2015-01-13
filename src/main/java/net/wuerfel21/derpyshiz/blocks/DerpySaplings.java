@@ -14,12 +14,13 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.util.IIcon;
 import net.minecraft.world.World;
 import net.minecraft.world.gen.feature.WorldGenerator;
+import net.wuerfel21.derpyshiz.IMetaItemBlock;
 import net.wuerfel21.derpyshiz.world.WorldGenEbonyTree;
 import net.wuerfel21.derpyshiz.world.WorldGenMagicTree;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 
-public class DerpySaplings extends BlockBush implements IGrowable {
+public class DerpySaplings extends BlockBush implements IGrowable, IMetaItemBlock{
 
 	public static final String[] types = { "ebony", "magic" };
 	public static final IIcon[] icons = new IIcon[2];
@@ -126,6 +127,11 @@ public class DerpySaplings extends BlockBush implements IGrowable {
 
 	public void func_149853_b(World p_149853_1_, Random p_149853_2_, int p_149853_3_, int p_149853_4_, int p_149853_5_) {
 		this.func_149879_c(p_149853_1_, p_149853_3_, p_149853_4_, p_149853_5_, p_149853_2_);
+	}
+	
+	@Override
+	public String getUnlocalizedName(int meta) {
+		return this.getUnlocalizedName() + "_" +types[meta%types.length];
 	}
 
 }

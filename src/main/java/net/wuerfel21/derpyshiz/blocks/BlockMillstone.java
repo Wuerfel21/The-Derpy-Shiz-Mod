@@ -3,15 +3,19 @@ package net.wuerfel21.derpyshiz.blocks;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockContainer;
 import net.minecraft.block.material.Material;
+import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.tileentity.TileEntity;
+import net.minecraft.util.IIcon;
 import net.minecraft.world.Explosion;
+import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.entity.player.PlayerInteractEvent;
 import net.minecraftforge.event.entity.player.PlayerInteractEvent.Action;
+import net.wuerfel21.derpyshiz.DerpyBlocks;
 import net.wuerfel21.derpyshiz.GuiIds;
 import net.wuerfel21.derpyshiz.Main;
 import net.wuerfel21.derpyshiz.entity.tile.TileEntityMillstone;
@@ -19,14 +23,21 @@ import cpw.mods.fml.common.eventhandler.Event.Result;
 
 public class BlockMillstone extends BlockContainer {
 
+	public static IIcon[] icons = new IIcon[4];
+	
 	public BlockMillstone() {
 		super(Main.machineMaterial);
 		this.setBlockName("millstone");
 		this.setCreativeTab(CreativeTabs.tabBlock);
 		this.setStepSound(soundTypePiston);
-		this.setHarvestLevel("pickaxe", 0);
+		this.setHarvestLevel("ds_hammer", 0);
 		this.setResistance(10f);
 		this.setHardness(1.5f);
+		if (Main.fancyGearbox) {
+			this.setBlockTextureName("derpyshiz:coarse_stone_framed");
+		} else {
+			this.setBlockTextureName("derpyshiz:millstone_ugly");
+		}
 	}
 
 	@Override
@@ -59,6 +70,36 @@ public class BlockMillstone extends BlockContainer {
 	}
 
 	@Override
+	public IIcon getIcon(int side, int meta) {
+		if (Main.fancyGearbox) {
+			switch (meta) {
+			default:
+			case 0:
+				return DerpyBlocks.coarseStone.getIcon(side, 1);
+			case 1:
+				return DerpyBlocks.oreBlocks.getIcon(side, 2);
+			}
+		} else {
+			return icons[((meta & 1)*2)+(side<2?1:0)];
+		}
+	}
+	
+	@Override
+	public void registerBlockIcons(IIconRegister reg) {
+		if (!Main.fancyGearbox) {
+			icons[0] = reg.registerIcon(this.getTextureName()+"_normal_0");
+			icons[1] = reg.registerIcon(this.getTextureName()+"_normal_1");
+			icons[2] = reg.registerIcon(this.getTextureName()+"_advanced_0");
+			icons[3] = reg.registerIcon(this.getTextureName()+"_advanced_1");
+		}
+	}
+	
+	@Override
+	public boolean shouldSideBeRendered(IBlockAccess p_149646_1_, int p_149646_2_, int p_149646_3_, int p_149646_4_, int p_149646_5_) {
+		return !Main.fancyGearbox;
+	}
+	
+	@Override
 	public void breakBlock(World world, int x, int y, int z, Block block, int meta) {
 		TileEntity te = world.getTileEntity(x, y, z);
 		if (!(te instanceof TileEntityMillstone)) {
@@ -68,4 +109,22 @@ public class BlockMillstone extends BlockContainer {
 		super.breakBlock(world, x, y, z, block, meta);
 	}
 
+	@Override
+	public boolean isOpaqueCube() {
+		return false;
+	}
+	
+	@Override
+	public int damageDropped(int meta) {
+		return meta;
+	}
+	
+	@Override
+	public String getUnlocalizedName() {
+		// TODO Auto-generated method stub
+		return super.getUnlocalizedName();
+	}
+	
+	public static final String[] types = {"normal","advanced"};
+	
 }

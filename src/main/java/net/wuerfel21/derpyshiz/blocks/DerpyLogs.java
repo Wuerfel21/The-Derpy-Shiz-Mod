@@ -11,8 +11,9 @@ import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.IIcon;
+import net.wuerfel21.derpyshiz.IMetaItemBlock;
 
-public class DerpyLogs extends BlockLog {
+public class DerpyLogs extends BlockLog implements IMetaItemBlock{
 	
 	public static final String[] field_150169_M = new String[] {"ebony", "magic"};
 	public static final String[] types = field_150169_M;
@@ -45,6 +46,11 @@ public class DerpyLogs extends BlockLog {
     @Override
 	public int getHarvestLevel(int meta) {
 		return meta%2==0?1:3;
+	}
+    
+    @Override
+	public String getUnlocalizedName(int meta) {
+		return this.getUnlocalizedName() + "_" +types[meta%types.length];
 	}
     
 }

@@ -14,10 +14,11 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.util.DamageSource;
 import net.minecraft.util.IIcon;
 import net.minecraft.world.World;
+import net.wuerfel21.derpyshiz.IMetaItemBlock;
 
-public class CoarseStone extends Block {
+public class CoarseStone extends Block implements IMetaItemBlock{
 
-	public IIcon[] icons = new IIcon[this.numBlocks];
+	public IIcon[] icons = new IIcon[this.names.length];
 
 	public CoarseStone() {
 		super(Material.rock);
@@ -42,7 +43,7 @@ public class CoarseStone extends Block {
 	
 	@Override
 	public void registerBlockIcons(IIconRegister reg) {
-		for (int i = 0; i < numBlocks; i++) {
+		for (int i = 0; i < names.length; i++) {
 			this.icons[i] = reg.registerIcon(this.textureName + "_" + names[i]);
 		}
 	}
@@ -61,12 +62,16 @@ public class CoarseStone extends Block {
 	@SideOnly(Side.CLIENT)
 	@Override
 	public void getSubBlocks(Item item, CreativeTabs tab, List list) {
-		for (int i = 0; i < numBlocks; i++) {
+		for (int i = 0; i < names.length; i++) {
 			list.add(new ItemStack(item, 1, i));
 		}
 	}
 
-	public static final int numBlocks = 2;
 	public static final String[] names = { "normal", "framed" };
+
+	@Override
+	public String getUnlocalizedName(int meta) {
+		return this.getUnlocalizedName() + "_" +names[meta%names.length];
+	}
 
 }

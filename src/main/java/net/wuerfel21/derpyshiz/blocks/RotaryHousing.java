@@ -17,11 +17,12 @@ import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.IIcon;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
+import net.wuerfel21.derpyshiz.IMetaItemBlock;
 import net.wuerfel21.derpyshiz.Main;
 import net.wuerfel21.derpyshiz.entity.tile.TileEntityGearbox;
 import net.wuerfel21.derpyshiz.entity.tile.TileEntityHousing;
 
-public class RotaryHousing extends Block implements ITileEntityProvider{
+public class RotaryHousing extends Block implements ITileEntityProvider, IMetaItemBlock{
 	
 	public IIcon[] overlay = new IIcon[1];
 	public IIcon[] icons = new IIcon[2];
@@ -96,6 +97,11 @@ public class RotaryHousing extends Block implements ITileEntityProvider{
 		}
 	}
 
+	@Override
+	public String getUnlocalizedName(int meta) {
+		return this.getUnlocalizedName() + "_" +types[meta%types.length];
+	}
+	
 	public static final String[] types = { "normal", "advanced" };
 	
 }

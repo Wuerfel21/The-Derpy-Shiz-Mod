@@ -12,13 +12,14 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.IIcon;
 import net.minecraft.world.World;
+import net.wuerfel21.derpyshiz.IMetaItemBlock;
 import cpw.mods.fml.common.registry.GameRegistry;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 
-public class DerpyOres extends Block {
+public class DerpyOres extends Block implements IMetaItemBlock {
 	
-	public IIcon[] icons = new IIcon[this.numOres];
+	public IIcon[] icons = new IIcon[16];
 	
 	public DerpyOres() {
 		super(Material.rock);
@@ -32,7 +33,7 @@ public class DerpyOres extends Block {
 	
 	@Override
 	public void registerBlockIcons(IIconRegister reg) {
-	    for (int i = 0; i < numOres; i ++) {
+	    for (int i = 0; i < 16; i ++) {
 	        this.icons[i] = reg.registerIcon(this.textureName + "_" + names[i]);
 	    }
 	}
@@ -51,7 +52,7 @@ public class DerpyOres extends Block {
 	@SideOnly(Side.CLIENT)
 	@Override
 	public void getSubBlocks(Item item, CreativeTabs tab, List list) {
-	    for (int i = 0; i < numOres; i ++) {
+	    for (int i = 0; i < 16; i ++) {
 	        list.add(new ItemStack(item, 1, i));
 	    }
 	}
@@ -59,13 +60,13 @@ public class DerpyOres extends Block {
 	@Override
 	public float getBlockHardness(World world,int x,int y,int z) {
 		int meta = world.getBlockMetadata(x, y, z);
-		if (meta >= numOres) return 1.5f;
+		if (meta >= 16) return 1.5f;
 		else return hardness[meta];
 	}
 	
 	@Override
 	public int getHarvestLevel(int meta) {
-		if (meta >= numOres) return 1;
+		if (meta >= 16) return 1;
 		else return level[meta];
 	}
 	
@@ -83,7 +84,7 @@ public class DerpyOres extends Block {
 	
 	@Override
 	public int quantityDropped(int meta, int fortune, Random rand) {
-		if (meta >= numOres)
+		if (meta >= 16)
 			return 64;
 		if (dropself[meta])
 			return 1;
@@ -102,7 +103,7 @@ public class DerpyOres extends Block {
 	
 	@Override
 	public Item getItemDropped(int meta, Random rand, int fortune) {
-		if (meta >= numOres) return Item.getItemFromBlock(Blocks.deadbush);
+		if (meta >= 16) return Item.getItemFromBlock(Blocks.deadbush);
 		if(dropself[meta])  {
 			return Item.getItemFromBlock(this);
 		} else {
@@ -110,7 +111,11 @@ public class DerpyOres extends Block {
 		}
 	}
 	
-	public static final int numOres = 16;
+	@Override
+	public String getUnlocalizedName(int meta) {
+		return this.getUnlocalizedName() + "_" +names[meta%16];
+	}
+	
 	public static final String[] names = {"amber","fakediamond","titanium","ruby","turquoise","amethyst","fluorite_brown","fluorite_red","fluorite_pink","copper","enderium","electrimite","darkness","tin","lead","wuerfelium"};
 	public static final int amberIndex = 0;
 	public static final int amethystIndex = 5;

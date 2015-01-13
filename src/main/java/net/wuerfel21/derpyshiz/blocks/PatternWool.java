@@ -12,8 +12,9 @@ import net.minecraft.init.Blocks;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.IIcon;
+import net.wuerfel21.derpyshiz.IMetaItemBlock;
 
-public class PatternWool extends Block {
+public class PatternWool extends Block implements IMetaItemBlock{
 	
 	public IIcon[] icons = new IIcon[16];
 	
@@ -52,7 +53,10 @@ public class PatternWool extends Block {
 	    }
 	}
 	
-	
+	@Override
+	public String getUnlocalizedName(int meta) {
+		return this.getUnlocalizedName() + "_" +patterns[meta%patterns.length];
+	}
 	
 	public static final String[] patterns = {"colordots","lines","checker","dotted","striped","squares","bright","heart","rainbow","swiss","germany","bavaria","mojang","notch","jeb","pig"};
 }
