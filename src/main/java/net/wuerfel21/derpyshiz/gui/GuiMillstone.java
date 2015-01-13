@@ -29,7 +29,8 @@ public class GuiMillstone extends GuiContainer {
 		String millName = millstone.getInventoryName();
 		String invName = StatCollector.translateToLocal("container.inventory");
 		this.fontRendererObj.drawString(millName, this.xSize / 2 - this.fontRendererObj.getStringWidth(millName) / 2, 5, 4210752);
-		this.fontRendererObj.drawString(invName, 8, this.ySize - 96 + 4, 4210752);
+		this.fontRendererObj.drawString(invName, 8, this.ySize - 92, 4210752);
+		this.fontRendererObj.drawString(StatCollector.translateToLocal("info.budget.name"), 8, this.ySize - 108, 0xFF0000);
 		super.drawGuiContainerForegroundLayer(mouseX, mouseY);
 	}
 	

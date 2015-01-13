@@ -13,6 +13,7 @@ import net.minecraft.stats.StatList;
 import net.minecraftforge.common.util.EnumHelper;
 import net.wuerfel21.derpyshiz.items.ArmorStone;
 import net.wuerfel21.derpyshiz.items.ArmorWater;
+import net.wuerfel21.derpyshiz.items.BaseCap;
 import net.wuerfel21.derpyshiz.items.DarkCloak;
 import net.wuerfel21.derpyshiz.items.DarkSword;
 import net.wuerfel21.derpyshiz.items.DerpyArmor;
@@ -33,6 +34,7 @@ import net.wuerfel21.derpyshiz.items.ItemRotameter;
 import net.wuerfel21.derpyshiz.items.ItemTDM;
 import net.wuerfel21.derpyshiz.items.NaturalSword;
 import net.wuerfel21.derpyshiz.items.OreItems;
+import net.wuerfel21.derpyshiz.items.RainbowCookie;
 import net.wuerfel21.derpyshiz.items.TopHat;
 import net.wuerfel21.derpyshiz.items.WaterSword;
 import net.wuerfel21.derpyshiz.items.WindSword;
@@ -75,12 +77,15 @@ public abstract class DerpyItems {
 	public static ArmorMaterial ARMOR_DARK_CLOAK;
 	
 	public static ArmorMaterial ARMOR_TOP_HAT;
+	public static ArmorMaterial ARMOR_CAP;
+	public static ArmorMaterial ARMOR_CAP_YOLO;
 
 	public static Item shearIcon;
-	public static Item derpyShears;
 	public static Item oreItems;
 	public static Item extraIngots;
 	public static Item dusts;
+	public static Item nuggets;
+	public static Item cookie;
 
 	public static Item[] stoneArmor = new Item[4];
 
@@ -118,7 +123,9 @@ public abstract class DerpyItems {
 
 		ARMOR_DARK_CLOAK = EnumHelper.addArmorMaterial("ARMOR_DARK_CLOAK", 20, new int[] { 0, 3, 0, 0 }, 7);
 		
-		ARMOR_TOP_HAT = EnumHelper.addArmorMaterial("ARMOR_TOP_HAT", 14, new int[] { 0, 0, 0, 0 }, 0);
+		ARMOR_TOP_HAT = EnumHelper.addArmorMaterial("ARMOR_TOP_HAT", 14, new int[] { 1, 0, 0, 0 }, 0);
+		ARMOR_CAP = EnumHelper.addArmorMaterial("ARMOR_CAP", 10, new int[] { 1, 0, 0, 0 }, 0);
+		ARMOR_CAP_YOLO = EnumHelper.addArmorMaterial("ARMOR_CAP_YOLO", 12, new int[] { 1, 0, 0, 0 }, 5);
 
 		GameRegistry.registerItem(oreItems = new OreItems(), "ore_item");
 		GameRegistry.registerItem(extraIngots = new ExtraIngots(), "extra_ingot");
@@ -212,11 +219,16 @@ public abstract class DerpyItems {
 		GameRegistry.registerItem(new TopHat(ARMOR_TOP_HAT, Item.getItemFromBlock(Blocks.wool), 0, "white"), "top_hat_white");
 		GameRegistry.registerItem(new TopHat(ARMOR_TOP_HAT, Item.getItemFromBlock(DerpyBlocks.patternWool), 8, "rainbow"), "top_hat_rainbow");
 		
+		GameRegistry.registerItem(new BaseCap(ARMOR_CAP_YOLO, Item.getItemFromBlock(Blocks.wool), 5, "yolo"), "cap_yolo");
+		GameRegistry.registerItem(new BaseCap(ARMOR_CAP, Item.getItemFromBlock(Blocks.wool), 0, "black"), "cap_black");
+		GameRegistry.registerItem(new BaseCap(ARMOR_CAP, Item.getItemFromBlock(Blocks.wool), 6, "pink"), "cap_pink");
+		
 		GameRegistry.registerItem(new Item().setUnlocalizedName("horn").setTextureName("derpyshiz:horn").setCreativeTab(CreativeTabs.tabMaterials), "horn");
 
 		GameRegistry.registerItem(new HorseLasagne(), "lasagne");
+		GameRegistry.registerItem(cookie = new RainbowCookie(), "rainbow_cookie");
 
-		GameRegistry.registerItem(new DerpyNuggets(), "nugget");
+		GameRegistry.registerItem(nuggets = new DerpyNuggets(), "nugget");
 		GameRegistry.registerItem(new DerpyGears(), "gear");
 		GameRegistry.registerItem(new ItemRotameter(), "rotameter");
 

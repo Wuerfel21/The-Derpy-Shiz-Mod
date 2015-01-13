@@ -230,6 +230,13 @@ item.circlet_fakediamond.name=Falscher Diamantreif
 
 item.dark_cloak.name=Schattenmantel
 
+item.tophat_black.name=Schwarzer Zylinder
+item.tophat_white.name=Weißer Zylinder
+item.tophat_rainbow.name=Regenbogenzylinder
+item.cap_yolo.name=YOLO Basecap
+item.cap_black.name=Schwarze Basecap
+item.cap_pink.name=Rosa Basecap
+
 tile.coarsestone_normal.name=Rauer Stein
 tile.coarsestone_framed.name=Gerahmter Rauer Stein
 
@@ -242,6 +249,7 @@ item.horn.name=Schweinhorn-horn
 tile.kewl_bush.name=Kewler Busch
 
 item.lasagne.name=Lasagne
+item.rainbow_cookie.name=Regenbogenkeks
 
 tile.axis.name=Achse
 
@@ -290,5 +298,7 @@ text.output.name=Ausgang
 text.input.name=Eingang
 text.speed.name=Geschwindigkeit
 text.torque.name=Drehmoment
+
+info.budget.name=BUDGETKÜRZUNG! Diese Maschine wird in der zukunft energie benötigen!
 
 message.mode.name=Modus geändert auf: 

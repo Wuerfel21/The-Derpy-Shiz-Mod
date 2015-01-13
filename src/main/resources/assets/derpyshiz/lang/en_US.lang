@@ -232,6 +232,13 @@ item.circlet_fakediamond.name=Fake Diamond Circlet
 
 item.dark_cloak.name=Dark Cloak
 
+item.tophat_black.name=Black Top Hat
+item.tophat_white.name=White Top Hat
+item.tophat_rainbow.name=Rainbow Top Hat
+item.cap_yolo.name=YOLO Basecap
+item.cap_black.name=Black Basecap
+item.cap_pink.name=Pink Basecap
+
 tile.coarsestone_normal.name=Coarse Stone
 tile.coarsestone_framed.name=Framed Coarse Stone
 
@@ -244,6 +251,7 @@ item.horn.name=Piggycorn horn
 tile.kewl_bush.name=Kewl Bush
 
 item.lasagne.name=Lasagne
+item.rainbow_cookie.name=Rainbow Cookie
 
 tile.axis.name=Axis
 
@@ -294,5 +302,7 @@ text.output.name=Output
 text.input.name=Input
 text.speed.name=Speed
 text.torque.name=Torque
+
+info.budget.name=BUDGET CUTS! This machine will require energy in the future!
 
 message.mode.name=Mode changed to: 

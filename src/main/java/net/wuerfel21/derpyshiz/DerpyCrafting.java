@@ -129,6 +129,8 @@ public class DerpyCrafting {
 		GameRegistry.addRecipe(new ShapelessOreRecipe(getBlock("kewl_bush", 0), "gemFakediamond", Blocks.deadbush));
 
 		GameRegistry.addRecipe(new ShapedOreRecipe(getStack("tdm", 0), "D D", "DDD", 'D', "gemDiamond"));
+		
+		GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(DerpyItems.cookie, 8), "ccc","cwc","ccc",'c',Items.cookie,'w',"woolRainbow"));
 
 		registerGear(1, 1, "plankEbony", "plankEbony");
 		registerGear(2, 1, "plankMagic", "plankMagic");

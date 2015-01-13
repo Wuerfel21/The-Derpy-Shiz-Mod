@@ -1,12 +1,14 @@
 package net.wuerfel21.derpyshiz.entity.tile;
 
+import net.minecraft.block.Block;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.inventory.ISidedInventory;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
-import net.minecraft.nbt.NBTUtil;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.StatCollector;
+import net.minecraft.world.World;
+import net.wuerfel21.derpyshiz.blocks.BlockMillstone;
 
 public class TileEntityMillstone extends TileEntity implements ISidedInventory {
 
@@ -135,6 +137,19 @@ public class TileEntityMillstone extends TileEntity implements ISidedInventory {
 	@Override
 	public boolean canExtractItem(int slot, ItemStack stack, int side) {
 		return slot == 1;
+	}
+
+	public void dropInv(World world, int x, int y, int z) {
+		Block block = this.getBlockType();
+		if (!(block instanceof BlockMillstone)) {
+			return;
+		}
+		for (ItemStack stack : this.stacks) {
+			if (stack != null) {
+				((BlockMillstone) block).dropBlockAsItem(world, x, y, z, stack);
+			}
+
+		}
 	}
 
 }

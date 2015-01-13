@@ -19,6 +19,7 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Items;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
+import net.wuerfel21.derpyshiz.DerpyItems;
 
 public class EntityPiggycorn extends EntityPig {
 	
@@ -32,6 +33,7 @@ public class EntityPiggycorn extends EntityPig {
         this.tasks.addTask(2, this.aiControlledByPlayer = new EntityAIControlledByPlayer(this, 0.3F));
         this.tasks.addTask(3, new EntityAIMate(this, 1.0D));
         this.tasks.addTask(4, new EntityAITempt(this, 1.2D, Items.cookie, false));
+        this.tasks.addTask(4, new EntityAITempt(this, 1.2D, DerpyItems.cookie, false));
         this.tasks.addTask(5, new EntityAIFollowParent(this, 1.1D));
         this.tasks.addTask(6, new EntityAIWander(this, 1.0D));
         this.tasks.addTask(7, new EntityAIWatchClosest(this, EntityPlayer.class, 6.0F));
@@ -50,7 +52,7 @@ public class EntityPiggycorn extends EntityPig {
 	@Override
     public boolean isBreedingItem(ItemStack p_70877_1_)
     {
-        return p_70877_1_ != null && p_70877_1_.getItem() == Items.cookie;
+        return p_70877_1_ != null && (p_70877_1_.getItem() == Items.cookie || p_70877_1_.getItem() == DerpyItems.cookie);
     }
 	
 	@Override

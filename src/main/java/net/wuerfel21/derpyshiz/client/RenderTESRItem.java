@@ -38,9 +38,12 @@ public class RenderTESRItem implements IItemRenderer {
 			((ITieredTE) this.entity).setTier(item.getItemDamage());
 		}
 		if (type == IItemRenderer.ItemRenderType.ENTITY) {
-			GL11.glTranslatef(-0.5F, 0f, -0.5F);
+			GL11.glTranslatef(-0.5F, -0.5f, -0.5F);
 		}
-		this.render.renderTileEntityAt(this.entity, 0.0D, -0.1D, 0.0D, 0.0F);
+		if (type == IItemRenderer.ItemRenderType.INVENTORY) {
+			GL11.glTranslatef(0, -0.1f, 0);
+		}
+		this.render.renderTileEntityAt(this.entity, 0.0D, 0.0D, 0.0D, 0.0F);
 	}
 
 }
