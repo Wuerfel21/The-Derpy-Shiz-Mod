@@ -22,6 +22,11 @@ public class DerpyLeaves extends BlockLeaves {
 	public static final String[][] textures = new String[][] {{"derpyshiz:leaves_ebony", "derpyshiz:leaves_magic"}, {"derpyshiz:leaves_ebony_opaque", "derpyshiz:leaves_magic_opaque"}};
     public static final String[] types = new String[] {"ebony", "magic"};
 	
+    public DerpyLeaves() {
+		super();
+		this.setBlockName("derpyshiz.leaves");
+	}
+    
     @Override
     @SideOnly(Side.CLIENT)
     public boolean isOpaqueCube() {return !Minecraft.getMinecraft().gameSettings.fancyGraphics;}
@@ -58,6 +63,7 @@ public class DerpyLeaves extends BlockLeaves {
         }
     }
 
+    @Override
     public String[] func_150125_e()
     {
         return types;

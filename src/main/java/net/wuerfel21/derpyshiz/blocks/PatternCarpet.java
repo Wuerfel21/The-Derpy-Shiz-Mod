@@ -12,7 +12,7 @@ public class PatternCarpet extends BlockCarpet implements IMetaItemBlock {
 	
 	public PatternCarpet() {
 		super();
-		this.setBlockName("pattern_carpet");
+		this.setBlockName("derpyshiz.pattern_carpet");
 		this.setHardness(0.1f);
 		this.setStepSound(soundTypeCloth);
 		this.setLightOpacity(0);

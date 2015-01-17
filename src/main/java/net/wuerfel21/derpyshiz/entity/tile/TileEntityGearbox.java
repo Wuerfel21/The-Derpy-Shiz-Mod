@@ -35,7 +35,7 @@ public class TileEntityGearbox extends TileEntity implements IRotaryInput, IRota
 	@Override
 	public void updateEntity() {
 		if (this.getWorldObj() != null) {
-			this.tier = this.getWorldObj().getBlockMetadata(this.xCoord, this.yCoord, this.zCoord);
+			this.setTier(this.getWorldObj().getBlockMetadata(this.xCoord, this.yCoord, this.zCoord));
 			if (!this.getWorldObj().isRemote) {
 				if (this.dir != this.chain.dir) {
 					this.rotate(this.dir);

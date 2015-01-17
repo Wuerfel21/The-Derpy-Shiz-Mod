@@ -18,7 +18,7 @@ public class BaseCap extends DerpyArmor {
 	
 	public BaseCap(ArmorMaterial am, Item i, int m, String type) {
 		super(am, 0, i, m, type);
-		this.setUnlocalizedName("cap_"+type);
+		this.setUnlocalizedName("derpyshiz.cap_"+type);
 		this.setCreativeTab(CreativeTabs.tabMisc);
 		this.setTextureName("derpyshiz:cap_"+type);
 	}

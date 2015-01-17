@@ -106,6 +106,6 @@ public class WaterSword extends DerpySword implements IModeItem, ISpecialActionI
 		return modes[index];
 	}
 
-	public static final String[] modes = { "mode.watersword_normal.name", "mode.watersword_freeze.name" };
+	public static final String[] modes = { "mode.derpyshiz.watersword_normal.name", "mode.derpyshiz.watersword_freeze.name" };
 
 }

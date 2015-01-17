@@ -21,7 +21,7 @@ public class DecoBlocks extends Block implements IMetaItemBlock {
 	
 	public DecoBlocks() {
 		super(Material.iron);
-		this.setBlockName("block");
+		this.setBlockName("derpyshiz.block");
 		this.setBlockTextureName("derpyshiz:block");
 		this.setCreativeTab(CreativeTabs.tabBlock);
 		this.setStepSound(soundTypeMetal);

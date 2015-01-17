@@ -20,7 +20,7 @@ public class PatternWool extends Block implements IMetaItemBlock{
 	
 	public PatternWool() {
 		super(Material.cloth);
-		this.setBlockName("pattern_wool");
+		this.setBlockName("derpyshiz.pattern_wool");
 		this.setBlockTextureName("derpyshiz:pattern_wool");
 		this.setCreativeTab(CreativeTabs.tabBlock);
 		this.setHardness(0.8f);

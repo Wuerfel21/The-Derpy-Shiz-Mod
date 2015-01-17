@@ -57,12 +57,12 @@ public class ContainerMillstone extends DerpyContainer {
 			// Shift-click from the player inventory into the millstone
 			else {
 				// Has a millstone recipe, try to put in in the input slot
-				if (DerpyRegistry.isValidForMillstone(stackInSlot)) {
+				if (DerpyRegistry.isValidForMillstone(stackInSlot,millstone.getTier())) {
 					if (this.mergeItemStack(stackInSlot, 0, 1, false) == false) {
 						return null;
 					}
 				}
-				// Not fuel or smeltable, transfer between player main inventory
+				// Not millstoneable, transfer between player main inventory
 				// and hotbar
 				// From main inventory into hotbar
 				else if (slotNum >= invSize && slotNum < (27 + invSize)) {

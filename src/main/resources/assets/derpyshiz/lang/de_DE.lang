@@ -1,304 +1,304 @@
-﻿tile.pattern_wool_colordots.name=Farbig gepunktete Wolle
-tile.pattern_wool_lines.name=Karierte Wolle
-tile.pattern_wool_checker.name=Kleinkarierte Wolle
-tile.pattern_wool_dotted.name=Gepunktete Wolle
-tile.pattern_wool_striped.name=Gestreifte Wolle
-tile.pattern_wool_squares.name=Quadratige Wolle
-tile.pattern_wool_bright.name=Helle Wolle
-tile.pattern_wool_heart.name=Herzige Wolle
-tile.pattern_wool_rainbow.name=Regenbogenwolle
-tile.pattern_wool_swiss.name=Schweizer Wolle
-tile.pattern_wool_germany.name=Deutsche Wolle
-tile.pattern_wool_bavaria.name=Bayrische Wolle
-tile.pattern_wool_mojang.name=Mojangwolle
-tile.pattern_wool_notch.name=Gekerbte Wolle
-tile.pattern_wool_jeb.name=Jebbige Wolle
-tile.pattern_wool_pig.name=Schweinische Wolle
+﻿tile.derpyshiz.pattern_wool_colordots.name=Farbig gepunktete Wolle
+tile.derpyshiz.pattern_wool_lines.name=Karierte Wolle
+tile.derpyshiz.pattern_wool_checker.name=Kleinkarierte Wolle
+tile.derpyshiz.pattern_wool_dotted.name=Gepunktete Wolle
+tile.derpyshiz.pattern_wool_striped.name=Gestreifte Wolle
+tile.derpyshiz.pattern_wool_squares.name=Quadratige Wolle
+tile.derpyshiz.pattern_wool_bright.name=Helle Wolle
+tile.derpyshiz.pattern_wool_heart.name=Herzige Wolle
+tile.derpyshiz.pattern_wool_rainbow.name=Regenbogenwolle
+tile.derpyshiz.pattern_wool_swiss.name=Schweizer Wolle
+tile.derpyshiz.pattern_wool_germany.name=Deutsche Wolle
+tile.derpyshiz.pattern_wool_bavaria.name=Bayrische Wolle
+tile.derpyshiz.pattern_wool_mojang.name=Mojangwolle
+tile.derpyshiz.pattern_wool_notch.name=Gekerbte Wolle
+tile.derpyshiz.pattern_wool_jeb.name=Jebbige Wolle
+tile.derpyshiz.pattern_wool_pig.name=Schweinische Wolle
 
-tile.pattern_carpet_colordots.name=Farbig gepunkteter Teppich
-tile.pattern_carpet_lines.name=Karierter Teppich
-tile.pattern_carpet_checker.name=Kleinkarierter Teppich
-tile.pattern_carpet_dotted.name=Gepunkteter Teppich
-tile.pattern_carpet_striped.name=Gestreifter Teppich
-tile.pattern_carpet_squares.name=Quadratiger Teppich
-tile.pattern_carpet_bright.name=Heller Teppich
-tile.pattern_carpet_heart.name=Herziger Teppich
-tile.pattern_carpet_rainbow.name=Regenbogenteppich
-tile.pattern_carpet_swiss.name=Schweizer Teppich
-tile.pattern_carpet_germany.name=Deutscher Teppich
-tile.pattern_carpet_bavaria.name=Bayrischer Teppich
-tile.pattern_carpet_mojang.name=Mojangteppich
-tile.pattern_carpet_notch.name=Gekerbter Teppich
-tile.pattern_carpet_jeb.name=Jebbiger Teppich
-tile.pattern_carpet_pig.name=Schweinischer Teppich
+tile.derpyshiz.pattern_carpet_colordots.name=Farbig gepunkteter Teppich
+tile.derpyshiz.pattern_carpet_lines.name=Karierter Teppich
+tile.derpyshiz.pattern_carpet_checker.name=Kleinkarierter Teppich
+tile.derpyshiz.pattern_carpet_dotted.name=Gepunkteter Teppich
+tile.derpyshiz.pattern_carpet_striped.name=Gestreifter Teppich
+tile.derpyshiz.pattern_carpet_squares.name=Quadratiger Teppich
+tile.derpyshiz.pattern_carpet_bright.name=Heller Teppich
+tile.derpyshiz.pattern_carpet_heart.name=Herziger Teppich
+tile.derpyshiz.pattern_carpet_rainbow.name=Regenbogenteppich
+tile.derpyshiz.pattern_carpet_swiss.name=Schweizer Teppich
+tile.derpyshiz.pattern_carpet_germany.name=Deutscher Teppich
+tile.derpyshiz.pattern_carpet_bavaria.name=Bayrischer Teppich
+tile.derpyshiz.pattern_carpet_mojang.name=Mojangteppich
+tile.derpyshiz.pattern_carpet_notch.name=Gekerbter Teppich
+tile.derpyshiz.pattern_carpet_jeb.name=Jebbiger Teppich
+tile.derpyshiz.pattern_carpet_pig.name=Schweinischer Teppich
 
-tile.ore_amber.name=Bernsteinerz
-tile.ore_fakediamond.name=Falsches Diamanterz
-tile.ore_titanium.name=Titanerz
-tile.ore_ruby.name=Rubinerz
-tile.ore_turquoise.name=Türkiserz
-tile.ore_amethyst.name=Amethysterz
-tile.ore_fluorite_brown.name=Braunes Flussspaterz
-tile.ore_fluorite_red.name=Rotes Flussspaterz
-tile.ore_fluorite_pink.name=Rosa Flussspaterz
-tile.ore_copper.name=Kupfererz
-tile.ore_enderium.name=Enderiumerz
-tile.ore_electrimite.name=Electrimiteerz
-tile.ore_darkness.name=Schattenerz
-tile.ore_tin.name=Zinnerz
-tile.ore_lead.name=Bleierz
-tile.ore_wuerfelium.name=Diceiumerz
+tile.derpyshiz.ore_amber.name=Bernsteinerz
+tile.derpyshiz.ore_fakediamond.name=Falsches Diamanterz
+tile.derpyshiz.ore_titanium.name=Titanerz
+tile.derpyshiz.ore_ruby.name=Rubinerz
+tile.derpyshiz.ore_turquoise.name=Türkiserz
+tile.derpyshiz.ore_amethyst.name=Amethysterz
+tile.derpyshiz.ore_fluorite_brown.name=Braunes Flussspaterz
+tile.derpyshiz.ore_fluorite_red.name=Rotes Flussspaterz
+tile.derpyshiz.ore_fluorite_pink.name=Rosa Flussspaterz
+tile.derpyshiz.ore_copper.name=Kupfererz
+tile.derpyshiz.ore_enderium.name=Enderiumerz
+tile.derpyshiz.ore_electrimite.name=Electrimiteerz
+tile.derpyshiz.ore_darkness.name=Schattenerz
+tile.derpyshiz.ore_tin.name=Zinnerz
+tile.derpyshiz.ore_lead.name=Bleierz
+tile.derpyshiz.ore_wuerfelium.name=Diceiumerz
 
-tile.block_amber.name=Bernsteinblock
-tile.block_fakediamond.name=Falscher Diamantblock
-tile.block_titanium.name=Titanblock
-tile.block_ruby.name=Rubinblock
-tile.block_turquoise.name=Türkisblock
-tile.block_amethyst.name=Amethystblock
-tile.block_fluorite_brown.name=Brauner Flussspatblock
-tile.block_fluorite_red.name=Roter Flussspatblock
-tile.block_fluorite_pink.name=Rosa Flussspatblock
-tile.block_copper.name=Kupferblock
-tile.block_enderium.name=Enderiumblock
-tile.block_electrimite.name=Electrimiteblock
-tile.block_darkness.name=Schattenblock
-tile.block_tin.name=Zinnblock
-tile.block_lead.name=Bleiblock
-tile.block_wuerfelium.name=Diceiumblock
+tile.derpyshiz.block_amber.name=Bernsteinblock
+tile.derpyshiz.block_fakediamond.name=Falscher Diamantblock
+tile.derpyshiz.block_titanium.name=Titanblock
+tile.derpyshiz.block_ruby.name=Rubinblock
+tile.derpyshiz.block_turquoise.name=Türkisblock
+tile.derpyshiz.block_amethyst.name=Amethystblock
+tile.derpyshiz.block_fluorite_brown.name=Brauner Flussspatblock
+tile.derpyshiz.block_fluorite_red.name=Roter Flussspatblock
+tile.derpyshiz.block_fluorite_pink.name=Rosa Flussspatblock
+tile.derpyshiz.block_copper.name=Kupferblock
+tile.derpyshiz.block_enderium.name=Enderiumblock
+tile.derpyshiz.block_electrimite.name=Electrimiteblock
+tile.derpyshiz.block_darkness.name=Schattenblock
+tile.derpyshiz.block_tin.name=Zinnblock
+tile.derpyshiz.block_lead.name=Bleiblock
+tile.derpyshiz.block_wuerfelium.name=Diceiumblock
 
-item.oi_chunk_amber.name=Bernsteinstück
-item.oi_fakediamond.name=Falscher Diamant
-item.oi_ingot_titanium.name=Titanbarren
-item.oi_ruby.name=Rubin
-item.oi_turquoise.name=Türkis
-item.oi_amethyst.name=Amethyst
-item.oi_fluorite_brown.name=Brauner Flussspat
-item.oi_fluorite_red.name=Roter Flussspat
-item.oi_fluorite_pink.name=Roter Flussspat
-item.oi_ingot_copper.name=Kupferbarren
-item.oi_ingot_enderium.name=Enderiumbarren
-item.oi_ingot_electrimite.name=Electrimitebarren
-item.oi_gem_darkness.name=Schattenjuwel
-item.oi_ingot_tin.name=Zinnbarren
-item.oi_ingot_lead.name=Bleibarren
-item.oi_gem_wuerfelium.name=Deicestein
+item.derpyshiz.oi_chunk_amber.name=Bernsteinstück
+item.derpyshiz.oi_fakediamond.name=Falscher Diamant
+item.derpyshiz.oi_ingot_titanium.name=Titanbarren
+item.derpyshiz.oi_ruby.name=Rubin
+item.derpyshiz.oi_turquoise.name=Türkis
+item.derpyshiz.oi_amethyst.name=Amethyst
+item.derpyshiz.oi_fluorite_brown.name=Brauner Flussspat
+item.derpyshiz.oi_fluorite_red.name=Roter Flussspat
+item.derpyshiz.oi_fluorite_pink.name=Roter Flussspat
+item.derpyshiz.oi_ingot_copper.name=Kupferbarren
+item.derpyshiz.oi_ingot_enderium.name=Enderiumbarren
+item.derpyshiz.oi_ingot_electrimite.name=Electrimitebarren
+item.derpyshiz.oi_gem_darkness.name=Schattenjuwel
+item.derpyshiz.oi_ingot_tin.name=Zinnbarren
+item.derpyshiz.oi_ingot_lead.name=Bleibarren
+item.derpyshiz.oi_gem_wuerfelium.name=Deicestein
 
-item.dust_iron.name=Eisenstaub
-item.dust_gold.name=Goldstaub
-item.dust_diamond.name=Diamantstaub
-item.dust_ruby.name=Rubinstaub
-item.dust_copper.name=Kupferstaub
-item.dust_tin.name=Zinnstaub
-item.dust_lead.name=Bleistaub
-item.dust_titanium.name=Titanstaub
-item.dust_electrimite.name=Electrimitestaub
-item.dust_ghast.name=Ghaststaub
-item.dust_amethyst.name=Amethyststaub
-item.dust_obsidian.name=Obsidianstaub
-item.dust_amber.name=Bernsteinstaub
-item.dust_enderpearl.name=Enderperlenstaub
+item.derpyshiz.dust_iron.name=Eisenstaub
+item.derpyshiz.dust_gold.name=Goldstaub
+item.derpyshiz.dust_diamond.name=Diamantstaub
+item.derpyshiz.dust_ruby.name=Rubinstaub
+item.derpyshiz.dust_copper.name=Kupferstaub
+item.derpyshiz.dust_tin.name=Zinnstaub
+item.derpyshiz.dust_lead.name=Bleistaub
+item.derpyshiz.dust_titanium.name=Titanstaub
+item.derpyshiz.dust_electrimite.name=Electrimitestaub
+item.derpyshiz.dust_ghast.name=Ghaststaub
+item.derpyshiz.dust_amethyst.name=Amethyststaub
+item.derpyshiz.dust_obsidian.name=Obsidianstaub
+item.derpyshiz.dust_amber.name=Bernsteinstaub
+item.derpyshiz.dust_enderpearl.name=Enderperlenstaub
 
-item.nugget_iron.name=Eisennugget
-item.nugget_copper.name=Kupfernugget
-item.nugget_tin.name=Zinnnugget
-item.nugget_lead.name=Bleinugget
-item.nugget_electrimite.name=Electrimitenugget
-item.nugget_enderium.name=Enderiumnugget
-item.nugget_titanium.name=Titannugget
-item.nugget_diamond.name=Diamantscherbe
-item.nugget_ruby.name=Ruinscherbe
-item.nugget_darkness.name=Schattenscherbe
-item.nugget_amethyst.name=Amethystfragment
+item.derpyshiz.nugget_iron.name=Eisennugget
+item.derpyshiz.nugget_copper.name=Kupfernugget
+item.derpyshiz.nugget_tin.name=Zinnnugget
+item.derpyshiz.nugget_lead.name=Bleinugget
+item.derpyshiz.nugget_electrimite.name=Electrimitenugget
+item.derpyshiz.nugget_enderium.name=Enderiumnugget
+item.derpyshiz.nugget_titanium.name=Titannugget
+item.derpyshiz.nugget_diamond.name=Diamantscherbe
+item.derpyshiz.nugget_ruby.name=Ruinscherbe
+item.derpyshiz.nugget_darkness.name=Schattenscherbe
+item.derpyshiz.nugget_amethyst.name=Amethystfragment
 
-item.ei_ingot_fire.name=Feuerlegierungsbarren
-item.ei_ingot_water.name=Wasserlegierungsbarren
-item.ei_ingot_natural.name=Naturlegierungsbarren
-item.ei_ingot_wind.name=Windlegierungsbarren
-item.ei_ingot_electritanium.name=Electritanbarren
+item.derpyshiz.ei_ingot_fire.name=Feuerlegierungsbarren
+item.derpyshiz.ei_ingot_water.name=Wasserlegierungsbarren
+item.derpyshiz.ei_ingot_natural.name=Naturlegierungsbarren
+item.derpyshiz.ei_ingot_wind.name=Windlegierungsbarren
+item.derpyshiz.ei_ingot_electritanium.name=Electritanbarren
 
-tile.lamp_fluorite_red.name=Rote Flussspatlampe
-tile.lamp_fluorite_green.name=Grüne Flussspatlampe
-tile.lamp_fluorite_blue.name=Blaue Flussspatlampe
+tile.derpyshiz.lamp_fluorite_red.name=Rote Flussspatlampe
+tile.derpyshiz.lamp_fluorite_green.name=Grüne Flussspatlampe
+tile.derpyshiz.lamp_fluorite_blue.name=Blaue Flussspatlampe
 
-tile.torch_fluorite_red.name=Rote Flussspatfackel
-tile.torch_fluorite_green.name=Grüne Flussspatfackel
-tile.torch_fluorite_blue.name=Blaue Flussspatfackel
+tile.derpyshiz.torch_fluorite_red.name=Rote Flussspatfackel
+tile.derpyshiz.torch_fluorite_green.name=Grüne Flussspatfackel
+tile.derpyshiz.torch_fluorite_blue.name=Blaue Flussspatfackel
 
-tile.block_lasagne.name=Lasagneblock
+tile.derpyshiz.block_lasagne.name=Lasagneblock
 
-tile.housing_normal.name=Mechanisches Gehäuse
-tile.housing_advanced.name=Verbessertes Mechanisches Gehäuse
+tile.derpyshiz.housing_normal.name=Mechanisches Gehäuse
+tile.derpyshiz.housing_advanced.name=Verbessertes Mechanisches Gehäuse
 
-tile.stairs_ebony.name=Ebenholztreppe
-tile.stairs_magic.name=Magische Holztreppe
-tile.derpyslab_ebony.name=Ebenholzstufe
-tile.derpyslab_magic.name=Magische Holzstufe
+tile.derpyshiz.stairs_ebony.name=Ebenholztreppe
+tile.derpyshiz.stairs_magic.name=Magische Holztreppe
+tile.derpyshiz.derpyslab_ebony.name=Ebenholzstufe
+tile.derpyshiz.derpyslab_magic.name=Magische Holzstufe
 
-item.hammer.name=Hammer
+item.derpyshiz.hammer.name=Hammer
 
-item.pickaxe_titanium.name=Titanspitzhacke
-item.sword_titanium.name=Titanschwert
-item.hoe_titanium.name=Titanhacke
-item.shovel_titanium.name=Titanschaufel
-item.axe_titanium.name=Titanaxt
+item.derpyshiz.pickaxe_titanium.name=Titanspitzhacke
+item.derpyshiz.sword_titanium.name=Titanschwert
+item.derpyshiz.hoe_titanium.name=Titanhacke
+item.derpyshiz.shovel_titanium.name=Titanschaufel
+item.derpyshiz.axe_titanium.name=Titanaxt
 
-item.pickaxe_ruby.name=Rubinspitzhacke
-item.sword_ruby.name=Rubinschwert
-item.hoe_ruby.name=Rubinhacke
-item.shovel_ruby.name=Rubinschaufel
-item.axe_ruby.name=Rubinaxt
+item.derpyshiz.pickaxe_ruby.name=Rubinspitzhacke
+item.derpyshiz.sword_ruby.name=Rubinschwert
+item.derpyshiz.hoe_ruby.name=Rubinhacke
+item.derpyshiz.shovel_ruby.name=Rubinschaufel
+item.derpyshiz.axe_ruby.name=Rubinaxt
 
-item.pickaxe_amethyst.name=Amethystspitzhacke
-item.sword_amethyst.name=Amethystschwert
-item.hoe_amethyst.name=Amethysthacke
-item.shovel_amethyst.name=Amethystschaufel
-item.axe_amethyst.name=Amethystaxt
+item.derpyshiz.pickaxe_amethyst.name=Amethystspitzhacke
+item.derpyshiz.sword_amethyst.name=Amethystschwert
+item.derpyshiz.hoe_amethyst.name=Amethysthacke
+item.derpyshiz.shovel_amethyst.name=Amethystschaufel
+item.derpyshiz.axe_amethyst.name=Amethystaxt
 
-item.pickaxe_copper.name=Kupferspitzhacke
-item.sword_copper.name=Kupferschwert
-item.hoe_copper.name=Kupferhacke
-item.shovel_copper.name=Kupferschaufel
-item.axe_copper.name=Kupferaxt
+item.derpyshiz.pickaxe_copper.name=Kupferspitzhacke
+item.derpyshiz.sword_copper.name=Kupferschwert
+item.derpyshiz.hoe_copper.name=Kupferhacke
+item.derpyshiz.shovel_copper.name=Kupferschaufel
+item.derpyshiz.axe_copper.name=Kupferaxt
 
-item.sword_amber.name=Bernsteinschwert
+item.derpyshiz.sword_amber.name=Bernsteinschwert
 
-item.sword_lapis.name=Lapisschwert
+item.derpyshiz.sword_lapis.name=Lapisschwert
 
-item.sword_enderium.name=Enderiumschwert
+item.derpyshiz.sword_enderium.name=Enderiumschwert
 
-item.sword_darkness.name=Schattenschwert
+item.derpyshiz.sword_darkness.name=Schattenschwert
 
-item.sword_fire.name=Schneide der Flammen
-item.sword_water.name=Flutsäbel
-item.sword_natural.name=Mutter Naturs Klinge
-item.sword_wind.name=Sturmkatana
+item.derpyshiz.sword_fire.name=Schneide der Flammen
+item.derpyshiz.sword_water.name=Flutsäbel
+item.derpyshiz.sword_natural.name=Mutter Naturs Klinge
+item.derpyshiz.sword_wind.name=Sturmkatana
 
-item.axe_turquoise.name=Türkisaxt
+item.derpyshiz.axe_turquoise.name=Türkisaxt
 
-item.hoe_fakediamond.name=Falsche Diamanthacke
+item.derpyshiz.hoe_fakediamond.name=Falsche Diamanthacke
 
-item.sword_wuerfelium.name=Diceiumschwert
-item.pickaxe_wuerfelium.name=Diceiumspitzhacke
+item.derpyshiz.sword_wuerfelium.name=Diceiumschwert
+item.derpyshiz.pickaxe_wuerfelium.name=Diceiumspitzhacke
 
-item.helmet_titanium.name=Titanhelm
-item.chestplate_titanium.name=Titanbrustpanzer
-item.leggings_titanium.name=Titanbeinschutz
-item.boots_titanium.name=Titanstiefel
+item.derpyshiz.helmet_titanium.name=Titanhelm
+item.derpyshiz.chestplate_titanium.name=Titanbrustpanzer
+item.derpyshiz.leggings_titanium.name=Titanbeinschutz
+item.derpyshiz.boots_titanium.name=Titanstiefel
 
-item.helmet_ruby.name=Rubinhelm
-item.chestplate_ruby.name=Rubinbrustpanzer
-item.leggings_ruby.name=Rubinbeinschutz
-item.boots_ruby.name=Rubinstiefel
+item.derpyshiz.helmet_ruby.name=Rubinhelm
+item.derpyshiz.chestplate_ruby.name=Rubinbrustpanzer
+item.derpyshiz.leggings_ruby.name=Rubinbeinschutz
+item.derpyshiz.boots_ruby.name=Rubinstiefel
 
-item.helmet_amethyst.name=Amethysthelm
-item.chestplate_amethyst.name=Amethystbrustpanzer
-item.leggings_amethyst.name=Amethystbeinschutz
-item.boots_amethyst.name=Amethyststiefel
+item.derpyshiz.helmet_amethyst.name=Amethysthelm
+item.derpyshiz.chestplate_amethyst.name=Amethystbrustpanzer
+item.derpyshiz.leggings_amethyst.name=Amethystbeinschutz
+item.derpyshiz.boots_amethyst.name=Amethyststiefel
 
-item.helmet_copper.name=Kupferhelm
-item.chestplate_copper.name=Kupferbrustpanzer
-item.leggings_copper.name=Kupferbeinschutz
-item.boots_copper.name=Kupferstiefel
+item.derpyshiz.helmet_copper.name=Kupferhelm
+item.derpyshiz.chestplate_copper.name=Kupferbrustpanzer
+item.derpyshiz.leggings_copper.name=Kupferbeinschutz
+item.derpyshiz.boots_copper.name=Kupferstiefel
 
-item.helmet_stone.name=Steinkopfblockade
-item.chestplate_stone.name=Steinzwangsjacke
-item.leggings_stone.name=Steinbeine
-item.boots_stone.name=Steinfußfesseln
+item.derpyshiz.helmet_stone.name=Steinkopfblockade
+item.derpyshiz.chestplate_stone.name=Steinzwangsjacke
+item.derpyshiz.leggings_stone.name=Steinbeine
+item.derpyshiz.boots_stone.name=Steinfußfesseln
 
-item.helmet_water.name=Wasserhelm
-item.chestplate_water.name=Wasserbrustpanzer
-item.leggings_water.name=Wasserbeinschutz
-item.boots_water.name=Wasserstiefel
+item.derpyshiz.helmet_water.name=Wasserhelm
+item.derpyshiz.chestplate_water.name=Wasserbrustpanzer
+item.derpyshiz.leggings_water.name=Wasserbeinschutz
+item.derpyshiz.boots_water.name=Wasserstiefel
 
-tile.log_ebony.name=Ebenholz
-tile.log_magic.name=Magisches Holz
+tile.derpyshiz.log_ebony.name=Ebenholz
+tile.derpyshiz.log_magic.name=Magisches Holz
 
-tile.leaves_ebony.name=Ebenlaub
-tile.leaves_magic.name=Magisches Laub
+tile.derpyshiz.leaves_ebony.name=Ebenlaub
+tile.derpyshiz.leaves_magic.name=Magisches Laub
 
-tile.planks_ebony.name=Ebenholzbretter
-tile.planks_magic.name=Magische Holzbretter
+tile.derpyshiz.planks_ebony.name=Ebenholzbretter
+tile.derpyshiz.planks_magic.name=Magische Holzbretter
 
-tile.sapling_ebony.name=Ebensetzling
-tile.sapling_magic.name=Magischer Setzling
+tile.derpyshiz.sapling_ebony.name=Ebensetzling
+tile.derpyshiz.sapling_magic.name=Magischer Setzling
 
-item.circlet_diamond.name=Diamantreif
-item.circlet_ruby.name=Rubinreif
-item.circlet_amethyst.name=Amethystreif
-item.circlet_turquoise.name=Türkisreif
-item.circlet_fakediamond.name=Falscher Diamantreif
+item.derpyshiz.circlet_diamond.name=Diamantreif
+item.derpyshiz.circlet_ruby.name=Rubinreif
+item.derpyshiz.circlet_amethyst.name=Amethystreif
+item.derpyshiz.circlet_turquoise.name=Türkisreif
+item.derpyshiz.circlet_fakediamond.name=Falscher Diamantreif
 
-item.dark_cloak.name=Schattenmantel
+item.derpyshiz.dark_cloak.name=Schattenmantel
 
-item.tophat_black.name=Schwarzer Zylinder
-item.tophat_white.name=Weißer Zylinder
-item.tophat_rainbow.name=Regenbogenzylinder
-item.cap_yolo.name=YOLO Basecap
-item.cap_black.name=Schwarze Basecap
-item.cap_pink.name=Rosa Basecap
+item.derpyshiz.tophat_black.name=Schwarzer Zylinder
+item.derpyshiz.tophat_white.name=Weißer Zylinder
+item.derpyshiz.tophat_rainbow.name=Regenbogenzylinder
+item.derpyshiz.cap_yolo.name=YOLO Basecap
+item.derpyshiz.cap_black.name=Schwarze Basecap
+item.derpyshiz.cap_pink.name=Rosa Basecap
 
-tile.coarsestone_normal.name=Rauer Stein
-tile.coarsestone_framed.name=Gerahmter Rauer Stein
+tile.derpyshiz.coarsestone_normal.name=Rauer Stein
+tile.derpyshiz.coarsestone_framed.name=Gerahmter Rauer Stein
 
 entity.piggycorn.name=Schweinhorn
 
-tile.snowflake_obsidian.name=Schneflockenobsidian
+tile.derpyshiz.snowflake_obsidian.name=Schneflockenobsidian
 
-item.horn.name=Schweinhorn-horn
+item.derpyshiz.horn.name=Schweinhorn-horn
 
-tile.kewl_bush.name=Kewler Busch
+tile.derpyshiz.kewl_bush.name=Kewler Busch
 
-item.lasagne.name=Lasagne
-item.rainbow_cookie.name=Regenbogenkeks
+item.derpyshiz.lasagne.name=Lasagne
+item.derpyshiz.rainbow_cookie.name=Regenbogenkeks
 
-tile.axis.name=Achse
+tile.derpyshiz.axis.name=Achse
 
-tile.gearbox_normal.name=Getriebe
-tile.gearbox_advanced.name=Verbessertes Getriebe
+tile.derpyshiz.gearbox_normal.name=Getriebe
+tile.derpyshiz.gearbox_advanced.name=Verbessertes Getriebe
 
-tile.crank_normal.name=Kurbel
-tile.crank_advanced.name=Verbesserte Kurbel
+tile.derpyshiz.crank_normal.name=Kurbel
+tile.derpyshiz.crank_advanced.name=Verbesserte Kurbel
 
-tile.seizure_wool.name=Augenkrebswolle
+tile.derpyshiz.seizure_wool.name=Augenkrebswolle
 
-item.circuit_redstone_normal.name=Redstoneschaltkreis
-item.circuit_redstone_advanced.name=Verbesserter Redstoneschaltkreis
-item.circuit_electric_normal.name=Elektrischer Schaltkreis
-item.circuit_electric_advanced.name=Verbesserter Elektrischer Schaltkreis
+item.derpyshiz.circuit_redstone_normal.name=Redstoneschaltkreis
+item.derpyshiz.circuit_redstone_advanced.name=Verbesserter Redstoneschaltkreis
+item.derpyshiz.circuit_electric_normal.name=Elektrischer Schaltkreis
+item.derpyshiz.circuit_electric_advanced.name=Verbesserter Elektrischer Schaltkreis
 
-item.gear_wood.name=Holzzahnrad
-item.gear_ebony.name=Ebenholzzahnrad
-item.gear_magic.name=Magisches Holzzahnrad
-item.gear_iron.name=Eisenzahnrad
-item.gear_lasagne.name=Lasagnezahnrad
-item.gear_copper.name=Kupferzahnrad
-item.gear_tin.name=Zinnzahnrad
-item.gear_lead.name=Bleizahnrad
-item.gear_gold.name=Goldzahnrad
-item.gear_titanium.name=Titanzahnrad
-item.gear_ruby.name=Rubinzahnrad
-item.gear_electrimite.name=Electrimitezahnrad
-item.gear_enderium.name=Enderiumzahnrad
+item.derpyshiz.gear_wood.name=Holzzahnrad
+item.derpyshiz.gear_ebony.name=Ebenholzzahnrad
+item.derpyshiz.gear_magic.name=Magisches Holzzahnrad
+item.derpyshiz.gear_iron.name=Eisenzahnrad
+item.derpyshiz.gear_lasagne.name=Lasagnezahnrad
+item.derpyshiz.gear_copper.name=Kupferzahnrad
+item.derpyshiz.gear_tin.name=Zinnzahnrad
+item.derpyshiz.gear_lead.name=Bleizahnrad
+item.derpyshiz.gear_gold.name=Goldzahnrad
+item.derpyshiz.gear_titanium.name=Titanzahnrad
+item.derpyshiz.gear_ruby.name=Rubinzahnrad
+item.derpyshiz.gear_electrimite.name=Electrimitezahnrad
+item.derpyshiz.gear_enderium.name=Enderiumzahnrad
 
-mode.hammer_face.name=Seite
-mode.hammer_direction.name=Richtung
-mode.firesword_normal.name=Normal
-mode.firesword_hell.name=Inferno
-mode.watersword_normal.name=Normal
-mode.watersword_freeze.name=Eis
-mode.naturalsword_front.name=Vorne
-mode.naturalsword_back.name=Hinten
-mode.naturalsword_all.name=Rundum
-mode.windsword_speed.name=Geschwindigkeit
-mode.windsword_jump.name=Sprungkraft
+mode.derpyshiz.hammer_face.name=Seite
+mode.derpyshiz.hammer_direction.name=Richtung
+mode.derpyshiz.firesword_normal.name=Normal
+mode.derpyshiz.firesword_hell.name=Inferno
+mode.derpyshiz.watersword_normal.name=Normal
+mode.derpyshiz.watersword_freeze.name=Eis
+mode.derpyshiz.naturalsword_front.name=Vorne
+mode.derpyshiz.naturalsword_back.name=Hinten
+mode.derpyshiz.naturalsword_all.name=Rundum
+mode.derpyshiz.windsword_speed.name=Geschwindigkeit
+mode.derpyshiz.windsword_jump.name=Sprungkraft
 
-mode.mode.name=Modus
+mode.derpyshiz.mode.name=Modus
 
-text.output.name=Ausgang
-text.input.name=Eingang
-text.speed.name=Geschwindigkeit
-text.torque.name=Drehmoment
+text.derpyshiz.output.name=Ausgang
+text.derpyshiz.input.name=Eingang
+text.derpyshiz.speed.name=Geschwindigkeit
+text.derpyshiz.torque.name=Drehmoment
 
-info.budget.name=BUDGETKÜRZUNG! Diese Maschine wird in der zukunft energie benötigen!
+info.derpyshiz.budget.name=BUDGETKÜRZUNG! Diese Maschine wird in der zukunft energie benötigen!
 
-message.mode.name=Modus geändert auf: 
+message.derpyshiz.mode.name=Modus geändert auf: 

@@ -10,7 +10,7 @@ import net.minecraftforge.oredict.ShapelessOreRecipe;
 import cpw.mods.fml.common.registry.GameRegistry;
 
 public class DerpyCrafting {
-	
+
 	public static boolean alwaysFalse = false;
 
 	public static ItemStack getStack(String s, int m) {
@@ -129,8 +129,8 @@ public class DerpyCrafting {
 		GameRegistry.addRecipe(new ShapelessOreRecipe(getBlock("kewl_bush", 0), "gemFakediamond", Blocks.deadbush));
 
 		GameRegistry.addRecipe(new ShapedOreRecipe(getStack("tdm", 0), "D D", "DDD", 'D', "gemDiamond"));
-		
-		GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(DerpyItems.cookie, 8), "ccc","cwc","ccc",'c',Items.cookie,'w',"woolRainbow"));
+
+		GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(DerpyItems.cookie, 8), "ccc", "cwc", "ccc", 'c', Items.cookie, 'w', "woolRainbow"));
 
 		registerGear(1, 1, "plankEbony", "plankEbony");
 		registerGear(2, 1, "plankMagic", "plankMagic");
@@ -185,23 +185,23 @@ public class DerpyCrafting {
 		// Redstone Circuit
 		GameRegistry.addRecipe(new ShapedOreRecipe(getStack("circuit", 0), "cqc", "rrr", "igi", 'q', "gemQuartz", 'i', "nuggetIron", 'g', "nuggetGold", 'r', "dustRedstone", 'c', "nuggetCopper")); // Redstone
 		if (alwaysFalse) {
-		// Advanced Redstone Circuit
-		GameRegistry.addRecipe(new ShapedOreRecipe(getStack("circuit", 1), "iFi", "gCg", "iRi", 'i', "nuggetIron", 'F', "gemFluorite", 'g', "dustGlowstone", 'C', "circuitRedstone", 'R', "blockRedstone"));
-		// Normal Electric Circuit
-		GameRegistry.addRecipe(new ShapedOreRecipe(getStack("circuit", 2), "cec", "ere", "igi", 'i', "nuggetIron", 'g', "nuggetGold", 'r', "dustRedstone", 'c', "nuggetCopper", 'e', "nuggetElectrimite"));
-		// Advanced Electric Circuit
-		GameRegistry.addRecipe(new ShapedOreRecipe(getStack("circuit", 3), "cAc", "gCg", "cEc", 'c', "nuggetCopper", 'A', "chunkAmber", 'g', "dustGlowstone", 'C', "circuitElectric", 'E', "ingotElectrimite"));
+			// Advanced Redstone Circuit
+			GameRegistry.addRecipe(new ShapedOreRecipe(getStack("circuit", 1), "iFi", "gCg", "iRi", 'i', "nuggetIron", 'F', "gemFluorite", 'g', "dustGlowstone", 'C', "circuitRedstone", 'R', "blockRedstone"));
+			// Normal Electric Circuit
+			GameRegistry.addRecipe(new ShapedOreRecipe(getStack("circuit", 2), "cec", "ere", "igi", 'i', "nuggetIron", 'g', "nuggetGold", 'r', "dustRedstone", 'c', "nuggetCopper", 'e', "nuggetElectrimite"));
+			// Advanced Electric Circuit
+			GameRegistry.addRecipe(new ShapedOreRecipe(getStack("circuit", 3), "cAc", "gCg", "cEc", 'c', "nuggetCopper", 'A', "chunkAmber", 'g', "dustGlowstone", 'C', "circuitElectric", 'E', "ingotElectrimite"));
 		}
-		
-		GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(DerpyBlocks.stairs[0],4),"m  ","mm ","mmm",'m',"plankEbony"));
-		GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(DerpyBlocks.stairs[1],4),"m  ","mm ","mmm",'m',"plankMagic"));
-		
-		GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(DerpyBlocks.slab,6,0),"mmm",'m',"plankEbony"));
-		GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(DerpyBlocks.slab,6,1),"mmm",'m',"plankMagic"));
-		
-		GameRegistry.addRecipe(new ShapedOreRecipe(getBlock("housing",0),"waw","aga","waw",'w',"plankWood",'a',"blockAxis",'g',"gearWood"));
-		GameRegistry.addRecipe(new ShapedOreRecipe(getBlock("housing",1),"TiT","ihi","tit",'T',"gearTin",'t',"ingotTin",'i',"ingotIron",'h',"housingNormal"));
-		
+
+		GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(DerpyBlocks.stairs[0], 4), "m  ", "mm ", "mmm", 'm', "plankEbony"));
+		GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(DerpyBlocks.stairs[1], 4), "m  ", "mm ", "mmm", 'm', "plankMagic"));
+
+		GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(DerpyBlocks.slab, 6, 0), "mmm", 'm', "plankEbony"));
+		GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(DerpyBlocks.slab, 6, 1), "mmm", 'm', "plankMagic"));
+
+		GameRegistry.addRecipe(new ShapedOreRecipe(getBlock("housing", 0), "waw", "aga", "waw", 'w', "plankWood", 'a', "blockAxis", 'g', "gearWood"));
+		GameRegistry.addRecipe(new ShapedOreRecipe(getBlock("housing", 1), "TiT", "ihi", "tit", 'T', "gearTin", 't', "ingotTin", 'i', "ingotIron", 'h', "housingNormal"));
+
 		for (int i = 0; i < 16; i++) {
 			GameRegistry.addShapedRecipe(new ItemStack(GameRegistry.findBlock("derpyshiz", "pattern_carpet"), 3, i), "WW", 'W', getStack("pattern_wool", i));
 		}
@@ -214,20 +214,20 @@ public class DerpyCrafting {
 		GameRegistry.addSmelting(getBlock("ore", 14), getStack("ore_item", 14), 1f);
 
 		// millstone stuffz
-		DerpyRegistry.millstoneRecipes.put(new ItemStack(Items.iron_ingot, 1), new DerpyRegistry.BasicMachineEntry(new ItemStack(DerpyItems.dusts, 1, 0), 0.3f));
-		DerpyRegistry.millstoneRecipes.put(new ItemStack(Items.gold_ingot, 1), new DerpyRegistry.BasicMachineEntry(new ItemStack(DerpyItems.dusts, 1, 1), 0.3f));
-		DerpyRegistry.millstoneRecipes.put(new ItemStack(Items.diamond, 1), new DerpyRegistry.BasicMachineEntry(new ItemStack(DerpyItems.dusts, 1, 2), 0.3f));
-		DerpyRegistry.millstoneRecipes.put(new ItemStack(DerpyItems.oreItems, 1, 3), new DerpyRegistry.BasicMachineEntry(new ItemStack(DerpyItems.dusts, 1, 3), 0.3f));
-		DerpyRegistry.millstoneRecipes.put(new ItemStack(DerpyItems.oreItems, 1, 9), new DerpyRegistry.BasicMachineEntry(new ItemStack(DerpyItems.dusts, 1, 4), 0.3f));
-		DerpyRegistry.millstoneRecipes.put(new ItemStack(DerpyItems.oreItems, 1, 13), new DerpyRegistry.BasicMachineEntry(new ItemStack(DerpyItems.dusts, 1, 5), 0.3f));
-		DerpyRegistry.millstoneRecipes.put(new ItemStack(DerpyItems.oreItems, 1, 14), new DerpyRegistry.BasicMachineEntry(new ItemStack(DerpyItems.dusts, 1, 6), 0.3f));
-		DerpyRegistry.millstoneRecipes.put(new ItemStack(DerpyItems.oreItems, 1, 2), new DerpyRegistry.BasicMachineEntry(new ItemStack(DerpyItems.dusts, 1, 7), 0.3f));
-		DerpyRegistry.millstoneRecipes.put(new ItemStack(DerpyItems.oreItems, 1, 11), new DerpyRegistry.BasicMachineEntry(new ItemStack(DerpyItems.dusts, 1, 8), 0.3f));
-		DerpyRegistry.millstoneRecipes.put(new ItemStack(Items.ghast_tear, 3), new DerpyRegistry.BasicMachineEntry(new ItemStack(DerpyItems.dusts, 1, 9), 0.4f));
-		DerpyRegistry.millstoneRecipes.put(new ItemStack(DerpyItems.oreItems, 1, 5), new DerpyRegistry.BasicMachineEntry(new ItemStack(DerpyItems.dusts, 1, 10), 0.3f));
-		DerpyRegistry.millstoneRecipes.put(new ItemStack(Blocks.obsidian, 1), new DerpyRegistry.BasicMachineEntry(new ItemStack(DerpyItems.dusts, 11), 0.3f));
-		DerpyRegistry.millstoneRecipes.put(new ItemStack(DerpyItems.oreItems, 1, 0), new DerpyRegistry.BasicMachineEntry(new ItemStack(DerpyItems.dusts, 1, 12), 0.3f));
-		DerpyRegistry.millstoneRecipes.put(new ItemStack(Items.ender_pearl, 1), new DerpyRegistry.BasicMachineEntry(new ItemStack(DerpyItems.dusts, 1, 13), 0.3f));
+		DerpyRegistry.millstoneRecipes.put(new ItemStack(Items.iron_ingot, 1), new DerpyRegistry.TieredMachineEntry(new ItemStack(DerpyItems.dusts, 1, 0), 0f, 12000, 0));
+		DerpyRegistry.millstoneRecipes.put(new ItemStack(Items.gold_ingot, 1), new DerpyRegistry.TieredMachineEntry(new ItemStack(DerpyItems.dusts, 1, 1), 0f, 8000, 0));
+		DerpyRegistry.millstoneRecipes.put(new ItemStack(Items.diamond, 1), new DerpyRegistry.TieredMachineEntry(new ItemStack(DerpyItems.dusts, 1, 2), 0.4f, 30000, 1));
+		DerpyRegistry.millstoneRecipes.put(new ItemStack(DerpyItems.oreItems, 1, 3), new DerpyRegistry.TieredMachineEntry(new ItemStack(DerpyItems.dusts, 1, 3), 0.3f, 28000, 1));
+		DerpyRegistry.millstoneRecipes.put(new ItemStack(DerpyItems.oreItems, 1, 9), new DerpyRegistry.TieredMachineEntry(new ItemStack(DerpyItems.dusts, 1, 4), 0.3f, 10000, 0));
+		DerpyRegistry.millstoneRecipes.put(new ItemStack(DerpyItems.oreItems, 1, 13), new DerpyRegistry.TieredMachineEntry(new ItemStack(DerpyItems.dusts, 1, 5), 0.3f, 5000, 0));
+		DerpyRegistry.millstoneRecipes.put(new ItemStack(DerpyItems.oreItems, 1, 14), new DerpyRegistry.TieredMachineEntry(new ItemStack(DerpyItems.dusts, 1, 6), 0.3f, 6969, 0));
+		DerpyRegistry.millstoneRecipes.put(new ItemStack(DerpyItems.oreItems, 1, 2), new DerpyRegistry.TieredMachineEntry(new ItemStack(DerpyItems.dusts, 1, 7), 0.3f, 18000, 1));
+		DerpyRegistry.millstoneRecipes.put(new ItemStack(DerpyItems.oreItems, 1, 11), new DerpyRegistry.TieredMachineEntry(new ItemStack(DerpyItems.dusts, 1, 8), 0.3f, 15000, 1));
+		DerpyRegistry.millstoneRecipes.put(new ItemStack(Items.ghast_tear, 3), new DerpyRegistry.TieredMachineEntry(new ItemStack(DerpyItems.dusts, 1, 9), 0.4f, 20000, 1));
+		DerpyRegistry.millstoneRecipes.put(new ItemStack(DerpyItems.oreItems, 1, 5), new DerpyRegistry.TieredMachineEntry(new ItemStack(DerpyItems.dusts, 1, 10), 0.3f, 40000, 1));
+		DerpyRegistry.millstoneRecipes.put(new ItemStack(Blocks.obsidian, 1), new DerpyRegistry.TieredMachineEntry(new ItemStack(DerpyItems.dusts, 2, 11), 0.5f, 20000, 1));
+		DerpyRegistry.millstoneRecipes.put(new ItemStack(DerpyItems.oreItems, 1, 0), new DerpyRegistry.TieredMachineEntry(new ItemStack(DerpyItems.dusts, 1, 12), 0.3f, 9001, 0));
+		DerpyRegistry.millstoneRecipes.put(new ItemStack(Items.ender_pearl, 1), new DerpyRegistry.TieredMachineEntry(new ItemStack(DerpyItems.dusts, 1, 13), 0.5f, 14000, 0));
 	}
 
 	public static void registerOredict() {
@@ -396,8 +396,8 @@ public class DerpyCrafting {
 		OreDictionary.registerOre("stoneCoarseFramed", getBlock("coarse_stone", 1));
 
 		OreDictionary.registerOre("blockAxis", getBlock("axis", 0));
-		OreDictionary.registerOre("housingNormal", getBlock("housing",0));
-		OreDictionary.registerOre("housingAdvanced", getBlock("housing",1));
+		OreDictionary.registerOre("housingNormal", getBlock("housing", 0));
+		OreDictionary.registerOre("housingAdvanced", getBlock("housing", 1));
 
 		// Vanilla tweaks
 		// ForgePeope.tasks.oreDict.brain == null

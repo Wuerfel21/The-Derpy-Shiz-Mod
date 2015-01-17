@@ -20,8 +20,8 @@ import cpw.mods.fml.relauncher.SideOnly;
 
 public class DerpyKeys {
 
-	public static KeyBinding mode = new KeyBinding("key.derpy_mode.name", Keyboard.KEY_J, "key.categories.gameplay");
-	public static KeyBinding action = new KeyBinding("key.derpy_action.name", Keyboard.KEY_F, "key.categories.gameplay");
+	public static KeyBinding mode = new KeyBinding("key.derpyshiz.derpy_mode.name", Keyboard.KEY_J, "key.categories.gameplay");
+	public static KeyBinding action = new KeyBinding("key.derpyshiz.derpy_action.name", Keyboard.KEY_F, "key.categories.gameplay");
 
 	public static void register() {
 		DerpyKeys derp = new DerpyKeys();

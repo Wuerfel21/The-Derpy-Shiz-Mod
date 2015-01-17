@@ -31,7 +31,7 @@ public class DerpySaplings extends BlockBush implements IGrowable, IMetaItemBloc
 		this.setBlockBounds(0.5F - f, 0.0F, 0.5F - f, 0.5F + f, f * 2.0F,0.5F + f);
 		this.setStepSound(soundTypeGrass);
 		this.setCreativeTab(CreativeTabs.tabDecorations);
-		this.setBlockName("sapling");
+		this.setBlockName("derpyshiz.sapling");
 		this.setBlockTextureName("derpyshiz:sapling");
 	}
 

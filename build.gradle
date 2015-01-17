@@ -17,14 +17,35 @@ buildscript {
 
 apply plugin: 'forge'
 
-version = "beta 0.3 pre 2"
+version = "beta 0.3 pre 3"
 group= "net.wuerfel21.derpyshiz"
 archivesBaseName = "derpyshiz"
 
 minecraft {
     version = "1.7.10-10.13.2.1230"
     runDir = "eclipse"
+    replace "@VERSION@", project.version
 }
+
+// awesome souce
+task sourceJar(type: Jar) {
+    from sourceSets.main.allSource
+    classifier = 'sources'
+}
+
+// lol, i never actually comment, just for the weiners...
+task javadocJar(type: Jar, dependsOn: javadoc) {
+    from javadoc.destinationDir
+    classifier = 'javadoc'
+}
+
+// because addonz
+task deobfJar(type: Jar) {
+    from sourceSets.main.output
+    classifier = 'deobf'
+}
+
+tasks.build.dependsOn('sourceJar','javadocJar','deobfJar')
 
 dependencies {
     // you may put jars on which you depend on in ./libs

@@ -24,13 +24,13 @@ import net.wuerfel21.derpyshiz.entity.tile.TileEntityHousing;
 
 public class RotaryHousing extends Block implements ITileEntityProvider, IMetaItemBlock{
 	
-	public IIcon[] overlay = new IIcon[1];
+	public static IIcon[] overlays = new IIcon[2];
 	public IIcon[] icons = new IIcon[2];
 	
 	public RotaryHousing() {
 		super(Main.machineMaterial);
 		this.setHardness(3f);
-		this.setBlockName("housing");
+		this.setBlockName("derpyshiz.housing");
 		this.setCreativeTab(CreativeTabs.tabBlock);
 		this.setHarvestLevel("ds_hammer", 0);
 		this.setStepSound(soundTypeWood);
@@ -57,7 +57,8 @@ public class RotaryHousing extends Block implements ITileEntityProvider, IMetaIt
 			icons[0] = reg.registerIcon(this.getTextureName() + "_" + this.types[0]);
 			icons[1] = reg.registerIcon(this.getTextureName() + "_" + this.types[1]);
 		}
-		overlay[0] = reg.registerIcon("derpyshiz:overlay/rotary_output");
+		overlays[0] = reg.registerIcon("derpyshiz:overlay/rotary_output");
+		overlays[1] = reg.registerIcon("derpyshiz:overlay/rotary_input");
 	}
 
 	@Override

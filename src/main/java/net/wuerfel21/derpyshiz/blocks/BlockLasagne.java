@@ -15,7 +15,7 @@ public class BlockLasagne extends Block {
 		this.setStepSound(soundTypeCloth);
 		this.setCreativeTab(CreativeTabs.tabBlock);
 		this.setHardness(1f);
-		this.setBlockName("block_lasagne");
+		this.setBlockName("derpyshiz.block_lasagne");
 	}
 	
 	@Override

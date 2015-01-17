@@ -23,7 +23,7 @@ public class LightBlocks extends Block implements IMetaItemBlock {
 
 	public LightBlocks() {
 		super(Material.redstoneLight);
-		this.setBlockName("lamp");
+		this.setBlockName("derpyshiz.lamp");
 		this.setBlockTextureName("derpyshiz:lamp");
 		this.setCreativeTab(CreativeTabs.tabBlock);
 		this.setStepSound(soundTypeGlass);

@@ -20,7 +20,6 @@ public class ModelTopHat extends ModelBiped {
 	
 	@Override
 	public void render(Entity entity, float p_78088_2_, float p_78088_3_, float p_78088_4_, float p_78088_5_, float p_78088_6_, float something) {
-		super.render(entity, p_78088_2_, p_78088_3_, p_78088_4_, p_78088_5_, p_78088_6_, something);
 		this.bipedBody.isHidden = true;
 		this.bipedCloak.isHidden = true;
 		this.bipedEars.isHidden = true;
@@ -28,6 +27,7 @@ public class ModelTopHat extends ModelBiped {
 		this.bipedLeftLeg.isHidden = true;
 		this.bipedRightArm.isHidden = true;
 		this.bipedRightLeg.isHidden = true;
+		super.render(entity, p_78088_2_, p_78088_3_, p_78088_4_, p_78088_5_, p_78088_6_, something);
 		this.hat.render(something);
 	}
 

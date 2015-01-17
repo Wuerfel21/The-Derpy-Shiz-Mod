@@ -1,11 +1,15 @@
 package net.wuerfel21.derpyshiz.blocks;
 
+import java.util.List;
+
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockContainer;
 import net.minecraft.block.material.Material;
 import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.init.Blocks;
+import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.IIcon;
@@ -17,17 +21,20 @@ import net.minecraftforge.event.entity.player.PlayerInteractEvent;
 import net.minecraftforge.event.entity.player.PlayerInteractEvent.Action;
 import net.wuerfel21.derpyshiz.DerpyBlocks;
 import net.wuerfel21.derpyshiz.GuiIds;
+import net.wuerfel21.derpyshiz.IMetaItemBlock;
 import net.wuerfel21.derpyshiz.Main;
 import net.wuerfel21.derpyshiz.entity.tile.TileEntityMillstone;
 import cpw.mods.fml.common.eventhandler.Event.Result;
+import cpw.mods.fml.relauncher.Side;
+import cpw.mods.fml.relauncher.SideOnly;
 
-public class BlockMillstone extends BlockContainer {
+public class BlockMillstone extends BlockContainer implements IMetaItemBlock {
 
 	public static IIcon[] icons = new IIcon[4];
 	
 	public BlockMillstone() {
 		super(Main.machineMaterial);
-		this.setBlockName("millstone");
+		this.setBlockName("derpyshiz.millstone");
 		this.setCreativeTab(CreativeTabs.tabBlock);
 		this.setStepSound(soundTypePiston);
 		this.setHarvestLevel("ds_hammer", 0);
@@ -77,7 +84,7 @@ public class BlockMillstone extends BlockContainer {
 			case 0:
 				return DerpyBlocks.coarseStone.getIcon(side, 1);
 			case 1:
-				return DerpyBlocks.oreBlocks.getIcon(side, 2);
+				return Blocks.obsidian.getIcon(side, 0);
 			}
 		} else {
 			return icons[((meta & 1)*2)+(side<2?1:0)];
@@ -120,11 +127,17 @@ public class BlockMillstone extends BlockContainer {
 	}
 	
 	@Override
-	public String getUnlocalizedName() {
-		// TODO Auto-generated method stub
-		return super.getUnlocalizedName();
+	public void getSubBlocks(Item item, CreativeTabs tab, List list) {
+		for (int i = 0; i < types.length; i++) {
+			list.add(new ItemStack(item, 1, i));
+		}
 	}
 	
 	public static final String[] types = {"normal","advanced"};
+
+	@Override
+	public String getUnlocalizedName(int meta) {
+		return this.getUnlocalizedName() + "_" +types[meta%types.length];
+	}
 	
 }

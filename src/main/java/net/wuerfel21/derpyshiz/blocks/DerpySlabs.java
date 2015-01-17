@@ -19,7 +19,7 @@ public class DerpySlabs extends BlockSlab {
 
 	public DerpySlabs(boolean isDoubleSlab, Material material) {
 		super(isDoubleSlab, material);
-		this.setBlockName("derpyslab");
+		this.setBlockName("derpyshiz.derpyslab");
 		this.setHardness(2.0F);
 		this.setCreativeTab(CreativeTabs.tabBlock);
 		this.setResistance(5.0F);

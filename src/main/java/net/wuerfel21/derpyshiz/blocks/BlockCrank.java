@@ -19,7 +19,7 @@ public class BlockCrank extends Block implements ITileEntityProvider, ISmashable
 	public BlockCrank() {
 		super(Main.machineMaterial);
 		this.setHardness(3f);
-		this.setBlockName("crank");
+		this.setBlockName("derpyshiz.crank");
 		this.setCreativeTab(CreativeTabs.tabBlock);
 		this.setHarvestLevel("ds_hammer", 0);
 		this.setStepSound(soundTypeWood);

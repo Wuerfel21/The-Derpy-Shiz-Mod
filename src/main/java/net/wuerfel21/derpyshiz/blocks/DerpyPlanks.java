@@ -10,8 +10,9 @@ import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.IIcon;
+import net.wuerfel21.derpyshiz.IMetaItemBlock;
 
-public class DerpyPlanks extends BlockWood {
+public class DerpyPlanks extends BlockWood implements IMetaItemBlock {
 	
 	public IIcon[] icons = new IIcon[DerpyLogs.types.length];
 	
@@ -36,6 +37,11 @@ public class DerpyPlanks extends BlockWood {
 	@SideOnly(Side.CLIENT)
 	public IIcon getIcon(int side, int meta) {
 		return meta < icons.length ? icons[meta] : icons[0];
+	}
+
+	@Override
+	public String getUnlocalizedName(int meta) {
+		return this.getUnlocalizedName()+"_"+DerpyLogs.types[meta];
 	}
 	
 }

@@ -83,6 +83,6 @@ public class WindSword extends DerpySword implements IModeItem, ISpecialActionIt
 		return modes[index];
 	}
 
-	public static final String[] modes = { "mode.windsword_speed.name", "mode.windsword_jump.name" };
+	public static final String[] modes = { "mode.derpyshiz.windsword_speed.name", "mode.derpyshiz.windsword_jump.name" };
 
 }

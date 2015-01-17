@@ -131,89 +131,89 @@ public abstract class DerpyItems {
 		GameRegistry.registerItem(extraIngots = new ExtraIngots(), "extra_ingot");
 		GameRegistry.registerItem(dusts = new DerpyDusts(), "dust");
 
-		GameRegistry.registerItem(new DerpyHammer(ToolMaterial.IRON).setTextureName("derpyshiz:hammer").setUnlocalizedName("hammer"), "hammer");
+		GameRegistry.registerItem(new DerpyHammer(ToolMaterial.IRON).setTextureName("derpyshiz:hammer").setUnlocalizedName("derpyshiz.hammer"), "hammer");
 
-		GameRegistry.registerItem(new DerpyPickaxe(TITANIUM, oreItems, 2).setUnlocalizedName("pickaxe_titanium").setTextureName("derpyshiz:pickaxe_titanium"), "pickaxe_titanium");
-		GameRegistry.registerItem(new DerpySword(TITANIUM, oreItems, 2).setUnlocalizedName("sword_titanium").setTextureName("derpyshiz:sword_titanium"), "sword_titanium");
-		GameRegistry.registerItem(new DerpyHoe(TITANIUM, oreItems, 2).setUnlocalizedName("hoe_titanium").setTextureName("derpyshiz:hoe_titanium"), "hoe_titanium");
-		GameRegistry.registerItem(new DerpyShovel(TITANIUM, oreItems, 2).setUnlocalizedName("shovel_titanium").setTextureName("derpyshiz:shovel_titanium"), "shovel_titanium");
-		GameRegistry.registerItem(new DerpyAxe(TITANIUM, oreItems, 2).setUnlocalizedName("axe_titanium").setTextureName("derpyshiz:axe_titanium"), "axe_titanium");
+		GameRegistry.registerItem(new DerpyPickaxe(TITANIUM, oreItems, 2).setUnlocalizedName("derpyshiz.pickaxe_titanium").setTextureName("derpyshiz:pickaxe_titanium"), "pickaxe_titanium");
+		GameRegistry.registerItem(new DerpySword(TITANIUM, oreItems, 2).setUnlocalizedName("derpyshiz.sword_titanium").setTextureName("derpyshiz:sword_titanium"), "sword_titanium");
+		GameRegistry.registerItem(new DerpyHoe(TITANIUM, oreItems, 2).setUnlocalizedName("derpyshiz.hoe_titanium").setTextureName("derpyshiz:hoe_titanium"), "hoe_titanium");
+		GameRegistry.registerItem(new DerpyShovel(TITANIUM, oreItems, 2).setUnlocalizedName("derpyshiz.shovel_titanium").setTextureName("derpyshiz:shovel_titanium"), "shovel_titanium");
+		GameRegistry.registerItem(new DerpyAxe(TITANIUM, oreItems, 2).setUnlocalizedName("derpyshiz.axe_titanium").setTextureName("derpyshiz:axe_titanium"), "axe_titanium");
 
-		GameRegistry.registerItem(new DerpyPickaxe(RUBY, oreItems, 3).setUnlocalizedName("pickaxe_ruby").setTextureName("derpyshiz:pickaxe_ruby"), "pickaxe_ruby");
-		GameRegistry.registerItem(new DerpySword(RUBY, oreItems, 3).setUnlocalizedName("sword_ruby").setTextureName("derpyshiz:sword_ruby"), "sword_ruby");
-		GameRegistry.registerItem(new DerpyHoe(RUBY, oreItems, 3).setUnlocalizedName("hoe_ruby").setTextureName("derpyshiz:hoe_ruby"), "hoe_ruby");
-		GameRegistry.registerItem(new DerpyShovel(RUBY, oreItems, 3).setUnlocalizedName("shovel_ruby").setTextureName("derpyshiz:shovel_ruby"), "shovel_ruby");
-		GameRegistry.registerItem(new DerpyAxe(RUBY, oreItems, 3).setUnlocalizedName("axe_ruby").setTextureName("derpyshiz:axe_ruby"), "axe_ruby");
+		GameRegistry.registerItem(new DerpyPickaxe(RUBY, oreItems, 3).setUnlocalizedName("derpyshiz.pickaxe_ruby").setTextureName("derpyshiz:pickaxe_ruby"), "pickaxe_ruby");
+		GameRegistry.registerItem(new DerpySword(RUBY, oreItems, 3).setUnlocalizedName("derpyshiz.sword_ruby").setTextureName("derpyshiz:sword_ruby"), "sword_ruby");
+		GameRegistry.registerItem(new DerpyHoe(RUBY, oreItems, 3).setUnlocalizedName("derpyshiz.hoe_ruby").setTextureName("derpyshiz:hoe_ruby"), "hoe_ruby");
+		GameRegistry.registerItem(new DerpyShovel(RUBY, oreItems, 3).setUnlocalizedName("derpyshiz.shovel_ruby").setTextureName("derpyshiz:shovel_ruby"), "shovel_ruby");
+		GameRegistry.registerItem(new DerpyAxe(RUBY, oreItems, 3).setUnlocalizedName("derpyshiz.axe_ruby").setTextureName("derpyshiz:axe_ruby"), "axe_ruby");
 
-		GameRegistry.registerItem(new DerpyPickaxe(AMETHYST, oreItems, 5).setUnlocalizedName("pickaxe_amethyst").setTextureName("derpyshiz:pickaxe_amethyst"), "pickaxe_amethyst");
-		GameRegistry.registerItem(new DerpySword(AMETHYST, oreItems, 5).setUnlocalizedName("sword_amethyst").setTextureName("derpyshiz:sword_amethyst"), "sword_amethyst");
-		GameRegistry.registerItem(new DerpyHoe(AMETHYST, oreItems, 5).setUnlocalizedName("hoe_amethyst").setTextureName("derpyshiz:hoe_amethyst"), "hoe_amethyst");
-		GameRegistry.registerItem(new DerpyShovel(AMETHYST, oreItems, 5).setUnlocalizedName("shovel_amethyst").setTextureName("derpyshiz:shovel_amethyst"), "shovel_amethyst");
-		GameRegistry.registerItem(new DerpyAxe(AMETHYST, oreItems, 5).setUnlocalizedName("axe_amethyst").setTextureName("derpyshiz:axe_amethyst"), "axe_amethyst");
+		GameRegistry.registerItem(new DerpyPickaxe(AMETHYST, oreItems, 5).setUnlocalizedName("derpyshiz.pickaxe_amethyst").setTextureName("derpyshiz:pickaxe_amethyst"), "pickaxe_amethyst");
+		GameRegistry.registerItem(new DerpySword(AMETHYST, oreItems, 5).setUnlocalizedName("derpyshiz.sword_amethyst").setTextureName("derpyshiz:sword_amethyst"), "sword_amethyst");
+		GameRegistry.registerItem(new DerpyHoe(AMETHYST, oreItems, 5).setUnlocalizedName("derpyshiz.hoe_amethyst").setTextureName("derpyshiz:hoe_amethyst"), "hoe_amethyst");
+		GameRegistry.registerItem(new DerpyShovel(AMETHYST, oreItems, 5).setUnlocalizedName("derpyshiz.shovel_amethyst").setTextureName("derpyshiz:shovel_amethyst"), "shovel_amethyst");
+		GameRegistry.registerItem(new DerpyAxe(AMETHYST, oreItems, 5).setUnlocalizedName("derpyshiz.axe_amethyst").setTextureName("derpyshiz:axe_amethyst"), "axe_amethyst");
 
-		GameRegistry.registerItem(new DerpyPickaxe(COPPER, oreItems, 9).setUnlocalizedName("pickaxe_copper").setTextureName("derpyshiz:pickaxe_copper"), "pickaxe_copper");
-		GameRegistry.registerItem(new DerpySword(COPPER, oreItems, 9).setUnlocalizedName("sword_copper").setTextureName("derpyshiz:sword_copper"), "sword_copper");
-		GameRegistry.registerItem(new DerpyHoe(COPPER, oreItems, 9).setUnlocalizedName("hoe_copper").setTextureName("derpyshiz:hoe_copper"), "hoe_copper");
-		GameRegistry.registerItem(new DerpyShovel(COPPER, oreItems, 9).setUnlocalizedName("shovel_copper").setTextureName("derpyshiz:shovel_copper"), "shovel_copper");
-		GameRegistry.registerItem(new DerpyAxe(COPPER, oreItems, 9).setUnlocalizedName("axe_copper").setTextureName("derpyshiz:axe_copper"), "axe_copper");
+		GameRegistry.registerItem(new DerpyPickaxe(COPPER, oreItems, 9).setUnlocalizedName("derpyshiz.pickaxe_copper").setTextureName("derpyshiz:pickaxe_copper"), "pickaxe_copper");
+		GameRegistry.registerItem(new DerpySword(COPPER, oreItems, 9).setUnlocalizedName("derpyshiz.sword_copper").setTextureName("derpyshiz:sword_copper"), "sword_copper");
+		GameRegistry.registerItem(new DerpyHoe(COPPER, oreItems, 9).setUnlocalizedName("derpyshiz.hoe_copper").setTextureName("derpyshiz:hoe_copper"), "hoe_copper");
+		GameRegistry.registerItem(new DerpyShovel(COPPER, oreItems, 9).setUnlocalizedName("derpyshiz.shovel_copper").setTextureName("derpyshiz:shovel_copper"), "shovel_copper");
+		GameRegistry.registerItem(new DerpyAxe(COPPER, oreItems, 9).setUnlocalizedName("derpyshiz.axe_copper").setTextureName("derpyshiz:axe_copper"), "axe_copper");
 
-		GameRegistry.registerItem(new DerpySword(AMBER, oreItems, 0).setUnlocalizedName("sword_amber").setTextureName("derpyshiz:sword_amber"), "sword_amber");
+		GameRegistry.registerItem(new DerpySword(AMBER, oreItems, 0).setUnlocalizedName("derpyshiz.sword_amber").setTextureName("derpyshiz:sword_amber"), "sword_amber");
 
-		GameRegistry.registerItem(new DerpySword(LAPIS, Item.getItemFromBlock(Blocks.lapis_block), 0).setUnlocalizedName("sword_lapis").setTextureName("derpyshiz:sword_lapis"), "sword_lapis");
+		GameRegistry.registerItem(new DerpySword(LAPIS, Item.getItemFromBlock(Blocks.lapis_block), 0).setUnlocalizedName("derpyshiz.sword_lapis").setTextureName("derpyshiz:sword_lapis"), "sword_lapis");
 
-		GameRegistry.registerItem(new DerpySword(ENDERIUM, oreItems, 10).setUnlocalizedName("sword_enderium").setTextureName("derpyshiz:sword_enderium"), "sword_enderium");
+		GameRegistry.registerItem(new DerpySword(ENDERIUM, oreItems, 10).setUnlocalizedName("derpyshiz.sword_enderium").setTextureName("derpyshiz:sword_enderium"), "sword_enderium");
 
-		GameRegistry.registerItem(new DarkSword(DARKNESS, oreItems, 12).setUnlocalizedName("sword_darkness").setTextureName("derpyshiz:sword_darkness"), "sword_darkness");
+		GameRegistry.registerItem(new DarkSword(DARKNESS, oreItems, 12).setUnlocalizedName("derpyshiz.sword_darkness").setTextureName("derpyshiz:sword_darkness"), "sword_darkness");
 
-		GameRegistry.registerItem(new DerpyAxe(TURQUOISE, oreItems, 4).setUnlocalizedName("axe_turquoise").setTextureName("derpyshiz:axe_turquoise"), "axe_turquoise");
+		GameRegistry.registerItem(new DerpyAxe(TURQUOISE, oreItems, 4).setUnlocalizedName("derpyshiz.axe_turquoise").setTextureName("derpyshiz:axe_turquoise"), "axe_turquoise");
 
-		GameRegistry.registerItem(new DerpyHoe(FAKEDIAMOND, oreItems, 1).setUnlocalizedName("hoe_fakediamond").setTextureName("derpyshiz:hoe_fakediamond"), "hoe_fakediamond");
+		GameRegistry.registerItem(new DerpyHoe(FAKEDIAMOND, oreItems, 1).setUnlocalizedName("derpyshiz.hoe_fakediamond").setTextureName("derpyshiz:hoe_fakediamond"), "hoe_fakediamond");
 
-		GameRegistry.registerItem(new FireSword(FIRE, extraIngots, 0).setUnlocalizedName("sword_fire").setTextureName("derpyshiz:sword_fire"), "sword_fire");
-		GameRegistry.registerItem(new WaterSword(WATER, extraIngots, 1).setUnlocalizedName("sword_water").setTextureName("derpyshiz:sword_water"), "sword_water");
-		GameRegistry.registerItem(new NaturalSword(NATURAL, extraIngots, 2).setUnlocalizedName("sword_natural").setTextureName("derpyshiz:sword_natural"), "sword_natural");
-		GameRegistry.registerItem(new WindSword(WIND, extraIngots, 3).setUnlocalizedName("sword_wind").setTextureName("derpyshiz:sword_wind"), "sword_wind");
+		GameRegistry.registerItem(new FireSword(FIRE, extraIngots, 0).setUnlocalizedName("derpyshiz.sword_fire").setTextureName("derpyshiz:sword_fire"), "sword_fire");
+		GameRegistry.registerItem(new WaterSword(WATER, extraIngots, 1).setUnlocalizedName("derpyshiz.sword_water").setTextureName("derpyshiz:sword_water"), "sword_water");
+		GameRegistry.registerItem(new NaturalSword(NATURAL, extraIngots, 2).setUnlocalizedName("derpyshiz.sword_natural").setTextureName("derpyshiz:sword_natural"), "sword_natural");
+		GameRegistry.registerItem(new WindSword(WIND, extraIngots, 3).setUnlocalizedName("derpyshiz.sword_wind").setTextureName("derpyshiz:sword_wind"), "sword_wind");
 
-		GameRegistry.registerItem(new WuerfeliumSword(WUERFELIUM, oreItems, 15).setUnlocalizedName("sword_wuerfelium"), "sword_wuerfelium");
-		GameRegistry.registerItem(new WuerfeliumPickaxe(WUERFELIUM, oreItems, 15).setUnlocalizedName("pickaxe_wuerfelium"), "pickaxe_wuerfelium");
+		GameRegistry.registerItem(new WuerfeliumSword(WUERFELIUM, oreItems, 15).setUnlocalizedName("derpyshiz.sword_wuerfelium"), "sword_wuerfelium");
+		GameRegistry.registerItem(new WuerfeliumPickaxe(WUERFELIUM, oreItems, 15).setUnlocalizedName("derpyshiz.pickaxe_wuerfelium"), "pickaxe_wuerfelium");
 
-		GameRegistry.registerItem(new DerpyArmor(ARMOR_TITANIUM, 0, oreItems, 2, "titanium").setUnlocalizedName("helmet_titanium").setTextureName("derpyshiz:helmet_titanium"), "helmet_titanium");
-		GameRegistry.registerItem(new DerpyArmor(ARMOR_TITANIUM, 1, oreItems, 2, "titanium").setUnlocalizedName("chestplate_titanium").setTextureName("derpyshiz:chestplate_titanium"), "chestplate_titanium");
-		GameRegistry.registerItem(new DerpyArmor(ARMOR_TITANIUM, 2, oreItems, 2, "titanium").setUnlocalizedName("leggings_titanium").setTextureName("derpyshiz:leggings_titanium"), "leggings_titanium");
-		GameRegistry.registerItem(new DerpyArmor(ARMOR_TITANIUM, 3, oreItems, 2, "titanium").setUnlocalizedName("boots_titanium").setTextureName("derpyshiz:boots_titanium"), "boots_titanium");
+		GameRegistry.registerItem(new DerpyArmor(ARMOR_TITANIUM, 0, oreItems, 2, "titanium").setUnlocalizedName("derpyshiz.helmet_titanium").setTextureName("derpyshiz:helmet_titanium"), "helmet_titanium");
+		GameRegistry.registerItem(new DerpyArmor(ARMOR_TITANIUM, 1, oreItems, 2, "titanium").setUnlocalizedName("derpyshiz.chestplate_titanium").setTextureName("derpyshiz:chestplate_titanium"), "chestplate_titanium");
+		GameRegistry.registerItem(new DerpyArmor(ARMOR_TITANIUM, 2, oreItems, 2, "titanium").setUnlocalizedName("derpyshiz.leggings_titanium").setTextureName("derpyshiz:leggings_titanium"), "leggings_titanium");
+		GameRegistry.registerItem(new DerpyArmor(ARMOR_TITANIUM, 3, oreItems, 2, "titanium").setUnlocalizedName("derpyshiz.boots_titanium").setTextureName("derpyshiz:boots_titanium"), "boots_titanium");
 
-		GameRegistry.registerItem(new DerpyArmor(ARMOR_RUBY, 0, oreItems, 3, "ruby").setUnlocalizedName("helmet_ruby").setTextureName("derpyshiz:helmet_ruby"), "helmet_ruby");
-		GameRegistry.registerItem(new DerpyArmor(ARMOR_RUBY, 1, oreItems, 3, "ruby").setUnlocalizedName("chestplate_ruby").setTextureName("derpyshiz:chestplate_ruby"), "chestplate_ruby");
-		GameRegistry.registerItem(new DerpyArmor(ARMOR_RUBY, 2, oreItems, 3, "ruby").setUnlocalizedName("leggings_ruby").setTextureName("derpyshiz:leggings_ruby"), "leggings_ruby");
-		GameRegistry.registerItem(new DerpyArmor(ARMOR_RUBY, 3, oreItems, 3, "ruby").setUnlocalizedName("boots_ruby").setTextureName("derpyshiz:boots_ruby"), "boots_ruby");
+		GameRegistry.registerItem(new DerpyArmor(ARMOR_RUBY, 0, oreItems, 3, "ruby").setUnlocalizedName("derpyshiz.helmet_ruby").setTextureName("derpyshiz:helmet_ruby"), "helmet_ruby");
+		GameRegistry.registerItem(new DerpyArmor(ARMOR_RUBY, 1, oreItems, 3, "ruby").setUnlocalizedName("derpyshiz.chestplate_ruby").setTextureName("derpyshiz:chestplate_ruby"), "chestplate_ruby");
+		GameRegistry.registerItem(new DerpyArmor(ARMOR_RUBY, 2, oreItems, 3, "ruby").setUnlocalizedName("derpyshiz.leggings_ruby").setTextureName("derpyshiz:leggings_ruby"), "leggings_ruby");
+		GameRegistry.registerItem(new DerpyArmor(ARMOR_RUBY, 3, oreItems, 3, "ruby").setUnlocalizedName("derpyshiz.boots_ruby").setTextureName("derpyshiz:boots_ruby"), "boots_ruby");
 
-		GameRegistry.registerItem(new DerpyArmor(ARMOR_AMETHYST, 0, oreItems, 5, "amethyst").setUnlocalizedName("helmet_amethyst").setTextureName("derpyshiz:helmet_amethyst"), "helmet_amethyst");
-		GameRegistry.registerItem(new DerpyArmor(ARMOR_AMETHYST, 1, oreItems, 5, "amethyst").setUnlocalizedName("chestplate_amethyst").setTextureName("derpyshiz:chestplate_amethyst"), "chestplate_amethyst");
-		GameRegistry.registerItem(new DerpyArmor(ARMOR_AMETHYST, 2, oreItems, 5, "amethyst").setUnlocalizedName("leggings_amethyst").setTextureName("derpyshiz:leggings_amethyst"), "leggings_amethyst");
-		GameRegistry.registerItem(new DerpyArmor(ARMOR_AMETHYST, 3, oreItems, 5, "amethyst").setUnlocalizedName("boots_amethyst").setTextureName("derpyshiz:boots_amethyst"), "boots_amethyst");
+		GameRegistry.registerItem(new DerpyArmor(ARMOR_AMETHYST, 0, oreItems, 5, "amethyst").setUnlocalizedName("derpyshiz.helmet_amethyst").setTextureName("derpyshiz:helmet_amethyst"), "helmet_amethyst");
+		GameRegistry.registerItem(new DerpyArmor(ARMOR_AMETHYST, 1, oreItems, 5, "amethyst").setUnlocalizedName("derpyshiz.chestplate_amethyst").setTextureName("derpyshiz:chestplate_amethyst"), "chestplate_amethyst");
+		GameRegistry.registerItem(new DerpyArmor(ARMOR_AMETHYST, 2, oreItems, 5, "amethyst").setUnlocalizedName("derpyshiz.leggings_amethyst").setTextureName("derpyshiz:leggings_amethyst"), "leggings_amethyst");
+		GameRegistry.registerItem(new DerpyArmor(ARMOR_AMETHYST, 3, oreItems, 5, "amethyst").setUnlocalizedName("derpyshiz.boots_amethyst").setTextureName("derpyshiz:boots_amethyst"), "boots_amethyst");
 
-		GameRegistry.registerItem(new DerpyArmor(ARMOR_COPPER, 0, oreItems, 9, "copper").setUnlocalizedName("helmet_copper").setTextureName("derpyshiz:helmet_copper"), "helmet_copper");
-		GameRegistry.registerItem(new DerpyArmor(ARMOR_COPPER, 1, oreItems, 9, "copper").setUnlocalizedName("chestplate_copper").setTextureName("derpyshiz:chestplate_copper"), "chestplate_copper");
-		GameRegistry.registerItem(new DerpyArmor(ARMOR_COPPER, 2, oreItems, 9, "copper").setUnlocalizedName("leggings_copper").setTextureName("derpyshiz:leggings_copper"), "leggings_copper");
-		GameRegistry.registerItem(new DerpyArmor(ARMOR_COPPER, 3, oreItems, 9, "copper").setUnlocalizedName("boots_copper").setTextureName("derpyshiz:boots_copper"), "boots_copper");
+		GameRegistry.registerItem(new DerpyArmor(ARMOR_COPPER, 0, oreItems, 9, "copper").setUnlocalizedName("derpyshiz.helmet_copper").setTextureName("derpyshiz:helmet_copper"), "helmet_copper");
+		GameRegistry.registerItem(new DerpyArmor(ARMOR_COPPER, 1, oreItems, 9, "copper").setUnlocalizedName("derpyshiz.chestplate_copper").setTextureName("derpyshiz:chestplate_copper"), "chestplate_copper");
+		GameRegistry.registerItem(new DerpyArmor(ARMOR_COPPER, 2, oreItems, 9, "copper").setUnlocalizedName("derpyshiz.leggings_copper").setTextureName("derpyshiz:leggings_copper"), "leggings_copper");
+		GameRegistry.registerItem(new DerpyArmor(ARMOR_COPPER, 3, oreItems, 9, "copper").setUnlocalizedName("derpyshiz.boots_copper").setTextureName("derpyshiz:boots_copper"), "boots_copper");
 
-		GameRegistry.registerItem(stoneArmor[0] = new ArmorStone(ARMOR_STONE, 0, Item.getItemFromBlock(Blocks.cobblestone), 0, "stone").setUnlocalizedName("helmet_stone").setTextureName("derpyshiz:helmet_stone"), "helmet_stone");
-		GameRegistry.registerItem(stoneArmor[1] = new ArmorStone(ARMOR_STONE, 1, Item.getItemFromBlock(Blocks.cobblestone), 0, "stone").setUnlocalizedName("chestplate_stone").setTextureName("derpyshiz:chestplate_stone"), "chestplate_stone");
-		GameRegistry.registerItem(stoneArmor[2] = new ArmorStone(ARMOR_STONE, 2, Item.getItemFromBlock(Blocks.cobblestone), 0, "stone").setUnlocalizedName("leggings_stone").setTextureName("derpyshiz:leggings_stone"), "leggings_stone");
-		GameRegistry.registerItem(stoneArmor[3] = new ArmorStone(ARMOR_STONE, 3, Item.getItemFromBlock(Blocks.cobblestone), 0, "stone").setUnlocalizedName("boots_stone").setTextureName("derpyshiz:boots_stone"), "boots_stone");
+		GameRegistry.registerItem(stoneArmor[0] = new ArmorStone(ARMOR_STONE, 0, Item.getItemFromBlock(Blocks.cobblestone), 0, "stone").setUnlocalizedName("derpyshiz.helmet_stone").setTextureName("derpyshiz:helmet_stone"), "helmet_stone");
+		GameRegistry.registerItem(stoneArmor[1] = new ArmorStone(ARMOR_STONE, 1, Item.getItemFromBlock(Blocks.cobblestone), 0, "stone").setUnlocalizedName("derpyshiz.chestplate_stone").setTextureName("derpyshiz:chestplate_stone"), "chestplate_stone");
+		GameRegistry.registerItem(stoneArmor[2] = new ArmorStone(ARMOR_STONE, 2, Item.getItemFromBlock(Blocks.cobblestone), 0, "stone").setUnlocalizedName("derpyshiz.leggings_stone").setTextureName("derpyshiz:leggings_stone"), "leggings_stone");
+		GameRegistry.registerItem(stoneArmor[3] = new ArmorStone(ARMOR_STONE, 3, Item.getItemFromBlock(Blocks.cobblestone), 0, "stone").setUnlocalizedName("derpyshiz.boots_stone").setTextureName("derpyshiz:boots_stone"), "boots_stone");
 
-		GameRegistry.registerItem(new ArmorWater(ARMOR_WATER, 0, Items.water_bucket, 0, "water").setUnlocalizedName("helmet_water").setTextureName("derpyshiz:helmet_water"), "helmet_water");
-		GameRegistry.registerItem(new ArmorWater(ARMOR_WATER, 1, Items.water_bucket, 0, "water").setUnlocalizedName("chestplate_water").setTextureName("derpyshiz:chestplate_water"), "chestplate_water");
-		GameRegistry.registerItem(new ArmorWater(ARMOR_WATER, 2, Items.water_bucket, 0, "water").setUnlocalizedName("leggings_water").setTextureName("derpyshiz:leggings_water"), "leggings_water");
-		GameRegistry.registerItem(new ArmorWater(ARMOR_WATER, 3, Items.water_bucket, 0, "water").setUnlocalizedName("boots_water").setTextureName("derpyshiz:boots_water"), "boots_water");
+		GameRegistry.registerItem(new ArmorWater(ARMOR_WATER, 0, Items.water_bucket, 0, "water").setUnlocalizedName("derpyshiz.helmet_water").setTextureName("derpyshiz:helmet_water"), "helmet_water");
+		GameRegistry.registerItem(new ArmorWater(ARMOR_WATER, 1, Items.water_bucket, 0, "water").setUnlocalizedName("derpyshiz.chestplate_water").setTextureName("derpyshiz:chestplate_water"), "chestplate_water");
+		GameRegistry.registerItem(new ArmorWater(ARMOR_WATER, 2, Items.water_bucket, 0, "water").setUnlocalizedName("derpyshiz.leggings_water").setTextureName("derpyshiz:leggings_water"), "leggings_water");
+		GameRegistry.registerItem(new ArmorWater(ARMOR_WATER, 3, Items.water_bucket, 0, "water").setUnlocalizedName("derpyshiz.boots_water").setTextureName("derpyshiz:boots_water"), "boots_water");
 
-		GameRegistry.registerItem(new DerpyArmor(ARMOR_CIRCLET_DIAMOND, 0, Items.gold_ingot, 0, "circlet_diamond").setUnlocalizedName("circlet_diamond").setTextureName("derpyshiz:circlet_diamond").setCreativeTab(CreativeTabs.tabMisc), "circlet_diamond");
-		GameRegistry.registerItem(new DerpyArmor(ARMOR_CIRCLET_RUBY, 0, Items.gold_ingot, 0, "circlet_ruby").setUnlocalizedName("circlet_ruby").setTextureName("derpyshiz:circlet_ruby").setCreativeTab(CreativeTabs.tabMisc), "circlet_ruby");
-		GameRegistry.registerItem(new DerpyArmor(ARMOR_CIRCLET_AMETHYST, 0, Items.gold_ingot, 0, "circlet_amethyst").setUnlocalizedName("circlet_amethyst").setTextureName("derpyshiz:circlet_amethyst").setCreativeTab(CreativeTabs.tabMisc), "circlet_amethyst");
-		GameRegistry.registerItem(new DerpyArmor(ARMOR_CIRCLET_TURQUOISE, 0, Items.gold_ingot, 0, "circlet_turquoise").setUnlocalizedName("circlet_turquoise").setTextureName("derpyshiz:circlet_turquoise").setCreativeTab(CreativeTabs.tabMisc), "circlet_turquoise");
-		GameRegistry.registerItem(new DerpyArmor(ARMOR_CIRCLET_FAKEDIAMOND, 0, Items.gold_ingot, 0, "circlet_diamond").setUnlocalizedName("circlet_fakediamond").setTextureName("derpyshiz:circlet_diamond").setCreativeTab(CreativeTabs.tabMisc), "circlet_fakediamond");
+		GameRegistry.registerItem(new DerpyArmor(ARMOR_CIRCLET_DIAMOND, 0, Items.gold_ingot, 0, "circlet_diamond").setUnlocalizedName("derpyshiz.circlet_diamond").setTextureName("derpyshiz:circlet_diamond").setCreativeTab(CreativeTabs.tabMisc), "circlet_diamond");
+		GameRegistry.registerItem(new DerpyArmor(ARMOR_CIRCLET_RUBY, 0, Items.gold_ingot, 0, "circlet_ruby").setUnlocalizedName("derpyshiz.circlet_ruby").setTextureName("derpyshiz:circlet_ruby").setCreativeTab(CreativeTabs.tabMisc), "circlet_ruby");
+		GameRegistry.registerItem(new DerpyArmor(ARMOR_CIRCLET_AMETHYST, 0, Items.gold_ingot, 0, "circlet_amethyst").setUnlocalizedName("derpyshiz.circlet_amethyst").setTextureName("derpyshiz:circlet_amethyst").setCreativeTab(CreativeTabs.tabMisc), "circlet_amethyst");
+		GameRegistry.registerItem(new DerpyArmor(ARMOR_CIRCLET_TURQUOISE, 0, Items.gold_ingot, 0, "circlet_turquoise").setUnlocalizedName("derpyshiz.circlet_turquoise").setTextureName("derpyshiz:circlet_turquoise").setCreativeTab(CreativeTabs.tabMisc), "circlet_turquoise");
+		GameRegistry.registerItem(new DerpyArmor(ARMOR_CIRCLET_FAKEDIAMOND, 0, Items.gold_ingot, 0, "circlet_diamond").setUnlocalizedName("derpyshiz.circlet_fakediamond").setTextureName("derpyshiz:circlet_diamond").setCreativeTab(CreativeTabs.tabMisc), "circlet_fakediamond");
 
-		GameRegistry.registerItem(new DarkCloak(ARMOR_DARK_CLOAK, 1, oreItems, 12).setUnlocalizedName("dark_cloak").setTextureName("derpyshiz:dark_cloak"), "dark_cloak");
+		GameRegistry.registerItem(new DarkCloak(ARMOR_DARK_CLOAK, 1, oreItems, 12).setUnlocalizedName("derpyshiz.dark_cloak").setTextureName("derpyshiz:dark_cloak"), "dark_cloak");
 
 		GameRegistry.registerItem(new TopHat(ARMOR_TOP_HAT, Item.getItemFromBlock(Blocks.wool), 15, "black"), "top_hat_black");
 		GameRegistry.registerItem(new TopHat(ARMOR_TOP_HAT, Item.getItemFromBlock(Blocks.wool), 0, "white"), "top_hat_white");
@@ -223,7 +223,7 @@ public abstract class DerpyItems {
 		GameRegistry.registerItem(new BaseCap(ARMOR_CAP, Item.getItemFromBlock(Blocks.wool), 0, "black"), "cap_black");
 		GameRegistry.registerItem(new BaseCap(ARMOR_CAP, Item.getItemFromBlock(Blocks.wool), 6, "pink"), "cap_pink");
 		
-		GameRegistry.registerItem(new Item().setUnlocalizedName("horn").setTextureName("derpyshiz:horn").setCreativeTab(CreativeTabs.tabMaterials), "horn");
+		GameRegistry.registerItem(new Item().setUnlocalizedName("derpyshiz.horn").setTextureName("derpyshiz:horn").setCreativeTab(CreativeTabs.tabMaterials), "horn");
 
 		GameRegistry.registerItem(new HorseLasagne(), "lasagne");
 		GameRegistry.registerItem(cookie = new RainbowCookie(), "rainbow_cookie");

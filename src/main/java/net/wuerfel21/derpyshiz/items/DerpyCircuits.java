@@ -16,7 +16,7 @@ public class DerpyCircuits extends Item {
 		super();
 		this.setHasSubtypes(true);
 		this.setMaxDamage(0);
-		this.setUnlocalizedName("circuit");
+		this.setUnlocalizedName("derpyshiz.circuit");
 		this.setCreativeTab(CreativeTabs.tabMaterials);
 	}
 

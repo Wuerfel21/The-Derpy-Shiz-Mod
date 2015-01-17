@@ -23,7 +23,7 @@ public class DerpyOres extends Block implements IMetaItemBlock {
 	
 	public DerpyOres() {
 		super(Material.rock);
-		this.setBlockName("ore");
+		this.setBlockName("derpyshiz.ore");
 		this.setBlockTextureName("derpyshiz:ore");
 		this.setCreativeTab(CreativeTabs.tabBlock);
 		this.setStepSound(soundTypePiston);

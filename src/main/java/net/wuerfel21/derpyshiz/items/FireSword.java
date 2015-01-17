@@ -88,6 +88,6 @@ public class FireSword extends DerpySword implements IModeItem, ISpecialActionIt
 		return modes[index];
 	}
 
-	public static final String[] modes = { "mode.firesword_normal.name", "mode.firesword_hell.name" };
+	public static final String[] modes = { "mode.derpyshiz.firesword_normal.name", "mode.derpyshiz.firesword_hell.name" };
 
 }

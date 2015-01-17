@@ -22,7 +22,7 @@ public class RotaryRender {
 			tessellator.addVertexWithUV(minC, 0, minC, overlay.getMinU(), overlay.getMinV());
 			break;
 		case 1://top
-			DerpyRenderHelper.addBox(tessellator, texture, minC, 0.1, minC, maxC, 0.995, maxC);
+			DerpyRenderHelper.addBox(tessellator, texture, minC, 0.9, minC, maxC, 0.995, maxC);
 			tessellator.setNormal(0, 1, 0);
 			tessellator.addVertexWithUV(maxC, 1, minC, overlay.getMaxU(), overlay.getMinV());
 			tessellator.addVertexWithUV(minC, 1, minC, overlay.getMinU(), overlay.getMinV());
@@ -38,7 +38,7 @@ public class RotaryRender {
 			tessellator.addVertexWithUV(maxC, maxC, 0, overlay.getMinU(), overlay.getMinV());
 			break;
 		case 3://south
-			DerpyRenderHelper.addBox(tessellator, texture, minC, minC, 0.1, maxC, maxC, 0.995);
+			DerpyRenderHelper.addBox(tessellator, texture, minC, minC, 0.9, maxC, maxC, 0.995);
 			tessellator.setNormal(0, 0, 1);
 			tessellator.addVertexWithUV(maxC, minC, 1, overlay.getMaxU(), overlay.getMaxV());
 			tessellator.addVertexWithUV(maxC, maxC, 1, overlay.getMaxU(), overlay.getMinV());
@@ -54,7 +54,7 @@ public class RotaryRender {
 			tessellator.addVertexWithUV(0, minC, minC, overlay.getMinU(), overlay.getMaxV());
 			break;
 		case 5://east
-			DerpyRenderHelper.addBox(tessellator, texture, 0.1, minC, minC, 0.995, maxC, maxC);
+			DerpyRenderHelper.addBox(tessellator, texture, 0.9, minC, minC, 0.995, maxC, maxC);
 			tessellator.setNormal(1, 0, 0);
 			tessellator.addVertexWithUV(1, minC, maxC, overlay.getMinU(), overlay.getMaxV());
 			tessellator.addVertexWithUV(1, minC, minC, overlay.getMaxU(), overlay.getMaxV());

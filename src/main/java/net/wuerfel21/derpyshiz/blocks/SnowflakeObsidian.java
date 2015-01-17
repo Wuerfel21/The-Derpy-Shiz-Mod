@@ -11,7 +11,7 @@ public class SnowflakeObsidian extends Block {
 		super(Material.rock);
 		this.setCreativeTab(CreativeTabs.tabBlock);
 		this.setBlockTextureName("derpyshiz:snowflake_obsidian");
-		this.setBlockName("snowflake_obsidian");
+		this.setBlockName("derpyshiz.snowflake_obsidian");
 		this.setHarvestLevel("pickaxe", 3);
 		this.setHardness(50f);
 		this.setResistance(2000f);

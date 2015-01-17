@@ -15,7 +15,7 @@ public class ItemRotameter extends Item implements IModeItem {
 		this.setTextureName("derpyshiz:rotameter");
 		this.setCreativeTab(CreativeTabs.tabTools);
 		this.setFull3D();
-		this.setUnlocalizedName("rotameter");
+		this.setUnlocalizedName("derpyshiz.rotameter");
 		this.setMaxStackSize(1);
 	}
 
@@ -25,7 +25,7 @@ public class ItemRotameter extends Item implements IModeItem {
 		ItemModeHelper.displayMode(stack, list);
 	}
 	
-	public static final String[] modes = {"mode.hammer_face.name","mode.hammer_direction.name"};
+	public static final String[] modes = {"mode.derpyshiz.hammer_face.name","mode.derpyshiz.hammer_direction.name"};
 
 	@Override
 	public int getNumModes() {

@@ -1,13 +1,12 @@
 package net.wuerfel21.derpyshiz;
 
-import java.nio.channels.NetworkChannel;
+import net.minecraft.block.material.MapColor;
+import net.minecraft.block.material.Material;
+import net.minecraft.launchwrapper.Launch;
+import net.minecraftforge.common.config.Configuration;
 
 import com.google.common.primitives.UnsignedBytes;
 
-import net.minecraft.block.material.MapColor;
-import net.minecraft.block.material.Material;
-import net.minecraft.network.NetworkManager;
-import net.minecraftforge.common.config.Configuration;
 import cpw.mods.fml.common.Mod;
 import cpw.mods.fml.common.Mod.EventHandler;
 import cpw.mods.fml.common.Mod.Instance;
@@ -31,8 +30,8 @@ public class Main {
 	public static final int[] armorTypeToSlot = {4,3,2,1};
 	
 	public static final String MODID = "derpyshiz";
-    public static final String MODNAME = "The derpy shiz mod";
-    public static final String VERSION = "beta 0.3 pre 2";
+    public static final String MODNAME = "The Derpy Shiz Mod";
+    public static final String VERSION = "@VERSION@";
     
     public static Configuration config;
     public static int idPiggycorn;
@@ -42,6 +41,8 @@ public class Main {
     public static int maxWaterswordDistance;
     public static boolean checkForUpdates;
     public static String updateURL;
+    
+    public static boolean isDevEnv = false;
     
     public static SimpleNetworkWrapper derpnet;
     
@@ -53,6 +54,11 @@ public class Main {
     
     @EventHandler
     public void preInit(FMLPreInitializationEvent e) {
+    	try {
+    		isDevEnv = ((Boolean) Launch.blackboard.get("fml.deobfuscatedEnvironment")).booleanValue();
+    	} catch(Exception ex) {
+    		//lawl
+    	}
     	instance = this;
     	derpnet = NetworkRegistry.INSTANCE.newSimpleChannel(this.MODID);
     	config = new Configuration(e.getSuggestedConfigurationFile(),null);
@@ -62,7 +68,7 @@ public class Main {
     	fancyGearbox = config.getBoolean("fancyGearbox", "client", true, "If gearboxes should be uber fancy");
     	flashy = config.getBoolean("flashy", "client", true, "If flashing textures should be used. false also saves some tiny bits of performance when near such things.");
     	maxWaterswordDistance = config.getInt("maxWaterswordDistance", "server", 64, 0, 255,"Maximum distance one can go up/down with a flood cutlass. Normally you wont have 64 blocks deep oceans, so you wont notice this setting too much. This is used to reduce server load on servers with loads of flood cutlasses/lots of oceans.");
-    	checkForUpdates = config.getBoolean("checkForUpdates", "updates", true, "Wheter to check for updates or not");
+    	checkForUpdates = config.getBoolean("checkForUpdates", "updates", !isDevEnv , "Wheter to check for updates or not");
     	updateURL = config.getString("updateURL", "updates", "https://raw.githubusercontent.com/Wuerfel21/The-Derpy-Shiz-Mod/master/currentVersion.thisIsUsedForUpdateChecking", "where to check for updates. dont change unless you know what a tacco is.");
     	config.save();
     	this.proxy.preInit(e);

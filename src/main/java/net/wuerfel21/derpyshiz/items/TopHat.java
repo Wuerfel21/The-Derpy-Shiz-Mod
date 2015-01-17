@@ -17,7 +17,7 @@ public class TopHat extends DerpyArmor {
 	
 	public TopHat(ArmorMaterial am, Item i, int m, String type) {
 		super(am, 0, i, m, type);
-		this.setUnlocalizedName("tophat_"+type);
+		this.setUnlocalizedName("derpyshiz.tophat_"+type);
 		this.setCreativeTab(CreativeTabs.tabMisc);
 		this.setTextureName("derpyshiz:tophat_"+type);
 	}

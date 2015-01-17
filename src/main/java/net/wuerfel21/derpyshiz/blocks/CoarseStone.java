@@ -22,7 +22,7 @@ public class CoarseStone extends Block implements IMetaItemBlock{
 
 	public CoarseStone() {
 		super(Material.rock);
-		this.setBlockName("coarsestone");
+		this.setBlockName("derpyshiz.coarsestone");
 		this.setBlockTextureName("derpyshiz:coarsestone");
 		this.setCreativeTab(CreativeTabs.tabBlock);
 		this.setStepSound(soundTypePiston);

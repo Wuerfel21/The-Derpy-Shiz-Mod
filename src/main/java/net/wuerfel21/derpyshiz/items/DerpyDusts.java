@@ -16,7 +16,7 @@ public class DerpyDusts extends Item {
 		super();
 		this.setHasSubtypes(true);
 		this.setMaxDamage(0);
-		this.setUnlocalizedName("dust");
+		this.setUnlocalizedName("derpyshiz.dust");
 		this.setCreativeTab(CreativeTabs.tabMaterials);
 	}
 

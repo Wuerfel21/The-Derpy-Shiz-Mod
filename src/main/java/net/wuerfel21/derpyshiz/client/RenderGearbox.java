@@ -8,6 +8,7 @@ import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.IIcon;
 import net.wuerfel21.derpyshiz.Main;
 import net.wuerfel21.derpyshiz.blocks.BlockGearbox;
+import net.wuerfel21.derpyshiz.blocks.RotaryHousing;
 import net.wuerfel21.derpyshiz.entity.tile.TileEntityGearbox;
 
 import org.lwjgl.opengl.GL11;
@@ -41,8 +42,6 @@ public class RenderGearbox extends TileEntitySpecialRenderer {
 		GL11.glTranslated(x, y, z);
 
 		tessellator.startDrawingQuads();
-		// tessellator.setBrightness(tile.getBlockType().getMixedBrightnessForBlock(tile.getWorldObj(),
-		// tile.xCoord, tile.yCoord, tile.zCoord));
 		if (Main.fancyGearbox) {
 			RenderRotaryComponent.render(tessellator, textures[meta]);
 		} else {
@@ -50,9 +49,9 @@ public class RenderGearbox extends TileEntitySpecialRenderer {
 		}
 		if (!tile.inInventory) {
 			if (Main.fancyGearbox) {
-				RotaryRender.fancyConnection(tessellator, textures[meta][2], block.overlay[0], tile.dir);
+				RotaryRender.fancyConnection(tessellator, textures[meta][2], RotaryHousing.overlays[0], tile.dir);
 			} else {
-				RotaryRender.uglyConnection(tessellator, block.overlay[0], tile.dir);
+				RotaryRender.uglyConnection(tessellator, RotaryHousing.overlays[0], tile.dir);
 			}
 		}
 		tessellator.draw();

@@ -17,7 +17,7 @@ public class OreItems extends Item {
 		super();
 		this.setHasSubtypes(true);
 		this.setMaxDamage(0);
-		this.setUnlocalizedName("oi");
+		this.setUnlocalizedName("derpyshiz.oi");
 		this.setCreativeTab(CreativeTabs.tabMaterials);
 	}
 

@@ -16,7 +16,7 @@ public class SeizureWool extends Block implements ITileEntityProvider {
 	
 	public SeizureWool() {
 		super(Material.cloth);
-		this.setBlockName("seizure_wool");
+		this.setBlockName("derpyshiz.seizure_wool");
 		this.setBlockTextureName("derpyshiz:pattern_wool_pig");
 		this.setCreativeTab(CreativeTabs.tabBlock);
 		this.setHardness(0.8f);

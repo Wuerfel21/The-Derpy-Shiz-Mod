@@ -199,6 +199,6 @@ public class NaturalSword extends DerpySword implements IModeItem, ISpecialActio
 	public static final int[] xOff = { 0, -1, 0, 1 };
 	public static final int[] zOff = { 1, 0, -1, 0 };
 	public static final int[] revDir = { 2, 3, 0, 1 };
-	public static final String[] modes = { "mode.naturalsword_front.name", "mode.naturalsword_back.name", "mode.naturalsword_all.name" };
+	public static final String[] modes = { "mode.derpyshiz.naturalsword_front.name", "mode.derpyshiz.naturalsword_back.name", "mode.derpyshiz.naturalsword_all.name" };
 
 }

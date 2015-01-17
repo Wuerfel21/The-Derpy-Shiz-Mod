@@ -1,308 +1,308 @@
-item.tdm.name=The Diamond Minecart
+item.derpyshiz.tdm.name=The Diamond Minecart
 
-tile.pattern_wool_colordots.name=Color-dotted Wool
-tile.pattern_wool_lines.name=Lined Wool
-tile.pattern_wool_checker.name=Checkered Wool
-tile.pattern_wool_dotted.name=Dotted Wool
-tile.pattern_wool_striped.name=Striped Wool
-tile.pattern_wool_squares.name=Squared Wool
-tile.pattern_wool_bright.name=Bright-colored Wool
-tile.pattern_wool_heart.name=Hearted Wool
-tile.pattern_wool_rainbow.name=Rainbow Wool
-tile.pattern_wool_swiss.name=Swiss Wool
-tile.pattern_wool_germany.name=German Wool
-tile.pattern_wool_bavaria.name=Bavarian Wool
-tile.pattern_wool_mojang.name=Mojang Wool
-tile.pattern_wool_notch.name=Notched Wool
-tile.pattern_wool_jeb.name=Jebby Wool
-tile.pattern_wool_pig.name=Piggy Wool
+tile.derpyshiz.pattern_wool_colordots.name=Color-dotted Wool
+tile.derpyshiz.pattern_wool_lines.name=Lined Wool
+tile.derpyshiz.pattern_wool_checker.name=Checkered Wool
+tile.derpyshiz.pattern_wool_dotted.name=Dotted Wool
+tile.derpyshiz.pattern_wool_striped.name=Striped Wool
+tile.derpyshiz.pattern_wool_squares.name=Squared Wool
+tile.derpyshiz.pattern_wool_bright.name=Bright-colored Wool
+tile.derpyshiz.pattern_wool_heart.name=Hearted Wool
+tile.derpyshiz.pattern_wool_rainbow.name=Rainbow Wool
+tile.derpyshiz.pattern_wool_swiss.name=Swiss Wool
+tile.derpyshiz.pattern_wool_germany.name=German Wool
+tile.derpyshiz.pattern_wool_bavaria.name=Bavarian Wool
+tile.derpyshiz.pattern_wool_mojang.name=Mojang Wool
+tile.derpyshiz.pattern_wool_notch.name=Notched Wool
+tile.derpyshiz.pattern_wool_jeb.name=Jebby Wool
+tile.derpyshiz.pattern_wool_pig.name=Piggy Wool
 
-tile.pattern_carpet_colordots.name=Color-dotted Carpet
-tile.pattern_carpet_lines.name=Lined Carpet
-tile.pattern_carpet_checker.name=Checkered Carpet
-tile.pattern_carpet_dotted.name=Dotted Carpet
-tile.pattern_carpet_striped.name=Striped Carpet
-tile.pattern_carpet_squares.name=Squared Carpet
-tile.pattern_carpet_bright.name=Bright-colored Carpet
-tile.pattern_carpet_heart.name=Hearted Carpet
-tile.pattern_carpet_rainbow.name=Rainbow Carpet
-tile.pattern_carpet_swiss.name=Swiss Carpet
-tile.pattern_carpet_germany.name=German Carpet
-tile.pattern_carpet_bavaria.name=Bavarian Carpet
-tile.pattern_carpet_mojang.name=Mojang Carpet
-tile.pattern_carpet_notch.name=Notched Carpet
-tile.pattern_carpet_jeb.name=Jebby Carpet
-tile.pattern_carpet_pig.name=Piggy Carpet
+tile.derpyshiz.pattern_carpet_colordots.name=Color-dotted Carpet
+tile.derpyshiz.pattern_carpet_lines.name=Lined Carpet
+tile.derpyshiz.pattern_carpet_checker.name=Checkered Carpet
+tile.derpyshiz.pattern_carpet_dotted.name=Dotted Carpet
+tile.derpyshiz.pattern_carpet_striped.name=Striped Carpet
+tile.derpyshiz.pattern_carpet_squares.name=Squared Carpet
+tile.derpyshiz.pattern_carpet_bright.name=Bright-colored Carpet
+tile.derpyshiz.pattern_carpet_heart.name=Hearted Carpet
+tile.derpyshiz.pattern_carpet_rainbow.name=Rainbow Carpet
+tile.derpyshiz.pattern_carpet_swiss.name=Swiss Carpet
+tile.derpyshiz.pattern_carpet_germany.name=German Carpet
+tile.derpyshiz.pattern_carpet_bavaria.name=Bavarian Carpet
+tile.derpyshiz.pattern_carpet_mojang.name=Mojang Carpet
+tile.derpyshiz.pattern_carpet_notch.name=Notched Carpet
+tile.derpyshiz.pattern_carpet_jeb.name=Jebby Carpet
+tile.derpyshiz.pattern_carpet_pig.name=Piggy Carpet
 
-tile.ore_amber.name=Amber Ore
-tile.ore_fakediamond.name=Fake Diamond Ore
-tile.ore_titanium.name=Titanium Ore
-tile.ore_ruby.name=Ruby Ore
-tile.ore_turquoise.name=Turquoise Ore
-tile.ore_amethyst.name=Amethyst Ore
-tile.ore_fluorite_brown.name=Brown Fluorite Ore
-tile.ore_fluorite_red.name=Red Fluorite Ore
-tile.ore_fluorite_pink.name=Pink Fluorite Ore
-tile.ore_copper.name=Copper Ore
-tile.ore_enderium.name=Enderium Ore
-tile.ore_electrimite.name=Electrimite Ore
-tile.ore_darkness.name=Dark Ore
-tile.ore_tin.name=Tin Ore
-tile.ore_lead.name=Lead Ore
-tile.ore_wuerfelium.name=Wuerfelium Ore
+tile.derpyshiz.ore_amber.name=Amber Ore
+tile.derpyshiz.ore_fakediamond.name=Fake Diamond Ore
+tile.derpyshiz.ore_titanium.name=Titanium Ore
+tile.derpyshiz.ore_ruby.name=Ruby Ore
+tile.derpyshiz.ore_turquoise.name=Turquoise Ore
+tile.derpyshiz.ore_amethyst.name=Amethyst Ore
+tile.derpyshiz.ore_fluorite_brown.name=Brown Fluorite Ore
+tile.derpyshiz.ore_fluorite_red.name=Red Fluorite Ore
+tile.derpyshiz.ore_fluorite_pink.name=Pink Fluorite Ore
+tile.derpyshiz.ore_copper.name=Copper Ore
+tile.derpyshiz.ore_enderium.name=Enderium Ore
+tile.derpyshiz.ore_electrimite.name=Electrimite Ore
+tile.derpyshiz.ore_darkness.name=Dark Ore
+tile.derpyshiz.ore_tin.name=Tin Ore
+tile.derpyshiz.ore_lead.name=Lead Ore
+tile.derpyshiz.ore_wuerfelium.name=Wuerfelium Ore
 
-tile.block_amber.name=Amber Block
-tile.block_fakediamond.name=Fake Diamond Block
-tile.block_titanium.name=Titanium Block
-tile.block_ruby.name=Ruby Block
-tile.block_turquoise.name=Turquoise Block
-tile.block_amethyst.name=Amethyst Block
-tile.block_fluorite_brown.name=Brown Fluorite Block
-tile.block_fluorite_red.name=Red Fluorite Block
-tile.block_fluorite_pink.name=Pink Fluorite Block
-tile.block_copper.name=Copper Block
-tile.block_enderium.name=Enderium Block
-tile.block_electrimite.name=Electrimite Block
-tile.block_darkness.name=Dark Block
-tile.block_tin.name=Tin Block
-tile.block_lead.name=Lead Block
-tile.block_wuerfelium.name=Wuerfelium Block
+tile.derpyshiz.block_amber.name=Amber Block
+tile.derpyshiz.block_fakediamond.name=Fake Diamond Block
+tile.derpyshiz.block_titanium.name=Titanium Block
+tile.derpyshiz.block_ruby.name=Ruby Block
+tile.derpyshiz.block_turquoise.name=Turquoise Block
+tile.derpyshiz.block_amethyst.name=Amethyst Block
+tile.derpyshiz.block_fluorite_brown.name=Brown Fluorite Block
+tile.derpyshiz.block_fluorite_red.name=Red Fluorite Block
+tile.derpyshiz.block_fluorite_pink.name=Pink Fluorite Block
+tile.derpyshiz.block_copper.name=Copper Block
+tile.derpyshiz.block_enderium.name=Enderium Block
+tile.derpyshiz.block_electrimite.name=Electrimite Block
+tile.derpyshiz.block_darkness.name=Dark Block
+tile.derpyshiz.block_tin.name=Tin Block
+tile.derpyshiz.block_lead.name=Lead Block
+tile.derpyshiz.block_wuerfelium.name=Wuerfelium Block
 
-item.oi_chunk_amber.name=Amber Chunk
-item.oi_fakediamond.name=Fake Diamond
-item.oi_ingot_titanium.name=Titanium Ingot
-item.oi_ruby.name=Ruby
-item.oi_turquoise.name=Turquoise
-item.oi_amethyst.name=Amethyst
-item.oi_fluorite_brown.name=Brown Fluorite
-item.oi_fluorite_red.name=Red Fluorite
-item.oi_fluorite_pink.name=Pink Fluorite
-item.oi_ingot_copper.name=Copper Ingot
-item.oi_ingot_enderium.name=Enderium Ingot
-item.oi_ingot_electrimite.name=Electrimite Ingot
-item.oi_gem_darkness.name=Dark Gem
-item.oi_ingot_tin.name=Tin Ingot
-item.oi_ingot_lead.name=Lead Ingot
-item.oi_gem_wuerfelium.name=Wuerfelstone
+item.derpyshiz.oi_chunk_amber.name=Amber Chunk
+item.derpyshiz.oi_fakediamond.name=Fake Diamond
+item.derpyshiz.oi_ingot_titanium.name=Titanium Ingot
+item.derpyshiz.oi_ruby.name=Ruby
+item.derpyshiz.oi_turquoise.name=Turquoise
+item.derpyshiz.oi_amethyst.name=Amethyst
+item.derpyshiz.oi_fluorite_brown.name=Brown Fluorite
+item.derpyshiz.oi_fluorite_red.name=Red Fluorite
+item.derpyshiz.oi_fluorite_pink.name=Pink Fluorite
+item.derpyshiz.oi_ingot_copper.name=Copper Ingot
+item.derpyshiz.oi_ingot_enderium.name=Enderium Ingot
+item.derpyshiz.oi_ingot_electrimite.name=Electrimite Ingot
+item.derpyshiz.oi_gem_darkness.name=Dark Gem
+item.derpyshiz.oi_ingot_tin.name=Tin Ingot
+item.derpyshiz.oi_ingot_lead.name=Lead Ingot
+item.derpyshiz.oi_gem_wuerfelium.name=Wuerfelstone
 
-item.dust_iron.name=Iron Dust
-item.dust_gold.name=Gold Dust
-item.dust_diamond.name=Diamond Dust
-item.dust_ruby.name=Ruby Dust
-item.dust_copper.name=Copper Dust
-item.dust_tin.name=Tin Dust
-item.dust_lead.name=Lead Dust
-item.dust_titanium.name=Titanium Dust
-item.dust_electrimite.name=Electrimite Dust
-item.dust_ghast.name=Ghastly Dust
-item.dust_amethyst.name=Amethyst Dust
-item.dust_obsidian.name=Obsidian Dust
-item.dust_amber.name=Amber Dust
-item.dust_enderpearl.name=Enderpearl Dust
+item.derpyshiz.dust_iron.name=Iron Dust
+item.derpyshiz.dust_gold.name=Gold Dust
+item.derpyshiz.dust_diamond.name=Diamond Dust
+item.derpyshiz.dust_ruby.name=Ruby Dust
+item.derpyshiz.dust_copper.name=Copper Dust
+item.derpyshiz.dust_tin.name=Tin Dust
+item.derpyshiz.dust_lead.name=Lead Dust
+item.derpyshiz.dust_titanium.name=Titanium Dust
+item.derpyshiz.dust_electrimite.name=Electrimite Dust
+item.derpyshiz.dust_ghast.name=Ghastly Dust
+item.derpyshiz.dust_amethyst.name=Amethyst Dust
+item.derpyshiz.dust_obsidian.name=Obsidian Dust
+item.derpyshiz.dust_amber.name=Amber Dust
+item.derpyshiz.dust_enderpearl.name=Enderpearl Dust
 
-item.nugget_iron.name=Iron Nugget
-item.nugget_copper.name=Copper Nugget
-item.nugget_tin.name=Tin Nugget
-item.nugget_lead.name=Lead Nugget
-item.nugget_electrimite.name=Electrimite Nugget
-item.nugget_enderium.name=Enderium Nugget
-item.nugget_titanium.name=Titanium Nugget
-item.nugget_diamond.name=Diamond Shard
-item.nugget_ruby.name=Ruby Shard
-item.nugget_darkness.name=Dark Shard
-item.nugget_amethyst.name=Amethyst Fragment
+item.derpyshiz.nugget_iron.name=Iron Nugget
+item.derpyshiz.nugget_copper.name=Copper Nugget
+item.derpyshiz.nugget_tin.name=Tin Nugget
+item.derpyshiz.nugget_lead.name=Lead Nugget
+item.derpyshiz.nugget_electrimite.name=Electrimite Nugget
+item.derpyshiz.nugget_enderium.name=Enderium Nugget
+item.derpyshiz.nugget_titanium.name=Titanium Nugget
+item.derpyshiz.nugget_diamond.name=Diamond Shard
+item.derpyshiz.nugget_ruby.name=Ruby Shard
+item.derpyshiz.nugget_darkness.name=Dark Shard
+item.derpyshiz.nugget_amethyst.name=Amethyst Fragment
 
-item.ei_ingot_fire.name=Fire Alloy Ingot
-item.ei_ingot_water.name=Water Alloy Ingot
-item.ei_ingot_natural.name=Natural Alloy Ingot
-item.ei_ingot_wind.name=Wind Alloy Ingot
-item.ei_ingot_electritanium.name=Electritanium Ingot
+item.derpyshiz.ei_ingot_fire.name=Fire Alloy Ingot
+item.derpyshiz.ei_ingot_water.name=Water Alloy Ingot
+item.derpyshiz.ei_ingot_natural.name=Natural Alloy Ingot
+item.derpyshiz.ei_ingot_wind.name=Wind Alloy Ingot
+item.derpyshiz.ei_ingot_electritanium.name=Electritanium Ingot
 
-tile.lamp_fluorite_red.name=Red Fluorite Lamp
-tile.lamp_fluorite_green.name=Green Fluorite Lamp
-tile.lamp_fluorite_blue.name=Blue Fluorite Lamp
+tile.derpyshiz.lamp_fluorite_red.name=Red Fluorite Lamp
+tile.derpyshiz.lamp_fluorite_green.name=Green Fluorite Lamp
+tile.derpyshiz.lamp_fluorite_blue.name=Blue Fluorite Lamp
 
-tile.torch_fluorite_red.name=Red Fluorite Torch
-tile.torch_fluorite_green.name=Green Fluorite Torch
-tile.torch_fluorite_blue.name=Blue Fluorite Torch
+tile.derpyshiz.torch_fluorite_red.name=Red Fluorite Torch
+tile.derpyshiz.torch_fluorite_green.name=Green Fluorite Torch
+tile.derpyshiz.torch_fluorite_blue.name=Blue Fluorite Torch
 
-tile.block_lasagne.name=Block of Lasagne
+tile.derpyshiz.block_lasagne.name=Block of Lasagne
 
-tile.housing_normal.name=Rotary Housing
-tile.housing_advanced.name=Advanced Rotary Housing
+tile.derpyshiz.housing_normal.name=Rotary Housing
+tile.derpyshiz.housing_advanced.name=Advanced Rotary Housing
 
-tile.stairs_ebony.name=Ebony Wood Stairs
-tile.stairs_magic.name=Magic Wood Stairs
-tile.derpyslab_ebony.name=Ebony Wood Slab
-tile.derpyslab_magic.name=Magic Wood Slab
+tile.derpyshiz.stairs_ebony.name=Ebony Wood Stairs
+tile.derpyshiz.stairs_magic.name=Magic Wood Stairs
+tile.derpyshiz.derpyslab_ebony.name=Ebony Wood Slab
+tile.derpyshiz.derpyslab_magic.name=Magic Wood Slab
 
-item.hammer.name=Hammer
+item.derpyshiz.hammer.name=Hammer
 
-item.pickaxe_titanium.name=Titanium Pickaxe
-item.sword_titanium.name=Titanium Sword
-item.hoe_titanium.name=Titanium Hoe
-item.shovel_titanium.name=Titanium Shovel
-item.axe_titanium.name=Titanium Axe
+item.derpyshiz.pickaxe_titanium.name=Titanium Pickaxe
+item.derpyshiz.sword_titanium.name=Titanium Sword
+item.derpyshiz.hoe_titanium.name=Titanium Hoe
+item.derpyshiz.shovel_titanium.name=Titanium Shovel
+item.derpyshiz.axe_titanium.name=Titanium Axe
 
-item.pickaxe_ruby.name=Ruby Pickaxe
-item.sword_ruby.name=Ruby Sword
-item.hoe_ruby.name=Ruby Hoe
-item.shovel_ruby.name=Ruby Shovel
-item.axe_ruby.name=Ruby Axe
+item.derpyshiz.pickaxe_ruby.name=Ruby Pickaxe
+item.derpyshiz.sword_ruby.name=Ruby Sword
+item.derpyshiz.hoe_ruby.name=Ruby Hoe
+item.derpyshiz.shovel_ruby.name=Ruby Shovel
+item.derpyshiz.axe_ruby.name=Ruby Axe
 
-item.pickaxe_amethyst.name=Amethyst Pickaxe
-item.sword_amethyst.name=Amethyst Sword
-item.hoe_amethyst.name=Amethyst Hoe
-item.shovel_amethyst.name=Amethyst Shovel
-item.axe_amethyst.name=Amethyst Axe
+item.derpyshiz.pickaxe_amethyst.name=Amethyst Pickaxe
+item.derpyshiz.sword_amethyst.name=Amethyst Sword
+item.derpyshiz.hoe_amethyst.name=Amethyst Hoe
+item.derpyshiz.shovel_amethyst.name=Amethyst Shovel
+item.derpyshiz.axe_amethyst.name=Amethyst Axe
 
-item.pickaxe_copper.name=Copper Pickaxe
-item.sword_copper.name=Copper Sword
-item.hoe_copper.name=Copper Hoe
-item.shovel_copper.name=Copper Shovel
-item.axe_copper.name=Copper Axe
+item.derpyshiz.pickaxe_copper.name=Copper Pickaxe
+item.derpyshiz.sword_copper.name=Copper Sword
+item.derpyshiz.hoe_copper.name=Copper Hoe
+item.derpyshiz.shovel_copper.name=Copper Shovel
+item.derpyshiz.axe_copper.name=Copper Axe
 
-item.sword_amber.name=Amber Sword
+item.derpyshiz.sword_amber.name=Amber Sword
 
-item.sword_lapis.name=Lapis Sword
+item.derpyshiz.sword_lapis.name=Lapis Sword
 
-item.sword_enderium.name=Enderium Sword
+item.derpyshiz.sword_enderium.name=Enderium Sword
 
-item.sword_darkness.name=Dark Sword
+item.derpyshiz.sword_darkness.name=Dark Sword
 
-item.sword_fire.name=Nether Edge
-item.sword_water.name=Flood Cutlass
-item.sword_natural.name=Mother Natures Blade
-item.sword_wind.name=Strom Katana
+item.derpyshiz.sword_fire.name=Nether Edge
+item.derpyshiz.sword_water.name=Flood Cutlass
+item.derpyshiz.sword_natural.name=Mother Natures Blade
+item.derpyshiz.sword_wind.name=Strom Katana
 
-item.axe_turquoise.name=Turquoise Axe
+item.derpyshiz.axe_turquoise.name=Turquoise Axe
 
-item.hoe_fakediamond.name=Fake Diamond Hoe
+item.derpyshiz.hoe_fakediamond.name=Fake Diamond Hoe
 
-item.sword_wuerfelium.name=Wuerfelium Sword
-item.pickaxe_wuerfelium.name=Wuerfelium Pickaxe
+item.derpyshiz.sword_wuerfelium.name=Wuerfelium Sword
+item.derpyshiz.pickaxe_wuerfelium.name=Wuerfelium Pickaxe
 
-item.helmet_titanium.name=Titanium Helmet
-item.chestplate_titanium.name=Titanium Chestplate
-item.leggings_titanium.name=Titanium Leggings
-item.boots_titanium.name=Titanium Boots
+item.derpyshiz.helmet_titanium.name=Titanium Helmet
+item.derpyshiz.chestplate_titanium.name=Titanium Chestplate
+item.derpyshiz.leggings_titanium.name=Titanium Leggings
+item.derpyshiz.boots_titanium.name=Titanium Boots
 
-item.helmet_ruby.name=Ruby Helmet
-item.chestplate_ruby.name=Ruby Chestplate
-item.leggings_ruby.name=Ruby Leggings
-item.boots_ruby.name=Ruby Boots
+item.derpyshiz.helmet_ruby.name=Ruby Helmet
+item.derpyshiz.chestplate_ruby.name=Ruby Chestplate
+item.derpyshiz.leggings_ruby.name=Ruby Leggings
+item.derpyshiz.boots_ruby.name=Ruby Boots
 
-item.helmet_amethyst.name=Amethyst Helmet
-item.chestplate_amethyst.name=Amethyst Chestplate
-item.leggings_amethyst.name=Amethyst Leggings
-item.boots_amethyst.name=Amethyst Boots
+item.derpyshiz.helmet_amethyst.name=Amethyst Helmet
+item.derpyshiz.chestplate_amethyst.name=Amethyst Chestplate
+item.derpyshiz.leggings_amethyst.name=Amethyst Leggings
+item.derpyshiz.boots_amethyst.name=Amethyst Boots
 
-item.helmet_copper.name=Copper Helmet
-item.chestplate_copper.name=Copper Chestplate
-item.leggings_copper.name=Copper Leggings
-item.boots_copper.name=Copper Boots
+item.derpyshiz.helmet_copper.name=Copper Helmet
+item.derpyshiz.chestplate_copper.name=Copper Chestplate
+item.derpyshiz.leggings_copper.name=Copper Leggings
+item.derpyshiz.boots_copper.name=Copper Boots
 
-item.helmet_stone.name=Stone Headblocker
-item.chestplate_stone.name=Stone Straightjacket
-item.leggings_stone.name=Stone Legs
-item.boots_stone.name=Stone Hobbles
+item.derpyshiz.helmet_stone.name=Stone Headblocker
+item.derpyshiz.chestplate_stone.name=Stone Straightjacket
+item.derpyshiz.leggings_stone.name=Stone Legs
+item.derpyshiz.boots_stone.name=Stone Hobbles
 
-item.helmet_water.name=Water Helmet
-item.chestplate_water.name=Water Chestplate
-item.leggings_water.name=Water Leggings
-item.boots_water.name=Water Boots
+item.derpyshiz.helmet_water.name=Water Helmet
+item.derpyshiz.chestplate_water.name=Water Chestplate
+item.derpyshiz.leggings_water.name=Water Leggings
+item.derpyshiz.boots_water.name=Water Boots
 
-tile.log_ebony.name=Ebony Wood
-tile.log_magic.name=Magic Wood
+tile.derpyshiz.log_ebony.name=Ebony Wood
+tile.derpyshiz.log_magic.name=Magic Wood
 
-tile.leaves_ebony.name=Ebony Leaves
-tile.leaves_magic.name=Magic Leaves
+tile.derpyshiz.leaves_ebony.name=Ebony Leaves
+tile.derpyshiz.leaves_magic.name=Magic Leaves
 
-tile.sapling_ebony.name=Ebony Sapling
-tile.sapling_magic.name=Magic Sapling
+tile.derpyshiz.sapling_ebony.name=Ebony Sapling
+tile.derpyshiz.sapling_magic.name=Magic Sapling
 
-tile.planks_ebony.name=Ebony Wood Planks
-tile.planks_magic.name=Magic Wood Planks
+tile.derpyshiz.planks_ebony.name=Ebony Wood Planks
+tile.derpyshiz.planks_magic.name=Magic Wood Planks
 
-item.circlet_diamond.name=Diamond Circlet
-item.circlet_ruby.name=Ruby Circlet
-item.circlet_amethyst.name=Amethyst Circlet
-item.circlet_turquoise.name=Turquoise Circlet
-item.circlet_fakediamond.name=Fake Diamond Circlet
+item.derpyshiz.circlet_diamond.name=Diamond Circlet
+item.derpyshiz.circlet_ruby.name=Ruby Circlet
+item.derpyshiz.circlet_amethyst.name=Amethyst Circlet
+item.derpyshiz.circlet_turquoise.name=Turquoise Circlet
+item.derpyshiz.circlet_fakediamond.name=Fake Diamond Circlet
 
-item.dark_cloak.name=Dark Cloak
+item.derpyshiz.dark_cloak.name=Dark Cloak
 
-item.tophat_black.name=Black Top Hat
-item.tophat_white.name=White Top Hat
-item.tophat_rainbow.name=Rainbow Top Hat
-item.cap_yolo.name=YOLO Basecap
-item.cap_black.name=Black Basecap
-item.cap_pink.name=Pink Basecap
+item.derpyshiz.tophat_black.name=Black Top Hat
+item.derpyshiz.tophat_white.name=White Top Hat
+item.derpyshiz.tophat_rainbow.name=Rainbow Top Hat
+item.derpyshiz.cap_yolo.name=YOLO Basecap
+item.derpyshiz.cap_black.name=Black Basecap
+item.derpyshiz.cap_pink.name=Pink Basecap
 
-tile.coarsestone_normal.name=Coarse Stone
-tile.coarsestone_framed.name=Framed Coarse Stone
+tile.derpyshiz.coarsestone_normal.name=Coarse Stone
+tile.derpyshiz.coarsestone_framed.name=Framed Coarse Stone
 
 entity.piggycorn.name=Piggycorn
 
-tile.snowflake_obsidian.name=Snowflake Obsidian
+tile.derpyshiz.snowflake_obsidian.name=Snowflake Obsidian
 
-item.horn.name=Piggycorn horn
+item.derpyshiz.horn.name=Piggycorn horn
 
-tile.kewl_bush.name=Kewl Bush
+tile.derpyshiz.kewl_bush.name=Kewl Bush
 
-item.lasagne.name=Lasagne
-item.rainbow_cookie.name=Rainbow Cookie
+item.derpyshiz.lasagne.name=Lasagne
+item.derpyshiz.rainbow_cookie.name=Rainbow Cookie
 
-tile.axis.name=Axis
+tile.derpyshiz.axis.name=Axis
 
-tile.gearbox_normal.name=Gearbox
-tile.gearbox_advanced.name=Advanced Gearbox
+tile.derpyshiz.gearbox_normal.name=Gearbox
+tile.derpyshiz.gearbox_advanced.name=Advanced Gearbox
 
-tile.crank_normal.name=Crank
-tile.crank_advanced.name=Advanced Crank
+tile.derpyshiz.crank_normal.name=Crank
+tile.derpyshiz.crank_advanced.name=Advanced Crank
 
-item.rotameter.name=Rotameter
+item.derpyshiz.rotameter.name=Rotameter
 
-tile.seizure_wool.name=Seizure Wool
+tile.derpyshiz.seizure_wool.name=Seizure Wool
 
-item.circuit_redstone_normal.name=Redstone Circuit
-item.circuit_redstone_advanced.name=Advanced Redstone Circuit
-item.circuit_electric_normal.name=Electric Circuit
-item.circuit_electric_advanced.name=Advanced Electric Circuit
+item.derpyshiz.circuit_redstone_normal.name=Redstone Circuit
+item.derpyshiz.circuit_redstone_advanced.name=Advanced Redstone Circuit
+item.derpyshiz.circuit_electric_normal.name=Electric Circuit
+item.derpyshiz.circuit_electric_advanced.name=Advanced Electric Circuit
 
-item.gear_wood.name=Wooden Gear
-item.gear_ebony.name=Ebony Gear
-item.gear_magic.name=Magic Gear
-item.gear_iron.name=Iron Gear
-item.gear_lasagne.name=Lasagne Gear
-item.gear_copper.name=Copper Gear
-item.gear_tin.name=Tin Gear
-item.gear_lead.name=Lead Gear
-item.gear_gold.name=Gold Gear
-item.gear_titanium.name=Titanium Gear
-item.gear_ruby.name=Ruby Gear
-item.gear_electrimite.name=Electrimite Gear
-item.gear_enderium.name=Enderium Gear
+item.derpyshiz.gear_wood.name=Wooden Gear
+item.derpyshiz.gear_ebony.name=Ebony Gear
+item.derpyshiz.gear_magic.name=Magic Gear
+item.derpyshiz.gear_iron.name=Iron Gear
+item.derpyshiz.gear_lasagne.name=Lasagne Gear
+item.derpyshiz.gear_copper.name=Copper Gear
+item.derpyshiz.gear_tin.name=Tin Gear
+item.derpyshiz.gear_lead.name=Lead Gear
+item.derpyshiz.gear_gold.name=Gold Gear
+item.derpyshiz.gear_titanium.name=Titanium Gear
+item.derpyshiz.gear_ruby.name=Ruby Gear
+item.derpyshiz.gear_electrimite.name=Electrimite Gear
+item.derpyshiz.gear_enderium.name=Enderium Gear
 
-mode.hammer_face.name=Face
-mode.hammer_direction.name=Direction
-mode.firesword_normal.name=Normal
-mode.firesword_hell.name=Hell
-mode.watersword_normal.name=Normal
-mode.watersword_freeze.name=Deep Freeze
-mode.naturalsword_front.name=Front
-mode.naturalsword_back.name=Back
-mode.naturalsword_all.name=All
-mode.windsword_speed.name=Speed
-mode.windsword_jump.name=Jump
+mode.derpyshiz.hammer_face.name=Face
+mode.derpyshiz.hammer_direction.name=Direction
+mode.derpyshiz.firesword_normal.name=Normal
+mode.derpyshiz.firesword_hell.name=Hell
+mode.derpyshiz.watersword_normal.name=Normal
+mode.derpyshiz.watersword_freeze.name=Deep Freeze
+mode.derpyshiz.naturalsword_front.name=Front
+mode.derpyshiz.naturalsword_back.name=Back
+mode.derpyshiz.naturalsword_all.name=All
+mode.derpyshiz.windsword_speed.name=Speed
+mode.derpyshiz.windsword_jump.name=Jump
 
-mode.mode.name=Mode
+mode.derpyshiz.mode.name=Mode
 
-text.output.name=Output
-text.input.name=Input
-text.speed.name=Speed
-text.torque.name=Torque
+text.derpyshiz.output.name=Output
+text.derpyshiz.input.name=Input
+text.derpyshiz.speed.name=Speed
+text.derpyshiz.torque.name=Torque
 
-info.budget.name=BUDGET CUTS! This machine will require energy in the future!
+info.derpyshiz.budget.name=BUDGET CUTS! This machine will require energy in the future!
 
-message.mode.name=Mode changed to: 
+message.derpyshiz.mode.name=mode.derpyshiz.changed to: 

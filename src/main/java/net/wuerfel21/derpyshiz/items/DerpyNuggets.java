@@ -16,7 +16,7 @@ public class DerpyNuggets extends Item {
 		super();
 		this.setHasSubtypes(true);
 		this.setMaxDamage(0);
-		this.setUnlocalizedName("nugget");
+		this.setUnlocalizedName("derpyshiz.nugget");
 		this.setCreativeTab(CreativeTabs.tabMaterials);
 	}
 

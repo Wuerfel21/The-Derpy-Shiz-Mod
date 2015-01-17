@@ -13,7 +13,7 @@ public class ItemTDM extends Item {
 		this.setTextureName("derpyshiz:tdm");
 		this.setCreativeTab(CreativeTabs.tabTransport);
 		this.setMaxStackSize(1);
-		this.setUnlocalizedName("tdm");
+		this.setUnlocalizedName("derpyshiz.tdm");
 	}
 	
 	@Override

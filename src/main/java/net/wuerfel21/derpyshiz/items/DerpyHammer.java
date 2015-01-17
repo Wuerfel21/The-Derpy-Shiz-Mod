@@ -43,7 +43,7 @@ public class DerpyHammer extends ItemTool implements IModeItem {
 		ItemModeHelper.displayMode(stack, list);
 	}
 	
-	public static final String[] modes = {"mode.hammer_face.name","mode.hammer_direction.name"};
+	public static final String[] modes = {"mode.derpyshiz.hammer_face.name","mode.derpyshiz.hammer_direction.name"};
 
 	@Override
 	public int getNumModes() {

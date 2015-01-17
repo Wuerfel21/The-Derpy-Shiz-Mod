@@ -16,7 +16,7 @@ public IIcon[] icons = new IIcon[this.numGears];
 		super();
 		this.setHasSubtypes(true);
 		this.setMaxDamage(0);
-		this.setUnlocalizedName("gear");
+		this.setUnlocalizedName("derpyshiz.gear");
 		this.setCreativeTab(CreativeTabs.tabMaterials);
 	}
 	

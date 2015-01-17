@@ -38,7 +38,7 @@ public class ItemModeMessage implements IMessage {
 			ctx.getServerHandler().playerEntity.addChatMessage(new ChatComponentText("[")
 				.appendSibling(new ChatComponentTranslation(stack.getUnlocalizedName()+".name")
 				.appendText("] ")
-				.appendSibling(new ChatComponentTranslation("message.mode.name"))
+				.appendSibling(new ChatComponentTranslation("message.derpyshiz.mode.name"))
 				.appendSibling(new ChatComponentTranslation(((IModeItem)stack.getItem()).getModeName(ItemModeHelper.getMode(stack))))));
 			return null;
 		}

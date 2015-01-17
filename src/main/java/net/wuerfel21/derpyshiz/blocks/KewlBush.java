@@ -14,7 +14,7 @@ public class KewlBush extends BlockDeadBush {
 	public KewlBush() {
 		super();
 		this.setBlockTextureName("derpyshiz:kewl_bush");
-		this.setBlockName("kewl_bush");
+		this.setBlockName("derpyshiz.kewl_bush");
 		this.setHardness(0.0f);
 		this.setStepSound(soundTypeGrass);
 	}

@@ -9,12 +9,22 @@ import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.StatCollector;
 import net.minecraft.world.World;
 import net.wuerfel21.derpyshiz.blocks.BlockMillstone;
+import net.wuerfel21.derpyshiz.rotary.ITieredTE;
 
-public class TileEntityMillstone extends TileEntity implements ISidedInventory {
+public class TileEntityMillstone extends TileEntity implements ISidedInventory, ITieredTE {
 
 	protected ItemStack[] stacks = new ItemStack[2];
 	protected String name = null;
+	public int tier = 0;
+	public boolean inInventory = false;
 
+	@Override
+	public void updateEntity() {
+		if (this.worldObj != null) {
+			this.setTier(this.getWorldObj().getBlockMetadata(this.xCoord, this.yCoord, this.zCoord));
+		}
+	}
+	
 	@Override
 	public int getSizeInventory() {
 		return 2;
@@ -89,7 +99,7 @@ public class TileEntityMillstone extends TileEntity implements ISidedInventory {
 
 	@Override
 	public String getInventoryName() {
-		return this.hasCustomInventoryName() ? this.name : StatCollector.translateToLocal("container.millstone.name");
+		return this.hasCustomInventoryName() ? this.name : StatCollector.translateToLocal("container.derpyshiz.millstone.name");
 	}
 
 	@Override
@@ -150,6 +160,16 @@ public class TileEntityMillstone extends TileEntity implements ISidedInventory {
 			}
 
 		}
+	}
+
+	@Override
+	public int getTier() {
+		return tier;
+	}
+
+	@Override
+	public void setTier(int tier) {
+		this.tier = tier;
 	}
 
 }

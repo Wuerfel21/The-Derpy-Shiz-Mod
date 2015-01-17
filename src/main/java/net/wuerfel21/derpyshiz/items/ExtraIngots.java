@@ -15,7 +15,7 @@ public class ExtraIngots extends Item {
 		super();
 		this.setHasSubtypes(true);
 		this.setMaxDamage(0);
-		this.setUnlocalizedName("ei");
+		this.setUnlocalizedName("derpyshiz.ei");
 		this.setCreativeTab(CreativeTabs.tabMaterials);
 	}
 

@@ -208,10 +208,10 @@ public class DerpyEvents {
 				TileEntity t = event.world.getTileEntity(event.x, event.y, event.z);
 				if (t instanceof IRotaryOutput && ((IRotaryOutput) t).isOutputFace(side)) {
 					IRotaryOutput o = (IRotaryOutput) t;
-					c = c.appendSibling(new ChatComponentTranslation("text.output.name")).appendText(": ").appendSibling(new ChatComponentTranslation("text.speed.name")).appendText(": " + Integer.toString(o.getRotaryOutput(side).speed) + " ").appendSibling(new ChatComponentTranslation("text.torque.name")).appendText(": " + Integer.toString(o.getRotaryOutput(side).torque));
+					c = c.appendSibling(new ChatComponentTranslation("text.derpyshiz.output.name")).appendText(": ").appendSibling(new ChatComponentTranslation("text.derpyshiz.speed.name")).appendText(": " + Integer.toString(o.getRotaryOutput(side).speed) + " ").appendSibling(new ChatComponentTranslation("text.derpyshiz.torque.name")).appendText(": " + Integer.toString(o.getRotaryOutput(side).torque));
 				} else if (t instanceof IRotaryInput && ((IRotaryInput) t).isInputFace(side)) {
 					IRotaryInput i = (IRotaryInput) t;
-					c = c.appendSibling(new ChatComponentTranslation("text.input.name")).appendText(": ").appendSibling(new ChatComponentTranslation("text.speed.name")).appendText(": " + Integer.toString(i.getRotaryInput(side).speed) + " ").appendSibling(new ChatComponentTranslation("text.torque.name")).appendText(": " + Integer.toString(i.getRotaryInput(side).torque));
+					c = c.appendSibling(new ChatComponentTranslation("text.derpyshiz.input.name")).appendText(": ").appendSibling(new ChatComponentTranslation("text.derpyshiz.speed.name")).appendText(": " + Integer.toString(i.getRotaryInput(side).speed) + " ").appendSibling(new ChatComponentTranslation("text.derpyshiz.torque.name")).appendText(": " + Integer.toString(i.getRotaryInput(side).torque));
 				} else {
 					return;
 				}
@@ -241,7 +241,7 @@ public class DerpyEvents {
 	@SubscribeEvent
 	public void onJoin(PlayerLoggedInEvent event) {
 		if (Main.checkForUpdates && (!event.player.worldObj.isRemote)) {
-			new UpdateChecker(event.player).run();
+			new UpdateChecker(event.player).start();
 		}
 	}
 
@@ -290,7 +290,7 @@ public class DerpyEvents {
 				String updatedVersion = IOUtils.toString(stream);
 				stream.close();
 				if (!updatedVersion.equals(Main.VERSION)) {
-					this.player.addChatComponentMessage(new ChatComponentText("[Wuerfel_21] Hey, " + this.player.getGameProfile().getName() + ", you know, theres an update for The Derpy Shiz Mod! you should be able to download it! If you dont like me chatting with you about updates, you can disable update checking in the config! Your Version: " + Main.VERSION + ", Updated Version: " + updatedVersion));
+					this.player.addChatComponentMessage(new ChatComponentText("[Wuerfel_21] Hey, " + this.player.getGameProfile().getName() + ", you know, theres an update for The Derpy Shiz Mod! you should be able to download it from http://bit.ly/1zoeyNO ! If you dont like me chatting with you about updates, you can disable update checking in the config! Your Version: " + Main.VERSION + ", Updated Version: " + updatedVersion));
 				}
 			} catch (Exception e) {
 				FMLLog.warning("[Wuerfel_21] Something definitly wrent wrong ..." + e.toString());
