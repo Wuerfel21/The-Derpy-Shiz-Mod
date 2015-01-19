@@ -1,14 +1,10 @@
 package net.wuerfel21.derpyshiz;
 
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map.Entry;
 
-import com.google.common.primitives.Ints;
-
-import scala.actors.threadpool.Arrays;
 import net.minecraft.block.Block;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.oredict.OreDictionary;

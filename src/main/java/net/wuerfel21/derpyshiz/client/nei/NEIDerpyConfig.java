@@ -5,6 +5,7 @@ import codechicken.nei.api.IConfigureNEI;
 import cpw.mods.fml.common.Optional;
 
 @Optional.Interface(iface="codechicken.nei.api.IConfigureNEI",modid="notenoughitems",striprefs=true)
+
 public class NEIDerpyConfig implements IConfigureNEI {
 
 	@Override
