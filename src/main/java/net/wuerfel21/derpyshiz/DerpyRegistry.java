@@ -2,6 +2,7 @@ package net.wuerfel21.derpyshiz;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map.Entry;
 
@@ -12,7 +13,7 @@ import net.wuerfel21.derpyshiz.entity.tile.TileEntityMillstone;
 
 public abstract class DerpyRegistry {
 
-	public static HashMap<ItemStack, TieredMachineEntry> millstoneRecipes = new HashMap<ItemStack, TieredMachineEntry>();
+	public static HashMap<ItemStack, TieredMachineEntry> millstoneRecipes = new LinkedHashMap<ItemStack, TieredMachineEntry>();
 
 	public static List<BasicBlockEntry> leafTypes = new ArrayList<BasicBlockEntry>();
 

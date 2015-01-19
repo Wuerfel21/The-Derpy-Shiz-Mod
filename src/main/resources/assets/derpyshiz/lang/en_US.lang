@@ -301,7 +301,8 @@ mode.derpyshiz.mode.name=Mode
 text.derpyshiz.output.name=Output
 text.derpyshiz.input.name=Input
 text.derpyshiz.rpm.name=RPM
+text.derpyshiz.mccr.name=MCC/R
 
-info.derpyshiz.budget.name=BUDGET CUTS! This machine will require energy in the future!
+container.derpyshiz.millstone.name=Millstone
 
 message.derpyshiz.mode.name=mode.derpyshiz.changed to: 

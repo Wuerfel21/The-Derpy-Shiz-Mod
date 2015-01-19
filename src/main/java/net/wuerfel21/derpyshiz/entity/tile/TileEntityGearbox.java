@@ -53,6 +53,8 @@ public class TileEntityGearbox extends TileEntity implements IRotaryInput, IRota
 				int l = this.length[RotaryManager.getMaxInput(this)];
 				this.setRotaryOutput(this.dir, RotaryManager.calcLoss(r, l, this.getTier()==0?4:6));
 				RotaryManager.updateRotaryOutput(this, chain, this, dir);
+			} else {
+				chain.updateVisualPosition();
 			}
 		}
 	}

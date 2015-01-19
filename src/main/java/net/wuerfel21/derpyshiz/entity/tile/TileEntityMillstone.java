@@ -31,6 +31,8 @@ public class TileEntityMillstone extends TileEntity implements ISidedInventory, 
 	public void updateEntity() {
 		if (this.worldObj != null) {
 			this.setTier(this.getWorldObj().getBlockMetadata(this.xCoord, this.yCoord, this.zCoord));
+			RotaryManager.updateRotaryInput(this, this, 0);
+			RotaryManager.updateRotaryInput(this, this, 1);
 			if (stacks[0] != null && DerpyRegistry.isValidForMillstone(stacks[0], tier)) {
 				TieredMachineEntry output = DerpyRegistry.getMillstoneOutput(stacks[0], this.getTier());
 				if (DerpyRegistry.canMillstoneOperate(this)) {

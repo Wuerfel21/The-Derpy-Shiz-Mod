@@ -9,7 +9,9 @@ import net.wuerfel21.derpyshiz.blocks.BlockAxis;
 public abstract class RotaryManager {
 
 	public static void updateRotaryOutput(IRotaryOutput output, AxisChain chain, TileEntity tile, int dir) {
-		chain.updateChain(output, tile.getWorldObj(), output.getRotaryOutput(dir), tile.xCoord, tile.yCoord, tile.zCoord);
+		if (chain.updateChain(output, tile.getWorldObj(), output.getRotaryOutput(dir), tile.xCoord, tile.yCoord, tile.zCoord)) {
+			tile.getWorldObj().markBlockForUpdate(tile.xCoord, tile.yCoord, tile.zCoord);
+		}
 	}
 	
 	public static void updateRotaryInput(IRotaryInput input, TileEntity tile, int dir) {

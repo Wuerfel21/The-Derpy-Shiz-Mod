@@ -14,19 +14,30 @@ public class AxisChain {
 	public int maxLength = 20;
 	
 	public int[] tilePos = new int[3];
+	
+	public boolean connected = false;
 
-	public int length = -1;
-	public int speed;
+	public int length = 0;
+	public int speed = 0;
 
 	// client stuff
 	public double position;
+	
+	public int lastLength = 0;
+	public int lastSpeed = 0;
 
 	public AxisChain(int direction, int maxL) {
 		this.dir = direction;
 		this.maxLength = maxL;
 	}
 	
+	public void updateVisualPosition() {
+		position += ((double) speed*0.3d);
+	}
+	
 	public boolean updateChain(IRotaryOutput output, World world, int rotation, int x, int y, int z) {
+		lastLength = length;
+		lastSpeed = speed;
 		ForgeDirection direction = ForgeDirection.getOrientation(this.dir);
 		boolean usedFlag = false;
 		int l = 0;// length counter
@@ -39,6 +50,7 @@ public class AxisChain {
 				if ((world.getBlockMetadata(x, y, z) & 7) == Main.orientationHelper[this.dir]) {
 					if (l > this.maxLength) {
 						world.func_147480_a(x, y, z, true);
+						this.connected = false;
 						break;
 					}
 					l++;
@@ -46,18 +58,22 @@ public class AxisChain {
 						world.setBlockMetadataWithNotify(x, y, z, world.getBlockMetadata(x, y, z) | 8, 2);
 					}
 				} else {
+					this.connected = false;
 					break;
 				}
 			} else if (world.getTileEntity(x, y, z) instanceof IRotaryOutput && ((IRotaryOutput) world.getTileEntity(x, y, z)).isOutputFace(Main.reverseHelper[this.dir])) {
 				world.func_147480_a(x, y, z, true);
+				this.connected = false;
 				break;
 			} else if (world.getTileEntity(x, y, z) instanceof IRotaryInput && ((IRotaryInput) world.getTileEntity(x, y, z)).isInputFace(Main.reverseHelper[this.dir])) {
 				((IRotaryInput) world.getTileEntity(x, y, z)).setRotaryInput(Main.reverseHelper[this.dir], rotation, l);
 				this.tilePos[0] = x;
 				this.tilePos[1] = y;
 				this.tilePos[2] = z;
+				this.connected = true;
 				break;
 			} else {
+				this.connected = false;
 				break;
 			}
 		}
@@ -67,7 +83,7 @@ public class AxisChain {
 		}
 		
 		this.length = l;
-		return usedFlag;
+		return (lastSpeed != speed) || (lastLength != length);
 	}
 	
 	public void cleanup(World world, int x, int y, int z) {

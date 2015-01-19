@@ -55,6 +55,9 @@ public class RenderGearbox extends TileEntitySpecialRenderer {
 			}
 		}
 		tessellator.draw();
+		if (!tile.inInventory) {
+			RotaryRender.renderAxisChain(tessellator, tile.chain);
+		}
 		GL11.glPopMatrix();
 	}
 

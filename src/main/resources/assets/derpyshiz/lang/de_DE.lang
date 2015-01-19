@@ -297,7 +297,8 @@ mode.derpyshiz.mode.name=Modus
 text.derpyshiz.output.name=Ausgang
 text.derpyshiz.input.name=Eingang
 text.derpyshiz.rpm.name=RPM
+text.derpyshiz.mccr.name=MCC/R
 
-info.derpyshiz.budget.name=BUDGETKÜRZUNG! Diese Maschine wird in der zukunft energie benötigen!
+container.derpyshiz.millstone.name=Mühlstein
 
 message.derpyshiz.mode.name=Modus geändert auf: 
