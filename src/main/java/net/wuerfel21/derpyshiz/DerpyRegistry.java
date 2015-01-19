@@ -27,7 +27,7 @@ public abstract class DerpyRegistry {
 
 	public static TieredMachineEntry getMillstoneOutput(ItemStack stack, int tier) {
 		for (Entry<ItemStack, TieredMachineEntry> entry : millstoneRecipes.entrySet()) {
-			if (/*isValidForWithSize(stack, entry.getKey()) &&*/ isValidForWithTier(stack, entry.getKey(), entry.getValue(), tier)) {
+			if (isValidForWithTier(stack, entry.getKey(), entry.getValue(), tier)) {
 				return (TieredMachineEntry) entry.getValue();
 			}
 		}
@@ -36,11 +36,6 @@ public abstract class DerpyRegistry {
 
 	public static boolean canMillstoneOperate(TileEntityMillstone millstone) {
 		if (isValidForMillstone(millstone.stacks[0], millstone.getTier())) {
-			// return millstone.stacks[1].stackSize +
-			// getMillstoneOutput(millstone.stacks[0],
-			// millstone.getTier()).output.stackSize <= 64 &&
-			// millstone.stacks[0].stackSize >=
-			// getMillstoneKey(millstone.stacks[0]).stackSize;
 			TieredMachineEntry output = getMillstoneOutput(millstone.stacks[0], millstone.getTier());
 			ItemStack key = getMillstoneKey(millstone.stacks[0]);
 			if ((millstone.stacks[1] == null || OreDictionary.itemMatches(output.output, millstone.stacks[1], true)) && millstone.stacks[0].stackSize >= key.stackSize && (millstone.stacks[1] == null || millstone.stacks[1].stackSize + output.output.stackSize <= millstone.stacks[1].getMaxStackSize())) {
