@@ -10,13 +10,14 @@ import net.wuerfel21.derpyshiz.rotary.IRotaryInput;
 import net.wuerfel21.derpyshiz.rotary.IRotaryOutput;
 import net.wuerfel21.derpyshiz.rotary.ITieredTE;
 import net.wuerfel21.derpyshiz.rotary.RotaryManager;
-import net.wuerfel21.derpyshiz.rotary.Rotation;
 
 public class TileEntityGearbox extends TileEntity implements IRotaryInput, IRotaryOutput, ITieredTE {
 
+	public boolean ready = false;
 	public int dir = 0;
-	public Rotation output;
-	public Rotation[] input = new Rotation[6];
+	public int output;
+	public int[] input = new int[6];
+	public int[] length = new int[6];
 	public int tier = 0;
 
 	public AxisChain chain;
@@ -25,17 +26,20 @@ public class TileEntityGearbox extends TileEntity implements IRotaryInput, IRota
 
 	public TileEntityGearbox() {
 		super();
-		this.output = new Rotation(0, 0);
+		this.output = 0;
 		for (int i = 0; i < input.length; i++) {
-			this.input[i] = new Rotation(0, 0);
+			this.input[i] = 0;
 		}
-		this.rotate(dir);
 	}
-
+	
 	@Override
 	public void updateEntity() {
 		if (this.getWorldObj() != null) {
 			this.setTier(this.getWorldObj().getBlockMetadata(this.xCoord, this.yCoord, this.zCoord));
+			if (!ready) {
+				this.rotate(dir);
+				ready = true;
+			}
 			if (!this.getWorldObj().isRemote) {
 				if (this.dir != this.chain.dir) {
 					this.rotate(this.dir);
@@ -45,13 +49,9 @@ public class TileEntityGearbox extends TileEntity implements IRotaryInput, IRota
 						RotaryManager.updateRotaryInput(this, this, i);
 					}
 				}
-				Rotation r = (Rotation) this.input[RotaryManager.getMaxInput(this)].clone();
-				r.speed -= speedLoss[this.tier];
-				if (r.isValid()) {
-					this.setRotaryOutput(this.dir, r);
-				} else {
-					this.setRotaryOutput(this.dir, new Rotation(0, 0));
-				}
+				int r = this.input[RotaryManager.getMaxInput(this)];
+				int l = this.length[RotaryManager.getMaxInput(this)];
+				this.setRotaryOutput(this.dir, RotaryManager.calcLoss(r, l, this.getTier()==0?4:6));
 				RotaryManager.updateRotaryOutput(this, chain, this, dir);
 			}
 		}
@@ -89,14 +89,14 @@ public class TileEntityGearbox extends TileEntity implements IRotaryInput, IRota
 	public void onDataPacket(NetworkManager net, S35PacketUpdateTileEntity pkg) {
 		NBTTagCompound tag = pkg.func_148857_g();
 		this.dir = tag.getInteger("direction");
-		this.output.speed = tag.getInteger("speed");
+		this.output = tag.getInteger("speed");
 	}
 
 	@Override
 	public Packet getDescriptionPacket() {
 		NBTTagCompound tag = new NBTTagCompound();
 		tag.setInteger("direction", dir);
-		tag.setInteger("speed", this.output.speed);
+		tag.setInteger("speed", this.output);
 		return new S35PacketUpdateTileEntity(this.xCoord, this.yCoord, this.zCoord, 1, tag);
 	}
 
@@ -111,34 +111,35 @@ public class TileEntityGearbox extends TileEntity implements IRotaryInput, IRota
 	}
 
 	@Override
-	public Rotation getRotaryOutput(int side) {
+	public int getRotaryOutput(int side) {
 		if (this.isOutputFace(side)) {
-			return (Rotation) this.output.clone();
+			return this.output;
 		} else {
-			return new Rotation(0, 0);
+			return 0;
 		}
 	}
 
 	@Override
-	public void setRotaryOutput(int side, Rotation rotation) {
+	public void setRotaryOutput(int side, int speed) {
 		if (this.isOutputFace(side)) {
-			output = (Rotation) rotation.clone();
+			output = speed;
 		}
 	}
 
 	@Override
-	public void setRotaryInput(int side, Rotation rotation) {
+	public void setRotaryInput(int side, int speed, int length) {
 		if (this.isInputFace(side)) {
-			input[side] = (Rotation) rotation.clone();
+			this.input[side] = speed;
+			this.length[side] = length;
 		}
 	}
 
 	@Override
-	public Rotation getRotaryInput(int side) {
+	public int getRotaryInput(int side) {
 		if (this.isInputFace(side)) {
-			return (Rotation) this.input[side].clone();
+			return this.input[side];
 		} else {
-			return new Rotation(0, 0);
+			return 0;
 		}
 	}
 
@@ -149,7 +150,6 @@ public class TileEntityGearbox extends TileEntity implements IRotaryInput, IRota
 	}
 
 	public static final int[] maxChainLength = { 16, 32 };
-	public static final int[] speedLoss = { 5, 2 };
 
 	@Override
 	public int getTier() {
@@ -159,6 +159,15 @@ public class TileEntityGearbox extends TileEntity implements IRotaryInput, IRota
 	@Override
 	public void setTier(int tier) {
 		this.tier = tier;
+	}
+
+	@Override
+	public int getRotaryInputLength(int side) {
+		if (this.isInputFace(side)) {
+			return this.length[side];
+		} else {
+			return 0;
+		}
 	}
 
 }

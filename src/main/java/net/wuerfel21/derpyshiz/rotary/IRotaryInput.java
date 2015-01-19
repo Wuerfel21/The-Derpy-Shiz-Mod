@@ -4,7 +4,9 @@ public interface IRotaryInput {
 
 	public boolean isInputFace(int side);
 	
-	public void setRotaryInput(int side, Rotation rotation);
+	public void setRotaryInput(int side, int speed, int length);
 	
-	public Rotation getRotaryInput(int side);
+	public int getRotaryInput(int side);
+	
+	public int getRotaryInputLength(int side);
 }

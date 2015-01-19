@@ -16,7 +16,7 @@ public class AxisChain {
 	public int[] tilePos = new int[3];
 
 	public int length = -1;
-	public Rotation rotation;
+	public int speed;
 
 	// client stuff
 	public double position;
@@ -26,15 +26,7 @@ public class AxisChain {
 		this.maxLength = maxL;
 	}
 	
-	public static Rotation calculateLoss(Rotation rotation, int length) {
-		Rotation rot = (Rotation) rotation.clone();
-		if (length > 3) {
-			rot.torque -= (length-3) * 5;
-		}
-		return rot;
-	}
-	
-	public boolean updateChain(IRotaryOutput output, World world, Rotation rotation, int x, int y, int z) {
+	public boolean updateChain(IRotaryOutput output, World world, int rotation, int x, int y, int z) {
 		ForgeDirection direction = ForgeDirection.getOrientation(this.dir);
 		boolean usedFlag = false;
 		int l = 0;// length counter
@@ -60,7 +52,7 @@ public class AxisChain {
 				world.func_147480_a(x, y, z, true);
 				break;
 			} else if (world.getTileEntity(x, y, z) instanceof IRotaryInput && ((IRotaryInput) world.getTileEntity(x, y, z)).isInputFace(Main.reverseHelper[this.dir])) {
-				((IRotaryInput) world.getTileEntity(x, y, z)).setRotaryInput(Main.reverseHelper[this.dir], calculateLoss(rotation,l));
+				((IRotaryInput) world.getTileEntity(x, y, z)).setRotaryInput(Main.reverseHelper[this.dir], rotation, l);
 				this.tilePos[0] = x;
 				this.tilePos[1] = y;
 				this.tilePos[2] = z;
@@ -91,7 +83,7 @@ public class AxisChain {
 		}
 		TileEntity t = world.getTileEntity(tilePos[0], tilePos[1], tilePos[2]);
 		if (t != null && t instanceof IRotaryInput) {
-			((IRotaryInput)t).setRotaryInput(Main.reverseHelper[this.dir], new Rotation(0,0));
+			((IRotaryInput)t).setRotaryInput(Main.reverseHelper[this.dir], 0, 0);
 		}
 	}
 	

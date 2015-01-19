@@ -8,23 +8,57 @@ import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.StatCollector;
 import net.minecraft.world.World;
+import net.minecraftforge.oredict.OreDictionary;
+import net.wuerfel21.derpyshiz.DerpyRegistry;
+import net.wuerfel21.derpyshiz.DerpyRegistry.TieredMachineEntry;
 import net.wuerfel21.derpyshiz.blocks.BlockMillstone;
+import net.wuerfel21.derpyshiz.rotary.IRotaryInput;
 import net.wuerfel21.derpyshiz.rotary.ITieredTE;
+import net.wuerfel21.derpyshiz.rotary.RotaryManager;
 
-public class TileEntityMillstone extends TileEntity implements ISidedInventory, ITieredTE {
+public class TileEntityMillstone extends TileEntity implements ISidedInventory, ITieredTE, IRotaryInput {
 
-	protected ItemStack[] stacks = new ItemStack[2];
+	public ItemStack[] stacks = new ItemStack[2];
 	protected String name = null;
 	public int tier = 0;
 	public boolean inInventory = false;
+	public int progress = 0;
+	public int energyNeeded = 0;
+	public int[] input = new int[2];
+	public int[] length = new int[2];
 
 	@Override
 	public void updateEntity() {
 		if (this.worldObj != null) {
 			this.setTier(this.getWorldObj().getBlockMetadata(this.xCoord, this.yCoord, this.zCoord));
+			if (stacks[0] != null && DerpyRegistry.isValidForMillstone(stacks[0], tier)) {
+				TieredMachineEntry output = DerpyRegistry.getMillstoneOutput(stacks[0], this.getTier());
+				if (DerpyRegistry.canMillstoneOperate(this)) {
+					energyNeeded = output.energy;
+					progress += input[RotaryManager.getMaxInput(this)];
+					if (progress >= energyNeeded) {
+						stacks[0].stackSize -= DerpyRegistry.getMillstoneKey(stacks[0]).stackSize;
+						if (stacks[0].stackSize < 1) {
+							stacks[0] = null;
+						}
+						if (stacks[1] == null) {
+							stacks[1] = output.output.copy();
+						} else {
+							stacks[1].stackSize += output.output.stackSize;
+						}
+						progress -= energyNeeded;
+					}
+				} else {
+					progress = 0;
+					energyNeeded = 0;
+				}
+			} else {
+				progress = 0;
+				energyNeeded = 0;
+			}
 		}
 	}
-	
+
 	@Override
 	public int getSizeInventory() {
 		return 2;
@@ -77,6 +111,10 @@ public class TileEntityMillstone extends TileEntity implements ISidedInventory, 
 		else
 			inventory.removeTag("output");
 		tag.setTag("inventory", inventory);
+		NBTTagCompound rotary = new NBTTagCompound();
+		rotary.setTag("input", RotaryManager.inputToNBT(this));
+		tag.setTag("rotary", rotary);
+		tag.setInteger("progress", this.progress);
 	}
 
 	@Override
@@ -87,6 +125,9 @@ public class TileEntityMillstone extends TileEntity implements ISidedInventory, 
 			stacks[0] = ItemStack.loadItemStackFromNBT(inventory.getCompoundTag("input"));
 		if (inventory.hasKey("output"))
 			stacks[1] = ItemStack.loadItemStackFromNBT(inventory.getCompoundTag("output"));
+		NBTTagCompound rotary = tag.getCompoundTag("rotary");
+		RotaryManager.inputFromNBT(this, rotary);
+		this.progress = tag.getInteger("progress");
 	}
 
 	@Override
@@ -170,6 +211,45 @@ public class TileEntityMillstone extends TileEntity implements ISidedInventory, 
 	@Override
 	public void setTier(int tier) {
 		this.tier = tier;
+	}
+
+	@Override
+	public boolean isInputFace(int side) {
+		return side <= 1;
+	}
+
+	@Override
+	public void setRotaryInput(int side, int speed, int length) {
+		if (isInputFace(side)) {
+			this.input[side] = speed;
+			this.length[side] = length;
+		}
+	}
+
+	@Override
+	public int getRotaryInput(int side) {
+		if (isInputFace(side)) {
+			return this.input[side];
+		} else {
+			return 0;
+		}
+	}
+
+	@Override
+	public int getRotaryInputLength(int side) {
+		if (isInputFace(side)) {
+			return this.length[side];
+		} else {
+			return 0;
+		}
+	}
+
+	public int getProgressScaled(int scale) {
+		if (energyNeeded != 0) {
+			return this.progress * scale / energyNeeded;
+		} else {
+			return 0;
+		}
 	}
 
 }

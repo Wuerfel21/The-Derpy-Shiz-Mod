@@ -12,6 +12,7 @@ import scala.actors.threadpool.Arrays;
 import net.minecraft.block.Block;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.oredict.OreDictionary;
+import net.wuerfel21.derpyshiz.entity.tile.TileEntityMillstone;
 
 public abstract class DerpyRegistry {
 
@@ -19,16 +20,43 @@ public abstract class DerpyRegistry {
 
 	public static List<BasicBlockEntry> leafTypes = new ArrayList<BasicBlockEntry>();
 
+	public static ItemStack getMillstoneKey(ItemStack stack) {
+		for (Entry<ItemStack, TieredMachineEntry> entry : millstoneRecipes.entrySet()) {
+			if (isValidFor(stack, entry.getKey())) {
+				return (ItemStack) entry.getKey();
+			}
+		}
+		return null;
+	}
+
 	public static TieredMachineEntry getMillstoneOutput(ItemStack stack, int tier) {
 		for (Entry<ItemStack, TieredMachineEntry> entry : millstoneRecipes.entrySet()) {
-			if (isValidForWithSize(stack, entry.getKey()) && isValidForWithTier(stack, entry.getKey(), entry.getValue(), tier)) {
+			if (/*isValidForWithSize(stack, entry.getKey()) &&*/ isValidForWithTier(stack, entry.getKey(), entry.getValue(), tier)) {
 				return (TieredMachineEntry) entry.getValue();
 			}
 		}
 		return null;
 	}
 
+	public static boolean canMillstoneOperate(TileEntityMillstone millstone) {
+		if (isValidForMillstone(millstone.stacks[0], millstone.getTier())) {
+			// return millstone.stacks[1].stackSize +
+			// getMillstoneOutput(millstone.stacks[0],
+			// millstone.getTier()).output.stackSize <= 64 &&
+			// millstone.stacks[0].stackSize >=
+			// getMillstoneKey(millstone.stacks[0]).stackSize;
+			TieredMachineEntry output = getMillstoneOutput(millstone.stacks[0], millstone.getTier());
+			ItemStack key = getMillstoneKey(millstone.stacks[0]);
+			if ((millstone.stacks[1] == null || OreDictionary.itemMatches(output.output, millstone.stacks[1], true)) && millstone.stacks[0].stackSize >= key.stackSize && (millstone.stacks[1] == null || millstone.stacks[1].stackSize + output.output.stackSize <= millstone.stacks[1].getMaxStackSize())) {
+				return true;
+			}
+		}
+		return false;
+	}
+
 	public static boolean isValidForMillstone(ItemStack stack, int tier) {
+		if (stack == null)
+			return false;
 		for (Entry<ItemStack, TieredMachineEntry> entry : millstoneRecipes.entrySet()) {
 			if (isValidForWithTier(stack, entry.getKey(), entry.getValue(), tier)) {
 				return true;
@@ -78,9 +106,12 @@ public abstract class DerpyRegistry {
 
 		/**
 		 * 
-		 * @param output the output of the recipe
-		 * @param exp the experience from the recipe (unimplemented)
-		 * @param energy the energy required to make the recipe, in 1200/r
+		 * @param output
+		 *            the output of the recipe
+		 * @param exp
+		 *            the experience from the recipe (unimplemented)
+		 * @param energy
+		 *            the energy required to make the recipe, in 1200/r
 		 */
 		public BasicMachineEntry(ItemStack output, float exp, int energy) {
 			this.output = output;
@@ -95,10 +126,14 @@ public abstract class DerpyRegistry {
 		public int tier;
 
 		/**
-		 * @param output the output of the recipe
-		 * @param exp the experience from the recipe (unimplemented)
-		 * @param energy the energy required to make the recipe, in 1200/r
-		 * @param tier the minimum tier of machine required to make the recipe
+		 * @param output
+		 *            the output of the recipe
+		 * @param exp
+		 *            the experience from the recipe (unimplemented)
+		 * @param energy
+		 *            the energy required to make the recipe, in 1200/r
+		 * @param tier
+		 *            the minimum tier of machine required to make the recipe
 		 */
 		public TieredMachineEntry(ItemStack output, float exp, int energy, int tier) {
 			super(output, exp, energy);

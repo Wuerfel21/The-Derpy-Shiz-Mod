@@ -216,9 +216,4 @@ item.derpyshiz.gear_enderium.name=Enderium Gear
 mode.hammer_face.name=fce
 mode.hammer_direction.name=Dirction
 
-text.derpyshiz.output.name=Output
-text.derpyshiz.input.name=Input
-text.derpyshiz.speed.name=Speed
-text.derpyshiz.torque.name=Torque
-
 message.derpyshiz.mode.name=mod chngd 2: 

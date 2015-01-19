@@ -4,8 +4,8 @@ public interface IRotaryOutput {
 	
 	public boolean isOutputFace(int side);
 	
-	public Rotation getRotaryOutput(int side);
+	public int getRotaryOutput(int side);
 	
-	public void setRotaryOutput(int side, Rotation rotation);
+	public void setRotaryOutput(int side, int speed);
 	
 }

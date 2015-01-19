@@ -2,19 +2,22 @@ package net.wuerfel21.derpyshiz.gui;
 
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.InventoryPlayer;
-import net.minecraft.inventory.Container;
+import net.minecraft.inventory.ICrafting;
 import net.minecraft.inventory.Slot;
 import net.minecraft.inventory.SlotFurnace;
 import net.minecraft.item.ItemStack;
-import net.minecraft.item.crafting.FurnaceRecipes;
-import net.minecraft.tileentity.TileEntityFurnace;
 import net.wuerfel21.derpyshiz.DerpyRegistry;
 import net.wuerfel21.derpyshiz.entity.tile.TileEntityMillstone;
+import cpw.mods.fml.relauncher.Side;
+import cpw.mods.fml.relauncher.SideOnly;
 
 public class ContainerMillstone extends DerpyContainer {
 
 	public TileEntityMillstone millstone;
 	public InventoryPlayer inventoryPlayer;
+	
+	public int lastProgress = 0;
+	public int lastEnergyNeeded = 0;
 
 	public ContainerMillstone(InventoryPlayer inv, TileEntityMillstone te) {
 		this.millstone = te;
@@ -25,6 +28,50 @@ public class ContainerMillstone extends DerpyContainer {
 		GuiHelper.bindPlayerInventory(this, this.inventoryPlayer, 8, 84);
 	}
 
+	@Override
+	public void addCraftingToCrafters(ICrafting craft) {
+		super.addCraftingToCrafters(craft);
+		craft.sendProgressBarUpdate(this, 0, this.millstone.progress);
+		craft.sendProgressBarUpdate(this, 1, this.millstone.energyNeeded);
+	}
+	
+	public void detectAndSendChanges()
+    {
+        super.detectAndSendChanges();
+
+        for (int i = 0; i < this.crafters.size(); ++i)
+        {
+            ICrafting craft = (ICrafting)this.crafters.get(i);
+
+            if (this.lastProgress != this.millstone.progress)
+            {
+                craft.sendProgressBarUpdate(this, 0, this.millstone.progress);
+            }
+
+            if (this.lastEnergyNeeded != this.millstone.energyNeeded)
+            {
+                craft.sendProgressBarUpdate(this, 1, this.millstone.energyNeeded);
+            }
+
+        }
+
+        this.lastProgress = millstone.progress;
+        this.lastEnergyNeeded = millstone.energyNeeded;
+    }
+	
+	@Override
+	@SideOnly(Side.CLIENT)
+	public void updateProgressBar(int key, int value) {
+		switch (key) {
+		case 0:
+			this.millstone.progress = value;
+			break;
+		case 1:
+			this.millstone.energyNeeded = value;
+			break;
+		}
+	}
+	
 	/**
 	 * Called when a player shift-clicks on a slot. You must override this or
 	 * you will crash when someone does that.

@@ -300,8 +300,7 @@ mode.derpyshiz.mode.name=Mode
 
 text.derpyshiz.output.name=Output
 text.derpyshiz.input.name=Input
-text.derpyshiz.speed.name=Speed
-text.derpyshiz.torque.name=Torque
+text.derpyshiz.rpm.name=RPM
 
 info.derpyshiz.budget.name=BUDGET CUTS! This machine will require energy in the future!
 

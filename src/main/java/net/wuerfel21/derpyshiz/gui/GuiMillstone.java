@@ -30,7 +30,6 @@ public class GuiMillstone extends GuiContainer {
 		String invName = StatCollector.translateToLocal("container.inventory");
 		this.fontRendererObj.drawString(millName, this.xSize / 2 - this.fontRendererObj.getStringWidth(millName) / 2, 5, 4210752);
 		this.fontRendererObj.drawString(invName, 8, this.ySize - 92, 4210752);
-		this.fontRendererObj.drawString(StatCollector.translateToLocal("info.budget.name"), 8, this.ySize - 108, 0xFF0000);
 		super.drawGuiContainerForegroundLayer(mouseX, mouseY);
 	}
 	
@@ -41,6 +40,8 @@ public class GuiMillstone extends GuiContainer {
 		int x = (this.width - this.xSize) / 2;
 		int y = (this.height - this.ySize) / 2;
 		this.drawTexturedModalRect(x, y, 0, 0, this.xSize, this.ySize);
+		int progress = millstone.getProgressScaled(24);
+		this.drawTexturedModalRect(x + 79, y + 35, 176, 17, progress+1, 16);
 	}
 
 }

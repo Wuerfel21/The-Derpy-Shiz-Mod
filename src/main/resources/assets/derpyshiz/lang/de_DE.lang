@@ -296,8 +296,7 @@ mode.derpyshiz.mode.name=Modus
 
 text.derpyshiz.output.name=Ausgang
 text.derpyshiz.input.name=Eingang
-text.derpyshiz.speed.name=Geschwindigkeit
-text.derpyshiz.torque.name=Drehmoment
+text.derpyshiz.rpm.name=RPM
 
 info.derpyshiz.budget.name=BUDGETKÜRZUNG! Diese Maschine wird in der zukunft energie benötigen!
 

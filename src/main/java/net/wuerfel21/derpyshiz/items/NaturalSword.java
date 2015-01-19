@@ -161,7 +161,7 @@ public class NaturalSword extends DerpySword implements IModeItem, ISpecialActio
 	}
 
 	public static boolean genLeafBlock(World world, int x, int y, int z, DerpyRegistry.BasicBlockEntry block) {
-		if (world.blockExists(x, y, z) && world.isAirBlock(x, y, z)) {
+		if (world.blockExists(x, y, z) && (world.isAirBlock(x, y, z) || world.getBlock(x, y, z).isReplaceable(world, x, y, z))) {
 			System.out.println("Generating Leaf at X:" + x + " Y:" + y + " Z:" + z);
 			world.setBlock(x, y, z, block.block, block.meta | 8, 2);
 			return true;

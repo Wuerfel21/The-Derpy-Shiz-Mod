@@ -5,16 +5,14 @@ import net.minecraft.network.NetworkManager;
 import net.minecraft.network.Packet;
 import net.minecraft.network.play.server.S35PacketUpdateTileEntity;
 import net.minecraft.tileentity.TileEntity;
-import net.wuerfel21.derpyshiz.Main;
 import net.wuerfel21.derpyshiz.rotary.AxisChain;
 import net.wuerfel21.derpyshiz.rotary.IRotaryOutput;
 import net.wuerfel21.derpyshiz.rotary.RotaryManager;
-import net.wuerfel21.derpyshiz.rotary.Rotation;
 
 public class TileEntityCrank extends TileEntity implements IRotaryOutput {
 
 	public int dir = 0;
-	public Rotation output;
+	public int output;
 	public int meta = 0;
 	public int cooldown = 40;
 
@@ -23,7 +21,7 @@ public class TileEntityCrank extends TileEntity implements IRotaryOutput {
 	public boolean inInventory;
 	
 	public TileEntityCrank() {
-		this.output = new Rotation(0, 0);
+		this.output = 0;
 		this.rotate(dir);
 	}
 
@@ -35,7 +33,7 @@ public class TileEntityCrank extends TileEntity implements IRotaryOutput {
 				if (this.dir != this.chain.dir) {
 					this.rotate(this.dir);
 				}
-				this.setRotaryOutput(dir, new Rotation(6969,6969));
+				this.setRotaryOutput(dir, 30);
 				RotaryManager.updateRotaryOutput(this, chain, this, dir);
 			}
 		}
@@ -60,14 +58,14 @@ public class TileEntityCrank extends TileEntity implements IRotaryOutput {
 	public void onDataPacket(NetworkManager net, S35PacketUpdateTileEntity pkg) {
 		NBTTagCompound tag = pkg.func_148857_g();
 		this.dir = tag.getInteger("direction");
-		this.output.speed = tag.getInteger("speed");
+		this.output = tag.getInteger("speed");
 	}
 
 	@Override
 	public Packet getDescriptionPacket() {
 		NBTTagCompound tag = new NBTTagCompound();
 		tag.setInteger("direction", dir);
-		tag.setInteger("speed", this.output.speed);
+		tag.setInteger("speed", this.output);
 		return new S35PacketUpdateTileEntity(this.xCoord, this.yCoord, this.zCoord, 1, tag);
 	}
 
@@ -81,18 +79,18 @@ public class TileEntityCrank extends TileEntity implements IRotaryOutput {
 	}
 
 	@Override
-	public Rotation getRotaryOutput(int side) {
+	public int getRotaryOutput(int side) {
 		if (this.isOutputFace(side)) {
-			return (Rotation) this.output.clone();
+			return this.output;
 		} else {
-			return new Rotation(0, 0);
+			return 0;
 		}
 	}
 
 	@Override
-	public void setRotaryOutput(int side, Rotation rotation) {
+	public void setRotaryOutput(int side, int speed) {
 		if (this.isOutputFace(side)) {
-			output = (Rotation) rotation.clone();
+			output = speed;
 		}
 	}
 	

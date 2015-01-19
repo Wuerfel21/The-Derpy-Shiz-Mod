@@ -45,19 +45,24 @@ public class RenderMillstone extends TileEntitySpecialRenderer {
 
 		tessellator.startDrawingQuads();
 		if (Main.fancyGearbox) {
-			//lower part
+			// lower part
 			RenderRotaryComponent.render(tessellator, textures[meta], 0, 0, 0, 1, 0.5 - wp, 1);
-			//upper part
+			// upper part
 			RenderRotaryComponent.render(tessellator, textures[meta], 0, 0.5 + wp, 0, 1, 1, 1);
-			//middle thing
-			RenderRotaryComponent.render(tessellator, textures[meta], 0.5-wp3, 0.5 - wp4, 0.5-wp3, 0.5+wp3, 0.5+wp4, 0.5+wp3);
-			//connections
-			RotaryRender.fancyConnection(tessellator, textures[meta][2], RotaryHousing.overlays[1], 0);
-			RotaryRender.fancyConnection(tessellator, textures[meta][2], RotaryHousing.overlays[1], 1);
+			// middle thing
+			RenderRotaryComponent.render(tessellator, textures[meta], 0.5 - wp3, 0.5 - wp4, 0.5 - wp3, 0.5 + wp3, 0.5 + wp4, 0.5 + wp3);
+			// connections
+			if (!tile.inInventory) {
+				RotaryRender.fancyConnection(tessellator, textures[meta][2], RotaryHousing.overlays[1], 0);
+				RotaryRender.fancyConnection(tessellator, textures[meta][2], RotaryHousing.overlays[1], 1);
+			}
 		} else {
-			// do nothing except rendering overlays, ugly millstones are rendered by BlockGearbox
-			RotaryRender.uglyConnection(tessellator, RotaryHousing.overlays[1], 0);
-			RotaryRender.uglyConnection(tessellator, RotaryHousing.overlays[1], 1);
+			// do nothing except rendering overlays, ugly millstones are
+			// rendered by BlockGearbox
+			if (!tile.inInventory) {
+				RotaryRender.uglyConnection(tessellator, RotaryHousing.overlays[1], 0);
+				RotaryRender.uglyConnection(tessellator, RotaryHousing.overlays[1], 1);
+			}
 		}
 		tessellator.draw();
 		GL11.glPopMatrix();

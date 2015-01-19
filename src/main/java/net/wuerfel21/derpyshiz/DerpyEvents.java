@@ -45,6 +45,7 @@ import org.apache.commons.io.IOUtils;
 import cpw.mods.fml.common.FMLCommonHandler;
 import cpw.mods.fml.common.FMLLog;
 import cpw.mods.fml.common.eventhandler.Event;
+import cpw.mods.fml.common.eventhandler.EventPriority;
 import cpw.mods.fml.common.eventhandler.SubscribeEvent;
 import cpw.mods.fml.common.gameevent.PlayerEvent.PlayerLoggedInEvent;
 import cpw.mods.fml.common.gameevent.TickEvent;
@@ -208,10 +209,10 @@ public class DerpyEvents {
 				TileEntity t = event.world.getTileEntity(event.x, event.y, event.z);
 				if (t instanceof IRotaryOutput && ((IRotaryOutput) t).isOutputFace(side)) {
 					IRotaryOutput o = (IRotaryOutput) t;
-					c = c.appendSibling(new ChatComponentTranslation("text.derpyshiz.output.name")).appendText(": ").appendSibling(new ChatComponentTranslation("text.derpyshiz.speed.name")).appendText(": " + Integer.toString(o.getRotaryOutput(side).speed) + " ").appendSibling(new ChatComponentTranslation("text.derpyshiz.torque.name")).appendText(": " + Integer.toString(o.getRotaryOutput(side).torque));
+					c = c.appendSibling(new ChatComponentTranslation("text.derpyshiz.output.name")).appendText(": ").appendText(Integer.toString(o.getRotaryOutput(side))+" ").appendSibling(new ChatComponentTranslation("text.derpyshiz.rpm.name"));
 				} else if (t instanceof IRotaryInput && ((IRotaryInput) t).isInputFace(side)) {
 					IRotaryInput i = (IRotaryInput) t;
-					c = c.appendSibling(new ChatComponentTranslation("text.derpyshiz.input.name")).appendText(": ").appendSibling(new ChatComponentTranslation("text.derpyshiz.speed.name")).appendText(": " + Integer.toString(i.getRotaryInput(side).speed) + " ").appendSibling(new ChatComponentTranslation("text.derpyshiz.torque.name")).appendText(": " + Integer.toString(i.getRotaryInput(side).torque));
+					c = c.appendSibling(new ChatComponentTranslation("text.derpyshiz.input.name")).appendText(": ").appendText(Integer.toString(i.getRotaryInput(side))+" ").appendSibling(new ChatComponentTranslation("text.derpyshiz.rpm.name"));
 				} else {
 					return;
 				}
@@ -220,7 +221,7 @@ public class DerpyEvents {
 		}
 	}
 
-	@SubscribeEvent
+	@SubscribeEvent(priority = EventPriority.HIGH)
 	public void onLivingHurt(LivingHurtEvent event) {
 		if (event.source.damageType == "fall" && event.entityLiving instanceof EntityPlayer && ((EntityPlayer)event.entityLiving).isBlocking() && ((EntityPlayer)event.entityLiving).getHeldItem() != null && ((EntityPlayer)event.entityLiving).getHeldItem().getItem() instanceof WindSword) {
 			event.setCanceled(true);
