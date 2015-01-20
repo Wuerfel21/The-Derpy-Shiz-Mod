@@ -6,7 +6,7 @@
 !/.gitignore
 !/build.gradle
 !/gradle
-!/gradlew.bat
+!/gradlew*
 !/.travis.yml
 !/gradle/
 !/currentVersion.thisIsUsedForUpdateChecking

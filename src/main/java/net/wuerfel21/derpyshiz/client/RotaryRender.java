@@ -20,8 +20,8 @@ public class RotaryRender {
 
 	public static final double wp = DerpyRenderHelper.wp;
 
-	public static final double minAxis = 0.5 - (wp * 4);
-	public static final double maxAxis = 0.5 + (wp * 4);
+	public static final double minAxis = 0.5 - (wp * 2);
+	public static final double maxAxis = 0.5 + (wp * 2);
 
 	public static final double minC = wp * 4;
 	public static final double maxC = wp * 12;
