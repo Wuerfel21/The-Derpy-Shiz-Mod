@@ -10,20 +10,17 @@ public class TileEntityHousing extends TileEntity implements ITieredTE {
 	public boolean inInventory;
 
 	@Override
-	public void updateEntity() {
-		if (!this.inInventory) {
-			this.tier = this.worldObj.getBlockMetadata(xCoord, yCoord, zCoord);
-		}
+	public boolean canUpdate() {
+		return false;
 	}
-
+	
 	@Override
 	public int getTier() {
-		return this.tier;
+		return this.worldObj.getBlockMetadata(xCoord, yCoord, zCoord);
 	}
 
 	@Override
 	public void setTier(int tier) {
-		this.tier = tier;
 	}
 
 }

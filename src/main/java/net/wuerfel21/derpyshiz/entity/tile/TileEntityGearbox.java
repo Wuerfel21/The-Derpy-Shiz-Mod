@@ -5,11 +5,14 @@ import net.minecraft.network.NetworkManager;
 import net.minecraft.network.Packet;
 import net.minecraft.network.play.server.S35PacketUpdateTileEntity;
 import net.minecraft.tileentity.TileEntity;
+import net.minecraft.util.AxisAlignedBB;
 import net.wuerfel21.derpyshiz.rotary.AxisChain;
 import net.wuerfel21.derpyshiz.rotary.IRotaryInput;
 import net.wuerfel21.derpyshiz.rotary.IRotaryOutput;
 import net.wuerfel21.derpyshiz.rotary.ITieredTE;
 import net.wuerfel21.derpyshiz.rotary.RotaryManager;
+import cpw.mods.fml.relauncher.Side;
+import cpw.mods.fml.relauncher.SideOnly;
 
 public class TileEntityGearbox extends TileEntity implements IRotaryInput, IRotaryOutput, ITieredTE {
 
@@ -19,6 +22,8 @@ public class TileEntityGearbox extends TileEntity implements IRotaryInput, IRota
 	public int[] input = new int[6];
 	public int[] length = new int[6];
 	public int tier = 0;
+	
+	public int sync_offset;
 
 	public AxisChain chain;
 
@@ -26,9 +31,30 @@ public class TileEntityGearbox extends TileEntity implements IRotaryInput, IRota
 
 	public TileEntityGearbox() {
 		super();
+		this.chain = new AxisChain(0, 5000000);
 		this.output = 0;
 		for (int i = 0; i < input.length; i++) {
 			this.input[i] = 0;
+		}
+	}
+	
+	@SideOnly(Side.CLIENT)
+	@Override
+	public AxisAlignedBB getRenderBoundingBox() {
+		switch (chain.dir) {
+		default:
+		case 0:
+			return AxisAlignedBB.getBoundingBox(xCoord, yCoord-chain.length, zCoord, xCoord+1, yCoord+1, zCoord+1);
+		case 1:
+			return AxisAlignedBB.getBoundingBox(xCoord, yCoord, zCoord, xCoord+1, yCoord+1+chain.length, zCoord+1);
+		case 2:
+			return AxisAlignedBB.getBoundingBox(xCoord, yCoord, zCoord-chain.length, xCoord+1, yCoord+1, zCoord+1);
+		case 3:
+			return AxisAlignedBB.getBoundingBox(xCoord, yCoord, zCoord, xCoord+1, yCoord+1, zCoord+1+chain.length);
+		case 4:
+			return AxisAlignedBB.getBoundingBox(xCoord-chain.length, yCoord, zCoord, xCoord+1, yCoord+1, zCoord+1);
+		case 5:
+			return AxisAlignedBB.getBoundingBox(xCoord, yCoord, zCoord, xCoord+1+chain.length, yCoord+1, zCoord+1);
 		}
 	}
 	
@@ -39,6 +65,9 @@ public class TileEntityGearbox extends TileEntity implements IRotaryInput, IRota
 			if (!ready) {
 				this.rotate(dir);
 				ready = true;
+				this.worldObj.markBlockForUpdate(xCoord, yCoord, zCoord);
+				this.sync_offset = this.worldObj.rand.nextInt(200);
+				this.markDirty();
 			}
 			if (!this.getWorldObj().isRemote) {
 				if (this.dir != this.chain.dir) {
@@ -53,6 +82,10 @@ public class TileEntityGearbox extends TileEntity implements IRotaryInput, IRota
 				int l = this.length[RotaryManager.getMaxInput(this)];
 				this.setRotaryOutput(this.dir, RotaryManager.calcLoss(r, l, this.getTier()==0?4:6));
 				RotaryManager.updateRotaryOutput(this, chain, this, dir);
+				if (this.worldObj.getTotalWorldTime() %200 == this.sync_offset) {
+					this.worldObj.markBlockForUpdate(xCoord, yCoord, zCoord);
+					this.chain.updateChainBlocksToClients(this.worldObj, xCoord, yCoord, zCoord);
+				}
 			} else {
 				chain.updateVisualPosition();
 			}
@@ -91,14 +124,21 @@ public class TileEntityGearbox extends TileEntity implements IRotaryInput, IRota
 	public void onDataPacket(NetworkManager net, S35PacketUpdateTileEntity pkg) {
 		NBTTagCompound tag = pkg.func_148857_g();
 		this.dir = tag.getInteger("direction");
-		this.output = tag.getInteger("speed");
+		this.chain.fromNetworkNBT(tag.getCompoundTag("axis"));
 	}
 
 	@Override
 	public Packet getDescriptionPacket() {
+		if (!ready) {
+			this.setTier(this.getWorldObj().getBlockMetadata(this.xCoord, this.yCoord, this.zCoord));
+			this.rotate(dir);
+			ready = true;
+			this.sync_offset = this.worldObj.rand.nextInt(200);
+			this.markDirty();
+		}
 		NBTTagCompound tag = new NBTTagCompound();
 		tag.setInteger("direction", dir);
-		tag.setInteger("speed", this.output);
+		tag.setTag("axis", chain.toNetworkNBT());
 		return new S35PacketUpdateTileEntity(this.xCoord, this.yCoord, this.zCoord, 1, tag);
 	}
 
@@ -171,5 +211,5 @@ public class TileEntityGearbox extends TileEntity implements IRotaryInput, IRota
 			return 0;
 		}
 	}
-
+	
 }

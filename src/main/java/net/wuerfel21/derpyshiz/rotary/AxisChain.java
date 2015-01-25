@@ -1,6 +1,7 @@
 package net.wuerfel21.derpyshiz.rotary;
 
 import net.minecraft.block.Block;
+import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.world.World;
 import net.minecraftforge.common.util.ForgeDirection;
@@ -33,11 +34,13 @@ public class AxisChain {
 	
 	public void updateVisualPosition() {
 		position += ((double) speed*0.3d);
+		position %= 360;
 	}
 	
 	public boolean updateChain(IRotaryOutput output, World world, int rotation, int x, int y, int z) {
 		lastLength = length;
 		lastSpeed = speed;
+		speed = rotation;
 		ForgeDirection direction = ForgeDirection.getOrientation(this.dir);
 		boolean usedFlag = false;
 		int l = 0;// length counter
@@ -101,6 +104,37 @@ public class AxisChain {
 		if (t != null && t instanceof IRotaryInput) {
 			((IRotaryInput)t).setRotaryInput(Main.reverseHelper[this.dir], 0, 0);
 		}
+	}
+	
+	//lawl bug workaround
+	public void updateChainBlocksToClients(World world, int x, int y, int z) {
+		ForgeDirection direction = ForgeDirection.getOrientation(this.dir);
+		for (int i=0;i<this.length;i++) {
+			x += direction.offsetX;
+			y += direction.offsetY;
+			z += direction.offsetZ;
+			if (world.getBlock(x, y, z) instanceof BlockAxis && (world.getBlockMetadata(x, y, z) & 8) != 0) {
+				world.markBlockForUpdate(x, y, z);
+			}
+		}
+		TileEntity t = world.getTileEntity(tilePos[0], tilePos[1], tilePos[2]);
+		if (t != null && t instanceof IRotaryInput) {
+			((IRotaryInput)t).setRotaryInput(Main.reverseHelper[this.dir], 0, 0);
+		}
+	}
+	
+	public NBTTagCompound toNetworkNBT() {
+		NBTTagCompound tag = new NBTTagCompound();
+		tag.setInteger("speed", speed);
+		tag.setInteger("length", length);
+		tag.setInteger("dir", dir);
+		return tag;
+	}
+	
+	public void fromNetworkNBT(NBTTagCompound tag) {
+		this.speed = tag.getInteger("speed");
+		this.length = tag.getInteger("length");
+		this.dir = tag.getInteger("dir");
 	}
 	
 }

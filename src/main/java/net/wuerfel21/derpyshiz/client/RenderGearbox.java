@@ -19,7 +19,7 @@ public class RenderGearbox extends TileEntitySpecialRenderer {
 
 	public static final double wp = DerpyRenderHelper.wp;
 	public static final double wp2 = wp * 2;
-
+	
 	public RenderGearbox() {
 		super();
 	}
@@ -56,9 +56,12 @@ public class RenderGearbox extends TileEntitySpecialRenderer {
 		}
 		tessellator.draw();
 		if (!tile.inInventory) {
+			this.bindTexture(RotaryRender.axisTexture);
 			RotaryRender.renderAxisChain(tessellator, tile.chain);
 		}
 		GL11.glPopMatrix();
 	}
 
+	
+	
 }
