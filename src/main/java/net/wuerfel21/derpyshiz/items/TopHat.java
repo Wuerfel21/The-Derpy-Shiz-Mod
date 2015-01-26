@@ -12,8 +12,7 @@ import net.wuerfel21.derpyshiz.client.ModelTopHat;
 
 public class TopHat extends DerpyArmor {
 
-	@SideOnly(Side.CLIENT)
-	public ModelTopHat model = new ModelTopHat(1f);
+	public ModelTopHat model;
 	
 	public TopHat(ArmorMaterial am, Item i, int m, String type) {
 		super(am, 0, i, m, type);
@@ -25,6 +24,9 @@ public class TopHat extends DerpyArmor {
 	@SideOnly(Side.CLIENT)
 	@Override
 	public ModelBiped getArmorModel(EntityLivingBase entityLiving, ItemStack itemStack, int armorSlot) {
+		if (model == null) {
+			model = new ModelTopHat(1f);
+		}
 		return model;
 	}
 	

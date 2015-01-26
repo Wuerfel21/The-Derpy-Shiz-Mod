@@ -7,14 +7,12 @@ import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.wuerfel21.derpyshiz.client.ModelCap;
-import net.wuerfel21.derpyshiz.client.ModelTopHat;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 
 public class BaseCap extends DerpyArmor {
 	
-	@SideOnly(Side.CLIENT)
-	public ModelCap model = new ModelCap(1f);
+	public ModelCap model;
 	
 	public BaseCap(ArmorMaterial am, Item i, int m, String type) {
 		super(am, 0, i, m, type);
@@ -26,6 +24,9 @@ public class BaseCap extends DerpyArmor {
 	@SideOnly(Side.CLIENT)
 	@Override
 	public ModelBiped getArmorModel(EntityLivingBase entityLiving, ItemStack itemStack, int armorSlot) {
+		if (model == null) {
+			model = new ModelCap(1f);
+		}
 		return model;
 	}
 	
