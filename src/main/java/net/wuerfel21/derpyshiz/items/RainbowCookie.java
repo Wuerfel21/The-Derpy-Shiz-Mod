@@ -13,7 +13,7 @@ public class RainbowCookie extends ItemFood {
 		super(4,0.5f,false);
 		this.setTextureName("derpyshiz:rainbow_cookie");
 		this.setCreativeTab(CreativeTabs.tabFood);
-		this.setUnlocalizedName("rainbow_cookie");
+		this.setUnlocalizedName("derpyshiz.rainbow_cookie");
 	}
 	
 	@Override

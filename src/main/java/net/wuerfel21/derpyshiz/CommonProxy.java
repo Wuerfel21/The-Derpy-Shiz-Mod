@@ -3,6 +3,8 @@ package net.wuerfel21.derpyshiz;
 import java.lang.reflect.Field;
 import java.util.List;
 
+import net.minecraft.entity.EntityList;
+import net.minecraft.entity.EnumCreatureType;
 import net.minecraft.world.biome.BiomeGenBase;
 import net.wuerfel21.derpyshiz.entity.EntityPiggycorn;
 import net.wuerfel21.derpyshiz.entity.tile.TileEntityCrank;
@@ -39,14 +41,16 @@ public class CommonProxy {
 		DerpyCrafting.registerCrafting();
 		DerpyEvents.register();
 		DerpyWorld.register();
-		EntityRegistry.registerGlobalEntityID(EntityPiggycorn.class, "piggycorn", Main.idPiggycorn,15771042, 14377823);
+		//EntityRegistry.registerGlobalEntityID(EntityPiggycorn.class, "piggycorn", Main.idPiggycorn,15771042, 14377823);
+		EntityRegistry.registerModEntity(EntityPiggycorn.class, "piggycorn", 0, Main.instance, 80, 3, true);
+		EntityList.stringToClassMapping.put("piggycorn", EntityPiggycorn.class);
 		//Registering Entity Spawns
-		addSpawn(BiomeGenBase.birchForest,EntityPiggycorn.class,2,1,5);
-		addSpawn(BiomeGenBase.birchForestHills,EntityPiggycorn.class,1,1,3);
-		addSpawn(BiomeGenBase.forest,EntityPiggycorn.class,1,1,3);
-		addSpawn(BiomeGenBase.forestHills,EntityPiggycorn.class,1,1,1);
-		addSpawn(BiomeGenBase.roofedForest,EntityPiggycorn.class,3,2,4);
-		addSpawn(BiomeGenBase.plains,EntityPiggycorn.class,1,1,1);
+		EntityRegistry.addSpawn(EntityPiggycorn.class, 2, 1, 5, EnumCreatureType.creature, BiomeGenBase.birchForest);
+		EntityRegistry.addSpawn(EntityPiggycorn.class, 1, 1, 3, EnumCreatureType.creature, BiomeGenBase.birchForestHills);
+		EntityRegistry.addSpawn(EntityPiggycorn.class, 1, 1, 3, EnumCreatureType.creature, BiomeGenBase.forest);
+		EntityRegistry.addSpawn(EntityPiggycorn.class, 1, 1, 1, EnumCreatureType.creature, BiomeGenBase.forestHills);
+		EntityRegistry.addSpawn(EntityPiggycorn.class, 3, 2, 4, EnumCreatureType.creature, BiomeGenBase.roofedForest);
+		EntityRegistry.addSpawn(EntityPiggycorn.class, 1, 1, 1, EnumCreatureType.creature, BiomeGenBase.plains);
 		GameRegistry.registerTileEntity(TileEntityHousing.class, "ds_housing");
 		GameRegistry.registerTileEntity(TileEntityGearbox.class, "ds_gearbox");
 		GameRegistry.registerTileEntity(TileEntityCrank.class, "ds_crank");
@@ -59,18 +63,5 @@ public class CommonProxy {
     public void postInit(FMLPostInitializationEvent e) {
     	
     }
-    
-	public void addSpawn(BiomeGenBase biome, Class entity, int weight, int min, int max) {
-		Field f = null;
-		try {
-			f = ReflectionHelper.findField(BiomeGenBase.class, "spawnableCreatureList");
-			f.setAccessible(true);
-			List l = (List) f.get(biome);
-			l.add(new BiomeGenBase.SpawnListEntry(entity, weight, min, max));
-		} catch (Exception e) {
-			System.out.println("Cant reflect derpyshiz spawn! "+biome.toString()+entity.toString()+e.toString());
-			return;
-		}
-	}
     
 }

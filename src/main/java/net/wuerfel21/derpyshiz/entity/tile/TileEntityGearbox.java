@@ -86,9 +86,8 @@ public class TileEntityGearbox extends TileEntity implements IRotaryInput, IRota
 					this.worldObj.markBlockForUpdate(xCoord, yCoord, zCoord);
 					this.chain.updateChainBlocksToClients(this.worldObj, xCoord, yCoord, zCoord);
 				}
-			} else {
-				chain.updateVisualPosition();
 			}
+			chain.updateVisualPosition();
 		}
 	}
 

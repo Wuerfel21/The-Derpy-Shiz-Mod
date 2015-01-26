@@ -128,6 +128,7 @@ public class AxisChain {
 		tag.setInteger("speed", speed);
 		tag.setInteger("length", length);
 		tag.setInteger("dir", dir);
+		tag.setDouble("visual_position", position);
 		return tag;
 	}
 	
@@ -135,6 +136,7 @@ public class AxisChain {
 		this.speed = tag.getInteger("speed");
 		this.length = tag.getInteger("length");
 		this.dir = tag.getInteger("dir");
+		this.position = tag.getDouble("visual_position");
 	}
 	
 }

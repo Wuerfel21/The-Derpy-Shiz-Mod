@@ -240,7 +240,7 @@ item.derpyshiz.cap_pink.name=Rosa Basecap
 tile.derpyshiz.coarsestone_normal.name=Rauer Stein
 tile.derpyshiz.coarsestone_framed.name=Gerahmter Rauer Stein
 
-entity.piggycorn.name=Schweinhorn
+entity.derpyshiz.piggycorn.name=Schweinhorn
 
 tile.derpyshiz.snowflake_obsidian.name=Schneflockenobsidian
 
@@ -258,6 +258,9 @@ tile.derpyshiz.gearbox_advanced.name=Verbessertes Getriebe
 
 tile.derpyshiz.crank_normal.name=Kurbel
 tile.derpyshiz.crank_advanced.name=Verbesserte Kurbel
+
+tile.derpyshiz.millstone_normal.name=Mühlstein
+tile.derpyshiz.millstone_advanced.name=Verbesserter Mühlstein
 
 tile.derpyshiz.seizure_wool.name=Augenkrebswolle
 

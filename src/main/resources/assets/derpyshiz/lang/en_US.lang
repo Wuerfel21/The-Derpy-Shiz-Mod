@@ -173,7 +173,7 @@ item.derpyshiz.sword_darkness.name=Dark Sword
 item.derpyshiz.sword_fire.name=Nether Edge
 item.derpyshiz.sword_water.name=Flood Cutlass
 item.derpyshiz.sword_natural.name=Mother Natures Blade
-item.derpyshiz.sword_wind.name=Strom Katana
+item.derpyshiz.sword_wind.name=Storm Katana
 
 item.derpyshiz.axe_turquoise.name=Turquoise Axe
 
@@ -242,7 +242,7 @@ item.derpyshiz.cap_pink.name=Pink Basecap
 tile.derpyshiz.coarsestone_normal.name=Coarse Stone
 tile.derpyshiz.coarsestone_framed.name=Framed Coarse Stone
 
-entity.piggycorn.name=Piggycorn
+entity.derpyshiz.piggycorn.name=Piggycorn
 
 tile.derpyshiz.snowflake_obsidian.name=Snowflake Obsidian
 
@@ -260,6 +260,9 @@ tile.derpyshiz.gearbox_advanced.name=Advanced Gearbox
 
 tile.derpyshiz.crank_normal.name=Crank
 tile.derpyshiz.crank_advanced.name=Advanced Crank
+
+tile.derpyshiz.millstone_normal.name=Millstone
+tile.derpyshiz.millstone_advanced.name=Advanced Millstone
 
 item.derpyshiz.rotameter.name=Rotameter
 
@@ -305,4 +308,4 @@ text.derpyshiz.mccr.name=MCC/R
 
 container.derpyshiz.millstone.name=Millstone
 
-message.derpyshiz.mode.name=mode.derpyshiz.changed to: 
+message.derpyshiz.mode.name=Mode changed to: 

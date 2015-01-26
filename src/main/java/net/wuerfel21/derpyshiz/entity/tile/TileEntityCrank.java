@@ -1,10 +1,13 @@
 package net.wuerfel21.derpyshiz.entity.tile;
 
+import cpw.mods.fml.relauncher.Side;
+import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.network.NetworkManager;
 import net.minecraft.network.Packet;
 import net.minecraft.network.play.server.S35PacketUpdateTileEntity;
 import net.minecraft.tileentity.TileEntity;
+import net.minecraft.util.AxisAlignedBB;
 import net.wuerfel21.derpyshiz.rotary.AxisChain;
 import net.wuerfel21.derpyshiz.rotary.IRotaryOutput;
 import net.wuerfel21.derpyshiz.rotary.ITieredTE;
@@ -17,7 +20,7 @@ public class TileEntityCrank extends TileEntity implements IRotaryOutput, ITiere
 	public int output;
 	public int tier = 0;
 	
-	public int cooldown;
+	public int cooldown = 0;
 	
 	public int sync_offset;
 
@@ -41,7 +44,7 @@ public class TileEntityCrank extends TileEntity implements IRotaryOutput, ITiere
 				}
 				if (cooldown > 0) {
 					cooldown--;
-					this.setRotaryOutput(dir, 30);
+					this.setRotaryOutput(dir, speeds[this.getTier()]);
 				} else {
 					this.setRotaryOutput(dir, 0);
 				}
@@ -50,9 +53,8 @@ public class TileEntityCrank extends TileEntity implements IRotaryOutput, ITiere
 					this.worldObj.markBlockForUpdate(xCoord, yCoord, zCoord);
 					this.chain.updateChainBlocksToClients(this.worldObj, xCoord, yCoord, zCoord);
 				}
-			} else {
-				chain.updateVisualPosition();
 			}
+			chain.updateVisualPosition();
 		}
 	}
 
@@ -63,6 +65,7 @@ public class TileEntityCrank extends TileEntity implements IRotaryOutput, ITiere
 		this.dir = tag.getInteger("direction");
 		NBTTagCompound rotary = tag.getCompoundTag("rotary");
 		RotaryManager.outputFromNBT(this, rotary);
+		this.cooldown = tag.getInteger("cooldown");
 	}
 
 	@Override
@@ -72,6 +75,7 @@ public class TileEntityCrank extends TileEntity implements IRotaryOutput, ITiere
 		NBTTagCompound rotary = new NBTTagCompound();
 		rotary.setTag("output", RotaryManager.outputToNBT(this));
 		tag.setTag("rotary", rotary);
+		tag.setInteger("cooldown", cooldown);
 	}
 
 	@Override
@@ -129,6 +133,26 @@ public class TileEntityCrank extends TileEntity implements IRotaryOutput, ITiere
 	public void cleanup() {
 		if (this.chain != null) {
 			this.chain.cleanup(this.getWorldObj(), this.xCoord, this.yCoord, this.zCoord);
+		}
+	}
+	
+	@SideOnly(Side.CLIENT)
+	@Override
+	public AxisAlignedBB getRenderBoundingBox() {
+		switch (chain.dir) {
+		default:
+		case 0:
+			return AxisAlignedBB.getBoundingBox(xCoord, yCoord-chain.length, zCoord, xCoord+1, yCoord+1, zCoord+1);
+		case 1:
+			return AxisAlignedBB.getBoundingBox(xCoord, yCoord, zCoord, xCoord+1, yCoord+1+chain.length, zCoord+1);
+		case 2:
+			return AxisAlignedBB.getBoundingBox(xCoord, yCoord, zCoord-chain.length, xCoord+1, yCoord+1, zCoord+1);
+		case 3:
+			return AxisAlignedBB.getBoundingBox(xCoord, yCoord, zCoord, xCoord+1, yCoord+1, zCoord+1+chain.length);
+		case 4:
+			return AxisAlignedBB.getBoundingBox(xCoord-chain.length, yCoord, zCoord, xCoord+1, yCoord+1, zCoord+1);
+		case 5:
+			return AxisAlignedBB.getBoundingBox(xCoord, yCoord, zCoord, xCoord+1+chain.length, yCoord+1, zCoord+1);
 		}
 	}
 

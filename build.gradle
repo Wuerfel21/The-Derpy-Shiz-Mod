@@ -17,9 +17,12 @@ buildscript {
 
 apply plugin: 'forge'
 
-version = "beta 0.3 pre 3 lawl test"
+version = "beta 0.3"
 group= "net.wuerfel21.derpyshiz"
 archivesBaseName = "derpyshiz"
+
+sourceCompatibility = 1.7
+targetCompatibility = 1.7
 
 minecraft {
     version = "1.7.10-10.13.2.1230"

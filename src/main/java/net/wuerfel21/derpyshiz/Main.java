@@ -3,7 +3,9 @@ package net.wuerfel21.derpyshiz;
 import net.minecraft.block.material.MapColor;
 import net.minecraft.block.material.Material;
 import net.minecraft.launchwrapper.Launch;
+import net.minecraft.nbt.NBTTagCompound;
 import net.minecraftforge.common.config.Configuration;
+import net.wuerfel21.derpyshiz.DerpyRegistry.BasicBlockEntry;
 
 import com.google.common.primitives.UnsignedBytes;
 
@@ -12,10 +14,14 @@ import cpw.mods.fml.common.Mod.EventHandler;
 import cpw.mods.fml.common.Mod.Instance;
 import cpw.mods.fml.common.SidedProxy;
 import cpw.mods.fml.common.event.FMLInitializationEvent;
+import cpw.mods.fml.common.event.FMLInterModComms;
+import cpw.mods.fml.common.event.FMLInterModComms.IMCEvent;
+import cpw.mods.fml.common.event.FMLInterModComms.IMCMessage;
 import cpw.mods.fml.common.event.FMLPostInitializationEvent;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
 import cpw.mods.fml.common.network.NetworkRegistry;
 import cpw.mods.fml.common.network.simpleimpl.SimpleNetworkWrapper;
+import cpw.mods.fml.common.registry.GameRegistry;
 
 @Mod(modid = Main.MODID, name = Main.MODNAME, version = Main.VERSION)
 public class Main {
@@ -34,7 +40,6 @@ public class Main {
     public static final String VERSION = "@VERSION@";
     
     public static Configuration config;
-    public static int idPiggycorn;
     public static int idMagicBiome;
     public static boolean fancyGearbox;
     public static boolean flashy;
@@ -63,7 +68,6 @@ public class Main {
     	derpnet = NetworkRegistry.INSTANCE.newSimpleChannel(this.MODID);
     	config = new Configuration(e.getSuggestedConfigurationFile(),null);
     	this.config.load();
-    	idPiggycorn = UnsignedBytes.saturatedCast(config.getInt("idPiggycorn", "ids", 3, 0, 255, "The id of the piggycorn"));
     	idMagicBiome = UnsignedBytes.saturatedCast(config.getInt("idMagicBiome", "ids", 69, 0, 255, "The id of the Magic Forest"));
     	fancyGearbox = config.getBoolean("fancyGearbox", "client", true, "If gearboxes should be uber fancy");
     	flashy = config.getBoolean("flashy", "client", true, "If flashing textures should be used. false also saves some tiny bits of performance when near such things.");
@@ -77,11 +81,23 @@ public class Main {
     @EventHandler
     public void init(FMLInitializationEvent e) {
     	this.proxy.init(e);
+    	NBTTagCompound tag = new NBTTagCompound();
     }
     
     @EventHandler
     public void postInit(FMLPostInitializationEvent e) {
     	this.proxy.postInit(e);
+    }
+    
+    @EventHandler
+    public void IMCCallback(IMCEvent event) {
+    	for (IMCMessage msg : event.getMessages()) {
+    		switch (msg.key) {
+    		case "registerLeafType":
+    			DerpyRegistry.leafTypes.add(new BasicBlockEntry(GameRegistry.findBlock(msg.getNBTValue().getString("sourceMod"), msg.getNBTValue().getString("blockID")), msg.getNBTValue().getInteger("meta")));
+    			break;
+    		}
+    	}
     }
     
 }

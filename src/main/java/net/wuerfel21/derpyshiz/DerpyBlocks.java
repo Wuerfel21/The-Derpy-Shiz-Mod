@@ -45,6 +45,7 @@ public class DerpyBlocks {
 	public static Block gearbox;
 	public static Block seizureWool;
 	public static Block millstone;
+	public static Block crank;
 
 	public static final void init() {
 		GameRegistry.registerBlock(patternWool = new PatternWool(), SimpleMetaItemBlock.class, "pattern_wool");
@@ -83,7 +84,7 @@ public class DerpyBlocks {
 		GameRegistry.registerBlock(new BlockAxis(), "axis");
 		GameRegistry.registerBlock(housing = new RotaryHousing(), SimpleMetaItemBlock.class, "housing");
 		GameRegistry.registerBlock(gearbox = new BlockGearbox(), SimpleMetaItemBlock.class, "gearbox");
-		GameRegistry.registerBlock(new BlockCrank(), "crank");
+		GameRegistry.registerBlock(crank = new BlockCrank(), SimpleMetaItemBlock.class, "crank");
 		GameRegistry.registerBlock(millstone = new BlockMillstone(), SimpleMetaItemBlock.class, "millstone");
 
 		GameRegistry.registerBlock(seizureWool = new SeizureWool(), "seizure_wool");

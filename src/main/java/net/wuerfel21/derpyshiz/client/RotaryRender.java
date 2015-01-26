@@ -21,11 +21,10 @@ public class RotaryRender {
 
 	public static final double wp = DerpyRenderHelper.wp;
 
-	public static final double maxAxisWidth = (wp * 2);
-	public static final double minAxisWidth = -maxAxisWidth;
+	public static final double maxAxisWidth = wp * 6;
+	public static final double minAxisWidth = wp * 10;
 	
-	public static final double maxAxisLength = 0.5;
-	public static final double minAxisLength = -0.5;
+	public static final double minAxisLength = 0;
 
 	public static final double minC = wp * 4;
 	public static final double maxC = wp * 12;
@@ -63,6 +62,7 @@ public class RotaryRender {
 		GL11.glPushMatrix();
 		GL11.glTranslated(0.5, 0.5, 0.5);
 		rotateAxis(chain.position, chain.dir);
+		GL11.glTranslated(-0.5, -0.5, -0.5);
 		tessellator.startDrawingQuads();
 		int x = 0, y = 0, z = 0;
 		ForgeDirection fdir = ForgeDirection.getOrientation(chain.dir);
@@ -72,19 +72,19 @@ public class RotaryRender {
 			DerpyRenderHelper.addBox(tessellator, axisIIcon, minAxisWidth, minAxisLength+(-chain.length), minAxisWidth, maxAxisWidth, minAxisLength, maxAxisWidth, axisEnds[0]);
 			break;
 		case 1:
-			DerpyRenderHelper.addBox(tessellator, axisIIcon, minAxisWidth, maxAxisLength, minAxisWidth, maxAxisWidth, maxAxisLength+chain.length, maxAxisWidth, axisEnds[1]);
+			DerpyRenderHelper.addBox(tessellator, axisIIcon, minAxisWidth, 1, minAxisWidth, maxAxisWidth, 1+chain.length, maxAxisWidth, axisEnds[1]);
 			break;
 		case 2:
 			DerpyRenderHelper.addBox(tessellator, axisIIcon, minAxisWidth, minAxisWidth, minAxisLength+(-chain.length), maxAxisWidth, maxAxisWidth, minAxisLength, axisEnds[2]);
 			break;
 		case 3:
-			DerpyRenderHelper.addBox(tessellator, axisIIcon, minAxisWidth, minAxisWidth, maxAxisLength, maxAxisWidth, maxAxisWidth, maxAxisLength+chain.length, axisEnds[3]);
+			DerpyRenderHelper.addBox(tessellator, axisIIcon, minAxisWidth, minAxisWidth, 1, maxAxisWidth, maxAxisWidth, 1+chain.length, axisEnds[3]);
 			break;
 		case 4:
 			DerpyRenderHelper.addBox(tessellator, axisIIcon, minAxisLength+(-chain.length), minAxisWidth, minAxisWidth, minAxisLength, maxAxisWidth, maxAxisWidth, axisEnds[4]);
 			break;
 		case 5:
-			DerpyRenderHelper.addBox(tessellator, axisIIcon, maxAxisLength, minAxisWidth, minAxisWidth, maxAxisLength+chain.length, maxAxisWidth, maxAxisWidth, axisEnds[5]);
+			DerpyRenderHelper.addBox(tessellator, axisIIcon, 1, minAxisWidth, minAxisWidth, 1+chain.length, maxAxisWidth, maxAxisWidth, axisEnds[5]);
 			break;
 		}
 		tessellator.draw();

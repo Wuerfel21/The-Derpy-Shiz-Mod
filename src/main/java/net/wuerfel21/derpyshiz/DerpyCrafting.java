@@ -1,9 +1,17 @@
 package net.wuerfel21.derpyshiz;
 
+import static net.wuerfel21.derpyshiz.WoolCrafting.getWool;
+import codechicken.core.fluid.FluidUtils;
 import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
+import net.minecraftforge.common.MinecraftForge;
+import net.minecraftforge.event.terraingen.BiomeEvent.GetWaterColor;
+import net.minecraftforge.fluids.Fluid;
+import net.minecraftforge.fluids.FluidContainerRegistry;
+import net.minecraftforge.fluids.FluidRegistry;
+import net.minecraftforge.fluids.FluidStack;
 import net.minecraftforge.oredict.OreDictionary;
 import net.minecraftforge.oredict.ShapedOreRecipe;
 import net.minecraftforge.oredict.ShapelessOreRecipe;
@@ -106,9 +114,26 @@ public class DerpyCrafting {
 		GameRegistry.addRecipe(new ShapedOreRecipe(getStack("sword_darkness", 0), "MMM", "MMM", " h ", 'M', "gemDarkness", 'h', "materialHorn"));
 		GameRegistry.addRecipe(new ShapedOreRecipe(getStack("dark_cloak", 0), "hMh", "wWw", "wMw", 'M', "gemDarkness", 'w', new ItemStack(Blocks.wool, 1, 15), 'W', "blockWool", 'h', "materialHorn"));
 
+		GameRegistry.addRecipe(new ShapedOreRecipe(getStack("helmet_stone", 0), "SMS", "M M", 'M', "cobblestone", 'S',"stone"));
+		GameRegistry.addRecipe(new ShapedOreRecipe(getStack("chestplate_stone", 0), "M M", "MSM", "MSM", 'M', "cobblestone", 'S',"stone"));
+		GameRegistry.addRecipe(new ShapedOreRecipe(getStack("leggings_stone", 0), "MMM", "S S", "M M", 'M', "cobblestone", 'S',"stone"));
+		GameRegistry.addRecipe(new ShapedOreRecipe(getStack("boots_stone", 0), "S S", "M M", 'M', "cobblestone", 'S',"stone"));
+		
+		GameRegistry.addRecipe(new ShapedOreRecipe(getStack("helmet_water", 0), "SMS", "M M", 'M', Items.water_bucket, 'S',"ingotWaterAlloy"));
+		GameRegistry.addRecipe(new ShapedOreRecipe(getStack("chestplate_water", 0), "M M", "MSM", "MSM", 'M', Items.water_bucket, 'S',"ingotWaterAlloy"));
+		GameRegistry.addRecipe(new ShapedOreRecipe(getStack("leggings_water", 0), "MMM", "S S", "M M", 'M', Items.water_bucket, 'S',"ingotWaterAlloy"));
+		GameRegistry.addRecipe(new ShapedOreRecipe(getStack("boots_water", 0), "S S", "M M", 'M', Items.water_bucket, 'S',"ingotWaterAlloy"));
+		
 		GameRegistry.addRecipe(new ShapedOreRecipe(getStack("sword_wuerfelium", 0), "M", "M", "h", 'M', "gemWuerfelium", 'h', "materialHorn"));
 		GameRegistry.addRecipe(new ShapedOreRecipe(getStack("pickaxe_wuerfelium", 0), "MMM", " h ", " h ", 'M', "gemWuerfelium", 'h', "materialHorn"));
 
+		GameRegistry.addRecipe(new ShapedOreRecipe(getStack("sword_fire",0), " i ","did"," r ",'i',"ingotFireAlloy",'d',"dustObsidian",'r',Items.blaze_rod));
+		GameRegistry.addRecipe(new ShapedOreRecipe(getStack("sword_water",0), "ib","ib","s ",'i',"ingotWaterAlloy",'b',Items.water_bucket,'s',"stickWood"));
+		GameRegistry.addRecipe(new ShapedOreRecipe(getStack("sword_natural",0), " i ","viv"," s ",'i',"ingotNaturalAlloy",'v',Blocks.vine,'s',"treeSapling"));
+		GameRegistry.addRecipe(new ShapedOreRecipe(getStack("sword_wind",0), " i ","fif","bsb",'i',"ingotWindAlloy",'f',Items.feather,'s',"stickWood",'b',"slimeball"));
+	
+		
+		
 		GameRegistry.addRecipe(new ShapelessOreRecipe(new ItemStack(GameRegistry.findItem("derpyshiz", "plank"), 4, 0), "treeEbony"));
 		GameRegistry.addRecipe(new ShapelessOreRecipe(new ItemStack(GameRegistry.findItem("derpyshiz", "plank"), 4, 1), "treeMagic"));
 
@@ -183,7 +208,7 @@ public class DerpyCrafting {
 		GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(GameRegistry.findBlock("derpyshiz", "seizure_wool"), 4), "WgW", "gcg", "WgW", 'g', "dustGlowstone", 'W', "blockWool", 'c', "circuitRedstone"));
 
 		// Redstone Circuit
-		GameRegistry.addRecipe(new ShapedOreRecipe(getStack("circuit", 0), "cqc", "rrr", "igi", 'q', "gemQuartz", 'i', "nuggetIron", 'g', "nuggetGold", 'r', "dustRedstone", 'c', "nuggetCopper")); // Redstone
+		GameRegistry.addRecipe(new ShapedOreRecipe(getStack("circuit", 0), "cqc", "rrr", "igi", 'q', "gemQuartz", 'i', "nuggetIron", 'g', "dustGold", 'r', "dustRedstone", 'c', "dustCopper")); // Redstone
 		if (alwaysFalse) {
 			// Advanced Redstone Circuit
 			GameRegistry.addRecipe(new ShapedOreRecipe(getStack("circuit", 1), "iFi", "gCg", "iRi", 'i', "nuggetIron", 'F', "gemFluorite", 'g', "dustGlowstone", 'C', "circuitRedstone", 'R', "blockRedstone"));
@@ -201,7 +226,25 @@ public class DerpyCrafting {
 
 		GameRegistry.addRecipe(new ShapedOreRecipe(getBlock("housing", 0), "waw", "aga", "waw", 'w', "plankWood", 'a', "blockAxis", 'g', "gearWood"));
 		GameRegistry.addRecipe(new ShapedOreRecipe(getBlock("housing", 1), "TiT", "ihi", "tit", 'T', "gearTin", 't', "ingotTin", 'i', "ingotIron", 'h', "housingNormal"));
-
+		GameRegistry.addRecipe(new ShapedOreRecipe(getBlock("gearbox",0), "gwg","whw","gwg",'g',"gearWood",'w',"stickWood",'h',"housingNormal"));
+		GameRegistry.addRecipe(new ShapedOreRecipe(getBlock("gearbox",1), "gdg","nhn","did",'g',"gearTin",'n',"nuggetIron",'i',"ingotIron",'d',"dustTin",'h',"housingAdvanced"));
+		GameRegistry.addRecipe(new ShapedOreRecipe(getBlock("crank", 0), "m  ","mMm","  m",'m',"stickWood",'M',"plankWood"));
+		GameRegistry.addRecipe(new ShapedOreRecipe(getBlock("crank", 1), "m  ","mMm","  m",'m',"ingotIron",'M',"dustLead"));
+		GameRegistry.addRecipe(new ShapedOreRecipe(getBlock("millstone", 0), "fgf","nhn","fgf",'f',"stoneCoarseFramed",'g',"gearCopper",'n',"nuggetIron",'h',"housingNormal"));
+		GameRegistry.addRecipe(new ShapedOreRecipe(getBlock("millstone", 1), "fgf","nhn","fgf",'f',"blockObsidian",'g',"gearRuby",'n',"nuggetElectrimite",'h',getBlock("millstone", 0)));
+		
+		GameRegistry.addRecipe(new ShapedOreRecipe(getStack("top_hat_black",0), " b "," w ","bbb",'b',getWool(15),'w',getWool(0)));
+		GameRegistry.addRecipe(new ShapedOreRecipe(getStack("top_hat_white",0), " w "," b ","www",'b',getWool(15),'w',getWool(0)));
+		GameRegistry.addRecipe(new ShapedOreRecipe(getStack("top_hat_rainbow",0), " r "," r ","rrr",'r',"woolRainbow"));
+		GameRegistry.addRecipe(new ShapedOreRecipe(getStack("cap_yolo",0), "lw ","lll",'l',getWool(5),'w',getWool(0)));
+		GameRegistry.addRecipe(new ShapedOreRecipe(getStack("cap_black",0), "bb ","bbb",'b',getWool(15)));
+		GameRegistry.addRecipe(new ShapedOreRecipe(getStack("cap_pink",0), "pp ","ppp",'p',getWool(6)));
+		
+		GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(GameRegistry.findItem("derpyshiz","extra_ingot"),2,0), "lsh","gtg","bfb",'s',getBlock("snowflake_obsidian", 0),'l',Items.blaze_powder,'h',"dustGhast",'g',"dustGold",'t',"dustTitanium",'b',Items.netherbrick,'f',Items.flint));
+		GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(GameRegistry.findItem("derpyshiz","extra_ingot"),2,1), "pqp","nin","gsg",'p',"blockGlass",'q',new ItemStack(Items.dye,1,0),'n',"nuggetElectrimite",'i',"dustIron",'g',"blockGravel",'s',Blocks.sand));
+		GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(GameRegistry.findItem("derpyshiz","extra_ingot"),2,2), "sds","fif","lcl",'s',Items.sugar,'d',"dye",'f',"blockFlower",'i',"dustCopper",'l',"treeLeaves",'c',"materialHorn"));
+		GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(GameRegistry.findItem("derpyshiz","extra_ingot"),2,3), "ftf","nin","fwf",'f',Items.feather,'t',"gemTurquoise",'n',"nuggetTin",'i',"dustTin",'w',"gemWuerfelium"));
+		
 		for (int i = 0; i < 16; i++) {
 			GameRegistry.addShapedRecipe(new ItemStack(GameRegistry.findBlock("derpyshiz", "pattern_carpet"), 3, i), "WW", 'W', getStack("pattern_wool", i));
 		}
@@ -212,6 +255,15 @@ public class DerpyCrafting {
 		GameRegistry.addSmelting(getBlock("ore", 11), getStack("ore_item", 11), 1.5f);
 		GameRegistry.addSmelting(getBlock("ore", 13), getStack("ore_item", 13), 0.7f);
 		GameRegistry.addSmelting(getBlock("ore", 14), getStack("ore_item", 14), 1f);
+		
+		GameRegistry.addSmelting(getStack("dust", 0), new ItemStack(Items.iron_ingot), 0f);
+		GameRegistry.addSmelting(getStack("dust", 1), new ItemStack(Items.gold_ingot), 0f);
+		GameRegistry.addSmelting(getStack("dust", 4), getStack("ore_item", 9), 0f);
+		GameRegistry.addSmelting(getStack("dust", 5), getStack("ore_item", 13), 0f);
+		GameRegistry.addSmelting(getStack("dust", 6), getStack("ore_item", 14), 0f);
+		GameRegistry.addSmelting(getStack("dust", 7), getStack("ore_item", 2), 0f);
+		GameRegistry.addSmelting(getStack("dust", 8), getStack("ore_item", 11), 0f);
+		
 
 		// millstone stuffz
 		DerpyRegistry.millstoneRecipes.put(new ItemStack(Items.iron_ingot, 1), new DerpyRegistry.TieredMachineEntry(new ItemStack(DerpyItems.dusts, 1, 0), 0f, 12000, 0));
@@ -250,6 +302,12 @@ public class DerpyCrafting {
 		OreDictionary.registerOre("ingotTin", getStack("ore_item", 13));
 		OreDictionary.registerOre("ingotLead", getStack("ore_item", 14));
 		OreDictionary.registerOre("gemWuerfelium", getStack("ore_item", 15));
+		
+		OreDictionary.registerOre("ingotFireAlloy", getStack("extra_ingot",0));
+		OreDictionary.registerOre("ingotWaterAlloy", getStack("extra_ingot",1));
+		OreDictionary.registerOre("ingotNaturalAlloy", getStack("extra_ingot",2));
+		OreDictionary.registerOre("ingotWindAlloy", getStack("extra_ingot",3));
+		OreDictionary.registerOre("ingotElectritanium", getStack("extra_ingot",4));
 
 		OreDictionary.registerOre("blockAmber", getBlock("block", 0));
 		OreDictionary.registerOre("blockFakediamond", getBlock("block", 1));
@@ -408,6 +466,12 @@ public class DerpyCrafting {
 
 		OreDictionary.registerOre("blockObsidian", Blocks.obsidian);
 		OreDictionary.registerOre("blockGravel", Blocks.gravel);
+		
+		OreDictionary.registerOre("blockFlower", Blocks.red_flower);
+		OreDictionary.registerOre("blockFlower", Blocks.yellow_flower);
+		OreDictionary.registerOre("blockFlower", Blocks.double_plant);
+		
+		
 	}
 
 }

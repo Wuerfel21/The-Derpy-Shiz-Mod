@@ -11,6 +11,7 @@ import net.minecraft.block.material.Material;
 import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.EntityLivingBase;
+import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Blocks;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
@@ -21,6 +22,7 @@ import net.minecraft.world.World;
 import net.wuerfel21.derpyshiz.IMetaItemBlock;
 import net.wuerfel21.derpyshiz.ISmashable;
 import net.wuerfel21.derpyshiz.Main;
+import net.wuerfel21.derpyshiz.entity.tile.TileEntityCrank;
 import net.wuerfel21.derpyshiz.entity.tile.TileEntityGearbox;
 
 public class BlockGearbox extends Block implements ITileEntityProvider, ISmashable, IMetaItemBlock {
@@ -128,7 +130,7 @@ public class BlockGearbox extends Block implements ITileEntityProvider, ISmashab
 
 	@Override
 	public String getUnlocalizedName(int meta) {
-		return this.getUnlocalizedName() + "_" +types[meta%types.length];
+		return this.getUnlocalizedName() + "_" + types[meta % types.length];
 	}
 
 }

@@ -26,6 +26,7 @@ import net.wuerfel21.derpyshiz.items.DerpyHoe;
 import net.wuerfel21.derpyshiz.items.DerpyNuggets;
 import net.wuerfel21.derpyshiz.items.DerpyPickaxe;
 import net.wuerfel21.derpyshiz.items.DerpyShovel;
+import net.wuerfel21.derpyshiz.items.DerpySpawnEgg;
 import net.wuerfel21.derpyshiz.items.DerpySword;
 import net.wuerfel21.derpyshiz.items.ExtraIngots;
 import net.wuerfel21.derpyshiz.items.FireSword;
@@ -86,6 +87,7 @@ public abstract class DerpyItems {
 	public static Item dusts;
 	public static Item nuggets;
 	public static Item cookie;
+	public static Item spawnegg;
 
 	public static Item[] stoneArmor = new Item[4];
 
@@ -102,10 +104,10 @@ public abstract class DerpyItems {
 		DARKNESS = EnumHelper.addToolMaterial("DARKNESS", 2, 750, 1f, 2.25f, 20);
 		WUERFELIUM = EnumHelper.addToolMaterial("WUERFELIUM", 2, 300, 3f, 2.1f, 2);
 
-		FIRE = EnumHelper.addToolMaterial("FIRE", 0, 700, 1f, 2f, 10);
-		WATER = EnumHelper.addToolMaterial("WATER", 0, 700, 1f, 2f, 10);
-		NATURAL = EnumHelper.addToolMaterial("NATURAL", 0, 700, 1f, 3f, 10);
-		WIND = EnumHelper.addToolMaterial("WIND", 0, 700, 1f, 2f, 10);
+		FIRE = EnumHelper.addToolMaterial("FIRE", 0, 750, 1f, 2f, 10);
+		WATER = EnumHelper.addToolMaterial("WATER", 0, 650, 1f, 2f, 10);
+		NATURAL = EnumHelper.addToolMaterial("NATURAL", 0, 650, 1f, 3f, 10);
+		WIND = EnumHelper.addToolMaterial("WIND", 0, 650, 1f, 2f, 10);
 		
 		ARMOR_TITANIUM = EnumHelper.addArmorMaterial("ARMOR_TITANIUM", 25, new int[] { 2, 7, 5, 3 }, 8);
 		ARMOR_RUBY = EnumHelper.addArmorMaterial("ARMOR_RUBY", 30, new int[] { 3, 7, 6, 3 }, 8);
@@ -127,6 +129,8 @@ public abstract class DerpyItems {
 		ARMOR_CAP = EnumHelper.addArmorMaterial("ARMOR_CAP", 10, new int[] { 1, 0, 0, 0 }, 0);
 		ARMOR_CAP_YOLO = EnumHelper.addArmorMaterial("ARMOR_CAP_YOLO", 12, new int[] { 1, 0, 0, 0 }, 5);
 
+		GameRegistry.registerItem(spawnegg = new DerpySpawnEgg(), "spawn_egg");
+		
 		GameRegistry.registerItem(oreItems = new OreItems(), "ore_item");
 		GameRegistry.registerItem(extraIngots = new ExtraIngots(), "extra_ingot");
 		GameRegistry.registerItem(dusts = new DerpyDusts(), "dust");

@@ -16,11 +16,16 @@ public class TileEntityHousing extends TileEntity implements ITieredTE {
 	
 	@Override
 	public int getTier() {
-		return this.worldObj.getBlockMetadata(xCoord, yCoord, zCoord);
+		if (this.worldObj != null) {
+			return this.tier = this.worldObj.getBlockMetadata(xCoord, yCoord, zCoord);
+		} else {
+			return tier;
+		}
 	}
 
 	@Override
 	public void setTier(int tier) {
+		this.tier = tier;
 	}
 
 }
