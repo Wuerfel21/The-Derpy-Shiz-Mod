@@ -227,9 +227,6 @@ public class DerpyEvents {
 			event.setCanceled(true);
 			DerpyItems.damageItem(((EntityPlayer)event.entityLiving).getHeldItem(), 1, event.entityLiving);
 		}
-		if (!event.entity.worldObj.isRemote && event.source.getSourceOfDamage() instanceof EntityLivingBase && ((EntityLivingBase)event.source.getSourceOfDamage()).getEquipmentInSlot(0) != null && ((EntityLivingBase)event.source.getSourceOfDamage()).getEquipmentInSlot(0).getItem() instanceof WindSword) {
-			event.entity.motionY += 2;
-		}
 	}
 	
 	@SubscribeEvent
