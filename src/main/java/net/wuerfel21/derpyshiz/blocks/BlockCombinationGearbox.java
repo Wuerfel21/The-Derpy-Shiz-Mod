@@ -2,16 +2,11 @@ package net.wuerfel21.derpyshiz.blocks;
 
 import java.util.List;
 
-import cpw.mods.fml.common.registry.GameRegistry;
-import cpw.mods.fml.relauncher.Side;
-import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.block.Block;
 import net.minecraft.block.ITileEntityProvider;
-import net.minecraft.block.material.Material;
 import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.EntityLivingBase;
-import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Blocks;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
@@ -22,30 +17,30 @@ import net.minecraft.world.World;
 import net.wuerfel21.derpyshiz.IMetaItemBlock;
 import net.wuerfel21.derpyshiz.ISmashable;
 import net.wuerfel21.derpyshiz.Main;
-import net.wuerfel21.derpyshiz.entity.tile.TileEntityCrank;
 import net.wuerfel21.derpyshiz.entity.tile.TileEntityGearbox;
+import net.wuerfel21.derpyshiz.entity.tile.TileEntityGearboxCombination;
 
-public class BlockGearbox extends Block implements ITileEntityProvider, ISmashable, IMetaItemBlock {
+public class BlockCombinationGearbox extends Block implements ITileEntityProvider, ISmashable, IMetaItemBlock {
 
 	public IIcon[] icons = new IIcon[2];
 
-	public BlockGearbox() {
+	public BlockCombinationGearbox() {
 		super(Main.machineMaterial);
 		this.setHardness(3f);
-		this.setBlockName("derpyshiz.gearbox");
+		this.setBlockName("derpyshiz.gearbox_combination");
 		this.setCreativeTab(CreativeTabs.tabBlock);
 		this.setHarvestLevel("ds_hammer", 0);
 		this.setStepSound(soundTypeWood);
 		if (Main.fancyGearbox) {
-			this.setBlockTextureName("minecraft:planks_big_oak");
+			this.setBlockTextureName("minecraft:planks_spruce");
 		} else {
-			this.setBlockTextureName("derpyshiz:gearbox_ugly");
+			this.setBlockTextureName("derpyshiz:gearbox_combination_ugly");
 		}
 	}
 
 	@Override
 	public TileEntity createNewTileEntity(World p_149915_1_, int p_149915_2_) {
-		return new TileEntityGearbox();
+		return new TileEntityGearboxCombination();
 	}
 
 	@Override
@@ -57,8 +52,8 @@ public class BlockGearbox extends Block implements ITileEntityProvider, ISmashab
 	public void onBlockPlacedBy(World world, int x, int y, int z, EntityLivingBase entity, ItemStack stack) {
 		super.onBlockPlacedBy(world, x, y, z, entity, stack);
 		TileEntity te = world.getTileEntity(x, y, z);
-		if (te instanceof TileEntityGearbox) {
-			((TileEntityGearbox) te).rotate(Blocks.piston.determineOrientation(world, x, y, z, entity));
+		if (te instanceof TileEntityGearboxCombination) {
+			((TileEntityGearboxCombination) te).rotate(Blocks.piston.determineOrientation(world, x, y, z, entity));
 		} else {
 			System.out.println("WTF BOOM!!!11!!!!!");
 		}
@@ -67,8 +62,8 @@ public class BlockGearbox extends Block implements ITileEntityProvider, ISmashab
 	@Override
 	public void breakBlock(World world, int x, int y, int z, Block block, int p_149749_6_) {
 		TileEntity t = world.getTileEntity(x, y, z);
-		if (t instanceof TileEntityGearbox) {
-			((TileEntityGearbox) t).cleanup();
+		if (t instanceof TileEntityGearboxCombination) {
+			((TileEntityGearboxCombination) t).cleanup();
 		}
 		super.breakBlock(world, x, y, z, block, p_149749_6_);
 	}
@@ -93,7 +88,7 @@ public class BlockGearbox extends Block implements ITileEntityProvider, ISmashab
 
 	@Override
 	public boolean smashed(World world, int x, int y, int z, int dir, boolean sneaky) {
-		TileEntityGearbox t = (TileEntityGearbox) world.getTileEntity(x, y, z);
+		TileEntityGearboxCombination t = (TileEntityGearboxCombination) world.getTileEntity(x, y, z);
 		if (t.dir == dir)
 			return true;
 		t.rotate(dir);
@@ -111,9 +106,9 @@ public class BlockGearbox extends Block implements ITileEntityProvider, ISmashab
 			switch (meta) {
 			default:
 			case 0:
-				return Blocks.planks.getIcon(0, 5);
+				return Blocks.planks.getIcon(0, 1);
 			case 1:
-				return GameRegistry.findBlock("derpyshiz", "block").getIcon(0, 2);
+				return Blocks.gold_block.getIcon(0, 0);
 			}
 		}
 		return this.icons[meta];

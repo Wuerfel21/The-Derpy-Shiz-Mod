@@ -33,6 +33,7 @@ import net.wuerfel21.derpyshiz.items.FireSword;
 import net.wuerfel21.derpyshiz.items.HorseLasagne;
 import net.wuerfel21.derpyshiz.items.ItemRotameter;
 import net.wuerfel21.derpyshiz.items.ItemTDM;
+import net.wuerfel21.derpyshiz.items.LongSword;
 import net.wuerfel21.derpyshiz.items.NaturalSword;
 import net.wuerfel21.derpyshiz.items.OreItems;
 import net.wuerfel21.derpyshiz.items.RainbowCookie;
@@ -60,6 +61,8 @@ public abstract class DerpyItems {
 	public static ToolMaterial WATER;
 	public static ToolMaterial NATURAL;
 	public static ToolMaterial WIND;
+	
+	public static ToolMaterial LONG;
 
 	public static ArmorMaterial ARMOR_TITANIUM;
 	public static ArmorMaterial ARMOR_RUBY;
@@ -108,6 +111,8 @@ public abstract class DerpyItems {
 		WATER = EnumHelper.addToolMaterial("WATER", 0, 650, 1f, 2f, 10);
 		NATURAL = EnumHelper.addToolMaterial("NATURAL", 0, 650, 1f, 3f, 10);
 		WIND = EnumHelper.addToolMaterial("WIND", 0, 650, 1f, 2f, 10);
+		
+		LONG = EnumHelper.addToolMaterial("TITANIUM", 2, 700, 6f, 2.50f, 11);
 		
 		ARMOR_TITANIUM = EnumHelper.addArmorMaterial("ARMOR_TITANIUM", 25, new int[] { 2, 7, 5, 3 }, 8);
 		ARMOR_RUBY = EnumHelper.addArmorMaterial("ARMOR_RUBY", 30, new int[] { 3, 7, 6, 3 }, 8);
@@ -177,6 +182,8 @@ public abstract class DerpyItems {
 		GameRegistry.registerItem(new WaterSword(WATER, extraIngots, 1).setUnlocalizedName("derpyshiz.sword_water").setTextureName("derpyshiz:sword_water"), "sword_water");
 		GameRegistry.registerItem(new NaturalSword(NATURAL, extraIngots, 2).setUnlocalizedName("derpyshiz.sword_natural").setTextureName("derpyshiz:sword_natural"), "sword_natural");
 		GameRegistry.registerItem(new WindSword(WIND, extraIngots, 3).setUnlocalizedName("derpyshiz.sword_wind").setTextureName("derpyshiz:sword_wind"), "sword_wind");
+		
+		GameRegistry.registerItem(new LongSword(LONG, oreItems, 2).setUnlocalizedName("derpyshiz.sword_long").setTextureName("derpyshiz:sword_long"), "sword_long");
 
 		GameRegistry.registerItem(new WuerfeliumSword(WUERFELIUM, oreItems, 15).setUnlocalizedName("derpyshiz.sword_wuerfelium"), "sword_wuerfelium");
 		GameRegistry.registerItem(new WuerfeliumPickaxe(WUERFELIUM, oreItems, 15).setUnlocalizedName("derpyshiz.pickaxe_wuerfelium"), "pickaxe_wuerfelium");

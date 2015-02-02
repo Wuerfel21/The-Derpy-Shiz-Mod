@@ -20,9 +20,7 @@ import net.minecraft.world.World;
 import net.wuerfel21.derpyshiz.client.BlankIcon;
 
 public class DarkSword extends DerpySword {
-	
-	private IIcon icon;
-	
+		
 	public DarkSword(ToolMaterial material, Item rep, int m) {
 		super(material,rep,m);
 	}
@@ -40,21 +38,6 @@ public class DarkSword extends DerpySword {
 			EntityLivingBase entity = (EntityLivingBase) entityIn;
 			entity.addPotionEffect(new PotionEffect(3,2,0,true));
 		}
-	}
-	
-	@Override
-	public IIcon getIcon(ItemStack stack, int renderPass, EntityPlayer player, ItemStack usingItem, int useRemaining) {
-		return player.isInvisible()?BlankIcon.icon:icon;
-	}
-	
-	@Override
-	public IIcon getIconFromDamage(int meta) {
-		return icon;
-	}
-	
-	@Override
-	public void registerIcons(IIconRegister reg) {
-		icon = reg.registerIcon("derpyshiz:sword_darkness");
 	}
 	
 }

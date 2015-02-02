@@ -90,7 +90,7 @@ public class BlockAxis extends Block implements ISmashable {
 	}
 
 	@Override
-	public boolean smashed(World world, int x, int y, int z, int dir) {
+	public boolean smashed(World world, int x, int y, int z, int dir, boolean sneaky) {
 		int meta = world.getBlockMetadata(x, y, z);
 		int newDir = Main.orientationHelper[dir];
 		if ((meta & 3) == newDir) return true;

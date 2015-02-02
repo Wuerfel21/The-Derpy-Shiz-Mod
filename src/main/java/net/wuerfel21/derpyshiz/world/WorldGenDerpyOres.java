@@ -118,9 +118,9 @@ public class WorldGenDerpyOres implements IWorldGenerator {
 	}
 	
 	public void genDarkness(int chunkX, int chunkZ, World world, Random rand) {
-		for (int i = 0; i < rand.nextInt(4); i++) {
+		for (int i = 0; i < rand.nextInt(5); i++) {
 			Int2 pos = getXZ(chunkX, chunkZ, rand);
-			new WorldGenMinable(GameRegistry.findBlock("derpyshiz", "ore"), 12,3, Blocks.stone).generate(world, rand, pos.x,getY(0, 16, rand), pos.z);
+			new WorldGenMinable(GameRegistry.findBlock("derpyshiz", "ore"), 12,4, Blocks.stone).generate(world, rand, pos.x,getY(0, 16, rand), pos.z);
 		}
 	}
 	

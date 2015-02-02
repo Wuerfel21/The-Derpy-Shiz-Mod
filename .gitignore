@@ -1,6 +1,7 @@
 /*
 /*/
 !/src/
+!/libs/
 !/README.md
 !/LICENSE
 !/.gitignore

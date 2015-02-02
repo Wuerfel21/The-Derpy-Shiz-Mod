@@ -111,7 +111,7 @@ public class DerpyCrafting {
 		GameRegistry.addRecipe(new ShapedOreRecipe(getStack("hammer", 0), "M", "s", 'M', "ingotIron", 's', "stickWood"));
 
 		GameRegistry.addRecipe(new ShapedOreRecipe(getStack("sword_enderium", 0), " M ", "MMM", " s ", 'M', "ingotEnderium", 's', "stickWood"));
-		GameRegistry.addRecipe(new ShapedOreRecipe(getStack("sword_darkness", 0), "MMM", "MMM", " h ", 'M', "gemDarkness", 'h', "materialHorn"));
+		GameRegistry.addRecipe(new ShapedOreRecipe(getStack("sword_darkness", 0), "sMs", "sMs", "shs", 'M', "gemDarkness", 'h', "materialHorn", 's', "nuggetDarkness"));
 		GameRegistry.addRecipe(new ShapedOreRecipe(getStack("dark_cloak", 0), "hMh", "wWw", "wMw", 'M', "gemDarkness", 'w', new ItemStack(Blocks.wool, 1, 15), 'W', "blockWool", 'h', "materialHorn"));
 
 		GameRegistry.addRecipe(new ShapedOreRecipe(getStack("helmet_stone", 0), "SMS", "M M", 'M', "cobblestone", 'S',"stone"));
@@ -228,10 +228,14 @@ public class DerpyCrafting {
 		GameRegistry.addRecipe(new ShapedOreRecipe(getBlock("housing", 1), "TiT", "ihi", "tit", 'T', "gearTin", 't', "ingotTin", 'i', "ingotIron", 'h', "housingNormal"));
 		GameRegistry.addRecipe(new ShapedOreRecipe(getBlock("gearbox",0), "gwg","whw","gwg",'g',"gearWood",'w',"stickWood",'h',"housingNormal"));
 		GameRegistry.addRecipe(new ShapedOreRecipe(getBlock("gearbox",1), "gdg","nhn","did",'g',"gearTin",'n',"nuggetIron",'i',"ingotIron",'d',"dustTin",'h',"housingAdvanced"));
+		GameRegistry.addRecipe(new ShapedOreRecipe(getBlock("gearbox_combination",0), "wlw","wbw","wlw",'b',getBlock("gearbox", 0),'w',"gearWood",'l',"gearLead"));
+		GameRegistry.addRecipe(new ShapedOreRecipe(getBlock("gearbox_combination",1), "tat","wbw","rrr",'b',getBlock("gearbox_combination", 0),'t',"dustTin",'a',"dustAmber",'w',"gemWuerfelium",'r',"dustRedstone"));
 		GameRegistry.addRecipe(new ShapedOreRecipe(getBlock("crank", 0), "m  ","mMm","  m",'m',"stickWood",'M',"plankWood"));
 		GameRegistry.addRecipe(new ShapedOreRecipe(getBlock("crank", 1), "m  ","mMm","  m",'m',"ingotIron",'M',"dustLead"));
 		GameRegistry.addRecipe(new ShapedOreRecipe(getBlock("millstone", 0), "fgf","nhn","fgf",'f',"stoneCoarseFramed",'g',"gearCopper",'n',"nuggetIron",'h',"housingNormal"));
 		GameRegistry.addRecipe(new ShapedOreRecipe(getBlock("millstone", 1), "fgf","nhn","fgf",'f',"blockObsidian",'g',"gearRuby",'n',"nuggetElectrimite",'h',getBlock("millstone", 0)));
+		
+		
 		
 		GameRegistry.addRecipe(new ShapedOreRecipe(getStack("top_hat_black",0), " b "," w ","bbb",'b',getWool(15),'w',getWool(0)));
 		GameRegistry.addRecipe(new ShapedOreRecipe(getStack("top_hat_white",0), " w "," b ","www",'b',getWool(15),'w',getWool(0)));

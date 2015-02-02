@@ -82,8 +82,16 @@ public abstract class RotaryManager {
 	}
 	
 	public static int calcLoss(int input, int length, int div) {
-		int loss = 1+(int)Math.floor((double)length/(double)div);
+		int loss = (int)Math.ceil(1+(int)Math.floor((double)length/(double)div)*getLossMulti(input));
 		return removeRotation(input, loss);
+	}
+	
+	public static double getLossMulti(int speed) {
+		if (speed <= 100) {
+			return 1;
+		} else {
+			return (double)speed/100d;
+		}
 	}
 	
 }

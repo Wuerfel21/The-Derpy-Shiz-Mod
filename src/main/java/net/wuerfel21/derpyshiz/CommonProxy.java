@@ -9,6 +9,7 @@ import net.minecraft.world.biome.BiomeGenBase;
 import net.wuerfel21.derpyshiz.entity.EntityPiggycorn;
 import net.wuerfel21.derpyshiz.entity.tile.TileEntityCrank;
 import net.wuerfel21.derpyshiz.entity.tile.TileEntityGearbox;
+import net.wuerfel21.derpyshiz.entity.tile.TileEntityGearboxCombination;
 import net.wuerfel21.derpyshiz.entity.tile.TileEntityHousing;
 import net.wuerfel21.derpyshiz.entity.tile.TileEntityMillstone;
 import net.wuerfel21.derpyshiz.entity.tile.TileEntitySeizureWool;
@@ -53,6 +54,7 @@ public class CommonProxy {
 		EntityRegistry.addSpawn(EntityPiggycorn.class, 1, 1, 1, EnumCreatureType.creature, BiomeGenBase.plains);
 		GameRegistry.registerTileEntity(TileEntityHousing.class, "ds_housing");
 		GameRegistry.registerTileEntity(TileEntityGearbox.class, "ds_gearbox");
+		GameRegistry.registerTileEntity(TileEntityGearboxCombination.class, "ds_gearbox_combination");
 		GameRegistry.registerTileEntity(TileEntityCrank.class, "ds_crank");
 		GameRegistry.registerTileEntity(TileEntityMillstone.class, "ds_millstone");
 		

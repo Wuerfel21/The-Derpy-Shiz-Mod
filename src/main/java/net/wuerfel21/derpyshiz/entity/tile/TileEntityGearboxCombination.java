@@ -1,5 +1,7 @@
 package net.wuerfel21.derpyshiz.entity.tile;
 
+import cpw.mods.fml.relauncher.Side;
+import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.network.NetworkManager;
 import net.minecraft.network.Packet;
@@ -11,12 +13,10 @@ import net.wuerfel21.derpyshiz.rotary.IRotaryInput;
 import net.wuerfel21.derpyshiz.rotary.IRotaryOutput;
 import net.wuerfel21.derpyshiz.rotary.ITieredTE;
 import net.wuerfel21.derpyshiz.rotary.RotaryManager;
-import cpw.mods.fml.relauncher.Side;
-import cpw.mods.fml.relauncher.SideOnly;
 
-public class TileEntityGearbox extends AbstractGearbox {
+public class TileEntityGearboxCombination extends AbstractGearbox {
 
-	public TileEntityGearbox() {
+	public TileEntityGearboxCombination() {
 		super();
 	}
 	
@@ -35,14 +35,15 @@ public class TileEntityGearbox extends AbstractGearbox {
 				if (this.dir != this.chain.dir) {
 					this.rotate(this.dir);
 				}
+				int out = 0;
 				for (int i = 0; i < 6; i++) {
 					if (this.isInputFace(i)) {
 						RotaryManager.updateRotaryInput(this, this, i);
+						out += RotaryManager.calcLoss(input[i], length[i], this.getTier()==0?3:5);
 					}
 				}
-				int r = this.input[RotaryManager.getMaxInput(this)];
-				int l = this.length[RotaryManager.getMaxInput(this)];
-				this.setRotaryOutput(this.dir, RotaryManager.calcLoss(r, l, this.getTier()==0?4:6));
+				
+				this.setRotaryOutput(this.dir, out);
 				RotaryManager.updateRotaryOutput(this, chain, this, dir);
 				if (this.worldObj.getTotalWorldTime() %200 == this.sync_offset) {
 					this.worldObj.markBlockForUpdate(xCoord, yCoord, zCoord);

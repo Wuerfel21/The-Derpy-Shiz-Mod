@@ -113,7 +113,7 @@ public class DerpyEvents {
 						dir = Blocks.piston.determineOrientation(event.world, event.x, event.y, event.z, event.entityLiving);
 					}
 					if (block instanceof ISmashable) {
-						if (((ISmashable) event.world.getBlock(event.x, event.y, event.z)).smashed(event.world, event.x, event.y, event.z, dir))
+						if (((ISmashable) event.world.getBlock(event.x, event.y, event.z)).smashed(event.world, event.x, event.y, event.z, dir, event.entityLiving.isSneaking()))
 							return;
 						;
 						event.world.markBlockForUpdate(event.x, event.y, event.z);

@@ -4,6 +4,7 @@ import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.init.Blocks;
 import net.wuerfel21.derpyshiz.blocks.BlockAxis;
+import net.wuerfel21.derpyshiz.blocks.BlockCombinationGearbox;
 import net.wuerfel21.derpyshiz.blocks.BlockCrank;
 import net.wuerfel21.derpyshiz.blocks.BlockGearbox;
 import net.wuerfel21.derpyshiz.blocks.BlockLasagne;
@@ -43,6 +44,7 @@ public class DerpyBlocks {
 	public static Block slabDouble;
 	public static Block housing;
 	public static Block gearbox;
+	public static Block gearboxCombination;
 	public static Block seizureWool;
 	public static Block millstone;
 	public static Block crank;
@@ -84,6 +86,7 @@ public class DerpyBlocks {
 		GameRegistry.registerBlock(new BlockAxis(), "axis");
 		GameRegistry.registerBlock(housing = new RotaryHousing(), SimpleMetaItemBlock.class, "housing");
 		GameRegistry.registerBlock(gearbox = new BlockGearbox(), SimpleMetaItemBlock.class, "gearbox");
+		GameRegistry.registerBlock(gearboxCombination = new BlockCombinationGearbox(), SimpleMetaItemBlock.class, "gearbox_combination");
 		GameRegistry.registerBlock(crank = new BlockCrank(), SimpleMetaItemBlock.class, "crank");
 		GameRegistry.registerBlock(millstone = new BlockMillstone(), SimpleMetaItemBlock.class, "millstone");
 

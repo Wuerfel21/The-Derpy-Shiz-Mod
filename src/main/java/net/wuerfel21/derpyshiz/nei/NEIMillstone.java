@@ -41,12 +41,6 @@ public class NEIMillstone extends TemplateRecipeHandler {
 		public PositionedStack getIngredient() {
 			return new PositionedStack(input, 51, 6);
 		}
-		
-		@Override
-		public List<PositionedStack> getCycledIngredients(int cycle, List<PositionedStack> ingredients) {
-			// TODO Auto-generated method stub
-			return super.getCycledIngredients(cycle, ingredients);
-		}
 
 	}
 
@@ -62,12 +56,10 @@ public class NEIMillstone extends TemplateRecipeHandler {
 
 	@Override
 	public void drawExtras(int recipe) {
-		if (arecipes.get(recipe) instanceof MillstonePair) {
-			MillstonePair arecipe = (MillstonePair) arecipes.get(recipe);
-			drawProgressBar(74, 23, 176, 17, 24, 16, arecipe.output.energy / 150, 0);
-			String desc = (arecipe.output.tier==0?"Normal, ":"Advanced, ")+Integer.toString(arecipe.output.energy)+" "+StatCollector.translateToLocal("text.derpyshiz.mccr.name");
-			GuiDraw.drawStringC(desc, 88, 50, 4210752, false);
-		}
+		MillstonePair arecipe = (MillstonePair) arecipes.get(recipe);
+		drawProgressBar(74, 23, 176, 17, 24, 16, arecipe.output.energy / 150, 0);
+		String desc = (arecipe.output.tier == 0 ? "Normal, " : "Advanced, ") + Integer.toString(arecipe.output.energy) + " " + StatCollector.translateToLocal("text.derpyshiz.mccr.name");
+		GuiDraw.drawStringC(desc, 88, 50, 4210752, false);
 	}
 
 	@Override
@@ -89,16 +81,16 @@ public class NEIMillstone extends TemplateRecipeHandler {
 			}
 		}
 	}
-	
+
 	@Override
-    public void loadUsageRecipes(ItemStack ingredient) {
-        for (Entry<ItemStack, TieredMachineEntry> recipe : DerpyRegistry.millstoneRecipes.entrySet())
-            if (NEIServerUtils.areStacksSameTypeCrafting(recipe.getKey(), ingredient)) {
-                MillstonePair arecipe = new MillstonePair(recipe.getKey(), recipe.getValue());
-                arecipe.setIngredientPermutation(Arrays.asList(arecipe.getIngredient()), ingredient);
-                arecipes.add(arecipe);
-            }
-    }
+	public void loadUsageRecipes(ItemStack ingredient) {
+		for (Entry<ItemStack, TieredMachineEntry> recipe : DerpyRegistry.millstoneRecipes.entrySet())
+			if (NEIServerUtils.areStacksSameTypeCrafting(recipe.getKey(), ingredient)) {
+				MillstonePair arecipe = new MillstonePair(recipe.getKey(), recipe.getValue());
+				arecipe.setIngredientPermutation(Arrays.asList(arecipe.getIngredient()), ingredient);
+				arecipes.add(arecipe);
+			}
+	}
 
 	@Override
 	public String getOverlayIdentifier() {

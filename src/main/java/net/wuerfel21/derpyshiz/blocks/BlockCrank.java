@@ -39,7 +39,7 @@ public class BlockCrank extends Block implements ITileEntityProvider, ISmashable
 	}
 
 	@Override
-	public boolean smashed(World world, int x, int y, int z, int dir) {
+	public boolean smashed(World world, int x, int y, int z, int dir, boolean sneaky) {
 		TileEntityCrank t = (TileEntityCrank) world.getTileEntity(x, y, z);
 		if (t.dir == Main.reverseHelper[dir])
 			return true;
