@@ -4,38 +4,45 @@ import java.io.InputStream;
 import java.net.URL;
 
 import net.minecraft.block.Block;
+import net.minecraft.block.BlockDirt;
 import net.minecraft.block.BlockDispenser;
 import net.minecraft.block.BlockFurnace;
+import net.minecraft.block.BlockGrass;
 import net.minecraft.block.BlockLog;
 import net.minecraft.block.BlockPistonBase;
 import net.minecraft.block.BlockQuartz;
 import net.minecraft.block.BlockRedstoneDiode;
 import net.minecraft.block.BlockStairs;
 import net.minecraft.block.material.Material;
+import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
-import net.minecraft.entity.monster.EntityCreeper;
-import net.minecraft.entity.monster.EntitySpider;
-import net.minecraft.entity.passive.EntityAnimal;
 import net.minecraft.entity.passive.EntityHorse;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.tileentity.TileEntity;
+import net.minecraft.util.AxisAlignedBB;
 import net.minecraft.util.ChatComponentText;
 import net.minecraft.util.ChatComponentTranslation;
 import net.minecraft.util.IChatComponent;
+import net.minecraftforge.common.ForgeHooks;
 import net.minecraftforge.common.MinecraftForge;
+import net.minecraftforge.event.entity.living.LivingAttackEvent;
 import net.minecraftforge.event.entity.living.LivingDropsEvent;
 import net.minecraftforge.event.entity.living.LivingHurtEvent;
-import net.minecraftforge.event.entity.living.LivingSetAttackTargetEvent;
 import net.minecraftforge.event.entity.player.PlayerEvent;
 import net.minecraftforge.event.entity.player.PlayerInteractEvent;
+import net.minecraftforge.event.entity.player.UseHoeEvent;
+import net.minecraftforge.event.world.BlockEvent.BreakEvent;
 import net.minecraftforge.event.world.BlockEvent.HarvestDropsEvent;
 import net.wuerfel21.derpyshiz.blocks.DerpyOres;
 import net.wuerfel21.derpyshiz.items.ItemRotameter;
-import net.wuerfel21.derpyshiz.items.NaturalSword;
+import net.wuerfel21.derpyshiz.items.LongHoe;
+import net.wuerfel21.derpyshiz.items.LongPickaxe;
+import net.wuerfel21.derpyshiz.items.LongSword;
 import net.wuerfel21.derpyshiz.items.WindSword;
 import net.wuerfel21.derpyshiz.rotary.IRotaryInput;
 import net.wuerfel21.derpyshiz.rotary.IRotaryOutput;
@@ -209,10 +216,10 @@ public class DerpyEvents {
 				TileEntity t = event.world.getTileEntity(event.x, event.y, event.z);
 				if (t instanceof IRotaryOutput && ((IRotaryOutput) t).isOutputFace(side)) {
 					IRotaryOutput o = (IRotaryOutput) t;
-					c = c.appendSibling(new ChatComponentTranslation("text.derpyshiz.output.name")).appendText(": ").appendText(Integer.toString(o.getRotaryOutput(side))+" ").appendSibling(new ChatComponentTranslation("text.derpyshiz.rpm.name"));
+					c = c.appendSibling(new ChatComponentTranslation("text.derpyshiz.output.name")).appendText(": ").appendText(Integer.toString(o.getRotaryOutput(side)) + " ").appendSibling(new ChatComponentTranslation("text.derpyshiz.rpm.name"));
 				} else if (t instanceof IRotaryInput && ((IRotaryInput) t).isInputFace(side)) {
 					IRotaryInput i = (IRotaryInput) t;
-					c = c.appendSibling(new ChatComponentTranslation("text.derpyshiz.input.name")).appendText(": ").appendText(Integer.toString(i.getRotaryInput(side))+" ").appendSibling(new ChatComponentTranslation("text.derpyshiz.rpm.name"));
+					c = c.appendSibling(new ChatComponentTranslation("text.derpyshiz.input.name")).appendText(": ").appendText(Integer.toString(i.getRotaryInput(side)) + " ").appendSibling(new ChatComponentTranslation("text.derpyshiz.rpm.name"));
 				} else {
 					return;
 				}
@@ -223,16 +230,77 @@ public class DerpyEvents {
 
 	@SubscribeEvent(priority = EventPriority.HIGH)
 	public void onLivingHurt(LivingHurtEvent event) {
-		if (event.source.damageType == "fall" && event.entityLiving instanceof EntityPlayer && ((EntityPlayer)event.entityLiving).isBlocking() && ((EntityPlayer)event.entityLiving).getHeldItem() != null && ((EntityPlayer)event.entityLiving).getHeldItem().getItem() instanceof WindSword) {
+		if (event.source.damageType == "fall" && event.entityLiving instanceof EntityPlayer && ((EntityPlayer) event.entityLiving).isBlocking() && ((EntityPlayer) event.entityLiving).getHeldItem() != null && ((EntityPlayer) event.entityLiving).getHeldItem().getItem() instanceof WindSword) {
 			event.setCanceled(true);
-			DerpyItems.damageItem(((EntityPlayer)event.entityLiving).getHeldItem(), 1, event.entityLiving);
+			DerpyItems.damageItem(((EntityPlayer) event.entityLiving).getHeldItem(), 1, event.entityLiving);
 		}
 	}
-	
+
+	@SubscribeEvent
+	public void onLivingAttack(LivingAttackEvent event) {
+		if (LongSword.AOEEnabled && event.source.getSourceOfDamage() instanceof EntityLivingBase && ((EntityLivingBase) event.source.getSourceOfDamage()).getHeldItem() != null && ((EntityLivingBase) event.source.getSourceOfDamage()).getHeldItem().getItem() instanceof LongSword) {
+			LongSword.AOEEnabled = false;
+			EntityLivingBase source = (EntityLivingBase) event.source.getSourceOfDamage();
+			for (Object e : event.entityLiving.worldObj.getEntitiesWithinAABB(EntityLivingBase.class, AxisAlignedBB.getBoundingBox(event.entity.posX - 2, event.entity.posY - 0.5, event.entity.posZ - 2, event.entity.posX + 2, event.entity.posY + 0.5, event.entity.posZ + 2))) {
+				if (!(e == event.entity || e == source)) {
+					if (source instanceof EntityPlayer) {
+						((EntityPlayer) source).attackTargetEntityWithCurrentItem((Entity) e);
+					} else {
+						source.attackEntityAsMob((Entity) e);
+					}
+					DerpyItems.damageItem(source.getHeldItem(), 1, source);
+				}
+			}
+			LongSword.AOEEnabled = true;
+		}
+	}
+
+	@SubscribeEvent
+	public void onUseHoe(UseHoeEvent event) {
+		Block oblock = event.world.getBlock(event.x, event.y, event.z);
+		if (LongHoe.AOEEnabled && event.current.getItem() instanceof LongHoe && (oblock instanceof BlockDirt || oblock instanceof BlockGrass)) {
+			LongHoe.AOEEnabled = false;
+			for (int x = event.x - 3; x < event.x + 3; x++) {
+				for (int z = event.z - 3; z < event.z + 3; z++) {
+					Block block = event.world.getBlock(x, event.y, z);
+					if ((!(x == event.x && z == event.z)) && (block instanceof BlockDirt || block instanceof BlockGrass) && (!MinecraftForge.EVENT_BUS.post(new UseHoeEvent(event.entityPlayer, event.current, event.world, x, event.y, z)))) {
+						event.world.setBlock(x, event.y, z, Blocks.farmland);
+						if (event.world.getBlock(x, event.y+1, z).isReplaceable(event.world, x, event.y+1, z)) {
+							event.world.setBlockToAir(x, event.y+1, z);
+						}
+						DerpyItems.damageItem(event.current, 1, event.entityPlayer);
+					}
+				}
+			}
+			LongHoe.AOEEnabled = true;
+		}
+	}
+
 	@SubscribeEvent
 	public void onLivingDrop(LivingDropsEvent event) {
 		if (event.entityLiving instanceof EntityHorse && !event.entityLiving.isChild()) {
 			event.entityLiving.dropItem(GameRegistry.findItem("derpyshiz", "lasagne"), 2 + event.lootingLevel);
+		}
+	}
+	
+	@SubscribeEvent
+	public void onBreak(BreakEvent event) {
+		if (LongPickaxe.AOEEnabled && (!event.world.isRemote) && event.getPlayer().getHeldItem() != null && event.getPlayer().getHeldItem().getItem() instanceof LongPickaxe) {
+			LongPickaxe.AOEEnabled = false;
+			for (int x = event.x-1;x<=event.x+1;x++) {
+				for (int y = event.y-1;y<=event.y+1;y++) {
+					for (int z = event.z-1;z<=event.z+1;z++) {
+						Block block = event.world.getBlock(x, y, z);
+						int meta = event.world.getBlockMetadata(x, y, z);
+						if ((!(x==event.x && y==event.y && z==event.z)) && block.isToolEffective("pickaxe", meta) && block.getHarvestLevel(meta) <= event.getPlayer().getHeldItem().getItem().getHarvestLevel(event.getPlayer().getHeldItem(), "pickaxe")) {
+							if (!ForgeHooks.onBlockBreakEvent(event.world, ((EntityPlayerMP)event.getPlayer()).theItemInWorldManager.getGameType(), (EntityPlayerMP) event.getPlayer(), x, y, z).isCanceled()) {
+								DerpyItems.damageItem(event.getPlayer().getHeldItem(), 1, event.getPlayer());
+							}
+						}
+					}
+				}
+			}
+			LongPickaxe.AOEEnabled = true;
 		}
 	}
 

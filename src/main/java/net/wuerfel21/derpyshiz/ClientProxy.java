@@ -4,6 +4,7 @@ import net.minecraft.item.Item;
 import net.minecraftforge.client.MinecraftForgeClient;
 import net.wuerfel21.derpyshiz.client.BlankIcon;
 import net.wuerfel21.derpyshiz.client.ModelPiggycorn;
+import net.wuerfel21.derpyshiz.client.RenderBigItem;
 import net.wuerfel21.derpyshiz.client.RenderCrank;
 import net.wuerfel21.derpyshiz.client.RenderDarkSword;
 import net.wuerfel21.derpyshiz.client.RenderGearbox;
@@ -77,6 +78,9 @@ public class ClientProxy extends CommonProxy {
 		inventoryCrank.inInventory = true;
 		MinecraftForgeClient.registerItemRenderer(Item.getItemFromBlock(DerpyBlocks.crank), new RenderTESRItem(renderCrank, inventoryCrank));
 		MinecraftForgeClient.registerItemRenderer(GameRegistry.findItem("derpyshiz", "sword_darkness"), new RenderDarkSword());
+		MinecraftForgeClient.registerItemRenderer(GameRegistry.findItem("derpyshiz", "pickaxe_long"), new RenderBigItem());
+		MinecraftForgeClient.registerItemRenderer(GameRegistry.findItem("derpyshiz", "sword_long"), new RenderBigItem());
+		MinecraftForgeClient.registerItemRenderer(GameRegistry.findItem("derpyshiz", "hoe_long"), new RenderBigItem());
 		
 		if (Main.flashy) {
 			ClientRegistry.bindTileEntitySpecialRenderer(TileEntitySeizureWool.class, renderSeizureWool = new RenderSeizureWool());
