@@ -33,8 +33,10 @@ import net.wuerfel21.derpyshiz.items.FireSword;
 import net.wuerfel21.derpyshiz.items.HorseLasagne;
 import net.wuerfel21.derpyshiz.items.ItemRotameter;
 import net.wuerfel21.derpyshiz.items.ItemTDM;
+import net.wuerfel21.derpyshiz.items.LongAxe;
 import net.wuerfel21.derpyshiz.items.LongHoe;
 import net.wuerfel21.derpyshiz.items.LongPickaxe;
+import net.wuerfel21.derpyshiz.items.LongShovel;
 import net.wuerfel21.derpyshiz.items.LongSword;
 import net.wuerfel21.derpyshiz.items.NaturalSword;
 import net.wuerfel21.derpyshiz.items.OreItems;
@@ -188,7 +190,9 @@ public abstract class DerpyItems {
 		GameRegistry.registerItem(new LongPickaxe(LONG, oreItems, 2).setUnlocalizedName("derpyshiz.pickaxe_long").setTextureName("derpyshiz:pickaxe_long"), "pickaxe_long");
 		GameRegistry.registerItem(new LongSword(LONG, oreItems, 2).setUnlocalizedName("derpyshiz.sword_long").setTextureName("derpyshiz:sword_long"), "sword_long");
 		GameRegistry.registerItem(new LongHoe(LONG, oreItems, 2).setUnlocalizedName("derpyshiz.hoe_long").setTextureName("derpyshiz:hoe_long"), "hoe_long");
-
+		GameRegistry.registerItem(new LongShovel(LONG, oreItems, 2).setUnlocalizedName("derpyshiz.shovel_long").setTextureName("derpyshiz:shovel_long"), "shovel_long");
+		GameRegistry.registerItem(new LongAxe(LONG, oreItems, 2).setUnlocalizedName("derpyshiz.axe_long").setTextureName("derpyshiz:axe_long"), "axe_long");
+		
 		GameRegistry.registerItem(new WuerfeliumSword(WUERFELIUM, oreItems, 15).setUnlocalizedName("derpyshiz.sword_wuerfelium"), "sword_wuerfelium");
 		GameRegistry.registerItem(new WuerfeliumPickaxe(WUERFELIUM, oreItems, 15).setUnlocalizedName("derpyshiz.pickaxe_wuerfelium"), "pickaxe_wuerfelium");
 

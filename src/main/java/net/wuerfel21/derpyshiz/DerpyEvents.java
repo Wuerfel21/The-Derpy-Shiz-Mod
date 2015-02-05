@@ -28,7 +28,6 @@ import net.minecraft.util.AxisAlignedBB;
 import net.minecraft.util.ChatComponentText;
 import net.minecraft.util.ChatComponentTranslation;
 import net.minecraft.util.IChatComponent;
-import net.minecraftforge.common.ForgeHooks;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.entity.living.LivingAttackEvent;
 import net.minecraftforge.event.entity.living.LivingDropsEvent;
@@ -40,8 +39,10 @@ import net.minecraftforge.event.world.BlockEvent.BreakEvent;
 import net.minecraftforge.event.world.BlockEvent.HarvestDropsEvent;
 import net.wuerfel21.derpyshiz.blocks.DerpyOres;
 import net.wuerfel21.derpyshiz.items.ItemRotameter;
+import net.wuerfel21.derpyshiz.items.LongAxe;
 import net.wuerfel21.derpyshiz.items.LongHoe;
 import net.wuerfel21.derpyshiz.items.LongPickaxe;
+import net.wuerfel21.derpyshiz.items.LongShovel;
 import net.wuerfel21.derpyshiz.items.LongSword;
 import net.wuerfel21.derpyshiz.items.WindSword;
 import net.wuerfel21.derpyshiz.rotary.IRotaryInput;
@@ -265,8 +266,8 @@ public class DerpyEvents {
 					Block block = event.world.getBlock(x, event.y, z);
 					if ((!(x == event.x && z == event.z)) && (block instanceof BlockDirt || block instanceof BlockGrass) && (!MinecraftForge.EVENT_BUS.post(new UseHoeEvent(event.entityPlayer, event.current, event.world, x, event.y, z)))) {
 						event.world.setBlock(x, event.y, z, Blocks.farmland);
-						if (event.world.getBlock(x, event.y+1, z).isReplaceable(event.world, x, event.y+1, z)) {
-							event.world.setBlockToAir(x, event.y+1, z);
+						if (event.world.getBlock(x, event.y + 1, z).isReplaceable(event.world, x, event.y + 1, z)) {
+							event.world.setBlockToAir(x, event.y + 1, z);
 						}
 						DerpyItems.damageItem(event.current, 1, event.entityPlayer);
 					}
@@ -282,25 +283,83 @@ public class DerpyEvents {
 			event.entityLiving.dropItem(GameRegistry.findItem("derpyshiz", "lasagne"), 2 + event.lootingLevel);
 		}
 	}
-	
+
 	@SubscribeEvent
 	public void onBreak(BreakEvent event) {
+		// Yes i know, not very DRY
 		if (LongPickaxe.AOEEnabled && (!event.world.isRemote) && event.getPlayer().getHeldItem() != null && event.getPlayer().getHeldItem().getItem() instanceof LongPickaxe) {
+			if (!event.block.isToolEffective("pickaxe", event.blockMetadata)) {
+				return;
+			}
 			LongPickaxe.AOEEnabled = false;
-			for (int x = event.x-1;x<=event.x+1;x++) {
-				for (int y = event.y-1;y<=event.y+1;y++) {
-					for (int z = event.z-1;z<=event.z+1;z++) {
+			ohitbreak: for (int x = event.x - 1; x <= event.x + 1; x++) {
+				for (int y = event.y - 1; y <= event.y + 1; y++) {
+					for (int z = event.z - 1; z <= event.z + 1; z++) {
 						Block block = event.world.getBlock(x, y, z);
 						int meta = event.world.getBlockMetadata(x, y, z);
-						if ((!(x==event.x && y==event.y && z==event.z)) && block.isToolEffective("pickaxe", meta) && block.getHarvestLevel(meta) <= event.getPlayer().getHeldItem().getItem().getHarvestLevel(event.getPlayer().getHeldItem(), "pickaxe")) {
-							if (!ForgeHooks.onBlockBreakEvent(event.world, ((EntityPlayerMP)event.getPlayer()).theItemInWorldManager.getGameType(), (EntityPlayerMP) event.getPlayer(), x, y, z).isCanceled()) {
-								DerpyItems.damageItem(event.getPlayer().getHeldItem(), 1, event.getPlayer());
-							}
+						if (event.getPlayer().getHeldItem() == null) {
+							break ohitbreak;
+						} else if ((!(x == event.x && y == event.y && z == event.z)) && block.isToolEffective("pickaxe", meta) && block.getHarvestLevel(meta) <= event.getPlayer().getHeldItem().getItem().getHarvestLevel(event.getPlayer().getHeldItem(), "pickaxe")) {
+							((EntityPlayerMP) event.getPlayer()).theItemInWorldManager.tryHarvestBlock(x, y, z);
 						}
 					}
 				}
 			}
 			LongPickaxe.AOEEnabled = true;
+		} else if (LongShovel.AOEEnabled && (!event.world.isRemote) && event.getPlayer().getHeldItem() != null && event.getPlayer().getHeldItem().getItem() instanceof LongShovel) {
+			if (!event.block.isToolEffective("shovel", event.blockMetadata)) {
+				return;
+			}
+			LongShovel.AOEEnabled = false;
+			ohitbreak: for (int x = event.x - 1; x <= event.x + 1; x++) {
+				for (int y = event.y - 1; y <= event.y + 1; y++) {
+					for (int z = event.z - 1; z <= event.z + 1; z++) {
+						Block block = event.world.getBlock(x, y, z);
+						int meta = event.world.getBlockMetadata(x, y, z);
+						if (event.getPlayer().getHeldItem() == null) {
+							break ohitbreak;
+						} else if ((!(x == event.x && y == event.y && z == event.z)) && block.isToolEffective("shovel", meta) && block.getHarvestLevel(meta) <= event.getPlayer().getHeldItem().getItem().getHarvestLevel(event.getPlayer().getHeldItem(), "shovel")) {
+							((EntityPlayerMP) event.getPlayer()).theItemInWorldManager.tryHarvestBlock(x, y, z);
+						}
+					}
+				}
+			}
+			LongShovel.AOEEnabled = true;
+		} else if (LongAxe.AOEEnabled && (!event.world.isRemote) && event.getPlayer().getHeldItem() != null && event.getPlayer().getHeldItem().getItem() instanceof LongAxe) {
+			if (!event.block.isToolEffective("axe", event.blockMetadata)) {
+				return;
+			}
+			LongAxe.AOEEnabled = false;
+			if (event.block instanceof BlockLog) {
+				ohitbreak: for (int x = event.x - 1; x <= event.x + 1; x++) {
+					for (int z = event.z - 1; z <= event.z + 1; z++) {
+						for (int y = event.y-32; y <= event.y+32;y++) {
+							Block block = event.world.getBlock(x, y, z);
+							int meta = event.world.getBlockMetadata(x, y, z);
+							if (event.getPlayer().getHeldItem() == null) {
+								break ohitbreak;
+							} else if ((!(x == event.x && y == event.y && z == event.z)) && block == event.block && meta == event.blockMetadata) {
+								((EntityPlayerMP) event.getPlayer()).theItemInWorldManager.tryHarvestBlock(x, y, z);
+							}
+						}
+					}
+				}
+			} else {
+				ohitbreak: for (int x = event.x - 1; x <= event.x + 1; x++) {
+					for (int y = event.y - 1; y <= event.y + 1; y++) {
+						for (int z = event.z - 1; z <= event.z + 1; z++) {
+							Block block = event.world.getBlock(x, y, z);
+							int meta = event.world.getBlockMetadata(x, y, z);
+							if (event.getPlayer().getHeldItem() == null) {
+								break ohitbreak;
+							} else if ((!(x == event.x && y == event.y && z == event.z)) && block.isToolEffective("axe", meta) && block.getHarvestLevel(meta) <= event.getPlayer().getHeldItem().getItem().getHarvestLevel(event.getPlayer().getHeldItem(), "axe")) {
+								((EntityPlayerMP) event.getPlayer()).theItemInWorldManager.tryHarvestBlock(x, y, z);
+							}
+						}
+					}
+				}
+			}
+			LongAxe.AOEEnabled = true;
 		}
 	}
 

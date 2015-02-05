@@ -48,7 +48,7 @@ public class WorldGenDerpyOres implements IWorldGenerator {
 	}
 	
 	public void genAmber(int chunkX, int chunkZ, World world, Random rand) {
-		for (int i=0;i<4;i++) {
+		for (int i=0;i<6;i++) {
 			Int2 pos = getXZ(chunkX,chunkZ,rand);
 			new WorldGenMinable(GameRegistry.findBlock("derpyshiz", "ore"),0,8,Blocks.stone).generate(world, rand, pos.x, getY(32,64,rand), pos.z);
 		}
@@ -62,7 +62,7 @@ public class WorldGenDerpyOres implements IWorldGenerator {
 	}
 	
 	public void genTitanium(int chunkX, int chunkZ, World world, Random rand) {
-		for (int i=0;i<4;i++) {
+		for (int i=0;i<5;i++) {
 			Int2 pos = getXZ(chunkX,chunkZ,rand);
 			new WorldGenMinable(GameRegistry.findBlock("derpyshiz", "ore"),2,7,Blocks.stone).generate(world, rand, pos.x, getY(16,32,rand), pos.z);
 		}
@@ -76,7 +76,7 @@ public class WorldGenDerpyOres implements IWorldGenerator {
 	}
 	
 	public void genTurquoise(int chunkX, int chunkZ, World world, Random rand) {
-		for (int i=0;i<30;i++) {
+		for (int i=0;i<31;i++) {
 			Int2 pos = getXZ(chunkX,chunkZ,rand);
 			new WorldGenMinable(GameRegistry.findBlock("derpyshiz", "ore"),4,3,Blocks.stone).generate(world, rand, pos.x, getY(24,80,rand), pos.z);
 		}
@@ -90,14 +90,14 @@ public class WorldGenDerpyOres implements IWorldGenerator {
 	}
 	
 	public void genFluorite(int chunkX, int chunkZ, World world, Random rand) {
-		for (int i=0;i<4;i++) {
+		for (int i=0;i<6;i++) {
 			Int2 pos = getXZ(chunkX,chunkZ,rand);
 			new WorldGenMinable(GameRegistry.findBlock("derpyshiz", "ore"),6+rand.nextInt(3),12,Blocks.stone).generate(world, rand, pos.x, getY(8,96,rand), pos.z);
 		}
 	}
 	
 	public void genCopper(int chunkX, int chunkZ, World world, Random rand) {
-		for (int i=0;i<19;i++) {
+		for (int i=0;i<18;i++) {
 			Int2 pos = getXZ(chunkX,chunkZ,rand);
 			new WorldGenMinable(GameRegistry.findBlock("derpyshiz", "ore"),9,10,Blocks.stone).generate(world, rand, pos.x, getY(16,64,rand), pos.z);	
 		}
@@ -120,19 +120,19 @@ public class WorldGenDerpyOres implements IWorldGenerator {
 	public void genDarkness(int chunkX, int chunkZ, World world, Random rand) {
 		for (int i = 0; i < rand.nextInt(5); i++) {
 			Int2 pos = getXZ(chunkX, chunkZ, rand);
-			new WorldGenMinable(GameRegistry.findBlock("derpyshiz", "ore"), 12,4, Blocks.stone).generate(world, rand, pos.x,getY(0, 16, rand), pos.z);
+			new WorldGenMinable(GameRegistry.findBlock("derpyshiz", "ore"), 12,5, Blocks.stone).generate(world, rand, pos.x,getY(0, 16, rand), pos.z);
 		}
 	}
 	
 	public void genTin(int chunkX, int chunkZ, World world, Random rand) {
-		for (int i=0;i<20;i++) {
+		for (int i=0;i<17;i++) {
 			Int2 pos = getXZ(chunkX,chunkZ,rand);
-			new WorldGenMinable(GameRegistry.findBlock("derpyshiz", "ore"),13,11,Blocks.stone).generate(world, rand, pos.x, getY(0,48,rand), pos.z);	
+			new WorldGenMinable(GameRegistry.findBlock("derpyshiz", "ore"),13,10,Blocks.stone).generate(world, rand, pos.x, getY(0,48,rand), pos.z);	
 		}
 	}
 	
 	public void genLead(int chunkX, int chunkZ, World world, Random rand) {
-		for (int i=0;i<3;i++) {
+		for (int i=0;i<4;i++) {
 			Int2 pos = getXZ(chunkX,chunkZ,rand);
 			new WorldGenMinable(GameRegistry.findBlock("derpyshiz", "ore"),14,18,Blocks.stone).generate(world, rand, pos.x, getY(16,32,rand), pos.z);	
 		}

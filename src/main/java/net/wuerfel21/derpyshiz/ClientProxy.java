@@ -81,6 +81,8 @@ public class ClientProxy extends CommonProxy {
 		MinecraftForgeClient.registerItemRenderer(GameRegistry.findItem("derpyshiz", "pickaxe_long"), new RenderBigItem());
 		MinecraftForgeClient.registerItemRenderer(GameRegistry.findItem("derpyshiz", "sword_long"), new RenderBigItem());
 		MinecraftForgeClient.registerItemRenderer(GameRegistry.findItem("derpyshiz", "hoe_long"), new RenderBigItem());
+		MinecraftForgeClient.registerItemRenderer(GameRegistry.findItem("derpyshiz", "shovel_long"), new RenderBigItem());
+		MinecraftForgeClient.registerItemRenderer(GameRegistry.findItem("derpyshiz", "axe_long"), new RenderBigItem());
 		
 		if (Main.flashy) {
 			ClientRegistry.bindTileEntitySpecialRenderer(TileEntitySeizureWool.class, renderSeizureWool = new RenderSeizureWool());
