@@ -309,3 +309,8 @@ text.derpyshiz.mccr.name=MCC/R
 container.derpyshiz.millstone.name=Millstone
 
 message.derpyshiz.mode.name=Mode changed to: 
+
+key.derpyshiz.derpy_action.name=Special Action
+key.derpyshiz.derpy_mode.name=Change Item Mode
+
+itemGroup.rotary=Rotary

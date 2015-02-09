@@ -1,8 +1,5 @@
 package net.wuerfel21.derpyshiz;
 
-import java.lang.reflect.Field;
-import java.util.List;
-
 import net.minecraft.entity.EntityList;
 import net.minecraft.entity.EnumCreatureType;
 import net.minecraft.world.biome.BiomeGenBase;
@@ -10,6 +7,8 @@ import net.wuerfel21.derpyshiz.entity.EntityPiggycorn;
 import net.wuerfel21.derpyshiz.entity.tile.TileEntityCrank;
 import net.wuerfel21.derpyshiz.entity.tile.TileEntityGearbox;
 import net.wuerfel21.derpyshiz.entity.tile.TileEntityGearboxCombination;
+import net.wuerfel21.derpyshiz.entity.tile.TileEntityGearboxReversion;
+import net.wuerfel21.derpyshiz.entity.tile.TileEntityGearboxSplitting;
 import net.wuerfel21.derpyshiz.entity.tile.TileEntityHousing;
 import net.wuerfel21.derpyshiz.entity.tile.TileEntityMillstone;
 import net.wuerfel21.derpyshiz.entity.tile.TileEntitySeizureWool;
@@ -24,7 +23,6 @@ import cpw.mods.fml.common.event.FMLPreInitializationEvent;
 import cpw.mods.fml.common.network.NetworkRegistry;
 import cpw.mods.fml.common.registry.EntityRegistry;
 import cpw.mods.fml.common.registry.GameRegistry;
-import cpw.mods.fml.relauncher.ReflectionHelper;
 import cpw.mods.fml.relauncher.Side;
 
 public class CommonProxy {
@@ -55,6 +53,8 @@ public class CommonProxy {
 		GameRegistry.registerTileEntity(TileEntityHousing.class, "ds_housing");
 		GameRegistry.registerTileEntity(TileEntityGearbox.class, "ds_gearbox");
 		GameRegistry.registerTileEntity(TileEntityGearboxCombination.class, "ds_gearbox_combination");
+		GameRegistry.registerTileEntity(TileEntityGearboxReversion.class, "ds_gearbox_reversion");
+		GameRegistry.registerTileEntity(TileEntityGearboxSplitting.class, "ds_gearbox_splitting");
 		GameRegistry.registerTileEntity(TileEntityCrank.class, "ds_crank");
 		GameRegistry.registerTileEntity(TileEntityMillstone.class, "ds_millstone");
 		

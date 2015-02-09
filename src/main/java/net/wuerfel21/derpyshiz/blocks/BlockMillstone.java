@@ -35,7 +35,7 @@ public class BlockMillstone extends BlockContainer implements IMetaItemBlock {
 	public BlockMillstone() {
 		super(Main.machineMaterial);
 		this.setBlockName("derpyshiz.millstone");
-		this.setCreativeTab(CreativeTabs.tabBlock);
+		this.setCreativeTab(Main.tabRotary);
 		this.setStepSound(soundTypePiston);
 		this.setHarvestLevel("ds_hammer", 0);
 		this.setResistance(10f);

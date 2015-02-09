@@ -1,21 +1,17 @@
 package net.wuerfel21.derpyshiz.client;
 
-import net.minecraft.block.BlockHopper;
 import net.minecraft.client.renderer.Tessellator;
 import net.minecraft.client.renderer.texture.TextureMap;
 import net.minecraft.client.renderer.tileentity.TileEntitySpecialRenderer;
 import net.minecraft.init.Blocks;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.IIcon;
+import net.wuerfel21.derpyshiz.DerpyBlocks;
 import net.wuerfel21.derpyshiz.Main;
-import net.wuerfel21.derpyshiz.blocks.BlockGearbox;
 import net.wuerfel21.derpyshiz.blocks.RotaryHousing;
-import net.wuerfel21.derpyshiz.entity.tile.TileEntityGearbox;
 import net.wuerfel21.derpyshiz.entity.tile.TileEntityHousing;
 
 import org.lwjgl.opengl.GL11;
-
-import cpw.mods.fml.common.registry.GameRegistry;
 
 public class RenderHousing extends TileEntitySpecialRenderer {
 
@@ -30,7 +26,7 @@ public class RenderHousing extends TileEntitySpecialRenderer {
 		
 		int meta = tile.getTier();
 		
-		IIcon[][] textures = new IIcon[][] {{Blocks.planks.getIcon(0, 0),Blocks.planks.getIcon(0, 4)},{GameRegistry.findBlock("derpyshiz", "block").getIcon(0, 13),GameRegistry.findBlock("derpyshiz", "block").getIcon(0, 2)}};
+		IIcon[][] textures = new IIcon[][] {{Blocks.planks.getIcon(0, 0),Blocks.planks.getIcon(0, 4)},{DerpyBlocks.oreBlocks.getIcon(0, 13),DerpyBlocks.oreBlocks.getIcon(0, 2)}};
 
 		Tessellator tessellator = Tessellator.instance;
 		GL11.glPushMatrix();

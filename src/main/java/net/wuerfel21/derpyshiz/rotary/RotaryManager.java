@@ -60,7 +60,7 @@ public abstract class RotaryManager {
 		int index = 0;
 		int value = 0;
 		for (int i = 0; i < 6; i++) {
-			int e = input.getRotaryInput(i);
+			int e = Math.abs(input.getRotaryInput(i));
 			if (e > value) {
 				index = i;
 				value = e;
@@ -87,10 +87,10 @@ public abstract class RotaryManager {
 	}
 	
 	public static double getLossMulti(int speed) {
-		if (speed <= 100) {
+		if (Math.abs(speed) <= 32) {
 			return 1;
 		} else {
-			return (double)speed/100d;
+			return Math.abs((double)speed/32d);
 		}
 	}
 	

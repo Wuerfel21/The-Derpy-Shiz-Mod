@@ -1,5 +1,6 @@
 package net.wuerfel21.derpyshiz.client;
 
+import static net.wuerfel21.derpyshiz.client.DerpyRenderHelper.wp;
 import net.minecraft.client.renderer.Tessellator;
 import net.minecraft.client.renderer.texture.TextureMap;
 import net.minecraft.client.renderer.tileentity.TileEntitySpecialRenderer;
@@ -19,7 +20,6 @@ import cpw.mods.fml.common.registry.GameRegistry;
 
 public class RenderGearboxCombination extends TileEntitySpecialRenderer {
 
-	public static final double wp = DerpyRenderHelper.wp;
 	public static final double wp2 = wp * 2;
 	
 	public RenderGearboxCombination() {

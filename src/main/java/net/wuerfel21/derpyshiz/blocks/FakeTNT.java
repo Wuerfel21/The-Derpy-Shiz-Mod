@@ -3,6 +3,7 @@ package net.wuerfel21.derpyshiz.blocks;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.client.renderer.texture.IIconRegister;
+import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.util.IIcon;
 
 public class FakeTNT extends Block {
@@ -11,8 +12,10 @@ public class FakeTNT extends Block {
 	
 	public FakeTNT() {
 		super(Material.tnt);
+		this.setCreativeTab(CreativeTabs.tabBlock);
 		this.setHardness(0.0f);
 		this.setBlockName("derpyshiz.fake_tnt");
+		this.setStepSound(soundTypeGrass);
 	}
 	
 	@Override

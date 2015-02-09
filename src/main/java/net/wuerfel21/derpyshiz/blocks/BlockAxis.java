@@ -23,7 +23,7 @@ public class BlockAxis extends Block implements ISmashable {
 		this.setBlockName("derpyshiz.axis");
 		this.setBlockTextureName("minecraft:oak_plank");
 		this.setHarvestLevel("ds_hammer", 0);
-		this.setCreativeTab(CreativeTabs.tabBlock);
+		this.setCreativeTab(Main.tabRotary);
 		this.setBlockBounds(0.375f, 0.375f, 0.375f, 0.625f, 0.625f, 0.625f);
 		this.setHardness(1f);
 		this.setStepSound(soundTypeWood);

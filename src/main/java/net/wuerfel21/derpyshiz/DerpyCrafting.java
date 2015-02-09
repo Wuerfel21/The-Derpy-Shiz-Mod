@@ -204,18 +204,19 @@ public class DerpyCrafting {
 
 		GameRegistry.addRecipe(new ShapedOreRecipe(GameRegistry.findBlock("derpyshiz", "block_lasagne"), "LLL", "LLL", "LLL", 'L', "foodLasagne"));
 		GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(GameRegistry.findItem("derpyshiz", "lasagne"), 9), "B", 'B', GameRegistry.findBlock("derpyshiz", "block_lasagne")));
+		GameRegistry.addRecipe(new ShapedOreRecipe(GameRegistry.findBlock("derpyshiz", "fake_tnt"), " S ", "S S", " S ", 'S', Blocks.sand));
 
 		GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(GameRegistry.findBlock("derpyshiz", "seizure_wool"), 4), "WgW", "gcg", "WgW", 'g', "dustGlowstone", 'W', "blockWool", 'c', "circuitRedstone"));
 
 		// Redstone Circuit
-		GameRegistry.addRecipe(new ShapedOreRecipe(getStack("circuit", 0), "cqc", "rrr", "igi", 'q', "gemQuartz", 'i', "nuggetIron", 'g', "dustGold", 'r', "dustRedstone", 'c', "dustCopper")); // Redstone
+		GameRegistry.addRecipe(new ShapedOreRecipe(getStack("circuit", 0), "cqc", "rrr", "igi", 'q', "gemQuartz", 'i', "nuggetIron", 'g', "dustGold", 'r', "dustRedstone", 'c', "nuggetCopper")); // Redstone
 		if (alwaysFalse) {
 			// Advanced Redstone Circuit
 			GameRegistry.addRecipe(new ShapedOreRecipe(getStack("circuit", 1), "iFi", "gCg", "iRi", 'i', "nuggetIron", 'F', "gemFluorite", 'g', "dustGlowstone", 'C', "circuitRedstone", 'R', "blockRedstone"));
 			// Normal Electric Circuit
-			GameRegistry.addRecipe(new ShapedOreRecipe(getStack("circuit", 2), "cec", "ere", "igi", 'i', "nuggetIron", 'g', "nuggetGold", 'r', "dustRedstone", 'c', "nuggetCopper", 'e', "nuggetElectrimite"));
+			GameRegistry.addRecipe(new ShapedOreRecipe(getStack("circuit", 2), "cec", "ere", "igi", 'i', "nuggetIron", 'g', "dustGold", 'r', "dustRedstone", 'c', "nuggetCopper", 'e', "nuggetElectrimite"));
 			// Advanced Electric Circuit
-			GameRegistry.addRecipe(new ShapedOreRecipe(getStack("circuit", 3), "cAc", "gCg", "cEc", 'c', "nuggetCopper", 'A', "chunkAmber", 'g', "dustGlowstone", 'C', "circuitElectric", 'E', "ingotElectrimite"));
+			GameRegistry.addRecipe(new ShapedOreRecipe(getStack("circuit", 3), "cAc", "gCg", "cEc", 'c', "dustCopper", 'A', "chunkAmber", 'g', "dustGlowstone", 'C', "circuitElectric", 'E', "dustElectrimite"));
 		}
 
 		GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(DerpyBlocks.stairs[0], 4), "m  ", "mm ", "mmm", 'm', "plankEbony"));

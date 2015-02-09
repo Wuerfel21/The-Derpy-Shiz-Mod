@@ -2,6 +2,7 @@ package net.wuerfel21.derpyshiz;
 
 import net.minecraft.block.material.MapColor;
 import net.minecraft.block.material.Material;
+import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.launchwrapper.Launch;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraftforge.common.config.Configuration;
@@ -50,6 +51,8 @@ public class Main {
     public static boolean isDevEnv = false;
     
     public static SimpleNetworkWrapper derpnet;
+    
+    public static CreativeTabs tabRotary = new TabRotary();
     
     @Instance(Main.MODID)
     public static Main instance;

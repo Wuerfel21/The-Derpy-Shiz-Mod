@@ -9,6 +9,8 @@ import net.wuerfel21.derpyshiz.blocks.BlockCrank;
 import net.wuerfel21.derpyshiz.blocks.BlockGearbox;
 import net.wuerfel21.derpyshiz.blocks.BlockLasagne;
 import net.wuerfel21.derpyshiz.blocks.BlockMillstone;
+import net.wuerfel21.derpyshiz.blocks.BlockReversionGearbox;
+import net.wuerfel21.derpyshiz.blocks.BlockSplittingGearbox;
 import net.wuerfel21.derpyshiz.blocks.CoarseStone;
 import net.wuerfel21.derpyshiz.blocks.DecoBlocks;
 import net.wuerfel21.derpyshiz.blocks.DerpyLeaves;
@@ -42,9 +44,12 @@ public class DerpyBlocks {
 	public static Block[] stairs = new Block[2];
 	public static Block slab;
 	public static Block slabDouble;
+	public static Block axis;
 	public static Block housing;
 	public static Block gearbox;
 	public static Block gearboxCombination;
+	public static Block gearboxReversion;
+	public static Block gearboxSplitting;
 	public static Block seizureWool;
 	public static Block millstone;
 	public static Block crank;
@@ -83,10 +88,12 @@ public class DerpyBlocks {
 		GameRegistry.registerBlock(new BlockLasagne(), "block_lasagne");
 		GameRegistry.registerBlock(new FakeTNT(), "fake_tnt");
 
-		GameRegistry.registerBlock(new BlockAxis(), "axis");
+		GameRegistry.registerBlock(axis = new BlockAxis(), "axis");
 		GameRegistry.registerBlock(housing = new RotaryHousing(), SimpleMetaItemBlock.class, "housing");
 		GameRegistry.registerBlock(gearbox = new BlockGearbox(), SimpleMetaItemBlock.class, "gearbox");
 		GameRegistry.registerBlock(gearboxCombination = new BlockCombinationGearbox(), SimpleMetaItemBlock.class, "gearbox_combination");
+		GameRegistry.registerBlock(gearboxReversion = new BlockReversionGearbox(), SimpleMetaItemBlock.class, "gearbox_reversion");
+		GameRegistry.registerBlock(gearboxSplitting = new BlockSplittingGearbox(), SimpleMetaItemBlock.class, "gearbox_splitting");
 		GameRegistry.registerBlock(crank = new BlockCrank(), SimpleMetaItemBlock.class, "crank");
 		GameRegistry.registerBlock(millstone = new BlockMillstone(), SimpleMetaItemBlock.class, "millstone");
 

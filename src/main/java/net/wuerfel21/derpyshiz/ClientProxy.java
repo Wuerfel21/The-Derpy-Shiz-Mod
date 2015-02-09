@@ -2,13 +2,14 @@ package net.wuerfel21.derpyshiz;
 
 import net.minecraft.item.Item;
 import net.minecraftforge.client.MinecraftForgeClient;
-import net.wuerfel21.derpyshiz.client.BlankIcon;
 import net.wuerfel21.derpyshiz.client.ModelPiggycorn;
 import net.wuerfel21.derpyshiz.client.RenderBigItem;
 import net.wuerfel21.derpyshiz.client.RenderCrank;
 import net.wuerfel21.derpyshiz.client.RenderDarkSword;
 import net.wuerfel21.derpyshiz.client.RenderGearbox;
 import net.wuerfel21.derpyshiz.client.RenderGearboxCombination;
+import net.wuerfel21.derpyshiz.client.RenderGearboxReversion;
+import net.wuerfel21.derpyshiz.client.RenderGearboxSplitting;
 import net.wuerfel21.derpyshiz.client.RenderHousing;
 import net.wuerfel21.derpyshiz.client.RenderMillstone;
 import net.wuerfel21.derpyshiz.client.RenderPiggycorn;
@@ -18,6 +19,8 @@ import net.wuerfel21.derpyshiz.entity.EntityPiggycorn;
 import net.wuerfel21.derpyshiz.entity.tile.TileEntityCrank;
 import net.wuerfel21.derpyshiz.entity.tile.TileEntityGearbox;
 import net.wuerfel21.derpyshiz.entity.tile.TileEntityGearboxCombination;
+import net.wuerfel21.derpyshiz.entity.tile.TileEntityGearboxReversion;
+import net.wuerfel21.derpyshiz.entity.tile.TileEntityGearboxSplitting;
 import net.wuerfel21.derpyshiz.entity.tile.TileEntityHousing;
 import net.wuerfel21.derpyshiz.entity.tile.TileEntityMillstone;
 import net.wuerfel21.derpyshiz.entity.tile.TileEntitySeizureWool;
@@ -32,6 +35,8 @@ public class ClientProxy extends CommonProxy {
 
 	public static TileEntityGearbox inventoryGearbox;
 	public static TileEntityGearboxCombination inventoryGearboxCombination;
+	public static TileEntityGearboxReversion inventoryGearboxReversion;
+	public static TileEntityGearboxSplitting inventoryGearboxSplitting;
 	public static TileEntityHousing inventoryHousing;
 	public static TileEntityMillstone inventoryMillstone;
 	public static TileEntitySeizureWool inventorySeizureWool;
@@ -40,13 +45,14 @@ public class ClientProxy extends CommonProxy {
 	@Override
 	public void preInit(FMLPreInitializationEvent e) {
 		super.preInit(e);
-		BlankIcon.register();
 	}
 
 	@Override
 	public void init(FMLInitializationEvent e) {
 		RenderGearbox renderGearbox;
 		RenderGearboxCombination renderGearboxCombination;
+		RenderGearboxReversion renderGearboxReversion;
+		RenderGearboxSplitting renderGearboxSplitting;
 		RenderHousing renderHousing;
 		RenderMillstone renderMillstone;
 		RenderSeizureWool renderSeizureWool;
@@ -56,6 +62,8 @@ public class ClientProxy extends CommonProxy {
 		RenderingRegistry.registerEntityRenderingHandler(EntityPiggycorn.class, new RenderPiggycorn(new ModelPiggycorn(), new ModelPiggycorn(0.5F), 0.7F));
 		ClientRegistry.bindTileEntitySpecialRenderer(TileEntityGearbox.class, renderGearbox = new RenderGearbox());
 		ClientRegistry.bindTileEntitySpecialRenderer(TileEntityGearboxCombination.class, renderGearboxCombination = new RenderGearboxCombination());
+		ClientRegistry.bindTileEntitySpecialRenderer(TileEntityGearboxReversion.class, renderGearboxReversion = new RenderGearboxReversion());
+		ClientRegistry.bindTileEntitySpecialRenderer(TileEntityGearboxSplitting.class, renderGearboxSplitting = new RenderGearboxSplitting());
 		ClientRegistry.bindTileEntitySpecialRenderer(TileEntityHousing.class, renderHousing = new RenderHousing());
 		ClientRegistry.bindTileEntitySpecialRenderer(TileEntityMillstone.class, renderMillstone = new RenderMillstone());
 		ClientRegistry.bindTileEntitySpecialRenderer(TileEntityCrank.class, renderCrank = new RenderCrank());
@@ -63,14 +71,20 @@ public class ClientProxy extends CommonProxy {
 		if (Main.fancyGearbox) {
 			inventoryGearbox = new TileEntityGearbox();
 			inventoryGearboxCombination = new TileEntityGearboxCombination();
+			inventoryGearboxReversion = new TileEntityGearboxReversion();
+			inventoryGearboxSplitting = new TileEntityGearboxSplitting();
 			inventoryHousing = new TileEntityHousing();
 			inventoryMillstone = new TileEntityMillstone();
 			inventoryGearbox.inInventory = true;
 			inventoryGearboxCombination.inInventory = true;
+			inventoryGearboxReversion.inInventory = true;
+			inventoryGearboxSplitting.inInventory = true;
 			inventoryHousing.inInventory = true;
 			inventoryMillstone.inInventory = true;
 			MinecraftForgeClient.registerItemRenderer(Item.getItemFromBlock(DerpyBlocks.gearbox), new RenderTESRItem(renderGearbox, inventoryGearbox));
 			MinecraftForgeClient.registerItemRenderer(Item.getItemFromBlock(DerpyBlocks.gearboxCombination), new RenderTESRItem(renderGearboxCombination, inventoryGearboxCombination));
+			MinecraftForgeClient.registerItemRenderer(Item.getItemFromBlock(DerpyBlocks.gearboxReversion), new RenderTESRItem(renderGearboxReversion, inventoryGearboxReversion));
+			MinecraftForgeClient.registerItemRenderer(Item.getItemFromBlock(DerpyBlocks.gearboxSplitting), new RenderTESRItem(renderGearboxSplitting, inventoryGearboxSplitting));
 			MinecraftForgeClient.registerItemRenderer(Item.getItemFromBlock(DerpyBlocks.housing), new RenderTESRItem(renderHousing, inventoryHousing));
 			MinecraftForgeClient.registerItemRenderer(Item.getItemFromBlock(DerpyBlocks.millstone), new RenderTESRItem(renderMillstone, inventoryMillstone));
 		}

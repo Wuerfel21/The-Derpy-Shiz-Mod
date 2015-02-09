@@ -28,7 +28,7 @@ public class BlockCombinationGearbox extends Block implements ITileEntityProvide
 		super(Main.machineMaterial);
 		this.setHardness(3f);
 		this.setBlockName("derpyshiz.gearbox_combination");
-		this.setCreativeTab(CreativeTabs.tabBlock);
+		this.setCreativeTab(Main.tabRotary);
 		this.setHarvestLevel("ds_hammer", 0);
 		this.setStepSound(soundTypeWood);
 		if (Main.fancyGearbox) {

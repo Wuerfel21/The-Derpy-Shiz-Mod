@@ -2,9 +2,6 @@ package net.wuerfel21.derpyshiz.blocks;
 
 import java.util.List;
 
-import cpw.mods.fml.common.registry.GameRegistry;
-import cpw.mods.fml.relauncher.Side;
-import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.block.Block;
 import net.minecraft.block.ITileEntityProvider;
 import net.minecraft.client.renderer.texture.IIconRegister;
@@ -17,33 +14,34 @@ import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.IIcon;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
+import net.wuerfel21.derpyshiz.DerpyBlocks;
 import net.wuerfel21.derpyshiz.IMetaItemBlock;
+import net.wuerfel21.derpyshiz.ISmashable;
 import net.wuerfel21.derpyshiz.Main;
-import net.wuerfel21.derpyshiz.entity.tile.TileEntityGearbox;
-import net.wuerfel21.derpyshiz.entity.tile.TileEntityHousing;
+import net.wuerfel21.derpyshiz.entity.tile.TileEntityGearboxSplitting;
+import cpw.mods.fml.common.registry.GameRegistry;
 
-public class RotaryHousing extends Block implements ITileEntityProvider, IMetaItemBlock{
-	
-	public static IIcon[] overlays = new IIcon[2];
+public class BlockSplittingGearbox extends Block implements ISmashable, ITileEntityProvider, IMetaItemBlock {
+
 	public IIcon[] icons = new IIcon[2];
-	
-	public RotaryHousing() {
+
+	public BlockSplittingGearbox() {
 		super(Main.machineMaterial);
 		this.setHardness(3f);
-		this.setBlockName("derpyshiz.housing");
+		this.setBlockName("derpyshiz.gearbox_splitting");
 		this.setCreativeTab(Main.tabRotary);
 		this.setHarvestLevel("ds_hammer", 0);
 		this.setStepSound(soundTypeWood);
 		if (Main.fancyGearbox) {
-			this.setBlockTextureName("minecraft:planks_oak");
+			this.setBlockTextureName("minecraft:planks_acacia");
 		} else {
-			this.setBlockTextureName("derpyshiz:housing_ugly");
+			this.setBlockTextureName("derpyshiz:gearbox_splitting_ugly");
 		}
 	}
-	
+
 	@Override
 	public TileEntity createNewTileEntity(World p_149915_1_, int p_149915_2_) {
-		return new TileEntityHousing();
+		return new TileEntityGearboxSplitting();
 	}
 
 	@Override
@@ -52,13 +50,31 @@ public class RotaryHousing extends Block implements ITileEntityProvider, IMetaIt
 	}
 
 	@Override
+	public void onBlockPlacedBy(World world, int x, int y, int z, EntityLivingBase entity, ItemStack stack) {
+		TileEntity te = world.getTileEntity(x, y, z);
+		if (te instanceof TileEntityGearboxSplitting) {
+			((TileEntityGearboxSplitting) te).rotate(Blocks.piston.determineOrientation(world, x, y, z, entity), false);
+			((TileEntityGearboxSplitting) te).rotate(Main.reverseHelper[Blocks.piston.determineOrientation(world, x, y, z, entity)], true);
+		} else {
+			System.out.println("WTF BOOM!!!11!!!!!");
+		}
+	}
+
+	@Override
+	public void breakBlock(World world, int x, int y, int z, Block block, int p_149749_6_) {
+		TileEntity t = world.getTileEntity(x, y, z);
+		if (t instanceof TileEntityGearboxSplitting) {
+			((TileEntityGearboxSplitting) t).cleanup();
+		}
+		super.breakBlock(world, x, y, z, block, p_149749_6_);
+	}
+
+	@Override
 	public void registerBlockIcons(IIconRegister reg) {
 		if (!Main.fancyGearbox) {
 			icons[0] = reg.registerIcon(this.getTextureName() + "_" + this.types[0]);
 			icons[1] = reg.registerIcon(this.getTextureName() + "_" + this.types[1]);
 		}
-		overlays[0] = reg.registerIcon("derpyshiz:overlay/rotary_output");
-		overlays[1] = reg.registerIcon("derpyshiz:overlay/rotary_input");
 	}
 
 	@Override
@@ -72,6 +88,16 @@ public class RotaryHousing extends Block implements ITileEntityProvider, IMetaIt
 	}
 
 	@Override
+	public boolean smashed(World world, int x, int y, int z, int dir, boolean sneaky) {
+		TileEntityGearboxSplitting t = (TileEntityGearboxSplitting) world.getTileEntity(x, y, z);
+		if (t.dir == dir || t.dir2 == dir)
+			return true;
+		t.rotate(dir, sneaky);
+
+		return false;
+	}
+
+	@Override
 	public int damageDropped(int meta) {
 		return meta;
 	}
@@ -82,15 +108,14 @@ public class RotaryHousing extends Block implements ITileEntityProvider, IMetaIt
 			switch (meta) {
 			default:
 			case 0:
-				return Blocks.planks.getIcon(0, 0);
+				return DerpyBlocks.plank.getIcon(0, 4);
 			case 1:
-				return GameRegistry.findBlock("derpyshiz", "block").getIcon(0, 13);
+				return GameRegistry.findBlock("derpyshiz", "block").getIcon(0, 9);
 			}
 		}
 		return this.icons[meta];
 	}
 
-	@SideOnly(Side.CLIENT)
 	@Override
 	public void getSubBlocks(Item item, CreativeTabs tab, List list) {
 		for (int i = 0; i < types.length; i++) {
@@ -98,11 +123,11 @@ public class RotaryHousing extends Block implements ITileEntityProvider, IMetaIt
 		}
 	}
 
+	public static final String[] types = { "normal", "advanced" };
+
 	@Override
 	public String getUnlocalizedName(int meta) {
-		return this.getUnlocalizedName() + "_" +types[meta%types.length];
+		return this.getUnlocalizedName() + "_" + types[meta % types.length];
 	}
-	
-	public static final String[] types = { "normal", "advanced" };
-	
+
 }

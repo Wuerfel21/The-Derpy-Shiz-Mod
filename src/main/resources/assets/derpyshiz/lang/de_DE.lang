@@ -305,3 +305,8 @@ text.derpyshiz.mccr.name=MCC/R
 container.derpyshiz.millstone.name=Mühlstein
 
 message.derpyshiz.mode.name=Modus geändert auf: 
+
+key.derpyshiz.derpy_action.name=Spezialaktion
+key.derpyshiz.derpy_mode.name=Itemmodus ändern
+
+itemGroup.rotary=Mechanik
