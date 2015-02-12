@@ -1,6 +1,5 @@
 package net.wuerfel21.derpyshiz.client;
 
-import static net.wuerfel21.derpyshiz.client.DerpyRenderHelper.wp;
 import net.minecraft.client.renderer.Tessellator;
 import net.minecraft.client.renderer.texture.TextureMap;
 import net.minecraft.client.renderer.tileentity.TileEntitySpecialRenderer;
@@ -9,17 +8,14 @@ import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.IIcon;
 import net.wuerfel21.derpyshiz.DerpyBlocks;
 import net.wuerfel21.derpyshiz.Main;
-import net.wuerfel21.derpyshiz.blocks.BlockGearbox;
+import net.wuerfel21.derpyshiz.blocks.BlockAbstractGearbox;
 import net.wuerfel21.derpyshiz.blocks.RotaryHousing;
+import net.wuerfel21.derpyshiz.entity.tile.AbstractGearbox;
 import net.wuerfel21.derpyshiz.entity.tile.TileEntityGearbox;
 
 import org.lwjgl.opengl.GL11;
 
-import cpw.mods.fml.common.registry.GameRegistry;
-
 public class RenderGearbox extends TileEntitySpecialRenderer {
-
-	public static final double wp2 = wp * 2;
 	
 	public RenderGearbox() {
 		super();
@@ -27,11 +23,11 @@ public class RenderGearbox extends TileEntitySpecialRenderer {
 	
 	@Override
 	public void renderTileEntityAt(TileEntity tiletemp, double x, double y, double z, float f) {
-		TileEntityGearbox tile = (TileEntityGearbox) tiletemp;
+		AbstractGearbox tile = (AbstractGearbox) tiletemp;
 		this.bindTexture(TextureMap.locationBlocksTexture);
-		BlockGearbox block = null;
+		BlockAbstractGearbox block = null;
 		if (!tile.inInventory) {
-			block = (BlockGearbox) tile.getBlockType();
+			block = (BlockAbstractGearbox) tile.getBlockType();
 		}
 		
 		int meta = tile.getTier();

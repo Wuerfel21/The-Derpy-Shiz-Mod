@@ -11,6 +11,7 @@ import net.minecraft.item.ItemArmor.ArmorMaterial;
 import net.minecraft.item.ItemStack;
 import net.minecraft.stats.StatList;
 import net.minecraftforge.common.util.EnumHelper;
+import net.wuerfel21.derpyshiz.items.AdminHammer;
 import net.wuerfel21.derpyshiz.items.ArmorStone;
 import net.wuerfel21.derpyshiz.items.ArmorWater;
 import net.wuerfel21.derpyshiz.items.BaseCap;
@@ -67,6 +68,8 @@ public abstract class DerpyItems {
 	public static ToolMaterial WIND;
 	
 	public static ToolMaterial LONG;
+	
+	public static ToolMaterial ADMIN;
 
 	public static ArmorMaterial ARMOR_TITANIUM;
 	public static ArmorMaterial ARMOR_RUBY;
@@ -117,6 +120,8 @@ public abstract class DerpyItems {
 		WIND = EnumHelper.addToolMaterial("WIND", 0, 650, 1f, 2f, 10);
 		
 		LONG = EnumHelper.addToolMaterial("LONG", 2, 850, 6f, 2.50f, 11);
+		
+		ADMIN = EnumHelper.addToolMaterial("ADMIN", 42, 1, (float) Math.PI, 9000f, 9001);
 		
 		ARMOR_TITANIUM = EnumHelper.addArmorMaterial("ARMOR_TITANIUM", 25, new int[] { 2, 7, 5, 3 }, 8);
 		ARMOR_RUBY = EnumHelper.addArmorMaterial("ARMOR_RUBY", 30, new int[] { 3, 7, 6, 3 }, 8);
@@ -178,6 +183,8 @@ public abstract class DerpyItems {
 
 		GameRegistry.registerItem(new DarkSword(DARKNESS, oreItems, 12).setUnlocalizedName("derpyshiz.sword_darkness").setTextureName("derpyshiz:sword_darkness"), "sword_darkness");
 
+		GameRegistry.registerItem(new AdminHammer(ADMIN).setUnlocalizedName("derpyshiz.hammer_admin").setTextureName("derpyshiz:hammer"), "hammer_admin");
+		
 		GameRegistry.registerItem(new DerpyAxe(TURQUOISE, oreItems, 4).setUnlocalizedName("derpyshiz.axe_turquoise").setTextureName("derpyshiz:axe_turquoise"), "axe_turquoise");
 
 		GameRegistry.registerItem(new DerpyHoe(FAKEDIAMOND, oreItems, 1).setUnlocalizedName("derpyshiz.hoe_fakediamond").setTextureName("derpyshiz:hoe_fakediamond"), "hoe_fakediamond");

@@ -1,5 +1,7 @@
 package net.wuerfel21.derpyshiz.client;
 
+import org.lwjgl.opengl.GL11;
+
 import net.minecraft.client.renderer.Tessellator;
 import net.minecraft.client.renderer.texture.TextureMap;
 import net.minecraft.client.renderer.tileentity.TileEntitySpecialRenderer;
@@ -8,30 +10,30 @@ import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.IIcon;
 import net.wuerfel21.derpyshiz.DerpyBlocks;
 import net.wuerfel21.derpyshiz.Main;
-import net.wuerfel21.derpyshiz.blocks.BlockCombinationGearbox;
+import net.wuerfel21.derpyshiz.blocks.BlockAbstractGearbox;
 import net.wuerfel21.derpyshiz.blocks.RotaryHousing;
-import net.wuerfel21.derpyshiz.entity.tile.TileEntityGearboxCombination;
+import net.wuerfel21.derpyshiz.entity.tile.AbstractGearbox;
+import net.wuerfel21.derpyshiz.entity.tile.TileEntityDetectorBox;
+import net.wuerfel21.derpyshiz.entity.tile.TileEntityGearbox;
 
-import org.lwjgl.opengl.GL11;
+public class RenderDetectorBox extends TileEntitySpecialRenderer {
 
-public class RenderGearboxCombination extends TileEntitySpecialRenderer {
-	
-	public RenderGearboxCombination() {
+	public RenderDetectorBox() {
 		super();
 	}
-	
+
 	@Override
 	public void renderTileEntityAt(TileEntity tiletemp, double x, double y, double z, float f) {
-		TileEntityGearboxCombination tile = (TileEntityGearboxCombination) tiletemp;
+		AbstractGearbox tile = (AbstractGearbox) tiletemp;
 		this.bindTexture(TextureMap.locationBlocksTexture);
-		BlockCombinationGearbox block = null;
+		BlockAbstractGearbox block = null;
 		if (!tile.inInventory) {
-			block = (BlockCombinationGearbox) tile.getBlockType();
+			block = (BlockAbstractGearbox) tile.getBlockType();
 		}
 		
 		int meta = tile.getTier();
 		
-		IIcon[][] textures = new IIcon[][] {{Blocks.planks.getIcon(0, 1),Blocks.planks.getIcon(0, 3),Blocks.planks.getIcon(0, 4)},{Blocks.gold_block.getIcon(0, 0),DerpyBlocks.oreBlocks.getIcon(0, 15),DerpyBlocks.oreBlocks.getIcon(0, 2)}};
+		IIcon[][] textures = new IIcon[][] {{Blocks.planks.getIcon(0, 1),DerpyBlocks.plank.getIcon(0, 1),DerpyBlocks.plank.getIcon(0, 0)},{Blocks.lapis_block.getIcon(0, 0),Blocks.coal_block.getIcon(0, 0),Blocks.gold_block.getIcon(0, 0)}};
 
 		Tessellator tessellator = Tessellator.instance;
 		GL11.glPushMatrix();

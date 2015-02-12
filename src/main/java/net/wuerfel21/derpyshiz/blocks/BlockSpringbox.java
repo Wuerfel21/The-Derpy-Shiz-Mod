@@ -2,16 +2,11 @@ package net.wuerfel21.derpyshiz.blocks;
 
 import java.util.List;
 
-import cpw.mods.fml.common.registry.GameRegistry;
-import cpw.mods.fml.relauncher.Side;
-import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.block.Block;
 import net.minecraft.block.ITileEntityProvider;
-import net.minecraft.block.material.Material;
 import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.EntityLivingBase;
-import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Blocks;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
@@ -22,17 +17,19 @@ import net.minecraft.world.World;
 import net.wuerfel21.derpyshiz.IMetaItemBlock;
 import net.wuerfel21.derpyshiz.ISmashable;
 import net.wuerfel21.derpyshiz.Main;
-import net.wuerfel21.derpyshiz.entity.tile.TileEntityCrank;
-import net.wuerfel21.derpyshiz.entity.tile.TileEntityGearbox;
+import net.wuerfel21.derpyshiz.entity.tile.TileEntitySpringbox;
+import cpw.mods.fml.common.registry.GameRegistry;
 
-public class BlockGearbox extends BlockAbstractGearbox {
+public class BlockSpringbox extends BlockAbstractGearbox {
 
-	public BlockGearbox() {
-		super("gearbox",TileEntityGearbox.class);
+	public IIcon[] icons = new IIcon[2];
+
+	public BlockSpringbox() {
+		super("springbox",TileEntitySpringbox.class);
 		if (Main.fancyGearbox) {
-			this.setBlockTextureName("minecraft:planks_big_oak");
+			this.setBlockTextureName("minecraft:planks_jungle");
 		} else {
-			this.setBlockTextureName("derpyshiz:gearbox_ugly");
+			this.setBlockTextureName("derpyshiz:springbox_ugly");
 		}
 	}
 	
@@ -42,12 +39,23 @@ public class BlockGearbox extends BlockAbstractGearbox {
 			switch (meta) {
 			default:
 			case 0:
-				return Blocks.planks.getIcon(0, 5);
+				return Blocks.planks.getIcon(0, 3);
 			case 1:
-				return GameRegistry.findBlock("derpyshiz", "block").getIcon(0, 2);
+				return GameRegistry.findBlock("derpyshiz", "block").getIcon(0, 11);
 			}
 		}
 		return this.icons[meta];
+	}
+	
+	@Override
+	public int getComparatorInputOverride(World world, int x, int y, int z, int p_149736_5_) {
+		TileEntitySpringbox t = (TileEntitySpringbox) world.getTileEntity(x, y, z);
+		return t.compOut;
+	}
+	
+	@Override
+	public boolean hasComparatorInputOverride() {
+		return true;
 	}
 
 }

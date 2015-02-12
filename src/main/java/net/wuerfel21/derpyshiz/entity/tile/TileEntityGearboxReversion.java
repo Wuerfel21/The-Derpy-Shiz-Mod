@@ -30,6 +30,10 @@ public class TileEntityGearboxReversion extends AbstractGearbox {
 				}
 				int r = this.input[RotaryManager.getMaxInput(this)];
 				int l = this.length[RotaryManager.getMaxInput(this)];
+				if (Math.abs(r) > breakSpeed[this.getTier()]) {
+					this.worldObj.func_147480_a(xCoord, yCoord, zCoord, true);
+					return;
+				}
 				if (this.worldObj.isBlockIndirectlyGettingPowered(xCoord, yCoord, zCoord)) {
 					//Its powered, do nothing
 					this.setRotaryOutput(this.dir, RotaryManager.calcLoss(r, l, this.getTier()==0?4:6));

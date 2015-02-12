@@ -42,7 +42,10 @@ public class TileEntityGearboxCombination extends AbstractGearbox {
 						out += RotaryManager.calcLoss(input[i], length[i], this.getTier()==0?3:5);
 					}
 				}
-				
+				if (Math.abs(out) > breakSpeed[this.getTier()]) {
+					this.worldObj.func_147480_a(xCoord, yCoord, zCoord, true);
+					return;
+				}
 				this.setRotaryOutput(this.dir, out);
 				RotaryManager.updateRotaryOutput(this, chain, this, dir);
 				if (this.worldObj.getTotalWorldTime() %200 == this.sync_offset) {

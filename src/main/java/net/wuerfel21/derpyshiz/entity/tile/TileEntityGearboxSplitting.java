@@ -7,6 +7,7 @@ import net.minecraft.network.NetworkManager;
 import net.minecraft.network.Packet;
 import net.minecraft.network.play.server.S35PacketUpdateTileEntity;
 import net.minecraft.util.AxisAlignedBB;
+import net.wuerfel21.derpyshiz.Main;
 import net.wuerfel21.derpyshiz.rotary.AxisChain;
 import net.wuerfel21.derpyshiz.rotary.RotaryManager;
 
@@ -46,6 +47,10 @@ public class TileEntityGearboxSplitting extends AbstractGearbox {
 				}
 				int r = this.input[RotaryManager.getMaxInput(this)];
 				int l = this.length[RotaryManager.getMaxInput(this)];
+				if (Math.abs(r) > breakSpeed[this.getTier()]) {
+					this.worldObj.func_147480_a(xCoord, yCoord, zCoord, true);
+					return;
+				}
 				int o = (int) Math.floor(RotaryManager.calcLoss(r, l, this.getTier() == 0 ? 4 : 6)/2);
 				this.setRotaryOutput(this.dir, o);
 				this.setRotaryOutput(this.dir2, o);
@@ -151,31 +156,43 @@ public class TileEntityGearboxSplitting extends AbstractGearbox {
 		default:
 		case 0:
 			b1=AxisAlignedBB.getBoundingBox(xCoord, yCoord-chain.length, zCoord, xCoord+1, yCoord+1, zCoord+1);
+			break;
 		case 1:
 			b1=AxisAlignedBB.getBoundingBox(xCoord, yCoord, zCoord, xCoord+1, yCoord+1+chain.length, zCoord+1);
+			break;
 		case 2:
 			b1=AxisAlignedBB.getBoundingBox(xCoord, yCoord, zCoord-chain.length, xCoord+1, yCoord+1, zCoord+1);
+			break;
 		case 3:
 			b1=AxisAlignedBB.getBoundingBox(xCoord, yCoord, zCoord, xCoord+1, yCoord+1, zCoord+1+chain.length);
+			break;
 		case 4:
 			b1=AxisAlignedBB.getBoundingBox(xCoord-chain.length, yCoord, zCoord, xCoord+1, yCoord+1, zCoord+1);
+			break;
 		case 5:
 			b1=AxisAlignedBB.getBoundingBox(xCoord, yCoord, zCoord, xCoord+1+chain.length, yCoord+1, zCoord+1);
+			break;
 		}
 		switch (chain2.dir) {
 		default:
 		case 0:
 			b2=AxisAlignedBB.getBoundingBox(xCoord, yCoord-chain2.length, zCoord, xCoord+1, yCoord+1, zCoord+1);
+			break;
 		case 1:
 			b2=AxisAlignedBB.getBoundingBox(xCoord, yCoord, zCoord, xCoord+1, yCoord+1+chain2.length, zCoord+1);
+			break;
 		case 2:
 			b2=AxisAlignedBB.getBoundingBox(xCoord, yCoord, zCoord-chain2.length, xCoord+1, yCoord+1, zCoord+1);
+			break;
 		case 3:
 			b2=AxisAlignedBB.getBoundingBox(xCoord, yCoord, zCoord, xCoord+1, yCoord+1, zCoord+1+chain2.length);
+			break;
 		case 4:
 			b2=AxisAlignedBB.getBoundingBox(xCoord-chain2.length, yCoord, zCoord, xCoord+1, yCoord+1, zCoord+1);
+			break;
 		case 5:
 			b2=AxisAlignedBB.getBoundingBox(xCoord, yCoord, zCoord, xCoord+1+chain2.length, yCoord+1, zCoord+1);
+			break;
 		}
 		return b1.func_111270_a(b2);
 	}

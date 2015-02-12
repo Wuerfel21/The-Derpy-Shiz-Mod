@@ -1,10 +1,5 @@
 package net.wuerfel21.derpyshiz.client;
 
-import static net.wuerfel21.derpyshiz.client.DerpyRenderHelper.wp;
-
-import org.lwjgl.opengl.GL11;
-
-import cpw.mods.fml.common.registry.GameRegistry;
 import net.minecraft.client.renderer.Tessellator;
 import net.minecraft.client.renderer.texture.TextureMap;
 import net.minecraft.client.renderer.tileentity.TileEntitySpecialRenderer;
@@ -17,9 +12,9 @@ import net.wuerfel21.derpyshiz.blocks.BlockSplittingGearbox;
 import net.wuerfel21.derpyshiz.blocks.RotaryHousing;
 import net.wuerfel21.derpyshiz.entity.tile.TileEntityGearboxSplitting;
 
-public class RenderGearboxSplitting extends TileEntitySpecialRenderer {
+import org.lwjgl.opengl.GL11;
 
-	public static final double wp2 = wp * 2;
+public class RenderGearboxSplitting extends TileEntitySpecialRenderer {
 	
 	public RenderGearboxSplitting() {
 		super();

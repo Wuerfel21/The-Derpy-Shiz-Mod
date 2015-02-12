@@ -1,6 +1,5 @@
 package net.wuerfel21.derpyshiz.client;
 
-import static net.wuerfel21.derpyshiz.client.DerpyRenderHelper.wp;
 import net.minecraft.client.renderer.Tessellator;
 import net.minecraft.client.renderer.texture.TextureMap;
 import net.minecraft.client.renderer.tileentity.TileEntitySpecialRenderer;
@@ -15,11 +14,7 @@ import net.wuerfel21.derpyshiz.entity.tile.TileEntityGearboxReversion;
 
 import org.lwjgl.opengl.GL11;
 
-import cpw.mods.fml.common.registry.GameRegistry;
-
 public class RenderGearboxReversion extends TileEntitySpecialRenderer {
-
-		public static final double wp2 = wp * 2;
 		
 		public RenderGearboxReversion() {
 			super();

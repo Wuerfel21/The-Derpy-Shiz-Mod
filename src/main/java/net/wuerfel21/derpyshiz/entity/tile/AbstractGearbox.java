@@ -1,18 +1,22 @@
 package net.wuerfel21.derpyshiz.entity.tile;
 
-import cpw.mods.fml.relauncher.Side;
-import cpw.mods.fml.relauncher.SideOnly;
+import java.lang.ref.WeakReference;
+
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.network.NetworkManager;
 import net.minecraft.network.Packet;
 import net.minecraft.network.play.server.S35PacketUpdateTileEntity;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.AxisAlignedBB;
+import net.minecraftforge.common.util.FakePlayer;
+import net.minecraftforge.common.util.FakePlayerFactory;
 import net.wuerfel21.derpyshiz.rotary.AxisChain;
 import net.wuerfel21.derpyshiz.rotary.IRotaryInput;
 import net.wuerfel21.derpyshiz.rotary.IRotaryOutput;
 import net.wuerfel21.derpyshiz.rotary.ITieredTE;
 import net.wuerfel21.derpyshiz.rotary.RotaryManager;
+import cpw.mods.fml.relauncher.Side;
+import cpw.mods.fml.relauncher.SideOnly;
 
 public abstract class AbstractGearbox extends TileEntity implements IRotaryInput, IRotaryOutput, ITieredTE {
 
@@ -158,6 +162,7 @@ public abstract class AbstractGearbox extends TileEntity implements IRotaryInput
 	}
 
 	public static final int[] maxChainLength = { 16, 32 };
+	public static final int[] breakSpeed = { 100, 1000 };
 
 	@Override
 	public int getTier() {

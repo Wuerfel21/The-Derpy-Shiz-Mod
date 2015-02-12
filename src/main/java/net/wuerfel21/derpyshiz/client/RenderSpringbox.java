@@ -1,5 +1,9 @@
 package net.wuerfel21.derpyshiz.client;
 
+import static net.wuerfel21.derpyshiz.client.DerpyRenderHelper.wp;
+
+import org.lwjgl.opengl.GL11;
+
 import net.minecraft.client.renderer.Tessellator;
 import net.minecraft.client.renderer.texture.TextureMap;
 import net.minecraft.client.renderer.tileentity.TileEntitySpecialRenderer;
@@ -8,30 +12,30 @@ import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.IIcon;
 import net.wuerfel21.derpyshiz.DerpyBlocks;
 import net.wuerfel21.derpyshiz.Main;
-import net.wuerfel21.derpyshiz.blocks.BlockCombinationGearbox;
+import net.wuerfel21.derpyshiz.blocks.BlockAbstractGearbox;
+import net.wuerfel21.derpyshiz.blocks.BlockSpringbox;
 import net.wuerfel21.derpyshiz.blocks.RotaryHousing;
-import net.wuerfel21.derpyshiz.entity.tile.TileEntityGearboxCombination;
+import net.wuerfel21.derpyshiz.entity.tile.TileEntityGearbox;
+import net.wuerfel21.derpyshiz.entity.tile.TileEntitySpringbox;
 
-import org.lwjgl.opengl.GL11;
-
-public class RenderGearboxCombination extends TileEntitySpecialRenderer {
+public class RenderSpringbox extends TileEntitySpecialRenderer {
 	
-	public RenderGearboxCombination() {
+	public RenderSpringbox() {
 		super();
 	}
 	
 	@Override
 	public void renderTileEntityAt(TileEntity tiletemp, double x, double y, double z, float f) {
-		TileEntityGearboxCombination tile = (TileEntityGearboxCombination) tiletemp;
+		TileEntitySpringbox tile = (TileEntitySpringbox) tiletemp;
 		this.bindTexture(TextureMap.locationBlocksTexture);
-		BlockCombinationGearbox block = null;
+		BlockSpringbox block = null;
 		if (!tile.inInventory) {
-			block = (BlockCombinationGearbox) tile.getBlockType();
+			block = (BlockSpringbox) tile.getBlockType();
 		}
 		
 		int meta = tile.getTier();
 		
-		IIcon[][] textures = new IIcon[][] {{Blocks.planks.getIcon(0, 1),Blocks.planks.getIcon(0, 3),Blocks.planks.getIcon(0, 4)},{Blocks.gold_block.getIcon(0, 0),DerpyBlocks.oreBlocks.getIcon(0, 15),DerpyBlocks.oreBlocks.getIcon(0, 2)}};
+		IIcon[][] textures = new IIcon[][] {{Blocks.planks.getIcon(0, 3),Blocks.planks.getIcon(0, 5),Blocks.brick_block.getIcon(0, 0)},{DerpyBlocks.oreBlocks.getIcon(0, 11),Blocks.gold_block.getIcon(0, 0),Blocks.end_stone.getIcon(0, 0)}};
 
 		Tessellator tessellator = Tessellator.instance;
 		GL11.glPushMatrix();
@@ -41,7 +45,7 @@ public class RenderGearboxCombination extends TileEntitySpecialRenderer {
 		if (Main.fancyGearbox) {
 			RenderRotaryComponent.render(tessellator, textures[meta]);
 		} else {
-			// do nothing, ugly gearboxes are rendered by BlockGearbox
+			// do nothing, ugly springboxes are rendered by BlockGearbox
 		}
 		if (!tile.inInventory) {
 			if (Main.fancyGearbox) {

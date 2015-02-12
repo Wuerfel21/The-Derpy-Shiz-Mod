@@ -6,11 +6,13 @@ import net.minecraft.init.Blocks;
 import net.wuerfel21.derpyshiz.blocks.BlockAxis;
 import net.wuerfel21.derpyshiz.blocks.BlockCombinationGearbox;
 import net.wuerfel21.derpyshiz.blocks.BlockCrank;
+import net.wuerfel21.derpyshiz.blocks.BlockDetectorBox;
 import net.wuerfel21.derpyshiz.blocks.BlockGearbox;
 import net.wuerfel21.derpyshiz.blocks.BlockLasagne;
 import net.wuerfel21.derpyshiz.blocks.BlockMillstone;
 import net.wuerfel21.derpyshiz.blocks.BlockReversionGearbox;
 import net.wuerfel21.derpyshiz.blocks.BlockSplittingGearbox;
+import net.wuerfel21.derpyshiz.blocks.BlockSpringbox;
 import net.wuerfel21.derpyshiz.blocks.CoarseStone;
 import net.wuerfel21.derpyshiz.blocks.DecoBlocks;
 import net.wuerfel21.derpyshiz.blocks.DerpyLeaves;
@@ -50,6 +52,8 @@ public class DerpyBlocks {
 	public static Block gearboxCombination;
 	public static Block gearboxReversion;
 	public static Block gearboxSplitting;
+	public static Block springbox;
+	public static Block detectorBox;
 	public static Block seizureWool;
 	public static Block millstone;
 	public static Block crank;
@@ -94,6 +98,8 @@ public class DerpyBlocks {
 		GameRegistry.registerBlock(gearboxCombination = new BlockCombinationGearbox(), SimpleMetaItemBlock.class, "gearbox_combination");
 		GameRegistry.registerBlock(gearboxReversion = new BlockReversionGearbox(), SimpleMetaItemBlock.class, "gearbox_reversion");
 		GameRegistry.registerBlock(gearboxSplitting = new BlockSplittingGearbox(), SimpleMetaItemBlock.class, "gearbox_splitting");
+		GameRegistry.registerBlock(springbox = new BlockSpringbox(), SimpleMetaItemBlock.class, "springbox");
+		GameRegistry.registerBlock(detectorBox = new BlockDetectorBox(), SimpleMetaItemBlock.class, "detectorbox");
 		GameRegistry.registerBlock(crank = new BlockCrank(), SimpleMetaItemBlock.class, "crank");
 		GameRegistry.registerBlock(millstone = new BlockMillstone(), SimpleMetaItemBlock.class, "millstone");
 
