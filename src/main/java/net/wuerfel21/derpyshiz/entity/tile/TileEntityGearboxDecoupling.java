@@ -2,12 +2,12 @@ package net.wuerfel21.derpyshiz.entity.tile;
 
 import net.wuerfel21.derpyshiz.rotary.RotaryManager;
 
-public class TileEntityGearboxReversion extends AbstractGearbox {
+public class TileEntityGearboxDecoupling extends AbstractGearbox {
 
-	public TileEntityGearboxReversion() {
+	public TileEntityGearboxDecoupling() {
 		super();
 	}
-	
+
 	@Override
 	public void updateEntity() {
 		if (this.getWorldObj() != null) {
@@ -23,26 +23,24 @@ public class TileEntityGearboxReversion extends AbstractGearbox {
 				if (this.dir != this.chain.dir) {
 					this.rotate(this.dir);
 				}
-				for (int i = 0; i < 6; i++) {
-					if (this.isInputFace(i)) {
-						RotaryManager.updateRotaryInput(this, this, i);
-					}
-				}
-				int r = this.input[RotaryManager.getMaxInput(this)];
-				int l = this.length[RotaryManager.getMaxInput(this)];
-				if (Math.abs(r) > breakSpeed[this.getTier()]) {
-					this.worldObj.func_147480_a(xCoord, yCoord, zCoord, true);
-					return;
-				}
-				if (this.worldObj.isBlockIndirectlyGettingPowered(xCoord, yCoord, zCoord)) {
-					//Its powered, do nothing
-					this.setRotaryOutput(this.dir, RotaryManager.calcLoss(r, l, this.getTier()==0?4:6));
+				if (this.worldObj.getBlockPowerInput(xCoord, yCoord, zCoord) != 0) {
+					this.setRotaryOutput(dir, 0);
 				} else {
-					//Reverse input
-					this.setRotaryOutput(this.dir, -RotaryManager.calcLoss(r, l, this.getTier()==0?4:6));
+					for (int i = 0; i < 6; i++) {
+						if (this.isInputFace(i)) {
+							RotaryManager.updateRotaryInput(this, this, i);
+						}
+					}
+					int r = this.input[RotaryManager.getMaxInput(this)];
+					int l = this.length[RotaryManager.getMaxInput(this)];
+					if (Math.abs(r) > breakSpeed[this.getTier()]) {
+						this.worldObj.func_147480_a(xCoord, yCoord, zCoord, true);
+						return;
+					}
+					this.setRotaryOutput(this.dir, RotaryManager.calcLoss(r, l, this.getTier() == 0 ? 4 : 6));
 				}
 				RotaryManager.updateRotaryOutput(this, chain, this, dir);
-				if (this.worldObj.getTotalWorldTime() %200 == this.sync_offset) {
+				if (this.worldObj.getTotalWorldTime() % 200 == this.sync_offset) {
 					this.worldObj.markBlockForUpdate(xCoord, yCoord, zCoord);
 					this.chain.updateChainBlocksToClients(this.worldObj, xCoord, yCoord, zCoord);
 				}

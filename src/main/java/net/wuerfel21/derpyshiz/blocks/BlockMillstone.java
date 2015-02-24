@@ -7,11 +7,13 @@ import net.minecraft.block.BlockContainer;
 import net.minecraft.block.material.Material;
 import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.creativetab.CreativeTabs;
+import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Blocks;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.tileentity.TileEntity;
+import net.minecraft.tileentity.TileEntityChest;
 import net.minecraft.util.IIcon;
 import net.minecraft.world.Explosion;
 import net.minecraft.world.IBlockAccess;
@@ -49,10 +51,17 @@ public class BlockMillstone extends BlockContainer implements IMetaItemBlock {
 
 	@Override
 	public TileEntity createNewTileEntity(World p_149915_1_, int p_149915_2_) {
-		// TODO Auto-generated method stub
 		return new TileEntityMillstone();
 	}
 
+	@Override
+	public void onBlockPlacedBy(World world, int x, int y, int z, EntityLivingBase p_149689_5_, ItemStack stack) {
+		if (stack.hasDisplayName())
+        {
+            ((TileEntityMillstone)world.getTileEntity(x, y, z)).name = stack.getDisplayName();
+        }
+	}
+	
 	@Override
 	public boolean onBlockActivated(World world, int x, int y, int z, EntityPlayer player, int side, float offsetX, float offsetY, float offsetZ) {
 		PlayerInteractEvent e = new PlayerInteractEvent(player, Action.RIGHT_CLICK_BLOCK, x, y, z, side, world);
@@ -73,6 +82,7 @@ public class BlockMillstone extends BlockContainer implements IMetaItemBlock {
 	}
 
 	public void dropBlockAsItem(World world, int x, int y, int z,ItemStack stack) {
+		//Because visibility :-/
 		super.dropBlockAsItem(world, x, y, z, stack);
 	}
 

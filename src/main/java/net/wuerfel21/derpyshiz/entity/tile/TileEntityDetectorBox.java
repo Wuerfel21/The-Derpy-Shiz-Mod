@@ -1,5 +1,9 @@
 package net.wuerfel21.derpyshiz.entity.tile;
 
+import net.minecraft.entity.EntityLivingBase;
+import net.minecraft.util.ChatComponentText;
+import net.minecraft.util.IChatComponent;
+import net.wuerfel21.derpyshiz.rotary.ISneakyRotameter;
 import net.wuerfel21.derpyshiz.rotary.RotaryManager;
 
 public class TileEntityDetectorBox extends AbstractGearbox {
@@ -17,14 +21,14 @@ public class TileEntityDetectorBox extends AbstractGearbox {
 	public void updateEntity() {
 		if (this.getWorldObj() != null) {
 			this.setTier(this.getWorldObj().getBlockMetadata(this.xCoord, this.yCoord, this.zCoord));
-			if (!ready) {
-				this.rotate(dir);
-				ready = true;
-				this.worldObj.markBlockForUpdate(xCoord, yCoord, zCoord);
-				this.sync_offset = this.worldObj.rand.nextInt(200);
-				this.markDirty();
-			}
 			if (!this.getWorldObj().isRemote) {
+				if (!ready) {
+					this.rotate(dir);
+					ready = true;
+					this.worldObj.markBlockForUpdate(xCoord, yCoord, zCoord);
+					this.sync_offset = this.worldObj.rand.nextInt(200);
+					this.markDirty();
+				}
 				if (this.dir != this.chain.dir) {
 					this.rotate(this.dir);
 				}
@@ -41,16 +45,11 @@ public class TileEntityDetectorBox extends AbstractGearbox {
 				}
 				this.setRotaryOutput(this.dir, RotaryManager.calcLoss(r, l, this.getTier()==0?4:6));
 				RotaryManager.updateRotaryOutput(this, chain, this, dir);
+				reversePrev = reverse;
 				reverse = r<0;
 				if (reverse != reversePrev) {
 					//wow, redstone is damn hacky
 					this.worldObj.notifyBlocksOfNeighborChange(xCoord, yCoord, zCoord, getBlockType());
-					this.worldObj.notifyBlocksOfNeighborChange(xCoord+1, yCoord, zCoord, getBlockType());
-					this.worldObj.notifyBlocksOfNeighborChange(xCoord-1, yCoord, zCoord, getBlockType());
-					this.worldObj.notifyBlocksOfNeighborChange(xCoord, yCoord+1, zCoord, getBlockType());
-					this.worldObj.notifyBlocksOfNeighborChange(xCoord, yCoord-1, zCoord, getBlockType());
-					this.worldObj.notifyBlocksOfNeighborChange(xCoord, yCoord, zCoord+1, getBlockType());
-					this.worldObj.notifyBlocksOfNeighborChange(xCoord, yCoord, zCoord-1, getBlockType());
 				}
 				compOutPrev = compOut;
 				compOut = (int) Math.ceil((double)(Math.abs(r)*15)/(double)breakSpeed[this.getTier()]);

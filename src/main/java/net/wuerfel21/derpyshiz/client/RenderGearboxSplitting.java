@@ -24,14 +24,10 @@ public class RenderGearboxSplitting extends TileEntitySpecialRenderer {
 	public void renderTileEntityAt(TileEntity tiletemp, double x, double y, double z, float f) {
 		TileEntityGearboxSplitting tile = (TileEntityGearboxSplitting) tiletemp;
 		this.bindTexture(TextureMap.locationBlocksTexture);
-		BlockSplittingGearbox block = null;
-		if (!tile.inInventory) {
-			block = (BlockSplittingGearbox) tile.getBlockType();
-		}
 		
 		int meta = tile.getTier();
 		
-		IIcon[][] textures = new IIcon[][] {{Blocks.planks.getIcon(0, 4),DerpyBlocks.plank.getIcon(0, 0),Blocks.planks.getIcon(0, 5)},{DerpyBlocks.oreBlocks.getIcon(0, 9),DerpyBlocks.oreBlocks.getIcon(0, 2),Blocks.emerald_block.getIcon(0, 0)}};
+		IIcon[] textures = getIcons(meta);
 
 		Tessellator tessellator = Tessellator.instance;
 		GL11.glPushMatrix();
@@ -39,14 +35,14 @@ public class RenderGearboxSplitting extends TileEntitySpecialRenderer {
 
 		tessellator.startDrawingQuads();
 		if (Main.fancyGearbox) {
-			RenderRotaryComponent.render(tessellator, textures[meta]);
+			RenderRotaryComponent.render(tessellator, textures);
 		} else {
 			// do nothing, ugly splitting gearboxes are rendered by BlockGearbox
 		}
 		if (!tile.inInventory) {
 			if (Main.fancyGearbox) {
-				RotaryRender.fancyConnection(tessellator, textures[meta][2], RotaryHousing.overlays[0], tile.dir);
-				RotaryRender.fancyConnection(tessellator, textures[meta][2], RotaryHousing.overlays[0], tile.dir2);
+				RotaryRender.fancyConnection(tessellator, textures[2], RotaryHousing.overlays[0], tile.dir);
+				RotaryRender.fancyConnection(tessellator, textures[2], RotaryHousing.overlays[0], tile.dir2);
 			} else {
 				RotaryRender.uglyConnection(tessellator, RotaryHousing.overlays[0], tile.dir);
 				RotaryRender.uglyConnection(tessellator, RotaryHousing.overlays[0], tile.dir2);
@@ -61,4 +57,14 @@ public class RenderGearboxSplitting extends TileEntitySpecialRenderer {
 		GL11.glPopMatrix();
 	}
 
+	protected IIcon[] getIcons(int tier) {
+		switch(tier) {
+		default:
+		case 0:
+			return new IIcon[] {Blocks.planks.getIcon(0, 4),DerpyBlocks.plank.getIcon(0, 0),Blocks.planks.getIcon(0, 5)};
+		case 1:
+			return new IIcon[] {DerpyBlocks.oreBlocks.getIcon(0, 9),DerpyBlocks.oreBlocks.getIcon(0, 2),Blocks.emerald_block.getIcon(0, 0)};
+		}
+	}
+	
 }

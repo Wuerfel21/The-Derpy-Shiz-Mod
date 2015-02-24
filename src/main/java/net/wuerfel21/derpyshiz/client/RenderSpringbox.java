@@ -35,7 +35,7 @@ public class RenderSpringbox extends TileEntitySpecialRenderer {
 		
 		int meta = tile.getTier();
 		
-		IIcon[][] textures = new IIcon[][] {{Blocks.planks.getIcon(0, 3),Blocks.planks.getIcon(0, 5),Blocks.brick_block.getIcon(0, 0)},{DerpyBlocks.oreBlocks.getIcon(0, 11),Blocks.gold_block.getIcon(0, 0),Blocks.end_stone.getIcon(0, 0)}};
+		IIcon[] textures = getIcons(meta);
 
 		Tessellator tessellator = Tessellator.instance;
 		GL11.glPushMatrix();
@@ -43,13 +43,13 @@ public class RenderSpringbox extends TileEntitySpecialRenderer {
 
 		tessellator.startDrawingQuads();
 		if (Main.fancyGearbox) {
-			RenderRotaryComponent.render(tessellator, textures[meta]);
+			RenderRotaryComponent.render(tessellator, textures);
 		} else {
-			// do nothing, ugly springboxes are rendered by BlockGearbox
+			// do nothing, ugly springboxes are rendered by BlockSpringbox
 		}
 		if (!tile.inInventory) {
 			if (Main.fancyGearbox) {
-				RotaryRender.fancyConnection(tessellator, textures[meta][2], RotaryHousing.overlays[0], tile.dir);
+				RotaryRender.fancyConnection(tessellator, textures[2], RotaryHousing.overlays[0], tile.dir);
 			} else {
 				RotaryRender.uglyConnection(tessellator, RotaryHousing.overlays[0], tile.dir);
 			}
@@ -62,4 +62,14 @@ public class RenderSpringbox extends TileEntitySpecialRenderer {
 		GL11.glPopMatrix();
 	}
 
+	protected IIcon[] getIcons(int tier) {
+		switch(tier) {
+		default:
+		case 0:
+			return new IIcon[] {Blocks.planks.getIcon(0, 3),Blocks.planks.getIcon(0, 5),Blocks.brick_block.getIcon(0, 0)};
+		case 1:
+			return new IIcon[] {DerpyBlocks.oreBlocks.getIcon(0, 11),Blocks.gold_block.getIcon(0, 0),Blocks.end_stone.getIcon(0, 0)};
+		}
+	}
+	
 }

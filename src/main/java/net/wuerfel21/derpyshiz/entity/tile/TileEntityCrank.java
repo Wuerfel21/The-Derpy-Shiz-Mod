@@ -39,19 +39,27 @@ public class TileEntityCrank extends TileEntity implements IRotaryOutput, ITiere
 		if (this.getWorldObj() != null) {
 			this.setTier(this.getWorldObj().getBlockMetadata(this.xCoord, this.yCoord, this.zCoord));
 			if (!this.getWorldObj().isRemote) {
+				if (!ready) {
+					this.rotate(dir);
+					ready = true;
+					this.worldObj.markBlockForUpdate(xCoord, yCoord, zCoord);
+					this.sync_offset = this.worldObj.rand.nextInt(200);
+					this.markDirty();
+				}
 				if (this.dir != this.chain.dir) {
 					this.rotate(this.dir);
 				}
 				if (cooldown > 0) {
 					cooldown--;
 					this.setRotaryOutput(dir, speeds[this.getTier()]);
+					this.markDirty();
 				} else {
 					this.setRotaryOutput(dir, 0);
 				}
 				RotaryManager.updateRotaryOutput(this, chain, this, dir);
 				if (this.worldObj.getTotalWorldTime() %200 == this.sync_offset) {
 					this.worldObj.markBlockForUpdate(xCoord, yCoord, zCoord);
-					this.chain.updateChainBlocksToClients(this.worldObj, xCoord, yCoord, zCoord);
+					this.chain.updateChainBlocksToClients(worldObj, xCoord, yCoord, zCoord);
 				}
 			}
 			chain.updateVisualPosition();

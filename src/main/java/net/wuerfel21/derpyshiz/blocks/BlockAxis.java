@@ -1,9 +1,12 @@
 package net.wuerfel21.derpyshiz.blocks;
 
+import java.util.List;
+
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.creativetab.CreativeTabs;
+import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.init.Blocks;
 import net.minecraft.item.ItemStack;
@@ -69,14 +72,6 @@ public class BlockAxis extends Block implements ISmashable {
 	@Override
 	public void registerBlockIcons(IIconRegister reg) {
 		blank = reg.registerIcon("derpyshiz:null");
-	}
-	
-	@Override
-	public AxisAlignedBB getCollisionBoundingBoxFromPool(World world,int x,int y,int z) {
-		double dx = (double)x;
-		double dy = (double)y;
-		double dz = (double)z;
-		return AxisAlignedBB.getBoundingBox((double)x + this.minX, (double)y + this.minY, (double)z + this.minZ, (double)x + this.maxX, (double)y + this.maxY, (double)z + this.maxZ);
 	}
 	
 	@Override

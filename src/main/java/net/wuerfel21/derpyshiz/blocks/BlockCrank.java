@@ -83,7 +83,7 @@ public class BlockCrank extends Block implements ITileEntityProvider, ISmashable
 	public boolean isSideSolid(IBlockAccess world, int x, int y, int z, ForgeDirection side) {
 		return false;
 	}
-	
+
 	@Override
 	public void breakBlock(World world, int x, int y, int z, Block block, int p_149749_6_) {
 		TileEntity t = world.getTileEntity(x, y, z);
@@ -95,18 +95,17 @@ public class BlockCrank extends Block implements ITileEntityProvider, ISmashable
 
 	@Override
 	public boolean onBlockActivated(World world, int x, int y, int z, EntityPlayer player, int p_149727_6_, float p_149727_7_, float p_149727_8_, float p_149727_9_) {
-		if (world.isRemote)
-			return true;
-		TileEntity datTemp = world.getTileEntity(x, y, z);
-		if (datTemp instanceof TileEntityCrank) {
-			TileEntityCrank te = (TileEntityCrank) datTemp;
-			if (te.cooldown <= 0) {
-				te.cooldown = te.cooldowns[te.getTier()];
-				player.getFoodStats().addExhaustion(te.getTier()==0?0.5f:0.8f);
-				return true;
+		if (!world.isRemote) {
+			TileEntity datTemp = world.getTileEntity(x, y, z);
+			if (datTemp instanceof TileEntityCrank) {
+				TileEntityCrank te = (TileEntityCrank) datTemp;
+				if (te.cooldown <= 0) {
+					te.cooldown = te.cooldowns[te.getTier()];
+					player.getFoodStats().addExhaustion(te.getTier() == 0 ? 0.5f : 0.8f);
+				}
 			}
 		}
-		return false;
+		return true;
 	}
 
 	@Override

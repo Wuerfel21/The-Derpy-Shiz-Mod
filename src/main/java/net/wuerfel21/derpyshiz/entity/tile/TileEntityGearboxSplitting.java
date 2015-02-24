@@ -25,15 +25,15 @@ public class TileEntityGearboxSplitting extends AbstractGearbox {
 	public void updateEntity() {
 		if (this.getWorldObj() != null) {
 			this.setTier(this.getWorldObj().getBlockMetadata(this.xCoord, this.yCoord, this.zCoord));
-			if (!ready) {
-				this.rotate(dir,false);
-				this.rotate(dir2,true);
-				ready = true;
-				this.worldObj.markBlockForUpdate(xCoord, yCoord, zCoord);
-				this.sync_offset = this.worldObj.rand.nextInt(200);
-				this.markDirty();
-			}
 			if (!this.getWorldObj().isRemote) {
+				if (!ready) {
+					this.rotate(dir,false);
+					this.rotate(dir2,true);
+					ready = true;
+					this.worldObj.markBlockForUpdate(xCoord, yCoord, zCoord);
+					this.sync_offset = this.worldObj.rand.nextInt(200);
+					this.markDirty();
+				}
 				if (this.dir != this.chain.dir) {
 					this.rotate(this.dir,false);
 				}

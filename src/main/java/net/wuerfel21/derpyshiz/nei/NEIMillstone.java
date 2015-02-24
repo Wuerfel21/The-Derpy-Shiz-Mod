@@ -105,7 +105,7 @@ public class NEIMillstone extends TemplateRecipeHandler {
 
 	@Override
 	public String getGuiTexture() {
-		return "derpyshiz:gui/millstone.png";
+		return "derpyshiz:textures/gui/millstone.png";
 	}
 
 }

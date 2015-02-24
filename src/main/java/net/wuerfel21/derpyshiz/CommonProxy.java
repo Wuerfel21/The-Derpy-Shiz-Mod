@@ -4,10 +4,12 @@ import net.minecraft.entity.EntityList;
 import net.minecraft.entity.EnumCreatureType;
 import net.minecraft.world.biome.BiomeGenBase;
 import net.wuerfel21.derpyshiz.entity.EntityPiggycorn;
+import net.wuerfel21.derpyshiz.entity.tile.TileEntityCompactEngine;
 import net.wuerfel21.derpyshiz.entity.tile.TileEntityCrank;
 import net.wuerfel21.derpyshiz.entity.tile.TileEntityDetectorBox;
 import net.wuerfel21.derpyshiz.entity.tile.TileEntityGearbox;
 import net.wuerfel21.derpyshiz.entity.tile.TileEntityGearboxCombination;
+import net.wuerfel21.derpyshiz.entity.tile.TileEntityGearboxDecoupling;
 import net.wuerfel21.derpyshiz.entity.tile.TileEntityGearboxReversion;
 import net.wuerfel21.derpyshiz.entity.tile.TileEntityGearboxSplitting;
 import net.wuerfel21.derpyshiz.entity.tile.TileEntityHousing;
@@ -57,9 +59,11 @@ public class CommonProxy {
 		GameRegistry.registerTileEntity(TileEntityGearboxCombination.class, "ds_gearbox_combination");
 		GameRegistry.registerTileEntity(TileEntityGearboxReversion.class, "ds_gearbox_reversion");
 		GameRegistry.registerTileEntity(TileEntityGearboxSplitting.class, "ds_gearbox_splitting");
+		GameRegistry.registerTileEntity(TileEntityGearboxDecoupling.class, "ds_gearbox_decoupling");
 		GameRegistry.registerTileEntity(TileEntitySpringbox.class, "ds_springbox");
 		GameRegistry.registerTileEntity(TileEntityDetectorBox.class, "ds_detectorBox");
 		GameRegistry.registerTileEntity(TileEntityCrank.class, "ds_crank");
+		GameRegistry.registerTileEntity(TileEntityCompactEngine.class, "ds_compact_engine");
 		GameRegistry.registerTileEntity(TileEntityMillstone.class, "ds_millstone");
 		
 		GameRegistry.registerTileEntity(TileEntitySeizureWool.class, "ds_seizure_wool");

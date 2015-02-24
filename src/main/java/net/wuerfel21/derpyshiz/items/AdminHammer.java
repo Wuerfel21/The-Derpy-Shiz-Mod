@@ -3,6 +3,7 @@ package net.wuerfel21.derpyshiz.items;
 import java.util.HashSet;
 import java.util.Set;
 
+import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.EntityPlayerMP;
@@ -16,6 +17,7 @@ public class AdminHammer extends ItemTool implements IModeItem {
 
 	public AdminHammer(ToolMaterial m) {
 		super(1f, m, new HashSet());
+		this.setCreativeTab(CreativeTabs.tabMisc);
 	}
 
 	@Override
@@ -43,6 +45,11 @@ public class AdminHammer extends ItemTool implements IModeItem {
 		}
 	}
 
+	@Override
+	public boolean hasEffect(ItemStack stack, int pass) {
+		return true;
+	}
+	
 	@Override
 	public int getNumModes() {
 		return 3;

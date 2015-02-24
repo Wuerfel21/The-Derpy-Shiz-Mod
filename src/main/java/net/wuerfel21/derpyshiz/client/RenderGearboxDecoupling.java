@@ -1,5 +1,7 @@
 package net.wuerfel21.derpyshiz.client;
 
+import org.lwjgl.opengl.GL11;
+
 import net.minecraft.client.renderer.Tessellator;
 import net.minecraft.client.renderer.texture.TextureMap;
 import net.minecraft.client.renderer.tileentity.TileEntitySpecialRenderer;
@@ -8,22 +10,20 @@ import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.IIcon;
 import net.wuerfel21.derpyshiz.DerpyBlocks;
 import net.wuerfel21.derpyshiz.Main;
-import net.wuerfel21.derpyshiz.blocks.BlockAbstractGearbox;
+import net.wuerfel21.derpyshiz.blocks.BlockCombinationGearbox;
 import net.wuerfel21.derpyshiz.blocks.RotaryHousing;
-import net.wuerfel21.derpyshiz.entity.tile.AbstractGearbox;
-import net.wuerfel21.derpyshiz.entity.tile.TileEntityGearbox;
+import net.wuerfel21.derpyshiz.entity.tile.TileEntityGearboxCombination;
+import net.wuerfel21.derpyshiz.entity.tile.TileEntityGearboxDecoupling;
 
-import org.lwjgl.opengl.GL11;
+public class RenderGearboxDecoupling extends TileEntitySpecialRenderer {
 
-public class RenderGearbox extends TileEntitySpecialRenderer {
-	
-	public RenderGearbox() {
+	public RenderGearboxDecoupling() {
 		super();
 	}
 	
 	@Override
 	public void renderTileEntityAt(TileEntity tiletemp, double x, double y, double z, float f) {
-		AbstractGearbox tile = (AbstractGearbox) tiletemp;
+		TileEntityGearboxDecoupling tile = (TileEntityGearboxDecoupling) tiletemp;
 		this.bindTexture(TextureMap.locationBlocksTexture);
 		
 		int meta = tile.getTier();
@@ -59,10 +59,10 @@ public class RenderGearbox extends TileEntitySpecialRenderer {
 		switch(tier) {
 		default:
 		case 0:
-			return new IIcon[] {Blocks.planks.getIcon(0, 5),Blocks.planks.getIcon(0, 2),Blocks.planks.getIcon(0, 0)};
+			return new IIcon[] {Blocks.coal_block.getIcon(0, 0),Blocks.stained_hardened_clay.getIcon(0, 5),Blocks.planks.getIcon(0, 3)};
 		case 1:
-			return new IIcon[] {DerpyBlocks.oreBlocks.getIcon(0, 2),Blocks.iron_block.getIcon(0, 0),Blocks.gold_block.getIcon(0, 0)};
+			return new IIcon[] {Blocks.obsidian.getIcon(0, 0),Blocks.emerald_block.getIcon(0, 0),Blocks.redstone_block.getIcon(0, 0)};
 		}
 	}
-	
+
 }

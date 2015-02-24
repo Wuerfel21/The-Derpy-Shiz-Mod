@@ -129,7 +129,7 @@ public abstract class DerpyItems {
 		ARMOR_COPPER = EnumHelper.addArmorMaterial("ARMOR_COPPER", 10, new int[] { 2, 4, 4, 2 }, 6);
 
 		ARMOR_STONE = EnumHelper.addArmorMaterial("ARMOR_STONE", 7, new int[] { 3, 5, 4, 1 }, 0);
-		ARMOR_WATER = EnumHelper.addArmorMaterial("ARMOR_WATER", 14, new int[] { 2, 6, 5, 3 }, 1);
+		ARMOR_WATER = EnumHelper.addArmorMaterial("ARMOR_WATER", 14, new int[] { 3, 6, 6, 3 }, 1);
 
 		ARMOR_CIRCLET_DIAMOND = EnumHelper.addArmorMaterial("ARMOR_CIRCLET_DIAMOND", 20, new int[] { 2, 0, 0, 0 }, 8);
 		ARMOR_CIRCLET_RUBY = EnumHelper.addArmorMaterial("ARMOR_CIRCLET_RUBY", 19, new int[] { 2, 0, 0, 0 }, 6);

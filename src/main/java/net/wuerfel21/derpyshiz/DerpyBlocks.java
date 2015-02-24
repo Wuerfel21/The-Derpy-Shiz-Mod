@@ -5,7 +5,9 @@ import net.minecraft.block.material.Material;
 import net.minecraft.init.Blocks;
 import net.wuerfel21.derpyshiz.blocks.BlockAxis;
 import net.wuerfel21.derpyshiz.blocks.BlockCombinationGearbox;
+import net.wuerfel21.derpyshiz.blocks.BlockCompactEngine;
 import net.wuerfel21.derpyshiz.blocks.BlockCrank;
+import net.wuerfel21.derpyshiz.blocks.BlockDecouplingGearbox;
 import net.wuerfel21.derpyshiz.blocks.BlockDetectorBox;
 import net.wuerfel21.derpyshiz.blocks.BlockGearbox;
 import net.wuerfel21.derpyshiz.blocks.BlockLasagne;
@@ -52,11 +54,13 @@ public class DerpyBlocks {
 	public static Block gearboxCombination;
 	public static Block gearboxReversion;
 	public static Block gearboxSplitting;
+	public static Block gearboxDecoupling;
 	public static Block springbox;
 	public static Block detectorBox;
 	public static Block seizureWool;
 	public static Block millstone;
 	public static Block crank;
+	public static Block compactEngine;
 
 	public static final void init() {
 		GameRegistry.registerBlock(patternWool = new PatternWool(), SimpleMetaItemBlock.class, "pattern_wool");
@@ -92,15 +96,21 @@ public class DerpyBlocks {
 		GameRegistry.registerBlock(new BlockLasagne(), "block_lasagne");
 		GameRegistry.registerBlock(new FakeTNT(), "fake_tnt");
 
+		//base stuffs
 		GameRegistry.registerBlock(axis = new BlockAxis(), "axis");
 		GameRegistry.registerBlock(housing = new RotaryHousing(), SimpleMetaItemBlock.class, "housing");
+		//Gearboxes
 		GameRegistry.registerBlock(gearbox = new BlockGearbox(), SimpleMetaItemBlock.class, "gearbox");
 		GameRegistry.registerBlock(gearboxCombination = new BlockCombinationGearbox(), SimpleMetaItemBlock.class, "gearbox_combination");
 		GameRegistry.registerBlock(gearboxReversion = new BlockReversionGearbox(), SimpleMetaItemBlock.class, "gearbox_reversion");
 		GameRegistry.registerBlock(gearboxSplitting = new BlockSplittingGearbox(), SimpleMetaItemBlock.class, "gearbox_splitting");
+		GameRegistry.registerBlock(gearboxDecoupling = new BlockDecouplingGearbox(), SimpleMetaItemBlock.class, "gearbox_decoupling");
 		GameRegistry.registerBlock(springbox = new BlockSpringbox(), SimpleMetaItemBlock.class, "springbox");
 		GameRegistry.registerBlock(detectorBox = new BlockDetectorBox(), SimpleMetaItemBlock.class, "detectorbox");
+		//Generators
 		GameRegistry.registerBlock(crank = new BlockCrank(), SimpleMetaItemBlock.class, "crank");
+		GameRegistry.registerBlock(compactEngine = new BlockCompactEngine(), "compact_engine");
+		//Consumers
 		GameRegistry.registerBlock(millstone = new BlockMillstone(), SimpleMetaItemBlock.class, "millstone");
 
 		GameRegistry.registerBlock(seizureWool = new SeizureWool(), "seizure_wool");

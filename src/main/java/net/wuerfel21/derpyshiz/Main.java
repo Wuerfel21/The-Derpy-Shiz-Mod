@@ -50,6 +50,8 @@ public class Main {
     public static int maxWaterswordDistance;
     public static boolean checkForUpdates;
     public static String updateURL;
+    public static int[] oreTries = new int[14];
+    public static int[] oreVeinSize = new int[14];
     
     public static boolean isDevEnv = false;
     
@@ -80,6 +82,37 @@ public class Main {
     	maxWaterswordDistance = config.getInt("maxWaterswordDistance", "server", 64, 0, 255,"Maximum distance one can go up/down with a flood cutlass. Normally you wont have 64 blocks deep oceans, so you wont notice this setting too much. This is used to reduce server load on servers with loads of flood cutlasses/lots of oceans.");
     	checkForUpdates = config.getBoolean("checkForUpdates", "updates", !isDevEnv , "Wheter to check for updates or not");
     	updateURL = config.getString("updateURL", "updates", "https://raw.githubusercontent.com/Wuerfel21/The-Derpy-Shiz-Mod/master/currentVersion.thisIsUsedForUpdateChecking", "where to check for updates. dont change unless you know what a tacco is.");
+    	{
+    		oreTries[0] = config.getInt("triesAmber", "oreTries", 6, 0, Integer.MAX_VALUE, "Maximum amount of Amber veins per chunk");
+    		oreTries[1] = config.getInt("triesFakediamond", "oreTries", 5, 0, Integer.MAX_VALUE, "Maximum amount of Fakediamond veins per chunk");
+    		oreTries[2] = config.getInt("triesTitanium", "oreTries", 5, 0, Integer.MAX_VALUE, "Maximum amount of Titanium veins per chunk");
+    		oreTries[3] = config.getInt("triesRuby", "oreTries", 1, 0, Integer.MAX_VALUE, "Maximum amount of Ruby veins per chunk");
+    		oreTries[4] = config.getInt("triesTurquoise", "oreTries", 20, 0, Integer.MAX_VALUE, "Maximum amount of Turquoise veins per chunk");
+    		oreTries[5] = config.getInt("triesAmethyst", "oreTries", 2, 0, Integer.MAX_VALUE, "Maximum amount of Amethyst veins per chunk");
+    		oreTries[6] = config.getInt("triesFluorite", "oreTries", 6, 0, Integer.MAX_VALUE, "Maximum amount of Fluorite veins per chunk (All colors combined)");
+    		oreTries[7] = config.getInt("triesCopper", "oreTries", 16, 0, Integer.MAX_VALUE, "Maximum amount of Copper veins per chunk");
+    		oreTries[8] = config.getInt("triesEnderium", "oreTries", 19, 0, Integer.MAX_VALUE, "Maximum amount of Enderium veins per chunk");
+    		oreTries[9] = config.getInt("triesElectrimite", "oreTries", 9, 0, Integer.MAX_VALUE, "Maximum amount of Electrimite veins per chunk");
+    		oreTries[10] = config.getInt("triesDarkness", "oreTries", 5, 0, Integer.MAX_VALUE, "Maximum amount of Dark Ore veins per chunk (Different reduction mechanic!)");
+    		oreTries[11] = config.getInt("triesTin", "oreTries", 17, 0, Integer.MAX_VALUE, "Maximum amount of Tin veins per chunk");
+    		oreTries[12] = config.getInt("triesLead", "oreTries", 4, 0, Integer.MAX_VALUE, "Maximum amount of Lead veins per chunk");
+    		oreTries[13] = config.getInt("triesWuerfelium", "oreTries", 8, 0, Integer.MAX_VALUE, "Maximum amount of Wuerfelium veins per chunk");
+    		
+    		oreVeinSize[0] = config.getInt("veinSizeAmber", "oreVeinSize", 8, 0, Integer.MAX_VALUE, "Maximum size of Amber veins");
+    		oreVeinSize[1] = config.getInt("veinSizeFakediamond", "oreVeinSize", 5, 0, Integer.MAX_VALUE, "Maximum size of Fakediamond veins");
+    		oreVeinSize[2] = config.getInt("veinSizeTitanium", "oreVeinSize", 7, 0, Integer.MAX_VALUE, "Maximum size of Titanium veins");
+    		oreVeinSize[3] = config.getInt("veinSizeRuby", "oreVeinSize", 7, 0, Integer.MAX_VALUE, "Maximum size of Ruby veins");
+    		oreVeinSize[4] = config.getInt("veinSizeTurquoise", "oreVeinSize", 3, 0, Integer.MAX_VALUE, "Maximum size of Turquoise veins");
+    		oreVeinSize[5] = config.getInt("veinSizeAmethyst", "oreVeinSize", 12, 0, Integer.MAX_VALUE, "Maximum size of Amethyst veins");
+    		oreVeinSize[6] = config.getInt("veinSizeFluorite", "oreVeinSize", 10, 0, Integer.MAX_VALUE, "Maximum size of Fluorite veins (All colors combined)");
+    		oreVeinSize[7] = config.getInt("veinSizeCopper", "oreVeinSize", 10, 0, Integer.MAX_VALUE, "Maximum size of Copper veins");
+    		oreVeinSize[8] = config.getInt("veinSizeEnderium", "oreVeinSize", 8, 0, Integer.MAX_VALUE, "Maximum size of Enderium veins");
+    		oreVeinSize[9] = config.getInt("veinSizeElectrimite", "oreVeinSize", 7, 0, Integer.MAX_VALUE, "Maximum size of Electrimite veins");
+    		oreVeinSize[10] = config.getInt("veinSizeDarkness", "oreVeinSize", 5, 0, Integer.MAX_VALUE, "Maximum size of Dark Ore veins");
+    		oreVeinSize[11] = config.getInt("veinSizeTin", "oreVeinSize", 10, 0, Integer.MAX_VALUE, "Maximum size of Tin veins");
+    		oreVeinSize[12] = config.getInt("veinSizeLead", "oreVeinSize", 15, 0, Integer.MAX_VALUE, "Maximum size of Lead veins");
+    		oreVeinSize[13] = config.getInt("veinSizeWuerfelium", "oreVeinSize", 10, 0, Integer.MAX_VALUE, "Maximum size of Wuerfelium veins");
+    	}
     	config.save();
     	this.proxy.preInit(e);
     }

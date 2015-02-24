@@ -117,10 +117,6 @@ public class AxisChain {
 				world.markBlockForUpdate(x, y, z);
 			}
 		}
-		TileEntity t = world.getTileEntity(tilePos[0], tilePos[1], tilePos[2]);
-		if (t != null && t instanceof IRotaryInput) {
-			((IRotaryInput)t).setRotaryInput(Main.reverseHelper[this.dir], 0, 0);
-		}
 	}
 	
 	public NBTTagCompound toNetworkNBT() {

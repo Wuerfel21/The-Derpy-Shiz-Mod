@@ -19,14 +19,10 @@ public class RenderHousing extends TileEntitySpecialRenderer {
 	public void renderTileEntityAt(TileEntity tiletemp, double x, double y, double z, float f) {
 		TileEntityHousing tile = (TileEntityHousing) tiletemp;
 		this.bindTexture(TextureMap.locationBlocksTexture);
-		RotaryHousing block = null;
-		if (!tile.inInventory) {
-			block = (RotaryHousing) tile.getBlockType();
-		}
 		
 		int meta = tile.getTier();
 		
-		IIcon[][] textures = new IIcon[][] {{Blocks.planks.getIcon(0, 0),Blocks.planks.getIcon(0, 4)},{DerpyBlocks.oreBlocks.getIcon(0, 13),DerpyBlocks.oreBlocks.getIcon(0, 2)}};
+		IIcon[] textures = getIcons(meta);
 
 		Tessellator tessellator = Tessellator.instance;
 		GL11.glPushMatrix();
@@ -36,7 +32,7 @@ public class RenderHousing extends TileEntitySpecialRenderer {
 		// tessellator.setBrightness(tile.getBlockType().getMixedBrightnessForBlock(tile.getWorldObj(),
 		// tile.xCoord, tile.yCoord, tile.zCoord));
 		if (Main.fancyGearbox) {
-			RenderRotaryComponent.render(tessellator, textures[meta]);
+			RenderRotaryComponent.render(tessellator, textures);
 		} else {
 			// do nothing, ugly housings are rendered by RotaryHousing
 		}
@@ -44,5 +40,13 @@ public class RenderHousing extends TileEntitySpecialRenderer {
 		GL11.glPopMatrix();
 	}
 	
-	
+	protected IIcon[] getIcons(int tier) {
+		switch(tier) {
+		default:
+		case 0:
+			return new IIcon[] {Blocks.planks.getIcon(0, 0),Blocks.planks.getIcon(0, 4)};
+		case 1:
+			return new IIcon[] {DerpyBlocks.oreBlocks.getIcon(0, 13),DerpyBlocks.oreBlocks.getIcon(0, 2)};
+		}
+	}
 }
