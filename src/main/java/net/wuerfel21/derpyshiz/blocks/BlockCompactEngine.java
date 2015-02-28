@@ -33,6 +33,11 @@ public class BlockCompactEngine extends BlockContainer implements ISmashable {
 		this.setCreativeTab(Main.tabRotary);
 		this.setHarvestLevel("ds_hammer", 0);
 		this.setStepSound(soundTypeMetal);
+		if (Main.fancyGearbox) {
+			this.setBlockTextureName("minecraft:iron_block");
+		} else {
+			this.setBlockTextureName("derpyshiz:compact_engine_ugly");
+		}
 	}
 
 	@Override
@@ -65,7 +70,7 @@ public class BlockCompactEngine extends BlockContainer implements ISmashable {
 		if (t instanceof TileEntityCompactEngine) {
 			TileEntityCompactEngine tce = (TileEntityCompactEngine) t;
 			tce.cleanup();
-			
+			tce.dropInv(world, x, y, z);
 		}
 		super.breakBlock(world, x, y, z, block, p_149749_6_);
 	}
@@ -100,6 +105,9 @@ public class BlockCompactEngine extends BlockContainer implements ISmashable {
 		TileEntity te = world.getTileEntity(x, y, z);
 		if (te instanceof TileEntityCompactEngine) {
 			((TileEntityCompactEngine) te).rotate(Blocks.piston.determineOrientation(world, x, y, z, entity));
+			if (stack.hasDisplayName()) {
+				((TileEntityCompactEngine)world.getTileEntity(x, y, z)).name = stack.getDisplayName();
+			}
 		} else {
 			System.out.println("WTF BOOM!!!11!!!!!");
 		}

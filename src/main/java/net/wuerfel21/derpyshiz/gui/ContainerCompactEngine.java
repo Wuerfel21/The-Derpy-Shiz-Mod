@@ -20,6 +20,7 @@ public class ContainerCompactEngine extends DerpyContainer {
 	private InventoryPlayer inventoryPlayer;
 	
 	public int lastTicksLeft;
+	public int lastTicksForUsedFuel;
 	
 	public ContainerCompactEngine(InventoryPlayer inv, TileEntityCompactEngine te) {
 		this.engine = te;
@@ -33,6 +34,7 @@ public class ContainerCompactEngine extends DerpyContainer {
 	public void addCraftingToCrafters(ICrafting craft) {
 		super.addCraftingToCrafters(craft);
 		craft.sendProgressBarUpdate(this, 0, this.engine.ticksLeft);
+		craft.sendProgressBarUpdate(this, 1, this.engine.ticksForUsedFuel);
 	}
 	
 	public void detectAndSendChanges()
@@ -47,10 +49,15 @@ public class ContainerCompactEngine extends DerpyContainer {
             {
                 craft.sendProgressBarUpdate(this, 0, this.engine.ticksLeft);
             }
+            
+            if (this.lastTicksForUsedFuel != this.engine.ticksForUsedFuel) {
+            	craft.sendProgressBarUpdate(this, 1, this.engine.ticksForUsedFuel);
+            }
 
         }
 
         this.lastTicksLeft = this.engine.ticksLeft;
+        this.lastTicksForUsedFuel = this.engine.ticksForUsedFuel;
     }
 	
 	@Override
@@ -59,6 +66,9 @@ public class ContainerCompactEngine extends DerpyContainer {
 		switch (key) {
 		case 0:
 			this.engine.ticksLeft = value;
+			break;
+		case 1:
+			this.engine.ticksForUsedFuel = value;
 			break;
 		}
 	}

@@ -1,6 +1,8 @@
 package net.wuerfel21.derpyshiz.entity.tile;
 
 import cpw.mods.fml.common.registry.GameRegistry;
+import cpw.mods.fml.relauncher.Side;
+import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.block.Block;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.inventory.IInventory;
@@ -12,6 +14,7 @@ import net.minecraft.network.Packet;
 import net.minecraft.network.play.server.S35PacketUpdateTileEntity;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.tileentity.TileEntityFurnace;
+import net.minecraft.util.AxisAlignedBB;
 import net.minecraft.util.StatCollector;
 import net.minecraft.world.World;
 import net.wuerfel21.derpyshiz.blocks.BlockMillstone;
@@ -24,7 +27,7 @@ public class TileEntityCompactEngine extends TileEntity implements IRotaryOutput
 	public boolean ready = false;
 	public int dir = 0;
 	public int output;
-	public int ticksLeft = 0;
+	public int ticksLeft, ticksForUsedFuel;
 
 	public ItemStack fuel;
 
@@ -45,6 +48,9 @@ public class TileEntityCompactEngine extends TileEntity implements IRotaryOutput
 	@Override
 	public void updateEntity() {
 		if (this.getWorldObj() != null) {
+			if (ticksLeft > 0) {
+				ticksLeft--;
+			}
 			if (!this.getWorldObj().isRemote) {
 				if (!ready) {
 					this.rotate(dir);
@@ -58,14 +64,13 @@ public class TileEntityCompactEngine extends TileEntity implements IRotaryOutput
 				}
 				// logic here
 				if (ticksLeft > 0) {
-					ticksLeft--;
 					this.setRotaryOutput(dir, 10);
 				} else {
 					this.setRotaryOutput(dir, 0);
 				}
 				if (ticksLeft <= 0) {
 					if (TileEntityFurnace.isItemFuel(fuel)) {
-						ticksLeft = TileEntityFurnace.getItemBurnTime(fuel);
+						ticksLeft = ticksForUsedFuel = TileEntityFurnace.getItemBurnTime(fuel);
 						fuel.stackSize--;
 						this.setRotaryOutput(dir, 10);
 						if (fuel.stackSize <= 0) {
@@ -91,6 +96,7 @@ public class TileEntityCompactEngine extends TileEntity implements IRotaryOutput
 		}
 		this.dir = tag.getInteger("direction");
 		this.ticksLeft = tag.getInteger("ticksLeft");
+		this.ticksForUsedFuel = tag.getInteger("ticksForUsedFuel");
 		NBTTagCompound rotary = tag.getCompoundTag("rotary");
 		RotaryManager.outputFromNBT(this, rotary);
 		if (tag.hasKey("CustomName")) {
@@ -106,10 +112,11 @@ public class TileEntityCompactEngine extends TileEntity implements IRotaryOutput
 		}
 		tag.setInteger("direction", dir);
 		tag.setInteger("ticksLeft", ticksLeft);
+		tag.setInteger("ticksForUsedFuel", ticksForUsedFuel);
 		NBTTagCompound rotary = new NBTTagCompound();
 		rotary.setTag("output", RotaryManager.outputToNBT(this));
 		tag.setTag("rotary", rotary);
-		if (this.name != null) {
+		if (hasCustomInventoryName()) {
 			tag.setString("CustomName", name);
 		}
 	}
@@ -119,6 +126,7 @@ public class TileEntityCompactEngine extends TileEntity implements IRotaryOutput
 		NBTTagCompound tag = pkg.func_148857_g();
 		this.dir = tag.getInteger("direction");
 		this.chain.fromNetworkNBT(tag.getCompoundTag("axis"));
+		this.name = tag.getString("CustomName");
 	}
 
 	@Override
@@ -132,6 +140,9 @@ public class TileEntityCompactEngine extends TileEntity implements IRotaryOutput
 		NBTTagCompound tag = new NBTTagCompound();
 		tag.setInteger("direction", dir);
 		tag.setTag("axis", chain.toNetworkNBT());
+		if (hasCustomInventoryName()) {
+			tag.setString("CustomName", name);
+		}
 		return new S35PacketUpdateTileEntity(this.xCoord, this.yCoord, this.zCoord, 1, tag);
 	}
 
@@ -224,7 +235,7 @@ public class TileEntityCompactEngine extends TileEntity implements IRotaryOutput
 
 	@Override
 	public boolean hasCustomInventoryName() {
-		return name != null;
+		return name != null && name.length() > 0;
 	}
 
 	@Override
@@ -233,9 +244,10 @@ public class TileEntityCompactEngine extends TileEntity implements IRotaryOutput
 	}
 
 	@Override
-	public boolean isUseableByPlayer(EntityPlayer p_70300_1_) {
-		return true;
-	}
+	public boolean isUseableByPlayer(EntityPlayer p_70300_1_)
+    {
+        return this.worldObj.getTileEntity(this.xCoord, this.yCoord, this.zCoord) != this ? false : p_70300_1_.getDistanceSq((double)this.xCoord + 0.5D, (double)this.yCoord + 0.5D, (double)this.zCoord + 0.5D) <= 64.0D;
+    }
 
 	@Override
 	public void openInventory() {
@@ -260,5 +272,33 @@ public class TileEntityCompactEngine extends TileEntity implements IRotaryOutput
 		}
 
 	}
+	
+	public int getTicksLeftScaled(int scale) {
+		if (ticksLeft != 0 && ticksForUsedFuel != 0) {
+			return this.ticksLeft * scale / ticksForUsedFuel;
+		} else {
+			return 0;
+		}
+	}
 
+	@SideOnly(Side.CLIENT)
+	@Override
+	public AxisAlignedBB getRenderBoundingBox() {
+		switch (chain.dir) {
+		default:
+		case 0:
+			return AxisAlignedBB.getBoundingBox(xCoord, yCoord-chain.length, zCoord, xCoord+1, yCoord+1, zCoord+1);
+		case 1:
+			return AxisAlignedBB.getBoundingBox(xCoord, yCoord, zCoord, xCoord+1, yCoord+1+chain.length, zCoord+1);
+		case 2:
+			return AxisAlignedBB.getBoundingBox(xCoord, yCoord, zCoord-chain.length, xCoord+1, yCoord+1, zCoord+1);
+		case 3:
+			return AxisAlignedBB.getBoundingBox(xCoord, yCoord, zCoord, xCoord+1, yCoord+1, zCoord+1+chain.length);
+		case 4:
+			return AxisAlignedBB.getBoundingBox(xCoord-chain.length, yCoord, zCoord, xCoord+1, yCoord+1, zCoord+1);
+		case 5:
+			return AxisAlignedBB.getBoundingBox(xCoord, yCoord, zCoord, xCoord+1+chain.length, yCoord+1, zCoord+1);
+		}
+	}
+	
 }

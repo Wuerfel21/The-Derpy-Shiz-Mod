@@ -8,15 +8,15 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.IIcon;
 
-public class DerpyGears extends Item {
-	
+public class ItemSpring extends Item {
+
 public IIcon[] icons = new IIcon[this.types.length];
 	
-	public DerpyGears() {
+	public ItemSpring() {
 		super();
 		this.setHasSubtypes(true);
 		this.setMaxDamage(0);
-		this.setUnlocalizedName("derpyshiz.gear");
+		this.setUnlocalizedName("derpyshiz.spring");
 		this.setCreativeTab(CreativeTabs.tabMaterials);
 	}
 	
@@ -46,10 +46,10 @@ public IIcon[] icons = new IIcon[this.types.length];
 	@Override
 	public void registerIcons(IIconRegister reg) {
 	    for (int i = 0; i < this.types.length; i ++) {
-	        this.icons[i] = reg.registerIcon("derpyshiz:gear_"+types[i]);
+	        this.icons[i] = reg.registerIcon("derpyshiz:spring_"+types[i]);
 	    }
 	}
 	
-	public static final String[] types ={"wood","ebony","magic","iron","lasagne","copper","tin","lead","gold","titanium","ruby","electrimite","enderium"};
+	public static final String[] types ={"iron","gold","electrimite"};
 	
 }

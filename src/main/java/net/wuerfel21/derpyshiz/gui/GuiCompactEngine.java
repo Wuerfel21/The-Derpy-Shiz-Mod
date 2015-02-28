@@ -42,6 +42,8 @@ public ResourceLocation theTexture = new ResourceLocation("derpyshiz:textures/gu
 		int x = (this.width - this.xSize) / 2;
 		int y = (this.height - this.ySize) / 2;
 		this.drawTexturedModalRect(x, y, 0, 0, this.xSize, this.ySize);
+		int ticksLeftScaled = this.engine.getTicksLeftScaled(14);
+        this.drawTexturedModalRect(x + 80, y + 36 + 13 - ticksLeftScaled, 176, 13 - ticksLeftScaled, 14, ticksLeftScaled);
 	}
 
 }

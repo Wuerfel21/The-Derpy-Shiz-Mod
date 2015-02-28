@@ -33,53 +33,65 @@ public class DerpyRenderHelper {
 	}
 
 	public static void addBox(Tessellator tessellator, IIcon t, double minX, double minY, double minZ, double maxX, double maxY, double maxZ, boolean[] drawFace) {
+		addBox(tessellator, t, minX, minY, minZ, maxX, maxY, maxZ, drawFace, false);
+	}
+	
+	public static void addBox(Tessellator tessellator, IIcon t, double minX, double minY, double minZ, double maxX, double maxY, double maxZ, boolean[] drawFace, boolean whole) {
+		
+		double minXt = whole?0:minX;
+		double minYt = whole?0:minY;
+		double minZt = whole?0:minZ;
+		double maxXt = whole?1:maxX;
+		double maxYt = whole?1:maxY;
+		double maxZt = whole?1:maxZ;
+		
 		if (drawFace[0]) {
 			// bottom face
 			tessellator.setNormal(0, -1, 0);
-			tessellator.addVertexWithUV(maxX, minY, minZ, getU(maxX, t), getV(minZ, t));
-			tessellator.addVertexWithUV(maxX, minY, maxZ, getU(maxX, t), getV(maxZ, t));
-			tessellator.addVertexWithUV(minX, minY, maxZ, getU(minX, t), getV(maxZ, t));
-			tessellator.addVertexWithUV(minX, minY, minZ, getU(minX, t), getV(minZ, t));
+			tessellator.addVertexWithUV(maxX, minY, minZ, getU(maxXt, t), getV(minZt, t));
+			tessellator.addVertexWithUV(maxX, minY, maxZ, getU(maxXt, t), getV(maxZt, t));
+			tessellator.addVertexWithUV(minX, minY, maxZ, getU(minXt, t), getV(maxZt, t));
+			tessellator.addVertexWithUV(minX, minY, minZ, getU(minXt, t), getV(minZt, t));
 		}
 		if (drawFace[1]) {
 			// top face
 			tessellator.setNormal(0, 1, 0);
-			tessellator.addVertexWithUV(maxX, maxY, minZ, getU(maxX, t), getV(minZ, t));
-			tessellator.addVertexWithUV(minX, maxY, minZ, getU(minX, t), getV(minZ, t));
-			tessellator.addVertexWithUV(minX, maxY, maxZ, getU(minX, t), getV(maxZ, t));
-			tessellator.addVertexWithUV(maxX, maxY, maxZ, getU(maxX, t), getV(maxZ, t));
+			tessellator.addVertexWithUV(maxX, maxY, minZ, getU(maxXt, t), getV(minZt, t));
+			tessellator.addVertexWithUV(minX, maxY, minZ, getU(minXt, t), getV(minZt, t));
+			tessellator.addVertexWithUV(minX, maxY, maxZ, getU(minXt, t), getV(maxZt, t));
+			tessellator.addVertexWithUV(maxX, maxY, maxZ, getU(maxXt, t), getV(maxZt, t));
 		}
 		if (drawFace[2]) {
 			// north face
 			tessellator.setNormal(0, 0, -1);
-			tessellator.addVertexWithUV(maxX, minY, minZ, getU(minX, t), getV(maxY, t));
-			tessellator.addVertexWithUV(minX, minY, minZ, getU(maxX, t), getV(maxY, t));
-			tessellator.addVertexWithUV(minX, maxY, minZ, getU(maxX, t), getV(minY, t));
-			tessellator.addVertexWithUV(maxX, maxY, minZ, getU(minX, t), getV(minY, t));
+			tessellator.addVertexWithUV(maxX, minY, minZ, getU(minXt, t), getV(maxYt, t));
+			tessellator.addVertexWithUV(minX, minY, minZ, getU(maxXt, t), getV(maxYt, t));
+			tessellator.addVertexWithUV(minX, maxY, minZ, getU(maxXt, t), getV(minYt, t));
+			tessellator.addVertexWithUV(maxX, maxY, minZ, getU(minXt, t), getV(minYt, t));
 		}
 		if (drawFace[3]) {
 			// south face
 			tessellator.setNormal(0, 0, 1);
-			tessellator.addVertexWithUV(maxX, minY, maxZ, getU(maxX, t), getV(maxY, t));
-			tessellator.addVertexWithUV(maxX, maxY, maxZ, getU(maxX, t), getV(minY, t));
-			tessellator.addVertexWithUV(minX, maxY, maxZ, getU(minX, t), getV(minY, t));
-			tessellator.addVertexWithUV(minX, minY, maxZ, getU(minX, t), getV(maxY, t));
+			tessellator.addVertexWithUV(maxX, minY, maxZ, getU(maxXt, t), getV(maxYt, t));
+			tessellator.addVertexWithUV(maxX, maxY, maxZ, getU(maxXt, t), getV(minYt, t));
+			tessellator.addVertexWithUV(minX, maxY, maxZ, getU(minXt, t), getV(minYt, t));
+			tessellator.addVertexWithUV(minX, minY, maxZ, getU(minXt, t), getV(maxYt, t));
 		}
 		if (drawFace[4]) {
 			// west face
 			tessellator.setNormal(-1, 0, 0);
-			tessellator.addVertexWithUV(minX, minY, maxZ, getU(maxZ, t), getV(maxY, t));
-			tessellator.addVertexWithUV(minX, maxY, maxZ, getU(maxZ, t), getV(minY, t));
-			tessellator.addVertexWithUV(minX, maxY, minZ, getU(minZ, t), getV(minY, t));
-			tessellator.addVertexWithUV(minX, minY, minZ, getU(minZ, t), getV(maxY, t));
+			tessellator.addVertexWithUV(minX, minY, maxZ, getU(maxZt, t), getV(maxYt, t));
+			tessellator.addVertexWithUV(minX, maxY, maxZ, getU(maxZt, t), getV(minYt, t));
+			tessellator.addVertexWithUV(minX, maxY, minZ, getU(minZt, t), getV(minYt, t));
+			tessellator.addVertexWithUV(minX, minY, minZ, getU(minZt, t), getV(maxYt, t));
 		}
 		if (drawFace[5]) {
 			// east face
 			tessellator.setNormal(1, 0, 0);
-			tessellator.addVertexWithUV(maxX, minY, maxZ, getU(minZ, t), getV(maxY, t));
-			tessellator.addVertexWithUV(maxX, minY, minZ, getU(maxZ, t), getV(maxY, t));
-			tessellator.addVertexWithUV(maxX, maxY, minZ, getU(maxZ, t), getV(minY, t));
-			tessellator.addVertexWithUV(maxX, maxY, maxZ, getU(minZ, t), getV(minY, t));
+			tessellator.addVertexWithUV(maxX, minY, maxZ, getU(minZt, t), getV(maxYt, t));
+			tessellator.addVertexWithUV(maxX, minY, minZ, getU(maxZt, t), getV(maxYt, t));
+			tessellator.addVertexWithUV(maxX, maxY, minZ, getU(maxZt, t), getV(minYt, t));
+			tessellator.addVertexWithUV(maxX, maxY, maxZ, getU(minZt, t), getV(minYt, t));
 		}
 	}
 

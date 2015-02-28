@@ -28,10 +28,6 @@ public class RenderCrank extends TileEntitySpecialRenderer {
 	public void renderTileEntityAt(TileEntity tiletemp, double x, double y, double z, float f) {
 		TileEntityCrank tile = (TileEntityCrank) tiletemp;
 		this.bindTexture(TextureMap.locationBlocksTexture);
-		BlockCrank block = null;
-		if (!tile.inInventory) {
-			block = (BlockCrank) tile.getBlockType();
-		}
 
 		int meta = tile.getTier();
 

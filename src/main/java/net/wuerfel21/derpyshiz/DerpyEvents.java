@@ -136,6 +136,7 @@ public class DerpyEvents {
 						event.world.markBlockForUpdate(event.x, event.y, event.z);
 						DerpyItems.damageItem(event.entityLiving.getHeldItem(), 1, event.entityLiving);
 						event.world.playSoundEffect(event.x + 0.5d, event.y + 0.5d, event.z + 0.5d, "random.anvil_land", 1f, event.world.rand.nextFloat() * 0.1f + 0.9f);
+						event.setCanceled(true);
 					} else if (block instanceof BlockPistonBase) {
 						int meta = event.world.getBlockMetadata(event.x, event.y, event.z);
 						int newDir = dir;

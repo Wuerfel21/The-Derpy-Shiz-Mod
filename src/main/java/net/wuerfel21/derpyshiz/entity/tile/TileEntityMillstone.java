@@ -133,7 +133,7 @@ public class TileEntityMillstone extends TileEntity implements ISidedInventory, 
 		rotary.setTag("input", RotaryManager.inputToNBT(this));
 		tag.setTag("rotary", rotary);
 		tag.setInteger("progress", this.progress);
-		if (this.name != null) {
+		if (this.hasCustomInventoryName()) {
 			tag.setString("CustomName", name);
 		}
 	}
@@ -161,6 +161,21 @@ public class TileEntityMillstone extends TileEntity implements ISidedInventory, 
 			this.stacks[slot] = stack;
 		}
 	}
+	
+	@Override
+	public void onDataPacket(NetworkManager net, S35PacketUpdateTileEntity pkg) {
+		NBTTagCompound tag = pkg.func_148857_g();
+		this.name = tag.getString("CustomName");
+	}
+
+	@Override
+	public Packet getDescriptionPacket() {
+		NBTTagCompound tag = new NBTTagCompound();
+		if (hasCustomInventoryName()) {
+			tag.setString("CustomName", name);
+		}
+		return new S35PacketUpdateTileEntity(this.xCoord, this.yCoord, this.zCoord, 1, tag);
+	}
 
 	@Override
 	public String getInventoryName() {
@@ -169,7 +184,7 @@ public class TileEntityMillstone extends TileEntity implements ISidedInventory, 
 
 	@Override
 	public boolean hasCustomInventoryName() {
-		return this.name != null;
+		return this.name != null && this.name.length() > 0;
 	}
 
 	@Override
@@ -178,9 +193,10 @@ public class TileEntityMillstone extends TileEntity implements ISidedInventory, 
 	}
 
 	@Override
-	public boolean isUseableByPlayer(EntityPlayer p_70300_1_) {
-		return true;
-	}
+	public boolean isUseableByPlayer(EntityPlayer p_70300_1_)
+    {
+        return this.worldObj.getTileEntity(this.xCoord, this.yCoord, this.zCoord) != this ? false : p_70300_1_.getDistanceSq((double)this.xCoord + 0.5D, (double)this.yCoord + 0.5D, (double)this.zCoord + 0.5D) <= 64.0D;
+    }
 
 	@Override
 	public void openInventory() {

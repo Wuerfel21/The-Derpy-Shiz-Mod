@@ -10,6 +10,8 @@ import net.minecraft.item.Item.ToolMaterial;
 import net.minecraft.item.ItemArmor.ArmorMaterial;
 import net.minecraft.item.ItemStack;
 import net.minecraft.stats.StatList;
+import net.minecraftforge.client.ForgeHooksClient;
+import net.minecraftforge.common.ForgeHooks;
 import net.minecraftforge.common.util.EnumHelper;
 import net.wuerfel21.derpyshiz.items.AdminHammer;
 import net.wuerfel21.derpyshiz.items.ArmorStone;
@@ -32,7 +34,9 @@ import net.wuerfel21.derpyshiz.items.DerpySword;
 import net.wuerfel21.derpyshiz.items.ExtraIngots;
 import net.wuerfel21.derpyshiz.items.FireSword;
 import net.wuerfel21.derpyshiz.items.HorseLasagne;
+import net.wuerfel21.derpyshiz.items.ItemFirechargeLauncher;
 import net.wuerfel21.derpyshiz.items.ItemRotameter;
+import net.wuerfel21.derpyshiz.items.ItemSpring;
 import net.wuerfel21.derpyshiz.items.ItemTDM;
 import net.wuerfel21.derpyshiz.items.LongAxe;
 import net.wuerfel21.derpyshiz.items.LongHoe;
@@ -256,9 +260,11 @@ public abstract class DerpyItems {
 
 		GameRegistry.registerItem(nuggets = new DerpyNuggets(), "nugget");
 		GameRegistry.registerItem(new DerpyGears(), "gear");
-		GameRegistry.registerItem(new ItemRotameter(), "rotameter");
-
+		GameRegistry.registerItem(new ItemSpring(), "spring");
 		GameRegistry.registerItem(new DerpyCircuits(), "circuit");
+		
+		GameRegistry.registerItem(new ItemRotameter(), "rotameter");
+		GameRegistry.registerItem(new ItemFirechargeLauncher(), "firecharge_launcher");
 
 		GameRegistry.registerItem(new ItemTDM(), "tdm");
 	}

@@ -4,6 +4,7 @@ import net.minecraft.item.Item;
 import net.minecraftforge.client.MinecraftForgeClient;
 import net.wuerfel21.derpyshiz.client.ModelPiggycorn;
 import net.wuerfel21.derpyshiz.client.RenderBigItem;
+import net.wuerfel21.derpyshiz.client.RenderCompactEngine;
 import net.wuerfel21.derpyshiz.client.RenderCrank;
 import net.wuerfel21.derpyshiz.client.RenderDarkSword;
 import net.wuerfel21.derpyshiz.client.RenderDetectorBox;
@@ -20,6 +21,7 @@ import net.wuerfel21.derpyshiz.client.RenderSpringbox;
 import net.wuerfel21.derpyshiz.client.RenderTESRItem;
 import net.wuerfel21.derpyshiz.entity.EntityPiggycorn;
 import net.wuerfel21.derpyshiz.entity.tile.AbstractGearbox;
+import net.wuerfel21.derpyshiz.entity.tile.TileEntityCompactEngine;
 import net.wuerfel21.derpyshiz.entity.tile.TileEntityCrank;
 import net.wuerfel21.derpyshiz.entity.tile.TileEntityDetectorBox;
 import net.wuerfel21.derpyshiz.entity.tile.TileEntityGearbox;
@@ -60,6 +62,7 @@ public class ClientProxy extends CommonProxy {
 		RenderMillstone renderMillstone;
 		RenderSeizureWool renderSeizureWool;
 		RenderCrank renderCrank;
+		RenderCompactEngine renderCompactEngine;
 		super.init(e);
 		DerpyKeys.register();
 		RenderingRegistry.registerEntityRenderingHandler(EntityPiggycorn.class, new RenderPiggycorn(new ModelPiggycorn(), new ModelPiggycorn(0.5F), 0.7F));
@@ -73,6 +76,7 @@ public class ClientProxy extends CommonProxy {
 		ClientRegistry.bindTileEntitySpecialRenderer(TileEntityHousing.class, renderHousing = new RenderHousing());
 		ClientRegistry.bindTileEntitySpecialRenderer(TileEntityMillstone.class, renderMillstone = new RenderMillstone());
 		ClientRegistry.bindTileEntitySpecialRenderer(TileEntityCrank.class, renderCrank = new RenderCrank());
+		ClientRegistry.bindTileEntitySpecialRenderer(TileEntityCompactEngine.class, renderCompactEngine = new RenderCompactEngine());
 
 		if (Main.fancyGearbox) {
 			AbstractGearbox inventoryGearbox = new TileEntityGearbox();
@@ -84,6 +88,7 @@ public class ClientProxy extends CommonProxy {
 			AbstractGearbox inventoryDetectorBox = new TileEntityDetectorBox();
 			TileEntityHousing inventoryHousing = new TileEntityHousing();
 			TileEntityMillstone inventoryMillstone = new TileEntityMillstone();
+			TileEntityCompactEngine inventoryCompactEngine = new TileEntityCompactEngine();
 			inventoryGearbox.inInventory = true;
 			inventoryGearboxCombination.inInventory = true;
 			inventoryGearboxReversion.inInventory = true;
@@ -93,6 +98,8 @@ public class ClientProxy extends CommonProxy {
 			inventoryDetectorBox.inInventory = true;
 			inventoryHousing.inInventory = true;
 			inventoryMillstone.inInventory = true;
+			inventoryCompactEngine.inInventory = true;
+			inventoryCompactEngine.dir = 5;
 			MinecraftForgeClient.registerItemRenderer(Item.getItemFromBlock(DerpyBlocks.gearbox), new RenderTESRItem(renderGearbox, inventoryGearbox));
 			MinecraftForgeClient.registerItemRenderer(Item.getItemFromBlock(DerpyBlocks.gearboxCombination), new RenderTESRItem(renderGearboxCombination, inventoryGearboxCombination));
 			MinecraftForgeClient.registerItemRenderer(Item.getItemFromBlock(DerpyBlocks.gearboxReversion), new RenderTESRItem(renderGearboxReversion, inventoryGearboxReversion));
@@ -102,6 +109,7 @@ public class ClientProxy extends CommonProxy {
 			MinecraftForgeClient.registerItemRenderer(Item.getItemFromBlock(DerpyBlocks.detectorBox), new RenderTESRItem(renderDetectorBox, inventoryDetectorBox));
 			MinecraftForgeClient.registerItemRenderer(Item.getItemFromBlock(DerpyBlocks.housing), new RenderTESRItem(renderHousing, inventoryHousing));
 			MinecraftForgeClient.registerItemRenderer(Item.getItemFromBlock(DerpyBlocks.millstone), new RenderTESRItem(renderMillstone, inventoryMillstone));
+			MinecraftForgeClient.registerItemRenderer(Item.getItemFromBlock(DerpyBlocks.compactEngine), new RenderTESRItem(renderCompactEngine, inventoryCompactEngine));
 		}
 		TileEntityCrank inventoryCrank = new TileEntityCrank();
 		inventoryCrank.inInventory = true;
