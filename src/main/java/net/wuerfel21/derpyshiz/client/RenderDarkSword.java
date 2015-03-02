@@ -1,6 +1,5 @@
 package net.wuerfel21.derpyshiz.client;
 
-import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.ItemRenderer;
 import net.minecraft.client.renderer.Tessellator;
 import net.minecraft.entity.EntityLivingBase;

@@ -1,10 +1,8 @@
 package net.wuerfel21.derpyshiz.entity;
 
-import cpw.mods.fml.common.registry.GameRegistry;
 import net.minecraft.entity.EntityAgeable;
 import net.minecraft.entity.EntityList;
 import net.minecraft.entity.SharedMonsterAttributes;
-import net.minecraft.entity.ai.EntityAIBase;
 import net.minecraft.entity.ai.EntityAIControlledByPlayer;
 import net.minecraft.entity.ai.EntityAIFollowParent;
 import net.minecraft.entity.ai.EntityAILookIdle;
@@ -14,10 +12,7 @@ import net.minecraft.entity.ai.EntityAISwimming;
 import net.minecraft.entity.ai.EntityAITempt;
 import net.minecraft.entity.ai.EntityAIWander;
 import net.minecraft.entity.ai.EntityAIWatchClosest;
-import net.minecraft.entity.ai.attributes.IAttribute;
-import net.minecraft.entity.ai.attributes.IAttributeInstance;
 import net.minecraft.entity.effect.EntityLightningBolt;
-import net.minecraft.entity.monster.EntityPigZombie;
 import net.minecraft.entity.passive.EntityPig;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Items;
@@ -27,6 +22,7 @@ import net.minecraft.util.MovingObjectPosition;
 import net.minecraft.world.World;
 import net.wuerfel21.derpyshiz.DerpyItems;
 import net.wuerfel21.derpyshiz.items.DerpySpawnEgg;
+import cpw.mods.fml.common.registry.GameRegistry;
 
 public class EntityPiggycorn extends EntityPig {
 	

@@ -2,14 +2,10 @@ package net.wuerfel21.derpyshiz.items;
 
 import java.util.List;
 
-import cpw.mods.fml.common.registry.GameRegistry;
 import net.minecraft.block.Block;
-import net.minecraft.block.BlockOre;
 import net.minecraft.block.material.Material;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
-import net.minecraft.entity.monster.EntityCreeper;
-import net.minecraft.entity.monster.EntitySpider;
 import net.minecraft.entity.passive.EntityAnimal;
 import net.minecraft.entity.passive.EntitySquid;
 import net.minecraft.entity.player.EntityPlayer;
@@ -25,7 +21,6 @@ import net.wuerfel21.derpyshiz.DerpyRegistry;
 import net.wuerfel21.derpyshiz.IModeItem;
 import net.wuerfel21.derpyshiz.ISpecialActionItem;
 import net.wuerfel21.derpyshiz.ItemModeHelper;
-import net.wuerfel21.derpyshiz.blocks.DerpyOres;
 
 public class NaturalSword extends DerpySword implements IModeItem, ISpecialActionItem {
 

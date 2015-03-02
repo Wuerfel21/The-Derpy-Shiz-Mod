@@ -1,12 +1,11 @@
 package net.wuerfel21.derpyshiz.blocks;
 
+import net.minecraft.block.BlockCarpet;
+import net.minecraft.util.IIcon;
+import net.wuerfel21.derpyshiz.IMetaItemBlock;
 import cpw.mods.fml.common.registry.GameRegistry;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
-import net.minecraft.block.BlockCarpet;
-import net.minecraft.init.Blocks;
-import net.minecraft.util.IIcon;
-import net.wuerfel21.derpyshiz.IMetaItemBlock;
 
 public class PatternCarpet extends BlockCarpet implements IMetaItemBlock {
 	

@@ -1,12 +1,7 @@
 package net.wuerfel21.derpyshiz.gui;
 
-import java.lang.reflect.Method;
-
 import net.minecraft.entity.player.InventoryPlayer;
-import net.minecraft.inventory.Container;
 import net.minecraft.inventory.Slot;
-import cpw.mods.fml.common.FMLLog;
-import cpw.mods.fml.relauncher.ReflectionHelper;
 
 public class GuiHelper {
 

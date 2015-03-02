@@ -1,7 +1,5 @@
 package net.wuerfel21.derpyshiz.entity.tile;
 
-import cpw.mods.fml.relauncher.Side;
-import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.network.NetworkManager;
 import net.minecraft.network.Packet;
@@ -12,6 +10,8 @@ import net.wuerfel21.derpyshiz.rotary.AxisChain;
 import net.wuerfel21.derpyshiz.rotary.IRotaryOutput;
 import net.wuerfel21.derpyshiz.rotary.ITieredTE;
 import net.wuerfel21.derpyshiz.rotary.RotaryManager;
+import cpw.mods.fml.relauncher.Side;
+import cpw.mods.fml.relauncher.SideOnly;
 
 public class TileEntityCrank extends TileEntity implements IRotaryOutput, ITieredTE {
 	

@@ -7,7 +7,6 @@ import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.IIcon;
-import net.wuerfel21.derpyshiz.blocks.DerpyOres;
 
 public class OreItems extends Item {
 

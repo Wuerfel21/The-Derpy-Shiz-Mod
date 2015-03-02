@@ -8,7 +8,6 @@ import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.IIcon;
 import net.wuerfel21.derpyshiz.DerpyBlocks;
 import net.wuerfel21.derpyshiz.Main;
-import net.wuerfel21.derpyshiz.blocks.BlockSplittingGearbox;
 import net.wuerfel21.derpyshiz.blocks.RotaryHousing;
 import net.wuerfel21.derpyshiz.entity.tile.TileEntityGearboxSplitting;
 

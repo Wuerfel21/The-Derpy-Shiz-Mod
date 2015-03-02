@@ -1,7 +1,5 @@
 package net.wuerfel21.derpyshiz.client;
 
-import org.lwjgl.opengl.GL11;
-
 import net.minecraft.client.renderer.Tessellator;
 import net.minecraft.client.renderer.texture.TextureMap;
 import net.minecraft.client.renderer.tileentity.TileEntitySpecialRenderer;
@@ -10,10 +8,10 @@ import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.IIcon;
 import net.wuerfel21.derpyshiz.DerpyBlocks;
 import net.wuerfel21.derpyshiz.Main;
-import net.wuerfel21.derpyshiz.blocks.BlockMillstone;
 import net.wuerfel21.derpyshiz.blocks.RotaryHousing;
 import net.wuerfel21.derpyshiz.entity.tile.TileEntityMillstone;
-import cpw.mods.fml.common.registry.GameRegistry;
+
+import org.lwjgl.opengl.GL11;
 
 public class RenderMillstone extends TileEntitySpecialRenderer {
 

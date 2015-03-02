@@ -8,7 +8,6 @@ import net.minecraft.client.renderer.tileentity.TileEntitySpecialRenderer;
 import net.minecraft.init.Blocks;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.IIcon;
-import net.wuerfel21.derpyshiz.blocks.BlockCrank;
 import net.wuerfel21.derpyshiz.entity.tile.TileEntityCrank;
 
 import org.lwjgl.opengl.GL11;

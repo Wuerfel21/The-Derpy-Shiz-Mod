@@ -2,10 +2,6 @@ package net.wuerfel21.derpyshiz.blocks;
 
 import java.util.List;
 
-import cpw.mods.fml.common.FMLCommonHandler;
-import cpw.mods.fml.common.Loader;
-import cpw.mods.fml.relauncher.Side;
-import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.client.renderer.texture.IIconRegister;
@@ -16,6 +12,9 @@ import net.minecraft.util.IIcon;
 import net.minecraft.world.IBlockAccess;
 import net.wuerfel21.derpyshiz.ColoredLightHelper;
 import net.wuerfel21.derpyshiz.IMetaItemBlock;
+import cpw.mods.fml.common.Loader;
+import cpw.mods.fml.relauncher.Side;
+import cpw.mods.fml.relauncher.SideOnly;
 
 public class LightBlocks extends Block implements IMetaItemBlock {
 

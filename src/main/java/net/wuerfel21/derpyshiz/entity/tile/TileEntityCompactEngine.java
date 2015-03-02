@@ -1,13 +1,9 @@
 package net.wuerfel21.derpyshiz.entity.tile;
 
-import cpw.mods.fml.common.registry.GameRegistry;
-import cpw.mods.fml.relauncher.Side;
-import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.block.Block;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.inventory.IInventory;
 import net.minecraft.item.ItemStack;
-import net.minecraft.item.crafting.FurnaceRecipes;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.network.NetworkManager;
 import net.minecraft.network.Packet;
@@ -21,6 +17,8 @@ import net.wuerfel21.derpyshiz.blocks.BlockMillstone;
 import net.wuerfel21.derpyshiz.rotary.AxisChain;
 import net.wuerfel21.derpyshiz.rotary.IRotaryOutput;
 import net.wuerfel21.derpyshiz.rotary.RotaryManager;
+import cpw.mods.fml.relauncher.Side;
+import cpw.mods.fml.relauncher.SideOnly;
 
 public class TileEntityCompactEngine extends TileEntity implements IRotaryOutput, IInventory {
 

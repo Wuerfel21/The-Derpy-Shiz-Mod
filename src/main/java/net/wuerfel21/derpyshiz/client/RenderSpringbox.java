@@ -1,9 +1,5 @@
 package net.wuerfel21.derpyshiz.client;
 
-import static net.wuerfel21.derpyshiz.client.DerpyRenderHelper.wp;
-
-import org.lwjgl.opengl.GL11;
-
 import net.minecraft.client.renderer.Tessellator;
 import net.minecraft.client.renderer.texture.TextureMap;
 import net.minecraft.client.renderer.tileentity.TileEntitySpecialRenderer;
@@ -12,11 +8,10 @@ import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.IIcon;
 import net.wuerfel21.derpyshiz.DerpyBlocks;
 import net.wuerfel21.derpyshiz.Main;
-import net.wuerfel21.derpyshiz.blocks.BlockAbstractGearbox;
-import net.wuerfel21.derpyshiz.blocks.BlockSpringbox;
 import net.wuerfel21.derpyshiz.blocks.RotaryHousing;
-import net.wuerfel21.derpyshiz.entity.tile.TileEntityGearbox;
 import net.wuerfel21.derpyshiz.entity.tile.TileEntitySpringbox;
+
+import org.lwjgl.opengl.GL11;
 
 public class RenderSpringbox extends TileEntitySpecialRenderer {
 	
@@ -28,10 +23,6 @@ public class RenderSpringbox extends TileEntitySpecialRenderer {
 	public void renderTileEntityAt(TileEntity tiletemp, double x, double y, double z, float f) {
 		TileEntitySpringbox tile = (TileEntitySpringbox) tiletemp;
 		this.bindTexture(TextureMap.locationBlocksTexture);
-		BlockSpringbox block = null;
-		if (!tile.inInventory) {
-			block = (BlockSpringbox) tile.getBlockType();
-		}
 		
 		int meta = tile.getTier();
 		

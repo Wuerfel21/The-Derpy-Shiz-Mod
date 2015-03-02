@@ -1,7 +1,5 @@
 package net.wuerfel21.derpyshiz.client;
 
-import org.lwjgl.opengl.GL11;
-
 import net.minecraft.client.renderer.Tessellator;
 import net.minecraft.client.renderer.texture.TextureMap;
 import net.minecraft.client.renderer.tileentity.TileEntitySpecialRenderer;
@@ -10,11 +8,10 @@ import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.IIcon;
 import net.wuerfel21.derpyshiz.DerpyBlocks;
 import net.wuerfel21.derpyshiz.Main;
-import net.wuerfel21.derpyshiz.blocks.BlockAbstractGearbox;
 import net.wuerfel21.derpyshiz.blocks.RotaryHousing;
 import net.wuerfel21.derpyshiz.entity.tile.AbstractGearbox;
-import net.wuerfel21.derpyshiz.entity.tile.TileEntityDetectorBox;
-import net.wuerfel21.derpyshiz.entity.tile.TileEntityGearbox;
+
+import org.lwjgl.opengl.GL11;
 
 public class RenderDetectorBox extends TileEntitySpecialRenderer {
 

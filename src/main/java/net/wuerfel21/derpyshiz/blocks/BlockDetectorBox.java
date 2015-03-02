@@ -6,8 +6,6 @@ import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 import net.wuerfel21.derpyshiz.Main;
 import net.wuerfel21.derpyshiz.entity.tile.TileEntityDetectorBox;
-import net.wuerfel21.derpyshiz.entity.tile.TileEntitySpringbox;
-import cpw.mods.fml.common.registry.GameRegistry;
 
 public class BlockDetectorBox extends BlockAbstractGearbox {
 

@@ -1,7 +1,6 @@
 package net.wuerfel21.derpyshiz.items;
 
 import java.util.HashSet;
-import java.util.Set;
 
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.Entity;

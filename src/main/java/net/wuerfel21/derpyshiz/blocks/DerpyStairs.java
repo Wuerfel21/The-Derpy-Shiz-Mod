@@ -2,7 +2,6 @@ package net.wuerfel21.derpyshiz.blocks;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockStairs;
-import net.minecraft.creativetab.CreativeTabs;
 
 public class DerpyStairs extends BlockStairs {
 

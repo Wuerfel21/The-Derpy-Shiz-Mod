@@ -1,17 +1,10 @@
 package net.wuerfel21.derpyshiz;
 
 import static net.wuerfel21.derpyshiz.WoolCrafting.getWool;
-import codechicken.core.fluid.FluidUtils;
 import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
-import net.minecraftforge.common.MinecraftForge;
-import net.minecraftforge.event.terraingen.BiomeEvent.GetWaterColor;
-import net.minecraftforge.fluids.Fluid;
-import net.minecraftforge.fluids.FluidContainerRegistry;
-import net.minecraftforge.fluids.FluidRegistry;
-import net.minecraftforge.fluids.FluidStack;
 import net.minecraftforge.oredict.OreDictionary;
 import net.minecraftforge.oredict.ShapedOreRecipe;
 import net.minecraftforge.oredict.ShapelessOreRecipe;
@@ -131,7 +124,12 @@ public class DerpyCrafting {
 		GameRegistry.addRecipe(new ShapedOreRecipe(getStack("sword_water",0), "ib","ib","s ",'i',"ingotWaterAlloy",'b',Items.water_bucket,'s',"stickWood"));
 		GameRegistry.addRecipe(new ShapedOreRecipe(getStack("sword_natural",0), " i ","viv"," s ",'i',"ingotNaturalAlloy",'v',Blocks.vine,'s',"treeSapling"));
 		GameRegistry.addRecipe(new ShapedOreRecipe(getStack("sword_wind",0), " i ","fif","bsb",'i',"ingotWindAlloy",'f',Items.feather,'s',"stickWood",'b',"slimeball"));
-	
+		
+		GameRegistry.addRecipe(new ShapedOreRecipe(getStack("pickaxe_long", 0), "tpt", " s ", " s ", 't', "ingotTitanium", 's', "stickWood", 'p', getStack("pickaxe_titanium", 0)));
+		GameRegistry.addRecipe(new ShapedOreRecipe(getStack("sword_long", 0), "t", "t", "s", 't', "ingotTitanium", 's', getStack("sword_titanium", 0)));
+		GameRegistry.addRecipe(new ShapedOreRecipe(getStack("hoe_long", 0), "tth", "  s", "  s", 't', "ingotTitanium", 's', "stickWood", 'h', getStack("hoe_titanium", 0)));
+		GameRegistry.addRecipe(new ShapedOreRecipe(getStack("shovel_long", 0), "t", "S", "s", 't', "ingotTitanium", 's', "stickWood", 'S', getStack("shovel_titanium", 0)));
+		GameRegistry.addRecipe(new ShapedOreRecipe(getStack("axe_long", 0), "tt", "at", "s ", 't', "ingotTitanium", 's', "stickWood", 'a', getStack("axe_titanium", 0)));
 		
 		
 		GameRegistry.addRecipe(new ShapelessOreRecipe(new ItemStack(GameRegistry.findItem("derpyshiz", "plank"), 4, 0), "treeEbony"));

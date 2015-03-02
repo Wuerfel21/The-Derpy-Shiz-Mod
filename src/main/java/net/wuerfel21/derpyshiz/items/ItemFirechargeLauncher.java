@@ -2,17 +2,13 @@ package net.wuerfel21.derpyshiz.items;
 
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.entity.projectile.EntityFireball;
 import net.minecraft.entity.projectile.EntityLargeFireball;
-import net.minecraft.entity.projectile.EntitySmallFireball;
 import net.minecraft.init.Items;
 import net.minecraft.item.EnumAction;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.Vec3;
 import net.minecraft.world.World;
-import net.minecraftforge.common.MinecraftForge;
-import net.minecraftforge.event.entity.player.ArrowNockEvent;
 import net.wuerfel21.derpyshiz.DerpyItems;
 
 public class ItemFirechargeLauncher extends Item {

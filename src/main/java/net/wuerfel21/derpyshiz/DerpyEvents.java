@@ -1,9 +1,7 @@
 package net.wuerfel21.derpyshiz;
 
 import java.io.InputStream;
-import java.lang.ref.WeakReference;
 import java.net.URL;
-import java.util.UUID;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockDirt;
@@ -30,10 +28,7 @@ import net.minecraft.util.AxisAlignedBB;
 import net.minecraft.util.ChatComponentText;
 import net.minecraft.util.ChatComponentTranslation;
 import net.minecraft.util.IChatComponent;
-import net.minecraft.world.WorldServer;
 import net.minecraftforge.common.MinecraftForge;
-import net.minecraftforge.common.util.FakePlayer;
-import net.minecraftforge.common.util.FakePlayerFactory;
 import net.minecraftforge.event.entity.living.LivingAttackEvent;
 import net.minecraftforge.event.entity.living.LivingDropsEvent;
 import net.minecraftforge.event.entity.living.LivingHurtEvent;
@@ -42,7 +37,6 @@ import net.minecraftforge.event.entity.player.PlayerInteractEvent;
 import net.minecraftforge.event.entity.player.UseHoeEvent;
 import net.minecraftforge.event.world.BlockEvent.BreakEvent;
 import net.minecraftforge.event.world.BlockEvent.HarvestDropsEvent;
-import net.minecraftforge.event.world.WorldEvent;
 import net.wuerfel21.derpyshiz.blocks.DerpyOres;
 import net.wuerfel21.derpyshiz.items.ItemRotameter;
 import net.wuerfel21.derpyshiz.items.LongAxe;
@@ -56,8 +50,6 @@ import net.wuerfel21.derpyshiz.rotary.IRotaryOutput;
 import net.wuerfel21.derpyshiz.rotary.ISneakyRotameter;
 
 import org.apache.commons.io.IOUtils;
-
-import com.mojang.authlib.GameProfile;
 
 import cpw.mods.fml.common.FMLCommonHandler;
 import cpw.mods.fml.common.FMLLog;

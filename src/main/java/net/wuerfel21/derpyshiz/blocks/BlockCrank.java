@@ -2,12 +2,8 @@ package net.wuerfel21.derpyshiz.blocks;
 
 import java.util.List;
 
-import cpw.mods.fml.relauncher.ReflectionHelper;
-import cpw.mods.fml.relauncher.Side;
-import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.block.Block;
 import net.minecraft.block.ITileEntityProvider;
-import net.minecraft.block.material.Material;
 import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.EntityLivingBase;
@@ -24,7 +20,8 @@ import net.wuerfel21.derpyshiz.IMetaItemBlock;
 import net.wuerfel21.derpyshiz.ISmashable;
 import net.wuerfel21.derpyshiz.Main;
 import net.wuerfel21.derpyshiz.entity.tile.TileEntityCrank;
-import net.wuerfel21.derpyshiz.entity.tile.TileEntityGearbox;
+import cpw.mods.fml.relauncher.Side;
+import cpw.mods.fml.relauncher.SideOnly;
 
 public class BlockCrank extends Block implements ITileEntityProvider, ISmashable, IMetaItemBlock {
 

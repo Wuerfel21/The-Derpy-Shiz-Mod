@@ -8,7 +8,6 @@ import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.IIcon;
 import net.wuerfel21.derpyshiz.DerpyBlocks;
 import net.wuerfel21.derpyshiz.Main;
-import net.wuerfel21.derpyshiz.blocks.BlockCombinationGearbox;
 import net.wuerfel21.derpyshiz.blocks.RotaryHousing;
 import net.wuerfel21.derpyshiz.entity.tile.TileEntityGearboxCombination;
 
@@ -24,10 +23,6 @@ public class RenderGearboxCombination extends TileEntitySpecialRenderer {
 	public void renderTileEntityAt(TileEntity tiletemp, double x, double y, double z, float f) {
 		TileEntityGearboxCombination tile = (TileEntityGearboxCombination) tiletemp;
 		this.bindTexture(TextureMap.locationBlocksTexture);
-		BlockCombinationGearbox block;
-		if (!tile.inInventory) {
-			block = (BlockCombinationGearbox) tile.getBlockType();
-		}
 		
 		int meta = tile.getTier();
 		

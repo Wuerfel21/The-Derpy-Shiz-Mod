@@ -1,16 +1,11 @@
 package net.wuerfel21.derpyshiz.client;
 
+import static net.wuerfel21.derpyshiz.client.DerpyRenderHelper.wp;
 import net.minecraft.client.renderer.Tessellator;
-import net.minecraft.init.Blocks;
 import net.minecraft.util.IIcon;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.common.util.ForgeDirection;
-import net.wuerfel21.derpyshiz.DerpyBlocks;
-import net.wuerfel21.derpyshiz.Main;
 import net.wuerfel21.derpyshiz.rotary.AxisChain;
-import static net.wuerfel21.derpyshiz.client.DerpyRenderHelper.getU;
-import static net.wuerfel21.derpyshiz.client.DerpyRenderHelper.getV;
-import static net.wuerfel21.derpyshiz.client.DerpyRenderHelper.wp;
 
 import org.lwjgl.opengl.GL11;
 

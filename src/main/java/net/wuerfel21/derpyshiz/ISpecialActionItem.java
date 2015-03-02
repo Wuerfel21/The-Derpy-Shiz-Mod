@@ -1,6 +1,5 @@
 package net.wuerfel21.derpyshiz;
 
-import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 

@@ -5,7 +5,6 @@ import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
-import net.minecraft.item.ItemArmor.ArmorMaterial;
 import net.minecraft.potion.PotionEffect;
 import net.minecraft.world.World;
 

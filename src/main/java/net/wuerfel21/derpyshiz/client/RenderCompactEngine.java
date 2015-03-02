@@ -1,23 +1,19 @@
 package net.wuerfel21.derpyshiz.client;
 
 import static net.wuerfel21.derpyshiz.client.RotaryRender.maxAxisWidth;
+import static net.wuerfel21.derpyshiz.client.RotaryRender.maxC;
 import static net.wuerfel21.derpyshiz.client.RotaryRender.minAxisWidth;
 import static net.wuerfel21.derpyshiz.client.RotaryRender.minC;
-import static net.wuerfel21.derpyshiz.client.RotaryRender.maxC;
-
-import org.lwjgl.opengl.GL11;
-
 import net.minecraft.client.renderer.Tessellator;
 import net.minecraft.client.renderer.texture.TextureMap;
 import net.minecraft.client.renderer.tileentity.TileEntitySpecialRenderer;
 import net.minecraft.init.Blocks;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.IIcon;
-import net.wuerfel21.derpyshiz.blocks.BlockCompactEngine;
-import net.wuerfel21.derpyshiz.blocks.BlockCrank;
 import net.wuerfel21.derpyshiz.blocks.RotaryHousing;
 import net.wuerfel21.derpyshiz.entity.tile.TileEntityCompactEngine;
-import net.wuerfel21.derpyshiz.entity.tile.TileEntityCrank;
+
+import org.lwjgl.opengl.GL11;
 
 public class RenderCompactEngine extends TileEntitySpecialRenderer {
 

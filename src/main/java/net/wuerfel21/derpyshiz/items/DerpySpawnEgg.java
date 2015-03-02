@@ -2,7 +2,6 @@ package net.wuerfel21.derpyshiz.items;
 
 import java.util.List;
 
-import scala.reflect.internal.Trees.New;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockDispenser;
 import net.minecraft.block.BlockLiquid;

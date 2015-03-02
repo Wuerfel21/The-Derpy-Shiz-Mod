@@ -1,9 +1,5 @@
 package net.wuerfel21.derpyshiz.entity.tile;
 
-import net.minecraft.entity.EntityLivingBase;
-import net.minecraft.util.ChatComponentText;
-import net.minecraft.util.IChatComponent;
-import net.wuerfel21.derpyshiz.rotary.ISneakyRotameter;
 import net.wuerfel21.derpyshiz.rotary.RotaryManager;
 
 public class TileEntityDetectorBox extends AbstractGearbox {

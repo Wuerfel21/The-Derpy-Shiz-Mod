@@ -3,7 +3,6 @@ package net.wuerfel21.derpyshiz.blocks;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.creativetab.CreativeTabs;
-import net.minecraft.init.Blocks;
 
 public class SnowflakeObsidian extends Block {
 	

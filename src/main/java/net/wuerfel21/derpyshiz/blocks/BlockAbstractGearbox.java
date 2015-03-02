@@ -20,7 +20,6 @@ import net.wuerfel21.derpyshiz.Main;
 import net.wuerfel21.derpyshiz.entity.tile.AbstractGearbox;
 import net.wuerfel21.derpyshiz.entity.tile.TileEntityGearbox;
 import cpw.mods.fml.common.FMLLog;
-import cpw.mods.fml.common.registry.GameRegistry;
 
 public abstract class BlockAbstractGearbox extends Block implements ISmashable, ITileEntityProvider, IMetaItemBlock {
 

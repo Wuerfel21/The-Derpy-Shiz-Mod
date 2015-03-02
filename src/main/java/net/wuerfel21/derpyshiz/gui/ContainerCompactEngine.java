@@ -1,18 +1,14 @@
 package net.wuerfel21.derpyshiz.gui;
 
-import cpw.mods.fml.relauncher.Side;
-import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.InventoryPlayer;
-import net.minecraft.inventory.Container;
 import net.minecraft.inventory.ICrafting;
 import net.minecraft.inventory.Slot;
-import net.minecraft.inventory.SlotFurnace;
 import net.minecraft.item.ItemStack;
 import net.minecraft.tileentity.TileEntityFurnace;
-import net.wuerfel21.derpyshiz.DerpyRegistry;
 import net.wuerfel21.derpyshiz.entity.tile.TileEntityCompactEngine;
-import net.wuerfel21.derpyshiz.entity.tile.TileEntityMillstone;
+import cpw.mods.fml.relauncher.Side;
+import cpw.mods.fml.relauncher.SideOnly;
 
 public class ContainerCompactEngine extends DerpyContainer {
 

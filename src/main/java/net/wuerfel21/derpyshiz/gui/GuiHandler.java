@@ -1,12 +1,9 @@
 package net.wuerfel21.derpyshiz.gui;
 
-import org.apache.logging.log4j.Level;
-
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.world.World;
 import net.wuerfel21.derpyshiz.GuiIds;
-import net.wuerfel21.derpyshiz.Main;
 import net.wuerfel21.derpyshiz.entity.tile.TileEntityCompactEngine;
 import net.wuerfel21.derpyshiz.entity.tile.TileEntityMillstone;
 import cpw.mods.fml.common.FMLLog;

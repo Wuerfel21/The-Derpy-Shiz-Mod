@@ -3,7 +3,6 @@ package net.wuerfel21.derpyshiz;
 import net.minecraft.block.Block;
 import net.minecraft.item.ItemBlockWithMetadata;
 import net.minecraft.item.ItemStack;
-import net.wuerfel21.derpyshiz.blocks.RotaryHousing;
 
 public class SimpleMetaItemBlock extends ItemBlockWithMetadata {
 	

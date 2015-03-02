@@ -10,8 +10,6 @@ import net.minecraft.item.Item.ToolMaterial;
 import net.minecraft.item.ItemArmor.ArmorMaterial;
 import net.minecraft.item.ItemStack;
 import net.minecraft.stats.StatList;
-import net.minecraftforge.client.ForgeHooksClient;
-import net.minecraftforge.common.ForgeHooks;
 import net.minecraftforge.common.util.EnumHelper;
 import net.wuerfel21.derpyshiz.items.AdminHammer;
 import net.wuerfel21.derpyshiz.items.ArmorStone;
@@ -123,7 +121,7 @@ public abstract class DerpyItems {
 		NATURAL = EnumHelper.addToolMaterial("NATURAL", 0, 650, 1f, 3f, 10);
 		WIND = EnumHelper.addToolMaterial("WIND", 0, 650, 1f, 2f, 10);
 		
-		LONG = EnumHelper.addToolMaterial("LONG", 2, 850, 6f, 2.50f, 11);
+		LONG = EnumHelper.addToolMaterial("LONG", 2, 1000, 6f, 2.50f, 11);
 		
 		ADMIN = EnumHelper.addToolMaterial("ADMIN", 42, 1, (float) Math.PI, 9000f, 9001);
 		

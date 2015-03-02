@@ -1,28 +1,22 @@
 package net.wuerfel21.derpyshiz.blocks;
 
-import cpw.mods.fml.common.eventhandler.Event.Result;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockContainer;
-import net.minecraft.block.material.Material;
-import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Blocks;
 import net.minecraft.item.ItemStack;
 import net.minecraft.tileentity.TileEntity;
-import net.minecraft.tileentity.TileEntityComparator;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.entity.player.PlayerInteractEvent;
 import net.minecraftforge.event.entity.player.PlayerInteractEvent.Action;
 import net.wuerfel21.derpyshiz.GuiIds;
-import net.wuerfel21.derpyshiz.IMetaItemBlock;
 import net.wuerfel21.derpyshiz.ISmashable;
 import net.wuerfel21.derpyshiz.Main;
 import net.wuerfel21.derpyshiz.entity.tile.TileEntityCompactEngine;
-import net.wuerfel21.derpyshiz.entity.tile.TileEntityCrank;
-import net.wuerfel21.derpyshiz.entity.tile.TileEntityMillstone;
+import cpw.mods.fml.common.eventhandler.Event.Result;
 
 public class BlockCompactEngine extends BlockContainer implements ISmashable {
 

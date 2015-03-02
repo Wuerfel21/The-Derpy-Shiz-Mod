@@ -3,18 +3,16 @@ package net.wuerfel21.derpyshiz.items;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
-import java.util.UUID;
-
-import com.google.common.collect.Multimap;
 
 import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.ai.attributes.AttributeModifier;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.ItemTool;
-import net.minecraft.world.World;
 import net.wuerfel21.derpyshiz.IModeItem;
 import net.wuerfel21.derpyshiz.ItemModeHelper;
+
+import com.google.common.collect.Multimap;
 
 public class DerpyHammer extends ItemTool implements IModeItem {
 	

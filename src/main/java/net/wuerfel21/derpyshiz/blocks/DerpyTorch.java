@@ -2,12 +2,11 @@ package net.wuerfel21.derpyshiz.blocks;
 
 import java.util.Random;
 
+import net.minecraft.block.BlockTorch;
+import net.minecraft.world.World;
 import cpw.mods.fml.common.Loader;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
-import net.minecraft.block.BlockTorch;
-import net.minecraft.world.IBlockAccess;
-import net.minecraft.world.World;
 
 public class DerpyTorch extends BlockTorch {
 	

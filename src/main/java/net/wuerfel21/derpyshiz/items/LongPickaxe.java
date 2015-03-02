@@ -1,11 +1,6 @@
 package net.wuerfel21.derpyshiz.items;
 
-import net.minecraft.block.Block;
-import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.item.Item;
-import net.minecraft.item.ItemStack;
-import net.minecraft.world.World;
-import net.wuerfel21.derpyshiz.DerpyItems;
 
 public class LongPickaxe extends DerpyPickaxe {
 	
