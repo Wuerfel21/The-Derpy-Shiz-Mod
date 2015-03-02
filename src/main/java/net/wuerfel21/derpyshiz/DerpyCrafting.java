@@ -236,8 +236,6 @@ public class DerpyCrafting {
 		GameRegistry.addRecipe(new ShapedOreRecipe(getBlock("millstone", 0), "fgf","nhn","fgf",'f',"stoneCoarseFramed",'g',"gearCopper",'n',"nuggetIron",'h',"housingNormal"));
 		GameRegistry.addRecipe(new ShapedOreRecipe(getBlock("millstone", 1), "fgf","nhn","fgf",'f',"blockObsidian",'g',"gearRuby",'n',"nuggetElectrimite",'h',getBlock("millstone", 0)));
 		
-		
-		
 		GameRegistry.addRecipe(new ShapedOreRecipe(getStack("top_hat_black",0), " b "," w ","bbb",'b',getWool(15),'w',getWool(0)));
 		GameRegistry.addRecipe(new ShapedOreRecipe(getStack("top_hat_white",0), " w "," b ","www",'b',getWool(15),'w',getWool(0)));
 		GameRegistry.addRecipe(new ShapedOreRecipe(getStack("top_hat_rainbow",0), " r "," r ","rrr",'r',"woolRainbow"));

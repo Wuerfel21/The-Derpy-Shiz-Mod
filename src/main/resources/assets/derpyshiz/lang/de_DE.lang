@@ -160,6 +160,12 @@ item.derpyshiz.hoe_copper.name=Kupferhacke
 item.derpyshiz.shovel_copper.name=Kupferschaufel
 item.derpyshiz.axe_copper.name=Kupferaxt
 
+item.derpyshiz.pickaxe_long.name=Lange Spitzhacke
+item.derpyshiz.sword_long.name=Langschwert
+item.derpyshiz.hoe_long.name=Langhacke
+item.derpyshiz.shovel_long.name=Langschaufel
+item.derpyshiz.axe_long.name=Breitaxt
+
 item.derpyshiz.sword_amber.name=Bernsteinschwert
 
 item.derpyshiz.sword_lapis.name=Lapisschwert
@@ -218,6 +224,8 @@ tile.derpyshiz.leaves_magic.name=Magisches Laub
 
 tile.derpyshiz.planks_ebony.name=Ebenholzbretter
 tile.derpyshiz.planks_magic.name=Magische Holzbretter
+
+tile.derpyshiz.fake_tnt.name=Falsches TNT
 
 tile.derpyshiz.sapling_ebony.name=Ebensetzling
 tile.derpyshiz.sapling_magic.name=Magischer Setzling

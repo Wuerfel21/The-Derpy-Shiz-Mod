@@ -162,6 +162,12 @@ item.derpyshiz.hoe_copper.name=Copper Hoe
 item.derpyshiz.shovel_copper.name=Copper Shovel
 item.derpyshiz.axe_copper.name=Copper Axe
 
+item.derpyshiz.pickaxe_long.name=Long Pickaxe
+item.derpyshiz.sword_long.name=Longsword
+item.derpyshiz.hoe_long.name=Longhoe
+item.derpyshiz.shovel_long.name=Longshovel
+item.derpyshiz.axe_long.name=Broad Axe
+
 item.derpyshiz.sword_amber.name=Amber Sword
 
 item.derpyshiz.sword_lapis.name=Lapis Sword
@@ -223,6 +229,8 @@ tile.derpyshiz.sapling_magic.name=Magic Sapling
 
 tile.derpyshiz.planks_ebony.name=Ebony Wood Planks
 tile.derpyshiz.planks_magic.name=Magic Wood Planks
+
+tile.derpyshiz.fake_tnt.name=Fake TNT
 
 item.derpyshiz.circlet_diamond.name=Diamond Circlet
 item.derpyshiz.circlet_ruby.name=Ruby Circlet
