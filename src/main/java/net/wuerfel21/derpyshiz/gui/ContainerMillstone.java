@@ -63,6 +63,7 @@ public class ContainerMillstone extends DerpyContainer {
 
         this.lastProgress = millstone.progress;
         this.lastEnergyNeeded = millstone.energyNeeded;
+        this.lastSpeed = millstone.inputSpeed;
     }
 	
 	@Override

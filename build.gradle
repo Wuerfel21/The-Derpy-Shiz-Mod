@@ -17,7 +17,7 @@ buildscript {
 
 apply plugin: 'forge'
 
-version = "beta 0.3.1"
+version = "beta 0.4 SNAPSHOT-VERY-BROKEN"
 group= "net.wuerfel21.derpyshiz"
 archivesBaseName = "derpyshiz"
 

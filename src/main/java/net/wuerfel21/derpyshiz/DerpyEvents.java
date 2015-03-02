@@ -93,13 +93,14 @@ public class DerpyEvents {
 	@SubscribeEvent
 	public void onBlockDrop(HarvestDropsEvent event) {
 		if (event.block == GameRegistry.findBlock("derpyshiz", "log")) {
+			if (event.harvester == null)
+				return;
 			event.drops.removeAll(event.drops);
 			ItemStack is = event.harvester.getHeldItem();
 			if (is == null) {
 				event.drops.add(this.dropsHand[event.blockMetadata % 2].get());
 			} else {
 				int hl = is.getItem().getHarvestLevel(is, "axe");
-				System.out.println(hl);
 				if (hl < 0) {
 					event.drops.add(this.dropsHand[event.blockMetadata % 2].get());
 					return;

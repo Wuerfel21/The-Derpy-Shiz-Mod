@@ -70,13 +70,8 @@ public class FireSword extends DerpySword implements IModeItem, ISpecialActionIt
 		int cost = player.dimension == -1 ? 1 : 3;
 		if (!player.isWet()) {
 			Vec3 vec = player.getLook(0.3f);
-			EntitySmallFireball ball = new EntitySmallFireball(player.worldObj, player, vec.xCoord, vec.yCoord, vec.zCoord);
-			ball.posY += player.eyeHeight;
-			ball.accelerationX = vec.xCoord;
-			ball.accelerationY = vec.yCoord;
-			ball.accelerationZ = vec.zCoord;
+			EntitySmallFireball ball = new EntitySmallFireball(player.worldObj, player.posX, player.posY + player.eyeHeight, player.posZ, vec.xCoord, vec.yCoord, vec.zCoord);
 			ball.shootingEntity = player;
-			ball.setPosition(ball.posX, ball.posY, ball.posZ);
 			player.worldObj.spawnEntityInWorld(ball);
 			player.worldObj.playSoundAtEntity(player, "mob.ghast.fireball", 1f, player.getRNG().nextFloat() * 0.1f + 0.9f);
 			DerpyItems.damageItem(stack, cost, player);
