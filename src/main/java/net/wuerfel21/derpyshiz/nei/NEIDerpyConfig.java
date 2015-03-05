@@ -13,6 +13,8 @@ public class NEIDerpyConfig implements IConfigureNEI {
 	public void loadConfig() {
 		API.registerRecipeHandler(new NEIMillstone());
 		API.registerUsageHandler(new NEIMillstone());
+		API.registerRecipeHandler(new NEICentrifuge());
+		API.registerUsageHandler(new NEICentrifuge());
 	}
 
 	@Override

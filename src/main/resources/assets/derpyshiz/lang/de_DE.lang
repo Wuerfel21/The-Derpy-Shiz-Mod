@@ -186,6 +186,8 @@ item.derpyshiz.hoe_fakediamond.name=Falsche Diamanthacke
 item.derpyshiz.sword_wuerfelium.name=Diceiumschwert
 item.derpyshiz.pickaxe_wuerfelium.name=Diceiumspitzhacke
 
+item.derpyshiz.firecharge_launcher.name=Feuerballwerfer
+
 item.derpyshiz.helmet_titanium.name=Titanhelm
 item.derpyshiz.chestplate_titanium.name=Titanbrustpanzer
 item.derpyshiz.leggings_titanium.name=Titanbeinschutz
@@ -263,12 +265,27 @@ tile.derpyshiz.axis.name=Achse
 
 tile.derpyshiz.gearbox_normal.name=Getriebe
 tile.derpyshiz.gearbox_advanced.name=Verbessertes Getriebe
+tile.derpyshiz.gearbox_combination_normal.name=Kombinierungsgetriebe
+tile.derpyshiz.gearbox_combination_advanced.name=Verbessertes Kombinierungsgetriebe
+tile.derpyshiz.gearbox_reversion_normal.name=Umkehrgetriebe
+tile.derpyshiz.gearbox_reversion_advanced.name=Verbessertes Umkehrgetriebe
+tile.derpyshiz.gearbox_splitting_normal.name=Verteilungsgetriebe
+tile.derpyshiz.gearbox_splitting_advanced.name=Verbessertes Verteilungsgetriebe
+tile.derpyshiz.gearbox_decoupling_normal.name=Entkopplungsgetriebe
+tile.derpyshiz.gearbox_decoupling_advanced.name=Verbessertes Entkopplungsgetriebe
+tile.derpyshiz.springbox_normal.name=Aufziehkasten
+tile.derpyshiz.springbox_advanced.name=Verbesserter Aufziehkasten
+tile.derpyshiz.detectorbox_normal.name=Detektorkasten
+tile.derpyshiz.detectorbox_advanced.name=Verbesserter Detektorkasten
 
 tile.derpyshiz.crank_normal.name=Kurbel
 tile.derpyshiz.crank_advanced.name=Verbesserte Kurbel
+tile.derpyshiz.compact_engine.name=Kompakter Motor
 
 tile.derpyshiz.millstone_normal.name=Mühlstein
 tile.derpyshiz.millstone_advanced.name=Verbesserter Mühlstein
+tile.derpyshiz.centrifuge_normal.name=Zentrifuge
+tile.derpyshiz.centrifuge_advanced.name=Verbesserte Zentrifuge
 
 tile.derpyshiz.seizure_wool.name=Augenkrebswolle
 
@@ -291,6 +308,10 @@ item.derpyshiz.gear_ruby.name=Rubinzahnrad
 item.derpyshiz.gear_electrimite.name=Electrimitezahnrad
 item.derpyshiz.gear_enderium.name=Enderiumzahnrad
 
+item.derpyshiz.spring_iron.name=Eisenfeder
+item.derpyshiz.spring_gold.name=Goldfeder
+item.derpyshiz.spring_electrimite.name=Electrimitefeder
+
 mode.derpyshiz.hammer_face.name=Seite
 mode.derpyshiz.hammer_direction.name=Richtung
 mode.derpyshiz.firesword_normal.name=Normal
@@ -302,6 +323,9 @@ mode.derpyshiz.naturalsword_back.name=Hinten
 mode.derpyshiz.naturalsword_all.name=Rundum
 mode.derpyshiz.windsword_speed.name=Geschwindigkeit
 mode.derpyshiz.windsword_jump.name=Sprungkraft
+mode.derpyshiz.admin_kick.name=Rauswerfen
+mode.derpyshiz.admin_ban.name=Nutzer verbannen
+mode.derpyshiz.admin_ipban.name=IP verbannen
 
 mode.derpyshiz.mode.name=Modus
 
@@ -310,7 +334,11 @@ text.derpyshiz.input.name=Eingang
 text.derpyshiz.rpm.name=RPM
 text.derpyshiz.mccr.name=MCC/R
 
+item.derpyshiz.hammer_admin.name=Administratorhammer
+
 container.derpyshiz.millstone.name=Mühlstein
+container.derpyshiz.compact_engine.name=Kompakter Motor
+container.derpyshiz.centrifuge.name=Zentrifuge
 
 message.derpyshiz.mode.name=Modus geändert auf: 
 

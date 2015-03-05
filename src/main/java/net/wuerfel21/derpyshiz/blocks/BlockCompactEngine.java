@@ -71,12 +71,8 @@ public class BlockCompactEngine extends BlockContainer implements ISmashable {
 	
 	@Override
 	public boolean onBlockActivated(World world, int x, int y, int z, EntityPlayer player, int side, float offsetX, float offsetY, float offsetZ) {
-		PlayerInteractEvent e = new PlayerInteractEvent(player, Action.RIGHT_CLICK_BLOCK, x, y, z, side, world);
-		if (MinecraftForge.EVENT_BUS.post(e) || e.getResult() == Result.DENY || e.useBlock == Result.DENY) {
-			return false;
-		}
 
-		TileEntity te = (TileEntityCompactEngine) world.getTileEntity(x, y, z);
+		TileEntity te = world.getTileEntity(x, y, z);
 		if (te == null || te instanceof TileEntityCompactEngine == false) {
 			return false;
 		}

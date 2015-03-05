@@ -2,8 +2,10 @@ package net.wuerfel21.derpyshiz.blocks;
 
 import java.util.List;
 
+import cpw.mods.fml.common.eventhandler.Event.Result;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockContainer;
+import net.minecraft.block.material.Material;
 import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.EntityLivingBase;
@@ -22,38 +24,37 @@ import net.wuerfel21.derpyshiz.DerpyBlocks;
 import net.wuerfel21.derpyshiz.GuiIds;
 import net.wuerfel21.derpyshiz.IMetaItemBlock;
 import net.wuerfel21.derpyshiz.Main;
-import net.wuerfel21.derpyshiz.entity.tile.TileEntityMillstone;
-import cpw.mods.fml.common.eventhandler.Event.Result;
+import net.wuerfel21.derpyshiz.entity.tile.TileEntityCentrifuge;
 
-public class BlockMillstone extends BlockContainer implements IMetaItemBlock {
-
-	public static IIcon[] icons = new IIcon[4];
+public class BlockCentrifuge extends BlockContainer implements IMetaItemBlock {
 	
-	public BlockMillstone() {
+	public static IIcon[] icons = new IIcon[4];
+
+	public BlockCentrifuge() {
 		super(Main.machineMaterial);
-		this.setBlockName("derpyshiz.millstone");
+		this.setBlockName("derpyshiz.centrifuge");
 		this.setCreativeTab(Main.tabRotary);
 		this.setStepSound(soundTypePiston);
 		this.setHarvestLevel("ds_hammer", 0);
 		this.setResistance(10f);
 		this.setHardness(1.5f);
 		if (Main.fancyGearbox) {
-			this.setBlockTextureName("derpyshiz:coarse_stone_framed");
+			this.setBlockTextureName("minecraft:brick");
 		} else {
-			this.setBlockTextureName("derpyshiz:millstone_ugly");
+			this.setBlockTextureName("derpyshiz:centrifuge_ugly");
 		}
 	}
 
 	@Override
 	public TileEntity createNewTileEntity(World p_149915_1_, int p_149915_2_) {
-		return new TileEntityMillstone();
+		return new TileEntityCentrifuge();
 	}
 
 	@Override
 	public void onBlockPlacedBy(World world, int x, int y, int z, EntityLivingBase p_149689_5_, ItemStack stack) {
 		if (stack.hasDisplayName())
         {
-            ((TileEntityMillstone)world.getTileEntity(x, y, z)).name = stack.getDisplayName();
+            ((TileEntityCentrifuge)world.getTileEntity(x, y, z)).name = stack.getDisplayName();
         }
 	}
 	
@@ -61,12 +62,12 @@ public class BlockMillstone extends BlockContainer implements IMetaItemBlock {
 	public boolean onBlockActivated(World world, int x, int y, int z, EntityPlayer player, int side, float offsetX, float offsetY, float offsetZ) {
 
 		TileEntity te = world.getTileEntity(x, y, z);
-		if (te == null || te instanceof TileEntityMillstone == false) {
+		if (te == null || te instanceof TileEntityCentrifuge == false) {
 			return false;
 		}
 
 		if (!world.isRemote) {
-			player.openGui(Main.instance, GuiIds.MILLSTONE, world, x, y, z);
+			player.openGui(Main.instance, GuiIds.CENTRIFUGE, world, x, y, z);
 		}
 
 		return true;
@@ -83,9 +84,9 @@ public class BlockMillstone extends BlockContainer implements IMetaItemBlock {
 			switch (meta) {
 			default:
 			case 0:
-				return DerpyBlocks.coarseStone.getIcon(side, 1);
+				return Blocks.brick_block.getIcon(0, 0);
 			case 1:
-				return Blocks.obsidian.getIcon(side, 0);
+				return DerpyBlocks.oreBlocks.getIcon(0, 4);
 			}
 		} else {
 			return icons[((meta & 1)*2)+(side<2?1:0)];
@@ -110,10 +111,10 @@ public class BlockMillstone extends BlockContainer implements IMetaItemBlock {
 	@Override
 	public void breakBlock(World world, int x, int y, int z, Block block, int meta) {
 		TileEntity te = world.getTileEntity(x, y, z);
-		if (!(te instanceof TileEntityMillstone)) {
+		if (!(te instanceof TileEntityCentrifuge)) {
 			return;
 		}
-		((TileEntityMillstone)te).dropInv(world, x, y, z);
+		((TileEntityCentrifuge)te).dropInv(world, x, y, z);
 		super.breakBlock(world, x, y, z, block, meta);
 	}
 
@@ -140,5 +141,5 @@ public class BlockMillstone extends BlockContainer implements IMetaItemBlock {
 	public String getUnlocalizedName(int meta) {
 		return this.getUnlocalizedName() + "_" +types[meta%types.length];
 	}
-	
+
 }

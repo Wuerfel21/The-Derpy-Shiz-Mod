@@ -4,6 +4,7 @@ import net.minecraft.entity.EntityList;
 import net.minecraft.entity.EnumCreatureType;
 import net.minecraft.world.biome.BiomeGenBase;
 import net.wuerfel21.derpyshiz.entity.EntityPiggycorn;
+import net.wuerfel21.derpyshiz.entity.tile.TileEntityCentrifuge;
 import net.wuerfel21.derpyshiz.entity.tile.TileEntityCompactEngine;
 import net.wuerfel21.derpyshiz.entity.tile.TileEntityCrank;
 import net.wuerfel21.derpyshiz.entity.tile.TileEntityDetectorBox;
@@ -65,6 +66,7 @@ public class CommonProxy {
 		GameRegistry.registerTileEntity(TileEntityCrank.class, "ds_crank");
 		GameRegistry.registerTileEntity(TileEntityCompactEngine.class, "ds_compact_engine");
 		GameRegistry.registerTileEntity(TileEntityMillstone.class, "ds_millstone");
+		GameRegistry.registerTileEntity(TileEntityCentrifuge.class, "ds_centrifuge");
 		
 		GameRegistry.registerTileEntity(TileEntitySeizureWool.class, "ds_seizure_wool");
 		NaturalSword.registerLeafTypes();

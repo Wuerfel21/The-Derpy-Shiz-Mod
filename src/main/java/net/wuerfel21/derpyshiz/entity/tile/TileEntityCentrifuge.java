@@ -13,16 +13,18 @@ import net.minecraft.util.StatCollector;
 import net.minecraft.world.World;
 import net.minecraftforge.oredict.OreDictionary;
 import net.wuerfel21.derpyshiz.DerpyRegistry;
+import net.wuerfel21.derpyshiz.DerpyRegistry.CentrifugeEntry;
 import net.wuerfel21.derpyshiz.DerpyRegistry.TieredMachineEntry;
 import net.wuerfel21.derpyshiz.IExperienceMachine;
-import net.wuerfel21.derpyshiz.blocks.BlockMillstone;
+import net.wuerfel21.derpyshiz.blocks.BlockCentrifuge;
+import net.wuerfel21.derpyshiz.rotary.AxisChain;
 import net.wuerfel21.derpyshiz.rotary.IRotaryInput;
 import net.wuerfel21.derpyshiz.rotary.ITieredTE;
 import net.wuerfel21.derpyshiz.rotary.RotaryManager;
 
-public class TileEntityMillstone extends TileEntity implements ISidedInventory, ITieredTE, IRotaryInput, IExperienceMachine {
+public class TileEntityCentrifuge extends TileEntity implements ISidedInventory, ITieredTE, IRotaryInput, IExperienceMachine {
 
-	public ItemStack[] stacks = new ItemStack[2];
+	public ItemStack[] stacks = new ItemStack[4];
 	public String name = null;
 	public int tier = 0;
 	public boolean inInventory = false;
@@ -31,9 +33,15 @@ public class TileEntityMillstone extends TileEntity implements ISidedInventory, 
 	public int inputSpeed;
 	public int[] input = new int[2];
 	public int[] length = new int[2];
-	public int[] access = new int[] {0 ,1};
+	public int[] access = new int[] { 0, 1, 2, 3 };
 	public float lastXP;
+	public AxisChain pseudoChain;
 
+	public TileEntityCentrifuge() {
+		super();
+		pseudoChain = new AxisChain(0,0);
+	}
+	
 	@Override
 	public void updateEntity() {
 		if (this.worldObj != null) {
@@ -46,14 +54,16 @@ public class TileEntityMillstone extends TileEntity implements ISidedInventory, 
 					this.worldObj.func_147480_a(xCoord, yCoord, zCoord, true);
 					return;
 				}
-				if (stacks[0] != null && DerpyRegistry.isValidForMachine(DerpyRegistry.millstoneRecipes, stacks[0], tier)) {
+				pseudoChain.lastSpeed = pseudoChain.speed;
+				if (stacks[0] != null && DerpyRegistry.isValidForMachine(DerpyRegistry.centrifugeRecipes, stacks[0], tier)) {
 					this.markDirty();
-					TieredMachineEntry output = DerpyRegistry.getOutput(DerpyRegistry.millstoneRecipes, stacks[0], this.getTier());
+					CentrifugeEntry output = (CentrifugeEntry) DerpyRegistry.getOutput(DerpyRegistry.centrifugeRecipes, stacks[0], this.getTier());
 					if (canOperate()) {
 						energyNeeded = output.energy;
 						progress += inputSpeed;
+						pseudoChain.speed = inputSpeed;
 						if (progress >= energyNeeded) {
-							stacks[0].stackSize -= DerpyRegistry.getKey(DerpyRegistry.millstoneRecipes, stacks[0]).stackSize;
+							stacks[0].stackSize -= DerpyRegistry.getKey(DerpyRegistry.centrifugeRecipes, stacks[0]).stackSize;
 							if (stacks[0].stackSize < 1) {
 								stacks[0] = null;
 							}
@@ -62,37 +72,53 @@ public class TileEntityMillstone extends TileEntity implements ISidedInventory, 
 							} else {
 								stacks[1].stackSize += output.output.stackSize;
 							}
+							if (stacks[2] == null) {
+								stacks[2] = output.output2.copy();
+							} else {
+								stacks[2].stackSize += output.output2.stackSize;
+							}
+							if (stacks[3] == null) {
+								stacks[3] = output.output3.copy();
+							} else {
+								stacks[3].stackSize += output.output3.stackSize;
+							}
 							progress -= energyNeeded;
-							this.lastXP = output.exp; 
+							this.lastXP = output.exp;
 						}
 					} else {
 						progress = 0;
 						energyNeeded = 0;
+						pseudoChain.speed = 0;
 					}
 				} else {
 					progress = 0;
 					energyNeeded = 0;
+					pseudoChain.speed = 0;
+				}
+				if (pseudoChain.speed != pseudoChain.lastSpeed) {
+					this.worldObj.markBlockForUpdate(xCoord, yCoord, zCoord);
 				}
 			}
+			pseudoChain.updateVisualPosition();
 		}
 	}
 
 	public boolean canOperate() {
-		if (DerpyRegistry.isValidForMachine(DerpyRegistry.millstoneRecipes, this.stacks[0], this.getTier())) {
-			TieredMachineEntry output = DerpyRegistry.getOutput(DerpyRegistry.millstoneRecipes, this.stacks[0], this.getTier());
-			ItemStack key = DerpyRegistry.getKey(DerpyRegistry.millstoneRecipes, this.stacks[0]);
-			if ((this.stacks[1] == null || OreDictionary.itemMatches(output.output, this.stacks[1], true)) && this.stacks[0].stackSize >= key.stackSize && (this.stacks[1] == null || this.stacks[1].stackSize + output.output.stackSize <= this.stacks[1].getMaxStackSize())) {
+		if (DerpyRegistry.isValidForMachine(DerpyRegistry.centrifugeRecipes, this.stacks[0], this.getTier())) {
+			CentrifugeEntry output = (CentrifugeEntry) DerpyRegistry.getOutput(DerpyRegistry.centrifugeRecipes, this.stacks[0], this.getTier());
+			ItemStack key = DerpyRegistry.getKey(DerpyRegistry.centrifugeRecipes, this.stacks[0]);
+			if (((this.stacks[1] == null || OreDictionary.itemMatches(output.output, this.stacks[1], true)) && (this.stacks[2] == null || OreDictionary.itemMatches(output.output2, this.stacks[2], true)) && (this.stacks[3] == null || OreDictionary.itemMatches(output.output3, this.stacks[3], true))) && (this.stacks[0].stackSize >= key.stackSize) && ((this.stacks[1] == null || this.stacks[1].stackSize + output.output.stackSize <= this.stacks[1].getMaxStackSize()) && (this.stacks[2] == null || this.stacks[2].stackSize + output.output2.stackSize <= this.stacks[2].getMaxStackSize()) && (this.stacks[3] == null || this.stacks[3].stackSize + output.output3.stackSize <= this.stacks[3].getMaxStackSize()))) {
 				return true;
 			}
 		}
 		return false;
 	}
-	
-	public int[] breakSpeed = { 50, 500 };
+
+	public int[] breakSpeed = { 75, 750 };
 
 	@Override
 	public int getSizeInventory() {
-		return 2;
+		return 4;
 	}
 
 	@Override
@@ -141,6 +167,14 @@ public class TileEntityMillstone extends TileEntity implements ISidedInventory, 
 			inventory.setTag("output", stacks[1].writeToNBT(new NBTTagCompound()));
 		else
 			inventory.removeTag("output");
+		if (stacks[2] != null)
+			inventory.setTag("output2", stacks[2].writeToNBT(new NBTTagCompound()));
+		else
+			inventory.removeTag("output2");
+		if (stacks[3] != null)
+			inventory.setTag("output3", stacks[3].writeToNBT(new NBTTagCompound()));
+		else
+			inventory.removeTag("output3");
 		tag.setTag("inventory", inventory);
 		NBTTagCompound rotary = new NBTTagCompound();
 		rotary.setTag("input", RotaryManager.inputToNBT(this));
@@ -160,6 +194,10 @@ public class TileEntityMillstone extends TileEntity implements ISidedInventory, 
 			stacks[0] = ItemStack.loadItemStackFromNBT(inventory.getCompoundTag("input"));
 		if (inventory.hasKey("output"))
 			stacks[1] = ItemStack.loadItemStackFromNBT(inventory.getCompoundTag("output"));
+		if (inventory.hasKey("output2"))
+			stacks[2] = ItemStack.loadItemStackFromNBT(inventory.getCompoundTag("output2"));
+		if (inventory.hasKey("output3"))
+			stacks[3] = ItemStack.loadItemStackFromNBT(inventory.getCompoundTag("output3"));
 		NBTTagCompound rotary = tag.getCompoundTag("rotary");
 		RotaryManager.inputFromNBT(this, rotary);
 		this.progress = tag.getInteger("progress");
@@ -168,7 +206,7 @@ public class TileEntityMillstone extends TileEntity implements ISidedInventory, 
 		}
 		this.lastXP = tag.getFloat("lastXP");
 	}
-	
+
 	@Override
 	public void setInventorySlotContents(int slot, ItemStack stack) {
 		if (slot < this.getSizeInventory()) {
@@ -176,11 +214,12 @@ public class TileEntityMillstone extends TileEntity implements ISidedInventory, 
 			this.stacks[slot] = stack;
 		}
 	}
-	
+
 	@Override
 	public void onDataPacket(NetworkManager net, S35PacketUpdateTileEntity pkg) {
 		NBTTagCompound tag = pkg.func_148857_g();
 		this.name = tag.getString("CustomName");
+		this.pseudoChain.fromNetworkNBT(tag.getCompoundTag("chain"));
 	}
 
 	@Override
@@ -189,12 +228,13 @@ public class TileEntityMillstone extends TileEntity implements ISidedInventory, 
 		if (hasCustomInventoryName()) {
 			tag.setString("CustomName", name);
 		}
+		tag.setTag("chain", pseudoChain.toNetworkNBT());
 		return new S35PacketUpdateTileEntity(this.xCoord, this.yCoord, this.zCoord, 1, tag);
 	}
 
 	@Override
 	public String getInventoryName() {
-		return this.hasCustomInventoryName() ? this.name : StatCollector.translateToLocal("container.derpyshiz.millstone.name");
+		return this.hasCustomInventoryName() ? this.name : StatCollector.translateToLocal("container.derpyshiz.centrifuge.name");
 	}
 
 	@Override
@@ -208,10 +248,9 @@ public class TileEntityMillstone extends TileEntity implements ISidedInventory, 
 	}
 
 	@Override
-	public boolean isUseableByPlayer(EntityPlayer p_70300_1_)
-    {
-        return this.worldObj.getTileEntity(this.xCoord, this.yCoord, this.zCoord) != this ? false : p_70300_1_.getDistanceSq((double)this.xCoord + 0.5D, (double)this.yCoord + 0.5D, (double)this.zCoord + 0.5D) <= 64.0D;
-    }
+	public boolean isUseableByPlayer(EntityPlayer p_70300_1_) {
+		return this.worldObj.getTileEntity(this.xCoord, this.yCoord, this.zCoord) != this ? false : p_70300_1_.getDistanceSq((double) this.xCoord + 0.5D, (double) this.yCoord + 0.5D, (double) this.zCoord + 0.5D) <= 64.0D;
+	}
 
 	@Override
 	public void openInventory() {
@@ -227,7 +266,7 @@ public class TileEntityMillstone extends TileEntity implements ISidedInventory, 
 
 	@Override
 	public boolean isItemValidForSlot(int slot, ItemStack stack) {
-		return slot != 1;
+		return slot == 0;
 	}
 
 	@Override
@@ -237,22 +276,22 @@ public class TileEntityMillstone extends TileEntity implements ISidedInventory, 
 
 	@Override
 	public boolean canInsertItem(int slot, ItemStack stack, int side) {
-		return slot != 1;
+		return slot == 0;
 	}
 
 	@Override
 	public boolean canExtractItem(int slot, ItemStack stack, int side) {
-		return slot == 1;
+		return slot != 0;
 	}
 
 	public void dropInv(World world, int x, int y, int z) {
 		Block block = this.getBlockType();
-		if (!(block instanceof BlockMillstone)) {
+		if (!(block instanceof BlockCentrifuge)) {
 			return;
 		}
 		for (ItemStack stack : this.stacks) {
 			if (stack != null) {
-				((BlockMillstone) block).dropBlockAsItem(world, x, y, z, stack);
+				((BlockCentrifuge) block).dropBlockAsItem(world, x, y, z, stack);
 			}
 
 		}

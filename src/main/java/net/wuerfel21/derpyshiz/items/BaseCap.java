@@ -33,7 +33,7 @@ public class BaseCap extends DerpyArmor {
 	@SideOnly(Side.CLIENT)
 	@Override
 	public String getArmorTexture(ItemStack stack, Entity entity, int slot, String type) {
-		return "derpyshiz:armor/cap_" + this.armorTexture + ".png";
+		return "derpyshiz:textures/armor/cap_" + this.armorTexture + ".png";
 	}
 	
 }

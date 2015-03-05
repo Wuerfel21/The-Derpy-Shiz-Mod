@@ -38,6 +38,7 @@ public class ItemFirechargeLauncher extends Item {
 			player.worldObj.spawnEntityInWorld(ball);
 			player.worldObj.playSoundAtEntity(player, "mob.ghast.fireball", 1f, player.getRNG().nextFloat() * 0.1f + 0.9f);
 			DerpyItems.damageItem(stack, 1, player);
+			player.inventory.consumeInventoryItem(Items.fire_charge);
 		}
 	}
 	

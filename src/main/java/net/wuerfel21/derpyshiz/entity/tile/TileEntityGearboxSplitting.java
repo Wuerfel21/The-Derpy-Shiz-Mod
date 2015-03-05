@@ -5,6 +5,7 @@ import net.minecraft.network.NetworkManager;
 import net.minecraft.network.Packet;
 import net.minecraft.network.play.server.S35PacketUpdateTileEntity;
 import net.minecraft.util.AxisAlignedBB;
+import net.wuerfel21.derpyshiz.Main;
 import net.wuerfel21.derpyshiz.rotary.AxisChain;
 import net.wuerfel21.derpyshiz.rotary.RotaryManager;
 import cpw.mods.fml.relauncher.Side;
@@ -194,6 +195,11 @@ public class TileEntityGearboxSplitting extends AbstractGearbox {
 			break;
 		}
 		return b1.func_111270_a(b2);
+	}
+	
+	@Override
+	public double getMaxRenderDistanceSquared() {
+		return Math.pow(Main.gearboxBaseDistance+Math.max(chain.length,chain2.length), 2);
 	}
 	
 }

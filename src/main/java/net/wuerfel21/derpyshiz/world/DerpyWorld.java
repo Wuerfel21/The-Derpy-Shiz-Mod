@@ -8,6 +8,7 @@ import net.minecraftforge.common.BiomeManager.BiomeEntry;
 import net.minecraftforge.common.BiomeManager.BiomeType;
 import net.wuerfel21.derpyshiz.MagicBiomeGen;
 import net.wuerfel21.derpyshiz.Main;
+import cpw.mods.fml.client.CustomModLoadingErrorDisplayException;
 import cpw.mods.fml.common.registry.GameRegistry;
 
 public class DerpyWorld {

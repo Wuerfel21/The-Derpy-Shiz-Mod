@@ -13,5 +13,6 @@ public abstract class GuiIds {
 	
 	public static final int MILLSTONE = 0;
 	public static final int COMPACT_ENGINE = 1;
+	public static final int CENTRIFUGE = 2;
 	
 }

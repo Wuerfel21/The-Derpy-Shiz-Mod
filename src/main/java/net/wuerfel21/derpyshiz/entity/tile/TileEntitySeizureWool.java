@@ -2,7 +2,9 @@ package net.wuerfel21.derpyshiz.entity.tile;
 
 import java.util.Random;
 
+import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.tileentity.TileEntity;
+import net.wuerfel21.derpyshiz.Main;
 
 public class TileEntitySeizureWool extends TileEntity {
 
@@ -32,6 +34,23 @@ public class TileEntitySeizureWool extends TileEntity {
 
 	public void updateRand() {
 		this.color = rand.nextInt(16);
+	}
+	
+	@Override
+	public void writeToNBT(NBTTagCompound tag) {
+		super.writeToNBT(tag);
+		tag.setByte("color",(byte) color);
+	}
+	
+	@Override
+	public void readFromNBT(NBTTagCompound tag) {
+		super.readFromNBT(tag);
+		this.color = tag.getByte("color");
+	}
+	
+	@Override
+	public double getMaxRenderDistanceSquared() {
+		return Main.seizureWoolDistance;
 	}
 
 }

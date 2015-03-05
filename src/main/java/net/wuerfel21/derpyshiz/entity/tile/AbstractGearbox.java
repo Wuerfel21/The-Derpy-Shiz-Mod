@@ -6,6 +6,7 @@ import net.minecraft.network.Packet;
 import net.minecraft.network.play.server.S35PacketUpdateTileEntity;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.AxisAlignedBB;
+import net.wuerfel21.derpyshiz.Main;
 import net.wuerfel21.derpyshiz.rotary.AxisChain;
 import net.wuerfel21.derpyshiz.rotary.IRotaryInput;
 import net.wuerfel21.derpyshiz.rotary.IRotaryOutput;
@@ -86,6 +87,11 @@ public abstract class AbstractGearbox extends TileEntity implements IRotaryInput
 		tag.setTag("rotary", rotary);
 	}
 
+	@Override
+	public double getMaxRenderDistanceSquared() {
+		return Math.pow(Main.gearboxBaseDistance+chain.length, 2);
+	}
+	
 	@Override
 	public void onDataPacket(NetworkManager net, S35PacketUpdateTileEntity pkg) {
 		NBTTagCompound tag = pkg.func_148857_g();

@@ -29,10 +29,10 @@ public class DarkCloak extends DerpyArmor {
 	    if(entity instanceof EntityLivingBase) {
 	    	EntityLivingBase entityl = (EntityLivingBase)entity;
 	    	if (entityl.isInvisible()) {
-	    		return "derpyshiz:armor/null.png";
+	    		return "derpyshiz:textures/armor/null.png";
 	    	}
 	    }
-	    return "derpyshiz:armor/dark_cloak.png";
+	    return "derpyshiz:textures/armor/dark_cloak.png";
 	}
 	
 }

@@ -13,6 +13,7 @@ import net.minecraft.tileentity.TileEntityFurnace;
 import net.minecraft.util.AxisAlignedBB;
 import net.minecraft.util.StatCollector;
 import net.minecraft.world.World;
+import net.wuerfel21.derpyshiz.Main;
 import net.wuerfel21.derpyshiz.blocks.BlockMillstone;
 import net.wuerfel21.derpyshiz.rotary.AxisChain;
 import net.wuerfel21.derpyshiz.rotary.IRotaryOutput;
@@ -67,7 +68,7 @@ public class TileEntityCompactEngine extends TileEntity implements IRotaryOutput
 					this.setRotaryOutput(dir, 0);
 				}
 				if (ticksLeft <= 0) {
-					if (TileEntityFurnace.isItemFuel(fuel)) {
+					if (TileEntityFurnace.isItemFuel(fuel) && this.worldObj.getBlockPowerInput(xCoord, yCoord, zCoord) == 0) {
 						ticksLeft = ticksForUsedFuel = TileEntityFurnace.getItemBurnTime(fuel);
 						fuel.stackSize--;
 						this.setRotaryOutput(dir, 10);
@@ -144,6 +145,11 @@ public class TileEntityCompactEngine extends TileEntity implements IRotaryOutput
 		return new S35PacketUpdateTileEntity(this.xCoord, this.yCoord, this.zCoord, 1, tag);
 	}
 
+	@Override
+	public double getMaxRenderDistanceSquared() {
+		return Math.pow(Main.gearboxBaseDistance+chain.length, 2);
+	}
+	
 	@Override
 	public boolean isOutputFace(int side) {
 		return dir == side;

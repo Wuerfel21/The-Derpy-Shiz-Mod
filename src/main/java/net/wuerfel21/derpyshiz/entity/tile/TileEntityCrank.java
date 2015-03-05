@@ -6,6 +6,7 @@ import net.minecraft.network.Packet;
 import net.minecraft.network.play.server.S35PacketUpdateTileEntity;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.AxisAlignedBB;
+import net.wuerfel21.derpyshiz.Main;
 import net.wuerfel21.derpyshiz.rotary.AxisChain;
 import net.wuerfel21.derpyshiz.rotary.IRotaryOutput;
 import net.wuerfel21.derpyshiz.rotary.ITieredTE;
@@ -142,6 +143,11 @@ public class TileEntityCrank extends TileEntity implements IRotaryOutput, ITiere
 		if (this.chain != null) {
 			this.chain.cleanup(this.getWorldObj(), this.xCoord, this.yCoord, this.zCoord);
 		}
+	}
+	
+	@Override
+	public double getMaxRenderDistanceSquared() {
+		return Math.pow(Main.gearboxBaseDistance+chain.length, 2);
 	}
 	
 	@SideOnly(Side.CLIENT)

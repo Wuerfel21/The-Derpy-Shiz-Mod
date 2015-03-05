@@ -1,6 +1,7 @@
 package net.wuerfel21.derpyshiz.items;
 
 import java.util.HashSet;
+import java.util.List;
 
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.Entity;
@@ -57,6 +58,11 @@ public class AdminHammer extends ItemTool implements IModeItem {
 	@Override
 	public String getModeName(int index) {
 		return modes[index];
+	}
+	
+	@Override
+	public void addInformation(ItemStack stack, EntityPlayer player, List list, boolean p_77624_4_) {
+		ItemModeHelper.displayMode(stack, list);
 	}
 
 	public static final String[] modes = { "mode.derpyshiz.admin_kick.name", "mode.derpyshiz.admin_ban.name", "mode.derpyshiz.admin_ipban.name" };

@@ -29,7 +29,7 @@ public class DerpyArmor extends ItemArmor {
 	@Override
 	public String getArmorTexture(ItemStack stack, Entity entity, int slot, String type)
 	{
-	    return "derpyshiz:armor/" + this.armorTexture + "_layer_" + (this.armorType == 2 ? "2" : "1") + ".png";
+	    return "derpyshiz:textures/armor/" + this.armorTexture + "_layer_" + (this.armorType == 2 ? "2" : "1") + ".png";
 	}
 	
 }

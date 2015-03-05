@@ -4,6 +4,7 @@ import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.init.Blocks;
 import net.wuerfel21.derpyshiz.blocks.BlockAxis;
+import net.wuerfel21.derpyshiz.blocks.BlockCentrifuge;
 import net.wuerfel21.derpyshiz.blocks.BlockCombinationGearbox;
 import net.wuerfel21.derpyshiz.blocks.BlockCompactEngine;
 import net.wuerfel21.derpyshiz.blocks.BlockCrank;
@@ -59,6 +60,7 @@ public class DerpyBlocks {
 	public static Block detectorBox;
 	public static Block seizureWool;
 	public static Block millstone;
+	public static Block centrifuge;
 	public static Block crank;
 	public static Block compactEngine;
 
@@ -112,6 +114,7 @@ public class DerpyBlocks {
 		GameRegistry.registerBlock(compactEngine = new BlockCompactEngine(), "compact_engine");
 		//Consumers
 		GameRegistry.registerBlock(millstone = new BlockMillstone(), SimpleMetaItemBlock.class, "millstone");
+		GameRegistry.registerBlock(centrifuge = new BlockCentrifuge(), SimpleMetaItemBlock.class, "centrifuge");
 
 		GameRegistry.registerBlock(seizureWool = new SeizureWool(), "seizure_wool");
 	}

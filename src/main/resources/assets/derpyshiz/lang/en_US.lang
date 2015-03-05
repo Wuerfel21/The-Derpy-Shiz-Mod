@@ -188,6 +188,8 @@ item.derpyshiz.hoe_fakediamond.name=Fake Diamond Hoe
 item.derpyshiz.sword_wuerfelium.name=Wuerfelium Sword
 item.derpyshiz.pickaxe_wuerfelium.name=Wuerfelium Pickaxe
 
+item.derpyshiz.firecharge_launcher.name=Firecharge Launcher
+
 item.derpyshiz.helmet_titanium.name=Titanium Helmet
 item.derpyshiz.chestplate_titanium.name=Titanium Chestplate
 item.derpyshiz.leggings_titanium.name=Titanium Leggings
@@ -265,14 +267,31 @@ tile.derpyshiz.axis.name=Axis
 
 tile.derpyshiz.gearbox_normal.name=Gearbox
 tile.derpyshiz.gearbox_advanced.name=Advanced Gearbox
+tile.derpyshiz.gearbox_combination_normal.name=Combination Gearbox
+tile.derpyshiz.gearbox_combination_advanced.name=Advanced Combination Gearbox
+tile.derpyshiz.gearbox_reversion_normal.name=Reversion Gearbox
+tile.derpyshiz.gearbox_reversion_advanced.name=Advanced Reversion Gearbox
+tile.derpyshiz.gearbox_splitting_normal.name=Splitting Gearbox
+tile.derpyshiz.gearbox_splitting_advanced.name=Advanced Splitting Gearbox
+tile.derpyshiz.gearbox_decoupling_normal.name=Decoupling Gearbox
+tile.derpyshiz.gearbox_decoupling_advanced.name=Advanced Decoupling Gearbox
+tile.derpyshiz.springbox_normal.name=Springbox
+tile.derpyshiz.springbox_advanced.name=Advanced Springbox
+tile.derpyshiz.detectorbox_normal.name=Detectorbox
+tile.derpyshiz.detectorbox_advanced.name=Advanced Detectorbox
 
 tile.derpyshiz.crank_normal.name=Crank
 tile.derpyshiz.crank_advanced.name=Advanced Crank
+tile.derpyshiz.compact_engine.name=Compact Engine
 
 tile.derpyshiz.millstone_normal.name=Millstone
 tile.derpyshiz.millstone_advanced.name=Advanced Millstone
+tile.derpyshiz.centrifuge_normal.name=Centrifuge
+tile.derpyshiz.centrifuge_advanced.name=Advanced Centrifuge
 
 item.derpyshiz.rotameter.name=Rotameter
+
+item.derpyshiz.hammer_admin.name=Ban Hammer
 
 tile.derpyshiz.seizure_wool.name=Seizure Wool
 
@@ -295,6 +314,10 @@ item.derpyshiz.gear_ruby.name=Ruby Gear
 item.derpyshiz.gear_electrimite.name=Electrimite Gear
 item.derpyshiz.gear_enderium.name=Enderium Gear
 
+item.derpyshiz.spring_iron.name=Iron Spring
+item.derpyshiz.spring_gold.name=Gold Spring
+item.derpyshiz.spring_electrimite.name=Electrimite Spring
+
 mode.derpyshiz.hammer_face.name=Face
 mode.derpyshiz.hammer_direction.name=Direction
 mode.derpyshiz.firesword_normal.name=Normal
@@ -306,6 +329,9 @@ mode.derpyshiz.naturalsword_back.name=Back
 mode.derpyshiz.naturalsword_all.name=All
 mode.derpyshiz.windsword_speed.name=Speed
 mode.derpyshiz.windsword_jump.name=Jump
+mode.derpyshiz.admin_kick.name=Kick
+mode.derpyshiz.admin_ban.name=User ban
+mode.derpyshiz.admin_ipban.name=IP ban
 
 mode.derpyshiz.mode.name=Mode
 
@@ -315,6 +341,8 @@ text.derpyshiz.rpm.name=RPM
 text.derpyshiz.mccr.name=MCC/R
 
 container.derpyshiz.millstone.name=Millstone
+container.derpyshiz.compact_engine.name=Compact Engine
+container.derpyshiz.centrifuge.name=Centrifuge
 
 message.derpyshiz.mode.name=Mode changed to: 
 

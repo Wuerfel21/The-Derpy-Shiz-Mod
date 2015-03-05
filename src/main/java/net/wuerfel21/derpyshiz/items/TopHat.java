@@ -33,7 +33,7 @@ public class TopHat extends DerpyArmor {
 	@SideOnly(Side.CLIENT)
 	@Override
 	public String getArmorTexture(ItemStack stack, Entity entity, int slot, String type) {
-		return "derpyshiz:armor/tophat_" + this.armorTexture + ".png";
+		return "derpyshiz:textures/armor/tophat_" + this.armorTexture + ".png";
 	}
 
 }
