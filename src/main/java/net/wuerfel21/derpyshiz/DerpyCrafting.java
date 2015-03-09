@@ -178,6 +178,7 @@ public class DerpyCrafting {
 		registerSpring("Electrimite", 2);
 
 		GameRegistry.addRecipe(new ShapedOreRecipe(getStack("rotameter", 0), "G", "C", "s", 'G', "gearGold", 'C', Items.compass, 's', "stickWood"));
+		GameRegistry.addRecipe(new ShapedOreRecipe(getStack("firecharge_launcher", 0), "iFi", "fDp", "tbt", 'i', "ingotIron", 'F', "ingotFireAlloy", 'f', Items.flint_and_steel, 'D', Blocks.dispenser, 'p', Items.gunpowder, 't', "ingotTin", 'b', Blocks.stone_button));
 
 		registerNugget("nuggetIron", "ingotIron", 0, new ItemStack(Items.iron_ingot));
 		registerNugget("nuggetCopper", "ingotCopper", 1, getStack("ore_item", 9));
@@ -252,6 +253,8 @@ public class DerpyCrafting {
 		GameRegistry.addRecipe(new ShapedOreRecipe(getBlock("compact_engine", 0), "qsq", "phf", "iGi", 'q', "gemQuartz", 's', "springIron", 'p', Blocks.piston, 'h', "housingAdvanced", 'f', Blocks.furnace, 'i', "gearIron", 'G', "gearGold"));
 		GameRegistry.addRecipe(new ShapedOreRecipe(getBlock("millstone", 0), "fgf", "nhn", "fgf", 'f', "stoneCoarseFramed", 'g', "gearCopper", 'n', "nuggetIron", 'h', "housingNormal"));
 		GameRegistry.addRecipe(new ShapedOreRecipe(getBlock("millstone", 1), "fgf", "nhn", "fgf", 'f', "blockObsidian", 'g', "gearRuby", 'n', "nuggetElectrimite", 'h', getBlock("millstone", 0)));
+		GameRegistry.addRecipe(new ShapedOreRecipe(getBlock("centrifuge", 0), "bgb", "tht", "bgb", 'b', Items.brick, 'g', "gearIron", 't', "ingotTitanium", 'h', "housingNormal"));
+		GameRegistry.addRecipe(new ShapedOreRecipe(getBlock("centrifuge", 1), "tgt", "ece", "dgd", 't', "gemTurquoise", 'd', "gemDiamond", 'g', "gearGold", 'e', "ingotElectrimite", 'c', getBlock("centrifuge", 0)));
 
 		GameRegistry.addRecipe(new ShapedOreRecipe(getStack("top_hat_black", 0), " b ", " w ", "bbb", 'b', getWool(15), 'w', getWool(0)));
 		GameRegistry.addRecipe(new ShapedOreRecipe(getStack("top_hat_white", 0), " w ", " b ", "www", 'b', getWool(15), 'w', getWool(0)));

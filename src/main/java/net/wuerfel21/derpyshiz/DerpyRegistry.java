@@ -91,9 +91,9 @@ public abstract class DerpyRegistry {
 		 * @param output
 		 *            the output of the recipe
 		 * @param exp
-		 *            the experience from the recipe (unimplemented)
+		 *            the experience from the recipe
 		 * @param energy
-		 *            the energy required to make the recipe, in 1200/r
+		 *            the energy required to make the recipe, in MCC/R
 		 */
 		public BasicMachineEntry(ItemStack output, float exp, int energy) {
 			this.output = output;
@@ -111,9 +111,9 @@ public abstract class DerpyRegistry {
 		 * @param output
 		 *            the output of the recipe
 		 * @param exp
-		 *            the experience from the recipe (unimplemented)
+		 *            the experience from the recipe
 		 * @param energy
-		 *            the energy required to make the recipe, in 1200/r
+		 *            the energy required to make the recipe, in MCC/R
 		 * @param tier
 		 *            the minimum tier of machine required to make the recipe
 		 */
@@ -137,9 +137,9 @@ public abstract class DerpyRegistry {
 		 * @param output3
 		 *            the third output of the recipe
 		 * @param exp
-		 *            the experience from the recipe (unimplemented)
+		 *            the experience from the recipe
 		 * @param energy
-		 *            the energy required to make the recipe, in 1200/r
+		 *            the energy required to make the recipe, in MCC/R
 		 * @param tier
 		 *            the minimum tier of machine required to make the recipe
 		 */
