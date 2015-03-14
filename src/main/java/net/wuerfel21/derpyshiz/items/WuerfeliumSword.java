@@ -43,14 +43,12 @@ public class WuerfeliumSword extends DerpySword{
 			boolean found = false;
 			AxisAlignedBB box = AxisAlignedBB.getBoundingBox(entityIn.posX-10,entityIn.posY-5,entityIn.posZ-10,entityIn.posX+10,entityIn.posY+5,entityIn.posZ+10);
 			List list = worldIn.getEntitiesWithinAABB(IMob.class, box);
-			 if (list != null && !list.isEmpty()) {
-				 for (int i=0;i<list.size();i++) {
-					 Entity e = (Entity)list.get(i);
-					 if (e instanceof IMob && !(e instanceof EntityEnderman)) {
-						 found = true;
-					 }
-				 }
-			 }
+			for (int i = 0;i < list.size() && !found; i++) {
+				Entity e = (Entity)list.get(i);
+				if (e instanceof IMob && !(e instanceof EntityEnderman)) {
+					found = true;
+				}
+			}
 			 NBTTagCompound tag = stack.getTagCompound();
 			 if (tag == null) tag = new NBTTagCompound();
 			 tag.setBoolean("active", found);
