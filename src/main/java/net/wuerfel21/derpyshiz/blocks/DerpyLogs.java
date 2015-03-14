@@ -14,8 +14,7 @@ import cpw.mods.fml.relauncher.SideOnly;
 
 public class DerpyLogs extends BlockLog implements IMetaItemBlock{
 	
-	public static final String[] field_150169_M = new String[] {"ebony", "magic"};
-	public static final String[] types = field_150169_M;
+	public static final String[] types = new String[] {"ebony", "magic"};
 	
 	public DerpyLogs() {
 		super();
@@ -23,22 +22,24 @@ public class DerpyLogs extends BlockLog implements IMetaItemBlock{
 	}
 	
 	@SideOnly(Side.CLIENT)
-    public void getSubBlocks(Item p_149666_1_, CreativeTabs p_149666_2_, List p_149666_3_)
+	@Override
+    public void getSubBlocks(Item item, CreativeTabs tab, List list)
     {
-        p_149666_3_.add(new ItemStack(p_149666_1_, 1, 0));
-        p_149666_3_.add(new ItemStack(p_149666_1_, 1, 1));
+        list.add(new ItemStack(item, 1, 0));
+        list.add(new ItemStack(item, 1, 1));
     }
 
     @SideOnly(Side.CLIENT)
+    @Override
     public void registerBlockIcons(IIconRegister reg)
     {
-        this.field_150167_a = new IIcon[field_150169_M.length];
-        this.field_150166_b = new IIcon[field_150169_M.length];
+        this.field_150167_a = new IIcon[types.length];
+        this.field_150166_b = new IIcon[types.length];
 
         for (int i = 0; i < this.field_150167_a.length; ++i)
         {
-            this.field_150167_a[i] = reg.registerIcon(this.getTextureName() + "_" + field_150169_M[i]);
-            this.field_150166_b[i] = reg.registerIcon(this.getTextureName() + "_" + field_150169_M[i] + "_top");
+            this.field_150167_a[i] = reg.registerIcon(this.getTextureName() + "_" + types[i]);
+            this.field_150166_b[i] = reg.registerIcon(this.getTextureName() + "_" + types[i] + "_top");
         }
     }
     
