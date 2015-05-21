@@ -21,7 +21,6 @@ public class DerpyLogs extends BlockLog implements IMetaItemBlock{
 		this.setHarvestLevel("axe",1);
 	}
 	
-	@SideOnly(Side.CLIENT)
 	@Override
     public void getSubBlocks(Item item, CreativeTabs tab, List list)
     {
